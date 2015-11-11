@@ -103,32 +103,155 @@ improve this document and your knowledge of this document.</p>
 If you have any other suggestion, please comment in our issue section.</p>
 <h2 id="code-demarcation-and-context-">Code Demarcation (and context)</h2>
 <div class="lang-ex">
-<h5 id="cfscript">CFScript</h5>
-<p>While using CFScript (as a component of CFML), no matter the file type, whether code is embeded within
-HTML templates, or as a standalone class code, code must always be embeded in the <code>&lt;cfscript&gt;</code> tag.</p>
-<pre><code class="lang-cfml"><span class="hljs-tag">&lt;<span class="hljs-title">cfscript</span>&gt;</span>
-    // your code here
-<span class="hljs-tag">&lt;/<span class="hljs-title">cfscript</span>&gt;</span>
+<h5 id="c-c-c-35-">C/C++/C&#35;</h5>
+<p>Neither <strong>C</strong> nor <strong>C++</strong> have code demarcation. This is also valid for C#, unless (ASP) code is embed
+in HTML templates.</p>
+<pre><code class="lang-asp">&lt;<span class="hljs-comment">%</span>
+    <span class="hljs-function_or_atom">response</span>.<span class="hljs-function_or_atom">write</span>(<span class="hljs-string">"Hello World!"</span>);
+<span class="hljs-comment">%&gt;</span>
 </code></pre>
+<h5 id="cfml">CFML</h5>
+<p>While using CFScript (as a component of CFML), no matter the file type, whether code is embed within
+HTML templates, or as a standalone class code, code must always be embed in the <code>&lt;cfscript&gt;</code> tag.</p>
+<pre><code class="lang-cfml"><span class="hljs-tag">&lt;cfscript&gt;</span>
+    <span class="hljs-keyword">writeOutput</span>('Hello World!');
+<span class="hljs-tag">&lt;/cfscript&gt;</span>
+</code></pre>
+<h5 id="dart">Dart</h5>
+<p>Language has no code demarcation unless used within HTML files, where code is marked by <code>&lt;script type=&quot;text/dart&quot;&gt;</code> tag.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/dart"</span>&gt;</span><span class="javascript">
+    main() async {
+        print(<span class="hljs-string">'Hello World!'</span>);
+    }
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<p>Please take in consideration that <strong>ONLY</strong> <a href="https://google.com/chrome">Google Chrome</a> <strong>supports</strong> dart language.</p>
+<h5 id="javascript">JavaScript</h5>
+<p>Language (nor substitutes) do not have code demarcation, unless usest within HTML files when code is marked by <code>&lt;script&gt;</code> tag.</p>
+<h5 id="ecmascript">ECMAScript</h5>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- JavaScript --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="javascript">
+    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">"Hello World!"</span>);
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">”text</span>/<span class="hljs-attribute">coffeescript</span>”&gt;</span><span class="javascript">
+    <span class="hljs-built_in">document</span>.write <span class="hljs-string">"Hello World!"</span>
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- last script in body --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">”text</span>/<span class="hljs-attribute">javascript</span>” <span class="hljs-attribute">src</span>=<span class="hljs-value">”http:</span>//<span class="hljs-attribute">github.com</span>/<span class="hljs-attribute">jashkenas</span>/<span class="hljs-attribute">coffee-script</span>/<span class="hljs-attribute">raw</span>/<span class="hljs-attribute">master</span>/<span class="hljs-attribute">extras</span>/<span class="hljs-attribute">coffee-script.js</span>&amp;#<span class="hljs-attribute">8221</span>;&gt;</span><span class="javascript"> </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<h6 id="typescript">TypeScript</h6>
+<pre><code class="lang-htmls"><span class="hljs-comment">&lt;!-- TypeScript --&gt;</span>
+@TODO
+</code></pre>
+<p>For <a href="http://coffeescript.org/">CofeeScript</a> please read more on their <a href="https://github.com/jashkenas/coffeescript">github repository</a>.</p>
+<h5 id="java">Java</h5>
+<p>Language does not have code demarcation unless code is embed in HTML content, when it is wrapped
+by the following marks <code>&lt;% /* code here */ %&gt;</code>.</p>
+<p>Also, for printing the demarcation turns to <code>&lt;%= &quot;Hello World!&quot; %&gt;</code> where the <code>=</code> equals mark is
+equivalent to <code>System.out.println()</code> call.</p>
+<pre><code class="lang-java">    &lt;p&gt;
+        &lt;% String hello = new String("Hello World!"); %&gt;
+        &lt;%= hello %&gt;
+    &lt;/p&gt;
+</code></pre>
+<h5 id="perl">Perl</h5>
+<p>Perl has no code demarcation. Please read this <a href="http://www.redantigua.com/html-template2.html">article</a>
+to understand how perl is used with HTML templates.</p>
 <h5 id="php">PHP</h5>
 <p>PHP code must always be delimited by the full-form, standard PHP tags:</p>
 <pre><code class="lang-php"><span class="hljs-preprocessor">&lt;?php</span>
-<span class="hljs-comment">// your code here</span>
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">"Hello World!"</span>
 <span class="hljs-preprocessor">?&gt;</span>
 </code></pre>
 <p>Short tags are never allowed (due to possible server misconifguration).</p>
 <p>For files that contain only PHP code, the closing tag (&quot;?&gt;&quot;) is never permitted. It is not required
 by PHP, and omitting it´ prevents the accidental injection of trailing white space into the response.</p>
 <pre><code class="lang-php"><span class="hljs-preprocessor">&lt;?php</span>
-<span class="hljs-comment">// your code here</span>
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">"Hello World!"</span>
 </code></pre>
+<h5 id="ruby">Ruby</h5>
+<p>Ruby has no code demarcation, unless used within <a href="http://www.arubystory.com/2013/11/tutorial-saying-hello-world-with-ruby.html">html templates</a>
+when it uses the same demarcation as <strong>Java</strong>.</p>
+<pre><code class="lang-ruby">    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>home
+        <span class="hljs-variable">@greeting</span> = <span class="hljs-string">"Hello world!"</span>
+    <span class="hljs-keyword">end</span>
+</code></pre>
+<pre><code class="lang-html">    <span class="hljs-tag">&lt;<span class="hljs-title">%=</span> @<span class="hljs-attribute">greeting</span> %&gt;</span>
+</code></pre>
+<h5 id="python">Python</h5>
+<p>Python has no code demarcation.</p>
+<h5 id="css">CSS</h5>
+<p>CSS has no code demarcation, unless CSS code is embed within HTML code, when CSS must be wrapped
+by <code>&lt;style&gt;</code> tag.</p>
+<h5 id="html">HTML</h5>
+<p>HTML has no code demarcation, unless you consider <code>&lt;!DOCTYPE&gt;</code> as a code demarcation, or the fact
+that all a standard HTML code must be placed within <code>&lt;html&gt;</code> tag.</p>
 </div>
 <h2 id="strings">Strings</h2>
 <h3 id="string-literals">String Literals</h3>
 <p>When a string is literal (contains no variable substitutions) and also programming language allows it,
 the apostrophe or &quot;single quote&quot; should always be used to demarcate the string:</p>
 <div class="lang-ex">
-<h5 id="c">C</h5>
+<h5 id="c-c-c-35-">C/C++/C&#35;</h5>
+<h6 id="c">C</h6>
+<pre><code class="lang-c"><span class="hljs-keyword">char</span> myString[] = <span class="hljs-string">"Example String"</span>;
+</code></pre>
+<h6 id="c-">C++</h6>
+<pre><code class="lang-c">std::<span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">myString</span> <span class="hljs-params">("Example String")</span></span>;
+</code></pre>
+<h6 id="c-35-">C&#35;</h6>
+<pre><code class="lang-csharp"><span class="hljs-keyword">string</span> myString = <span class="hljs-string">@"Example String"</span>;
+System.String myString = <span class="hljs-string">"Example String"</span>;
+<span class="hljs-comment">// For more info, please read:</span>
+<span class="hljs-comment">// @link https://msdn.microsoft.com/en-us/library/ms228362.aspx</span>
+</code></pre>
+<h5 id="cfml">CFML</h5>
+<pre><code class="lang-cfml"><span class="hljs-comment">&lt;!--- CFSCript ---&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">cfscript</span>&gt;</span>var myString = 'Example String'; <span class="hljs-tag">&lt;/<span class="hljs-title">cfscript</span>&gt;</span>
+<span class="hljs-comment">&lt;!--- CFML ---&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">cfset</span> <span class="hljs-attribute">var</span> <span class="hljs-attribute">myString</span> = '<span class="hljs-attribute">Example</span> <span class="hljs-attribute">String</span>' /&gt;</span>
+</code></pre>
+<h5 id="dart">Dart</h5>
+<pre><code class="lang-dart"><span class="hljs-keyword">var</span> myString = <span class="hljs-string">'Example String'</span>;
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<h6 id="ecmascript">ECMAScript</h6>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> myString = <span class="hljs-string">'Example String'</span>;
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">myString = <span class="hljs-string">'Example String'</span>
+</code></pre>
+<h5 id="java">Java</h5>
+<p>Java follows the C model, so strings can&#39;t be marked with single quotes.</p>
+<pre><code class="lang-java">String myString = <span class="hljs-string">"Example String"</span>;
+</code></pre>
+<h5 id="perl">Perl</h5>
+<pre><code class="lang-perl"><span class="hljs-keyword">my</span> <span class="hljs-variable">$myString</span> = <span class="hljs-string">'Example String'</span>;
+</code></pre>
+<h5 id="php">PHP</h5>
+<pre><code class="lang-php"><span class="hljs-variable">$myString</span> = <span class="hljs-string">'Example String'</span>;
+</code></pre>
+<h5 id="ruby">Ruby</h5>
+<pre><code class="lang-ruby">myString = <span class="hljs-string">'Example String'</span>;
+</code></pre>
+<h5 id="python">Python</h5>
+<pre><code class="lang-python">myString = <span class="hljs-string">'Example String'</span>
+</code></pre>
+<h5 id="css">CSS</h5>
+<pre><code class="lang-css"><span class="hljs-at_rule">@<span class="hljs-keyword">import('http://url/to/file.css');</span></span>
+</code></pre>
+<h5 id="html">HTML</h5>
+<p>HTML strings (standard text) does not have any demarcation type.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>Example String<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+</code></pre>
+</div>
+<h3 id="string-literals-containing-apostrophes">String Literals Containing Apostrophes</h3>
+<p>When a literal string itself contains apostrophes, it is permitted to demarcate the string with quotation
+marks or &quot;double quotes&quot;. This is especially useful for SQL statements:</p>
+<div class="lang-ex">
+<h5 id="c-c-c-35-">C/C++/C&#35;</h5>
 <pre><code class="lang-c"><span class="hljs-comment">//c</span>
 <span class="hljs-keyword">char</span> a[] = <span class="hljs-string">"Example String"</span>;
 
@@ -138,22 +261,24 @@ std::<span class="hljs-function"><span class="hljs-built_in">string</span> <span
 <span class="hljs-comment">// C#</span>
 <span class="hljs-built_in">string</span> a = @<span class="hljs-string">"Example String"</span>;
 System.String a = <span class="hljs-string">"Example String"</span>;
+<span class="hljs-comment">// For more info, please read:</span>
 <span class="hljs-comment">// @link https://msdn.microsoft.com/en-us/library/ms228362.aspx</span>
 </code></pre>
-<h5 id="cfscript">CFScript</h5>
-<pre><code class="lang-cfml">&lt;cfscript&gt;<span class="hljs-keyword">var</span> a = <span class="hljs-string">'Example String'</span>; &lt;/cfscript&gt;
-</code></pre>
 <h5 id="cfml">CFML</h5>
-<pre><code class="lang-cfml">&lt;cfset <span class="hljs-tag">var</span> <span class="hljs-tag">a</span> = <span class="hljs-string">'Example String'</span> /&gt;
+<pre><code class="lang-cfml">    <span class="hljs-comment">// your code here</span>
 </code></pre>
-<h5 id="php">PHP</h5>
-<pre><code class="lang-php"><span class="hljs-variable">$a</span> = <span class="hljs-string">'Example String'</span>;
+<h5 id="dart">Dart</h5>
+<pre><code class="lang-dart">    <span class="hljs-comment">// your code here</span>
 </code></pre>
-</div>
-<h3 id="string-literals-containing-apostrophes">String Literals Containing Apostrophes</h3>
-<p>When a literal string itself contains apostrophes, it is permitted to demarcate the string with quotation
-marks or &quot;double quotes&quot;. This is especially useful for SQL statements:</p>
-<div class="lang-ex">
+<h5 id="javascript">JavaScript</h5>
+<pre><code class="lang-javascript">    <span class="hljs-comment">// your code here</span>
+</code></pre>
+<h5 id="java">Java</h5>
+<pre><code class="lang-java">    <span class="hljs-comment">// your code here</span>
+</code></pre>
+<h5 id="perl">Perl</h5>
+<pre><code class="lang-perl">    // your code here
+</code></pre>
 <h5 id="php">PHP</h5>
 <pre><code class="lang-php"><span class="hljs-comment">// double quotes</span>
 <span class="hljs-variable">$sql</span> = <span class="hljs-string">"SELECT `id`, `name` from `people` WHERE `name`='Fred' OR `name`='Susan'"</span>;
@@ -163,18 +288,36 @@ marks or &quot;double quotes&quot;. This is especially useful for SQL statements
 SELECT `id`, `name` from `people` WHERE `name`='Fred' OR `name`='Susan'
 SQL_COMMAND;</span>
 </code></pre>
+<h5 id="ruby">Ruby</h5>
+<pre><code class="lang-ruby">    /<span class="hljs-regexp">/ your code here</span>
+</code></pre>
+<h5 id="python">Python</h5>
+<pre><code class="lang-python">    <span class="hljs-comment"># your code here</span>
+</code></pre>
+<h5 id="css">CSS</h5>
+<pre><code class="lang-css">    <span class="hljs-comment">/* your code here */</span>
+</code></pre>
+<h5 id="html">HTML</h5>
+<pre><code class="lang-html">    <span class="hljs-comment">&lt;!-- your code here --&gt;</span>
+</code></pre>
 </div>
 <p>This syntax is preferred over escaping apostrophes as it is much easier to read.</p>
 <h3 id="variable-substitution">Variable Substitution</h3>
 <p>Variable substitution is permitted using either of these forms:</p>
 <div class="lang-ex">
-<h5 id="cfml-cfscript">CFML &amp; CFScript</h5>
+<h5 id="c-c-c-35-">C/C++/C&#35;</h5>
+<pre><code class="lang-c">    <span class="hljs-comment">// your code here</span>
+</code></pre>
+<h5 id="cfml">CFML</h5>
 <pre><code class="lang-cfml"><span class="hljs-comment">&lt;!--- CFML ---&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">cfset</span> <span class="hljs-attribute">var</span> <span class="hljs-attribute">greeting</span> = "<span class="hljs-attribute">Hello</span> #<span class="hljs-attribute">name</span>#, <span class="hljs-attribute">welcome</span> <span class="hljs-attribute">back</span>!" /&gt;</span>
 <span class="hljs-comment">&lt;!--- CFScript ---&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">cfscript</span>&gt;</span>
     var greeting = "Hello #name#, welcome back!"
 <span class="hljs-tag">&lt;/<span class="hljs-title">cfscript</span>&gt;</span>
+</code></pre>
+<h5 id="dart">Dart</h5>
+<pre><code class="lang-dart">    <span class="hljs-comment">// your code here</span>
 </code></pre>
 <h5 id="javascript">JavaScript</h5>
 <p>JavasScript (ECMAScript 5 and below) does not have variable substitution, however ECMAScript6 and
@@ -184,6 +327,12 @@ greeting = `Hello ${name}, welcome back!`;
 <span class="hljs-comment">// CoffeeScript</span>
 greeting = <span class="hljs-string">"Hello ${name}, welcome back!"</span>;
 </code></pre>
+<h5 id="java">Java</h5>
+<pre><code class="lang-java">    <span class="hljs-comment">// your code here</span>
+</code></pre>
+<h5 id="perl">Perl</h5>
+<pre><code class="lang-perl">    // your code here
+</code></pre>
 <h5 id="php">PHP</h5>
 <pre><code class="lang-php"><span class="hljs-variable">$greeting</span> = <span class="hljs-string">"Hello {$name}, welcome back!"</span>;
 <span class="hljs-comment">// or - a more simple form</span>
@@ -191,6 +340,18 @@ greeting = <span class="hljs-string">"Hello ${name}, welcome back!"</span>;
 </code></pre>
 <p>For consistency, this form is <em>not</em> permitted:</p>
 <pre><code class="lang-php"><span class="hljs-variable">$greeting</span> = <span class="hljs-string">"Hello ${name}, welcome back!"</span>;
+</code></pre>
+<h5 id="ruby">Ruby</h5>
+<pre><code class="lang-ruby">    /<span class="hljs-regexp">/ your code here</span>
+</code></pre>
+<h5 id="python">Python</h5>
+<pre><code class="lang-python">    <span class="hljs-comment"># your code here</span>
+</code></pre>
+<h5 id="css">CSS</h5>
+<pre><code class="lang-css">    <span class="hljs-comment">/* your code here */</span>
+</code></pre>
+<h5 id="html">HTML</h5>
+<pre><code class="lang-html">    <span class="hljs-comment">&lt;!-- your code here --&gt;</span>
 </code></pre>
 </div>
 <h3 id="string-concatenation">String Concatenation</h3>
