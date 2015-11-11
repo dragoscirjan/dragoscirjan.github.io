@@ -13,8 +13,7 @@ which grunt > /dev/null && {
 }
 
 git clone https://github.com/dragoscirjan/coding-standards.git /tmp/coding-standards
-git branch html
-cd /tmp/coding-standards && npm install
+cd /tmp/coding-standards && git checkout html && npm install
 
 grunt
 cp -rdf docs/* $HERE/../coding-standards
