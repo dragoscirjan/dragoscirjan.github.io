@@ -1,4 +1,5 @@
 #! /bin/bash
+set -e
 
 export CHROME_WRAPPER="`readlink -f "$0"`"
 HERE="`dirname "$CHROME_WRAPPER"`"
@@ -12,7 +13,12 @@ which grunt > /dev/null && {
 }
 
 git clone https://github.com/dragoscirjan/coding-standards.git /tmp/coding-standards
-cd /tmp/coding-standards && npm install && grunt && cp -rdf docs/* $HERE/../coding-standards
+cd /tmp/coding-standards && npm install
+
+grunt
+cp -rdf docs/* $HERE/../coding-standards
 
 cd $HERE/..
 git add . -f && git commit -a -m "coding standards updates" && git push origin master
+
+rm -rf /tmp/coding-standards
