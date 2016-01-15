@@ -1,0 +1,1291 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Bootstrap, a sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.">
+    <meta name="keywords" content="HTML, CSS, JS, JavaScript, framework, bootstrap, front-end, frontend, web development">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+
+    <title>Coding Standards</title>
+
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://bootswatch.com/paper/bootstrap.css" rel="stylesheet">
+
+    <!-- Optional Bootstrap Theme -->
+    <!-- <link href="data:text/css;charset=utf-8," data-href="http://getbootstrap.com/dist/css/bootstrap-theme.min.css" rel="stylesheet" id="bs-theme-stylesheet"> -->
+    <link href="https://bootswatch.com/assets/css/custom.min.css" rel="stylesheet" id="bs-theme-stylesheet">
+
+    <!-- Hightlight js -->
+    <link href="https://highlightjs.org/static/demo/styles/default.css" rel="stylesheet">
+    <link rel="alternate stylesheet" href="https://highlightjs.org/static/demo/styles/github.css">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico">
+
+    <style>
+
+        .note:before {
+                content: 'Note';
+                position: absolute;
+                font-weight: bold;
+                margin-top: calc(0px - 1em - 5px); /* font-size - parent:maring-top */
+                background: white;
+                display: block;
+                padding: 0 5px;
+        }
+
+        .note {
+            border: 1px solid #CCC;
+            padding: 5px;
+        }
+
+        .note strong {
+            display: none;
+        }
+
+        .tooltip {
+            width: 150px;
+        }
+
+        .nav-tabs[role=tablist]  a.disabled {
+            color: #CCC;
+        }
+    </style>
+
+  </head>
+  <body>
+
+    <!-- Docs master nav -->
+    <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="../" class="navbar-brand">Foo Company LTD</a>
+    </div>
+    <nav id="bs-navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="overview.html"/>Overview</a>
+        </li>
+        <li>
+          <a href="file-formating.html">File Formating</a>
+        </li>
+        <li>
+          <a href="naming-conventions.html">Naming Conventions</a>
+        </li>
+        <li>
+          <a href="coding-style.html">Coding Style</a>
+        </li>
+        <li>
+          <a href="recommended-tools.html">Recommended Tools</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <!-- <li><a href="http://themes.getbootstrap.com" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Themes');">Themes</a></li>
+        <li><a href="http://expo.getbootstrap.com" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Expo');">Expo</a></li>
+        <li><a href="http://blog.getbootstrap.com" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Blog');">Blog</a></li> -->
+      </ul>
+    </nav>
+  </div>
+</header>
+
+    <div class="container bs-docs-container">
+
+      <div class="row">
+        <div class="col-md-9" role="main">
+
+<h1 id="coding-style">Coding Style</h1>
+<p class="note"><strong>Note</strong> This document is a draft and it will remain so. It is your duty as a developer to continuously
+improve this document and your knowledge of this document.</p>
+<p class="note"><strong>Note</strong> This document in inspired from
+<a href="http://framework.zend.com/manual/1.12/en/coding-standard.coding-style.html">Zend Framework&#39;s Coding Standards</a>
+If you have any other suggestion, please comment in our issue section.</p>
+<h2 id="code-demarcation-and-context-">Code Demarcation (and context)</h2>
+<div class="lang-ex">
+<h5 id="c-c-c-35-todo">C/C++/C&#35; TODO</h5>
+<p>Neither <strong>C</strong> nor <strong>C++</strong> have code demarcation. This is also valid for C#, unless (ASP) code is embed
+in HTML templates.</p>
+<pre><code class="lang-csharp">&lt;%
+    response.write(&quot;Hello World!&quot;);
+%&gt;
+</code></pre>
+<h5 id="cfml">CFML</h5>
+<p>While using CFScript (as a component of CFML), no matter the file type, whether code is embed within
+HTML templates (e.g <strong>cfml</strong> file), or as a standalone class code (e.g. <strong>cfc</strong> file), code must always be
+embed in the <code>&lt;cfscript&gt;</code> tag.</p>
+<pre><code class="lang-cfml">&lt;cfscript&gt;
+    writeOutput(&#39;Hello World!&#39;);
+&lt;/cfscript&gt;
+</code></pre>
+<h5 id="dart-todo">Dart TODO</h5>
+<p>Language has no code demarcation unless used within HTML files, where code is marked by <code>&lt;script type=&quot;text/dart&quot;&gt;</code> tag.</p>
+<pre><code class="lang-html">&lt;script type=&quot;text/dart&quot;&gt;
+    main() async {
+        print(&#39;Hello World!&#39;);
+    }
+&lt;/script&gt;
+</code></pre>
+<p>Please take in consideration that <strong>ONLY</strong> <a href="https://google.com/chrome">Google Chrome</a> <strong>supports</strong> dart language.</p>
+<h5 id="javascript">JavaScript</h5>
+<p>Language (nor substitutes) do not have code demarcation, unless usest within HTML files when code is marked by <code>&lt;script&gt;</code> tag.</p>
+<h6 id="ecmascript">ECMAScript</h6>
+<pre><code class="lang-html">&lt;!-- JavaScript --&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    document.write(&quot;Hello World!&quot;);
+&lt;/script&gt;
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-html">&lt;script type=”text/coffeescript”&gt;
+    document.write &quot;Hello World!&quot;
+&lt;/script&gt;
+&lt;!-- last script in body --&gt;
+&lt;script type=”text/javascript” src=”http://github.com/jashkenas/coffee-script/raw/master/extras/coffee-script.js&amp;#8221;&gt; &lt;/script&gt;
+</code></pre>
+<h6 id="typescript">TypeScript</h6>
+<pre><code class="lang-htmls">&lt;!-- TypeScript --&gt;
+@TODO
+</code></pre>
+<p>For <a href="http://coffeescript.org/">CofeeScript</a> please read more on their <a href="https://github.com/jashkenas/coffeescript">github repository</a>.</p>
+<h5 id="java">Java</h5>
+<p>Language does not have code demarcation unless code is embed in HTML content, when it is wrapped
+by the following marks <code>&lt;% /* code here */ %&gt;</code>.</p>
+<p>Also, for printing the demarcation turns to <code>&lt;%= &quot;Hello World!&quot; %&gt;</code> where the <code>=</code> equals mark is
+equivalent to <code>System.out.println()</code> call.</p>
+<pre><code class="lang-java">    &lt;p&gt;
+        &lt;% String hello = new String(&quot;Hello World!&quot;); %&gt;
+        &lt;%= hello %&gt;
+    &lt;/p&gt;
+</code></pre>
+<h5 id="perl-todo">Perl TODO</h5>
+<p>Perl has no code demarcation. Please read this <a href="http://www.redantigua.com/html-template2.html">article</a>
+to understand how perl is used with HTML templates.</p>
+<h5 id="php">PHP</h5>
+<p>PHP code must always be delimited by the full-form, standard PHP tags:</p>
+<pre><code class="lang-php">&lt;?php
+    echo &quot;Hello World!&quot;
+?&gt;
+</code></pre>
+<p>Short tags are never allowed (due to possible server misconifguration).</p>
+<p>For files that contain only PHP code, the closing tag (&quot;?&gt;&quot;) is never permitted. It is not required
+by PHP, and omitting it´ prevents the accidental injection of trailing white space into the response.</p>
+<pre><code class="lang-php">&lt;?php
+    echo &quot;Hello World!&quot;
+</code></pre>
+<h5 id="ruby-todo">Ruby TODO</h5>
+<p>Ruby has no code demarcation, unless used within <a href="http://www.arubystory.com/2013/11/tutorial-saying-hello-world-with-ruby.html">html templates</a>
+when it uses the same demarcation as <strong>Java</strong>.</p>
+<pre><code class="lang-ruby">    def home
+        @greeting = &quot;Hello world!&quot;
+    end
+</code></pre>
+<pre><code class="lang-html">    &lt;%= @greeting %&gt;
+</code></pre>
+<h5 id="python-todo">Python TODO</h5>
+<p>Python has no code demarcation.</p>
+<h5 id="css">CSS</h5>
+<p>CSS has no code demarcation, unless CSS code is embed within HTML code, when CSS must be wrapped
+by <code>&lt;style&gt;</code> tag.</p>
+<h5 id="html">HTML</h5>
+<p>HTML has no code demarcation, unless you consider <code>&lt;!DOCTYPE&gt;</code> as a code demarcation, or the fact
+that all a standard HTML code must be placed within <code>&lt;html&gt;</code> tag.</p>
+</div>
+<h2 id="strings">Strings</h2>
+<h3 id="string-literals">String Literals</h3>
+<p>When a string is literal (contains no variable substitutions) and also programming language allows it,
+the <strong>apostrophe</strong> or <strong>single quote</strong> should always be used to demarcate the string:</p>
+<div class="lang-ex">
+<h5 id="c-c-c-35-todo">C/C++/C&#35; TODO</h5>
+<h6 id="c">C</h6>
+<pre><code class="lang-c">char myString[] = &quot;Example String&quot;;
+</code></pre>
+<h6 id="c-">C++</h6>
+<pre><code class="lang-c">std::string myString (&quot;Example String&quot;);
+</code></pre>
+<h6 id="c-35-">C&#35;</h6>
+<pre><code class="lang-csharp">string myString = @&quot;Example String&quot;;
+System.String myString = &quot;Example String&quot;;
+// For more info, please read:
+// @link https://msdn.microsoft.com/en-us/library/ms228362.aspx
+</code></pre>
+<h5 id="cfml">CFML</h5>
+<pre><code class="lang-cfml">&lt;!--- CFSCript ---&gt;
+&lt;cfscript&gt;var myString = &#39;Example String&#39;; &lt;/cfscript&gt;
+
+&lt;!--- CFML ---&gt;
+&lt;cfset var myString = &#39;Example String&#39; /&gt;
+</code></pre>
+<h5 id="dart-todo">Dart TODO</h5>
+<pre><code class="lang-dart">var myString = &#39;Example String&#39;;
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<h6 id="ecmascript">ECMAScript</h6>
+<pre><code class="lang-javascript">var myString = &#39;Example String&#39;;
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">myString = &#39;Example String&#39;
+</code></pre>
+<h5 id="java">Java</h5>
+<p>Java follows the C model, so strings <strong>can&#39;t</strong> be marked with <strong>single quotes</strong>. Thus they will be always marked with
+<strong>double quotes</strong>.</p>
+<pre><code class="lang-java">String myString = &quot;Example String&quot;;
+</code></pre>
+<h5 id="perl-todo">Perl TODO</h5>
+<pre><code class="lang-perl">my $myString = &#39;Example String&#39;;
+</code></pre>
+<h5 id="php">PHP</h5>
+<pre><code class="lang-php">$myString = &#39;Example String&#39;;
+</code></pre>
+<h5 id="ruby-todo">Ruby TODO</h5>
+<pre><code class="lang-ruby">myString = &#39;Example String&#39;;
+</code></pre>
+<h5 id="python-todo">Python TODO</h5>
+<pre><code class="lang-python">myString = &#39;Example String&#39;
+</code></pre>
+<h5 id="css">CSS</h5>
+<pre><code class="lang-css">@import(&#39;http://url/to/file.css&#39;);
+</code></pre>
+<h5 id="html">HTML</h5>
+<p>HTML strings (standard text) does not have any demarcation type. However, they can always be embeded in different HTML tags.</p>
+<pre><code class="lang-html">&lt;p&gt;Example String&lt;/p&gt;
+</code></pre>
+</div>
+<h3 id="string-literals-containing-apostrophes">String Literals Containing Apostrophes</h3>
+<p>When a literal string itself contains apostrophes, it is permitted to demarcate the string with <strong>quotation
+marks</strong> or <strong>double quotes</strong>. This is especially useful for SQL statements:</p>
+<div class="lang-ex">
+<h5 id="c-c-c-35-todo">C/C++/C&#35; TODO</h5>
+<h6 id="c">C</h6>
+<pre><code class="lang-c">char sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;;
+</code></pre>
+<h6 id="c-">C++</h6>
+<pre><code class="lang-c">std::string sql (&quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;);
+</code></pre>
+<h6 id="c-35-">C&#35;</h6>
+<pre><code class="lang-csharp">string sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;;
+</code></pre>
+<h5 id="cfml">CFML</h5>
+<pre><code class="lang-cfml">&lt;!--- CFSCript ---&gt;
+&lt;cfscript&gt;var sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;; &lt;/cfscript&gt;
+
+&lt;!--- CFML ---&gt;
+&lt;cfset sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot; /&gt;
+</code></pre>
+<h5 id="dart-todo">Dart TODO</h5>
+<pre><code class="lang-dart">var sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;;
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<h6 id="ecmascript-">ECMAScript*</h6>
+<pre><code class="lang-javascript">var sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;;
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;
+</code></pre>
+<h5 id="java">Java</h5>
+<pre><code class="lang-java">String sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;;
+</code></pre>
+<h5 id="perl-todo">Perl TODO</h5>
+<pre><code class="lang-perl">my $sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;;
+</code></pre>
+<h5 id="php">PHP</h5>
+<pre><code class="lang-php">// double quotes
+$sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;;
+
+/// quotation marks
+$sql = &lt;&lt;&lt;SQL_COMMAND
+SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;
+SQL_COMMAND;
+</code></pre>
+<h5 id="ruby-todo">Ruby TODO</h5>
+<pre><code class="lang-ruby">sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;;
+</code></pre>
+<h5 id="python-todo">Python TODO</h5>
+<pre><code class="lang-python">sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;
+</code></pre>
+</div>
+<p>This syntax is preferred over escaping apostrophes as it is much easier to read.</p>
+<h3 id="variable-substitution-string-interpolation">Variable Substitution / String interpolation</h3>
+<p>Variable substitution is permitted using either of these forms:</p>
+<div class="lang-ex">
+<h5 id="c-c-c-35-todo">C/C++/C&#35; TODO</h5>
+<!-- http://rosettacode.org/wiki/String_interpolation_(included) -->
+<!-- https://msdn.microsoft.com/en-us/library/dn961160.aspx -->
+<pre><code class="lang-c">  // Using `stdio.h`
+  const char \*name = &quot;John Doe&quot;;
+  printf(&quot;Hello %s\n&quot;, name);
+  char hello[100];
+  sprintf(hello, &quot;Hello %s&quot;, name)
+
+  // ...
+</code></pre>
+<pre><code class="lang-cpp">xx
+</code></pre>
+<pre><code class="lang-csharp">xx
+</code></pre>
+<h5 id="cfml">CFML</h5>
+<p>ColdFusion variablie substitution is done by wrapping the variable name within <strong>#</strong> character.</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfset var greeting = &quot;Hello #name#, welcome back!&quot; /&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+    var greeting = &quot;Hello #name#, welcome back!&quot;
+&lt;/cfscript&gt;
+</code></pre>
+<h5 id="dart-todo">Dart TODO</h5>
+<p>Dart variable substitution looks more like &#39;string interpolation&#39;. Any other non string variable needs
+to be converted to String to work. Furthermore, between the <code>${}</code> syntax expressions can be used. See
+<a href="http://shailen.github.io/blog/2012/11/14/dart-string-interpolation/">Dart String Interpolation</a> article.</p>
+<pre><code class="lang-dart">    var name = &#39;John Doe&#39;;
+    var hello = &quot;Hello ${name}&quot;;
+
+    var age = 15;
+    var hello &quot;Hello ${name}. I&#39;m ${age.toString()} years old.&quot;
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<p>JavasScript (ECMAScript 5 and below) does not have variable substitution, however ECMAScript6 and
+preprocessors do:</p>
+<h6 id="ecmascript5-and-lower">ECMAScript5 and lower</h6>
+<pre><code class="lang-javascript">var hello = &quot;Hello &quot; + name;
+</code></pre>
+<h6 id="ecmascript6">ECMAScript6</h6>
+<pre><code class="lang-javascript">var hello = `Hello ${name}`;
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">hello = &quot;Hello #{name}&quot;
+</code></pre>
+<p>Also, both ES6 and Coffee support expressions within their string interpolation wrappings.</p>
+<h5 id="java">Java</h5>
+<p>One of the default string interpolation methods in Java is <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#format-java.lang.String-java.lang.Object...-"><code>java.lang.String.format()</code></a>
+function. We recommend this one.</p>
+<pre><code class="lang-java">    String name = &quot;John Doe&quot;;
+    String hello = String.format(&quot;Hello %s&quot;, name);
+</code></pre>
+<h5 id="perl">Perl</h5>
+<p>Perl&#39;s string interpolation is done by adding variable&#39;s name within the string. Also, string containing interpolated variables must be wrapped in double quotes (perl rule).</p>
+<pre><code class="lang-perl">    my $name = &#39;John Doe&#39;;
+    my $hello = &quot;Hello $name&quot;;
+</code></pre>
+<h5 id="php">PHP</h5>
+<p>PHP follows the same rule as Perl, however, it is recommended to wrap the variables within {}</p>
+<pre><code class="lang-php">$greeting = &quot;Hello {$name}, welcome back!&quot;;
+// or - a more simple form which does not support complex expressions
+$greeting = &quot;Hello $name, welcome back!&quot;;
+</code></pre>
+<p>For consistency, this form is <em>not</em> permitted:</p>
+<pre><code class="lang-php">$greeting = &quot;Hello $name, welcome back!&quot;;
+</code></pre>
+<h5 id="ruby-todo">Ruby TODO</h5>
+<pre><code class="lang-ruby">    // your code here
+</code></pre>
+<h5 id="python-todo">Python TODO</h5>
+<pre><code class="lang-python">    # your code here
+</code></pre>
+<h5 id="css-todo">CSS TODO</h5>
+<pre><code class="lang-css">    /* your code here */
+</code></pre>
+<h5 id="html-todo">HTML TODO</h5>
+<pre><code class="lang-html">    &lt;!-- your code here --&gt;
+</code></pre>
+</div>
+<h3 id="string-concatenation">String Concatenation</h3>
+<div class="lang-ex">
+<h5 id="c-c-c-35-todo">C/C++/C&#35; TODO</h5>
+<pre><code class="lang-c">    // code here
+</code></pre>
+<pre><code class="lang-cpp">    // code here
+</code></pre>
+<pre><code class="lang-csharp">    // code here
+</code></pre>
+<h5 id="cfml">CFML</h5>
+<p>Strings must be concatenated using the <strong>&amp;</strong> operator. A space must always be added before and after the <strong>&amp;</strong> operator
+to improve readability:</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfset var company = &#39;Code&#39; &amp; &#39; &#39; &amp; &#39;Styling&#39; /&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+    var company = &#39;Code&#39; &amp; &#39; &#39; &amp; &#39;Styling&#39;;
+&lt;/cfscript&gt;
+</code></pre>
+<p>When concatenating strings with the <strong>&amp;</strong> operator, it is encouraged to break the statement into multiple lines to improve
+readability. In these cases, each successive line should be padded with white space such that the <strong>&amp;</strong>; operator is aligned
+under the <strong>=</strong> operator:</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfset var sql = &quot;SELECT `id`, `name` FROM `people` &quot;
+             . &quot;WHERE `name` = &#39;Susan&#39; &quot;
+             . &quot;ORDER BY `name` ASC &quot;; /&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+    var sql = &quot;SELECT `id`, `name` FROM `people` &quot;
+         . &quot;WHERE `name` = &#39;Susan&#39; &quot;
+         . &quot;ORDER BY `name` ASC &quot;;
+&lt;/cfscript&gt;
+</code></pre>
+<h5 id="dart-todo">Dart TODO</h5>
+<p>Dart variable substitution looks more like &#39;string interpolation&#39;. Any other non string variable needs
+to be converted to String to work. Furthermore, between the <code>${}</code> syntax expressions can be used. See
+<a href="http://shailen.github.io/blog/2012/11/14/dart-string-interpolation/">Dart String Interpolation</a> article.</p>
+<pre><code class="lang-dart">    // code here
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<p>Strings must be concatenated using the &quot;+&quot; operator. A space must always be added before and after the &quot;+&quot; operator to
+improve readability:</p>
+<pre><code class="lang-php">$company = &#39;Code&#39; . &#39; &#39; . &#39;Styling&#39;;
+</code></pre>
+<h6 id="ecmascript">ECMAScript</h6>
+<pre><code class="lang-javascript">var company = &#39;Code&#39; + &#39; &#39; + &#39;Styling&#39;;
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">company = &#39;Code&#39; + &#39; &#39; + &#39;Styling&#39;
+</code></pre>
+<p>When concatenating strings with the &quot;+&quot; operator, it is encouraged to break the statement into multiple lines to improve
+readability. In these cases, each successive line should be padded with white space such that the &quot;+&quot;; operator is aligned
+under the &quot;=&quot; operator:</p>
+<h6 id="ecmascript">ECMAScript</h6>
+<pre><code class="lang-javascript">var sql = &quot;SELECT `id`, `name` FROM `people` &quot;
+     + &quot;WHERE `name` = &#39;Susan&#39; &quot;
+     + &quot;ORDER BY `name` ASC &quot;;
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">sql = &quot;SELECT `id`, `name` FROM `people` &quot;
+     + &quot;WHERE `name` = &#39;Susan&#39; &quot;
+     + &quot;ORDER BY `name` ASC &quot;;
+</code></pre>
+<h5 id="java">Java</h5>
+<p>Strings must be concatenated using the &quot;+&quot; operator. A space must always be added before and after the &quot;+&quot; operator to
+improve readability:</p>
+<pre><code class="lang-java">String company = &quot;Code&quot; + &quot; &quot; + &quot;Styling&quot;;
+</code></pre>
+<p>When concatenating strings with the &quot;+&quot; operator, it is encouraged to break the statement into multiple lines to improve
+readability. In these cases, each successive line should be padded with white space such that the &quot;+&quot;; operator is aligned
+under the &quot;=&quot; operator:</p>
+<pre><code class="lang-java">String sql = &quot;SELECT `id`, `name` FROM `people` &quot;
+     + &quot;WHERE `name` = &#39;Susan&#39; &quot;
+     + &quot;ORDER BY `name` ASC &quot;;
+</code></pre>
+<p>Please do not forget either <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html"><code>String.concat</code></a>
+function.</p>
+<h5 id="perl-todo">Perl TODO</h5>
+<pre><code class="lang-perl">    # code here
+</code></pre>
+<h5 id="php">PHP</h5>
+<p>Strings must be concatenated using the &quot;.&quot; operator. A space must always be added before and after the &quot;.&quot; operator to
+improve readability:</p>
+<pre><code class="lang-php">$company = &#39;Code&#39; . &#39; &#39; . &#39;Styling&#39;;
+</code></pre>
+<p>When concatenating strings with the &quot;.&quot; operator, it is encouraged to break the statement into multiple lines to improve
+readability. In these cases, each successive line should be padded with white space such that the &quot;.&quot;; operator is aligned
+under the &quot;=&quot; operator:</p>
+<pre><code class="lang-php">$sql = &quot;SELECT `id`, `name` FROM `people` &quot;
+     . &quot;WHERE `name` = &#39;Susan&#39; &quot;
+     . &quot;ORDER BY `name` ASC &quot;;
+</code></pre>
+<h5 id="ruby-todo">Ruby TODO</h5>
+<pre><code class="lang-ruby">    // your code here
+</code></pre>
+<h5 id="python-todo">Python TODO</h5>
+<pre><code class="lang-python">    # your code here
+</code></pre>
+<h5 id="css-todo">CSS TODO</h5>
+<pre><code class="lang-css">    /* your code here */
+</code></pre>
+<h5 id="html-todo">HTML TODO</h5>
+<pre><code class="lang-html">    &lt;!-- your code here --&gt;
+</code></pre>
+</div>
+<h2 id="arrays">Arrays</h2>
+<h3 id="numerically-indexed-arrays">Numerically Indexed Arrays</h3>
+<p>Negative numbers are not permitted as indices in any of the languages presented bellow. Most of the languages bellow
+start their index with 0.</p>
+<div class="lang-ex">
+<h5 id="c-c-c-35-todo">C/C++/C&#35; TODO</h5>
+<pre><code class="lang-c">    // code here
+</code></pre>
+<pre><code class="lang-cpp">    // code here
+</code></pre>
+<pre><code class="lang-csharp">    // code here
+</code></pre>
+<h5 id="cfml">CFML</h5>
+<p>Coldfusion arrays have their index starting from 1 and not from 0.</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfset sampleArray=ArrayNew(1) &gt;
+&lt;cfset firstname[1]=1 &gt;
+&lt;cfset firstname[2]=2 &gt;
+&lt;cfset firstname[3]=3 &gt;
+&lt;cfset firstname[4]=&#39;Cold&#39; &gt;
+&lt;cfset firstname[5]=&#39;Fusion&#39; &gt;
+
+&lt;!-- or --&gt;
+&lt;cfset sampleArray = [1, 2, 3, &#39;Cold&#39;, &#39;Fusion&#39;] &gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+    var sampleArray=ArrayNew(1) &gt;
+    firstname[1]=1;
+    firstname[2]=2;
+    firstname[3]=3;
+    firstname[4]=&#39;Cold&#39;;
+    firstname[5]=&#39;Fusion&#39;;
+
+    // or
+    var sampleArray = [1, 2, 3, &#39;Cold&#39;, &#39;Fusion&#39;];
+&lt;/cfscript&gt;
+</code></pre>
+<h5 id="dart-todo">Dart TODO</h5>
+<p>Dart variable substitution looks more like &#39;string interpolation&#39;. Any other non string variable needs
+to be converted to String to work. Furthermore, between the <code>${}</code> syntax expressions can be used. See
+<a href="http://shailen.github.io/blog/2012/11/14/dart-string-interpolation/">Dart String Interpolation</a> article.</p>
+<pre><code class="lang-dart">    // code here
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<h6 id="ecmascript">ECMAScript</h6>
+<pre><code class="lang-javascript">var sampleArray = new Array();
+sampleArray.push(1);
+sampleArray.push(2);
+// ...
+sampleArray.push(&#39;Script&#39;);
+
+// or
+var sampleArray = [1, 2, 3, &#39;ECMA&#39;, &#39;Script&#39;];
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">sampleArray = new Array
+sampleArray.push 1
+sampleArray.push 2
+# ...
+sampleArray.push &#39;Script&#39;
+
+# or
+sampleArray = [1, 2, 3, &#39;ECMA&#39;, &#39;Script&#39;]
+</code></pre>
+<h5 id="java">Java</h5>
+<p>Java arrays are usually single type. You cannot have arrays containing variables of multiple types.</p>
+<pre><code class="lang-java">int[] num = new int[5];
+num[0] = 1;
+// ...
+num[4] = 5;
+
+// or
+int[] num = {1, 2, 3, 4, 5};
+</code></pre>
+<p>Please do not forget Java is a more complex object oriented class. As a <strong>TODO</strong> we should treat also <code>java.lang.reflect.Array</code>
+and <code>java.utils.Arrays</code> classes at least.</p>
+<h5 id="perl-todo">Perl TODO</h5>
+<pre><code class="lang-perl">    # code here
+</code></pre>
+<h5 id="php">PHP</h5>
+<p>An indexed array may start with any non-negative number, however all base indices besides 0 are discouraged.</p>
+<p>When declaring indexed arrays with the Array function, a trailing space must be added after each comma delimiter to improve readability:</p>
+<pre><code class="lang-php">$sampleArray = array(1, 2, 3, &#39;Zend&#39;, &#39;Studio&#39;);
+</code></pre>
+<h5 id="ruby-todo">Ruby TODO</h5>
+<pre><code class="lang-ruby">    // your code here
+</code></pre>
+<h5 id="python-todo">Python TODO</h5>
+<pre><code class="lang-python">    # your code here
+</code></pre>
+<h5 id="css-todo">CSS TODO</h5>
+<pre><code class="lang-css">    /* your code here */
+</code></pre>
+<h5 id="html-todo">HTML TODO</h5>
+<pre><code class="lang-html">    &lt;!-- your code here --&gt;
+</code></pre>
+</div>
+<p>It is permitted to declare multi-line indexed arrays using the &quot;array&quot; construct. The initial array item may begin on the
+following line. If so, it should be padded at one indentation level greater than the line containing the array declaration,
+and all successive lines should have the same indentation; the closing parent should be on a line by itself at the same
+indentation level as the line containing the array declaration:</p>
+<div class="lang-ex">
+<h5 id="c-c-c-35-todo">C/C++/C&#35; TODO</h5>
+<pre><code class="lang-c">    // code here
+</code></pre>
+<pre><code class="lang-cpp">    // code here
+</code></pre>
+<pre><code class="lang-csharp">    // code here
+</code></pre>
+<h5 id="cfml">CFML</h5>
+<p>ColdFusion variablie substitution is done by wrapping the variable name within <strong>#</strong> character.</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfset var sampleArray = [
+                1, 2, 3, &#39;Zend&#39;, &#39;Studio&#39;,
+                $a, $b, $c,
+                56.44, $d, 500,
+            ] /&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+    var sampleArray = [
+        1, 2, 3, &#39;Zend&#39;, &#39;Studio&#39;,
+        $a, $b, $c,
+        56.44, $d, 500
+    ];
+&lt;/cfscript&gt;
+</code></pre>
+<h5 id="dart-todo">Dart TODO</h5>
+<p>Dart variable substitution looks more like &#39;string interpolation&#39;. Any other non string variable needs
+to be converted to String to work. Furthermore, between the <code>${}</code> syntax expressions can be used. See
+<a href="http://shailen.github.io/blog/2012/11/14/dart-string-interpolation/">Dart String Interpolation</a> article.</p>
+<pre><code class="lang-dart">    // code here
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<p>JavasScript (ECMAScript 5 and below) does not have variable substitution, however ECMAScript6 and
+preprocessors do:</p>
+<h6 id="ecmascript-">ECMAScript*</h6>
+<pre><code class="lang-javascript">var sampleArray = [
+    1, 2, 3, &#39;Zend&#39;, &#39;Studio&#39;,
+    $a, $b, $c,
+    56.44, $d, 500
+];
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<p>Since it is an indentation based syntax, CoffeeScript will not allow multi-line array declaration.</p>
+<h5 id="java">Java</h5>
+<p>One of the default string interpolation methods in Java is <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#format-java.lang.String-java.lang.Object...-"><code>java.lang.String.format()</code></a>
+function. We recommend this one.</p>
+<pre><code class="lang-java">int sampleArray[] = {
+    1, 2, 3,
+    5, 6, 7,
+    56, 100, 500
+};
+</code></pre>
+<h5 id="perl-todo">Perl TODO</h5>
+<pre><code class="lang-perl">    # code here
+</code></pre>
+<h5 id="php">PHP</h5>
+<pre><code class="lang-php">$sampleArray = array(
+    1, 2, 3, &#39;Zend&#39;, &#39;Studio&#39;,
+    $a, $b, $c,
+    56.44, $d, 500,
+);
+</code></pre>
+<h5 id="ruby-todo">Ruby TODO</h5>
+<pre><code class="lang-ruby">    // your code here
+</code></pre>
+<h5 id="python-todo">Python TODO</h5>
+<pre><code class="lang-python">    # your code here
+</code></pre>
+<h5 id="css-todo">CSS TODO</h5>
+<pre><code class="lang-css">    /* your code here */
+</code></pre>
+<h5 id="html-todo">HTML TODO</h5>
+<pre><code class="lang-html">    &lt;!-- your code here --&gt;
+</code></pre>
+</div>
+<p>When programming language allows (e.g php) and using this latter declaration, we encourage using a trailing comma for the
+last item in the array; this minimizes the impact of adding new items on successive lines, and helps to ensure no parse
+errors occur due to a missing comma.</p>
+<h3 id="associative-arrays">Associative Arrays</h3>
+<p>When programming language allows (e.g php, javascript) and declaring associative arrays with the Array construct, breaking
+the statement into multiple lines is mandatory. The initial array item must begin on the following line. If so, it should
+be padded at one indentation level greater than the line containing the array declaration, and all successive lines should
+have the same indentation; the closing parent should be on a line by itself at the same indentation level as the line
+containing the array declaration.</p>
+<div class="lang-ex">
+<h5 id="c-c-c-35-todo">C/C++/C&#35; TODO</h5>
+<pre><code class="lang-c">    // code here
+</code></pre>
+<pre><code class="lang-cpp">    // code here
+</code></pre>
+<pre><code class="lang-csharp">    // code here
+</code></pre>
+<h5 id="cfml">CFML</h5>
+<p>ColdFusion languages does not allow associative arrays. However, we can always emulate associative arrays through structures.</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfset var sampleArray = StructNew() /&gt;
+&lt;cfset sampleArray.firstKey = &#39;firstValue&#39; /&gt; &lt;!--- both key declarations are valid ---&gt;
+&lt;cfset sampleArray[&#39;secondKey&#39;] = &#39;secondValue&#39; /&gt;
+&lt;!--- or ---&gt;
+&lt;cfset var sampleArray = {
+    &#39;firstKey&#39;  = &#39;firstValue&#39;,
+    &#39;secondKey&#39; = &#39;secondValue&#39;
+} /&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+    var sampleArray = StructNew();
+    sampleArray.firstKey = &#39;firstValue&#39;; // both key declarations are valid
+    sampleArray[&#39;secondKey&#39;] = &#39;secondValue&#39;;
+
+    // or
+    var sampleArray = {
+        &#39;firstKey&#39;  = &#39;firstValue&#39;,
+        &#39;secondKey&#39; = &#39;secondValue&#39;
+    };
+&lt;/cfscript&gt;
+</code></pre>
+<p>ColdFusion structures can be looped/parsed through as any other associative array using <code>&lt;cfloop&gt;</code> tag for CFML and
+<code>for key in ...</code> for CFScript.</p>
+<h5 id="dart-todo">Dart TODO</h5>
+<p>Dart variable substitution looks more like &#39;string interpolation&#39;. Any other non string variable needs
+to be converted to String to work. Furthermore, between the <code>${}</code> syntax expressions can be used. See
+<a href="http://shailen.github.io/blog/2012/11/14/dart-string-interpolation/">Dart String Interpolation</a> article.</p>
+<pre><code class="lang-dart">    // code here
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<p>JavaScript language does not allow associative arrays. However, we can always emulate associative arrays through Objects.</p>
+<h6 id="ecmascript5-and-lower">ECMAScript5 and lower</h6>
+<pre><code class="lang-javascript">var sampleArray = {
+    &#39;firstKey&#39;:  &#39;firstValue&#39;,
+    &#39;secondKey&#39;: &#39;secondValue&#39;
+};
+</code></pre>
+<h6 id="ecmascript6">ECMAScript6</h6>
+<pre><code class="lang-javascript">var sampleArray = {
+    &#39;firstKey&#39;:  &#39;firstValue&#39;,
+    &#39;secondKey&#39;: &#39;secondValue&#39;,
+};
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">sampleArray =
+    &#39;firstKey&#39;:  &#39;firstValue&#39;,
+    &#39;secondKey&#39;: &#39;secondValue&#39;
+</code></pre>
+<h5 id="java">Java</h5>
+<p>Java does not have associative arrays, but has something better called maps (see
+<a href="https://docs.oracle.com/javase/7/docs/api/java/util/Map.html"><code>java.lang.Map</code></a>).
+The same as arrays, Java maps do not support multiple types regarding stored values. The only chance for multiple types
+storage could be when all stored types extend the same interface.</p>
+<pre><code class="lang-java">Map&lt;String, String&gt; map = new HashMap&lt;String, String&gt;();
+map.put(&quot;firstKey&quot;, &quot;firstValue&quot;);
+map.put(&quot;secondKey&quot;, &quot;secondValue&quot;);
+</code></pre>
+<h5 id="perl-todo">Perl TODO</h5>
+<pre><code class="lang-perl">    # code here
+</code></pre>
+<h5 id="php">PHP</h5>
+<pre><code class="lang-php">$sampleArray = array(
+    &#39;firstKey&#39;  =&gt; &#39;firstValue&#39;,
+    &#39;secondKey&#39; =&gt; &#39;secondValue&#39;,
+);
+</code></pre>
+<h5 id="ruby-todo">Ruby TODO</h5>
+<pre><code class="lang-ruby">    // your code here
+</code></pre>
+<h5 id="python-todo">Python TODO</h5>
+<pre><code class="lang-python">    # your code here
+</code></pre>
+<h5 id="css-todo">CSS TODO</h5>
+<pre><code class="lang-css">    /* your code here */
+</code></pre>
+<h5 id="html-todo">HTML TODO</h5>
+<pre><code class="lang-html">    &lt;!-- your code here --&gt;
+</code></pre>
+</div>
+<p>When language allows it (e.g. php, ECMAScript6) and using this latter declaration, we encourage using a trailing comma
+for the last item in the array; this minimizes the impact of adding new items on successive lines, and helps to ensure
+no parse errors occur due to a missing comma.</p>
+<h2 id="classes">Classes</h2>
+<h3 id="namespaces">Namespaces</h3>
+<p>If programming language requires/supports namespaces, all namespaces should be written as follows:</p>
+<ul>
+<li><code>org.company.project.*</code> for open source projects</li>
+<li><code>com.company.project.*</code> for commercial projects</li>
+</ul>
+<p>Most programming languages requiring namespaces also require folder structures with the same naming.
+Each project should have its folder naming as follows:</p>
+<ul>
+<li><code>src/org/company/project/*</code> for open source</li>
+<li><code>src/org/company/project/*</code> for commercial</li>
+</ul>
+<div class="lang-ex">
+<h5 id="c-c-c-35-todo">C/C++/C&#35; TODO</h5>
+<pre><code class="lang-c">    // code here
+</code></pre>
+<pre><code class="lang-cpp">    // code here
+</code></pre>
+<pre><code class="lang-csharp">    // code here
+</code></pre>
+<h5 id="cfml">CFML</h5>
+<p>ColdFusion language does not require namespacing, however it can be emulated via folders.</p>
+<p><code>src/org/company/project/Controller.cfc</code> should have the following as code:</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;component name=&quot;Controller&quot; ... &gt;
+    &lt;!--- ... ---&gt;
+&lt;/component&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+    component name=&quot;Controller&quot; ... {
+        // ...
+    }
+&lt;/cfscript&gt;
+</code></pre>
+<p>And can be instatiated as follows:</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfset theComponent=createObject(&quot;Component&quot; &quot;org.company.project.Controller&quot;);  /&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+    var theComponent=createObject(&quot;Component&quot; &quot;org.company.project.Controller&quot;);
+&lt;/cfscript&gt;
+</code></pre>
+<h5 id="dart-todo">Dart TODO</h5>
+<p>Dart variable substitution looks more like &#39;string interpolation&#39;. Any other non string variable needs
+to be converted to String to work. Furthermore, between the <code>${}</code> syntax expressions can be used. See
+<a href="http://shailen.github.io/blog/2012/11/14/dart-string-interpolation/">Dart String Interpolation</a> article.</p>
+<pre><code class="lang-dart">    // code here
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<p>JavaScript language does not require namespacing, however it can be emulated with the help of folders.</p>
+<p>However, importing the functions under the defned namespaces can be something tricky.</p>
+<h6 id="ecmascript5-and-lower">ECMAScript5 and lower</h6>
+<p><code>src/org/company/project/Controller.js</code></p>
+<pre><code class="lang-javascript">function Controller()
+{
+    // ...
+}
+</code></pre>
+<h6 id="ecmascript6">ECMAScript6</h6>
+<p><code>src/org/company/project/Controller.js</code></p>
+<pre><code class="lang-javascript">class Controller
+{
+    // ...
+}
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<p><code>src/org/company/project/Controller.coffee</code></p>
+<pre><code class="lang-coffeescript">class Controller
+    # ...
+</code></pre>
+<h5 id="java">Java</h5>
+<p><code>src/org/company/project/Controller.java</code></p>
+<pre><code class="lang-java">
+namespace org.company.project;
+
+class Controller
+{
+    // ...
+}
+</code></pre>
+<h5 id="perl-todo">Perl TODO</h5>
+<pre><code class="lang-perl">    # code here
+</code></pre>
+<h5 id="php">PHP</h5>
+<p><code>src/org/company/project/Controller.php</code></p>
+<pre><code class="lang-php">namespace org\company\project;
+
+class Controller
+{
+    // ...
+}
+</code></pre>
+<h5 id="ruby-todo">Ruby TODO</h5>
+<pre><code class="lang-ruby">    // your code here
+</code></pre>
+<h5 id="python-todo">Python TODO</h5>
+<pre><code class="lang-python">    # your code here
+</code></pre>
+<h5 id="css-todo">CSS TODO</h5>
+<pre><code class="lang-css">    /* your code here */
+</code></pre>
+<h5 id="html-todo">HTML TODO</h5>
+<pre><code class="lang-html">    &lt;!-- your code here --&gt;
+</code></pre>
+</div>
+<h3 id="class-declaration">Class Declaration</h3>
+<p>Classes must be named according to project&#39;s naming conventions (decided by developing team).</p>
+<p>The brace should always be written on the line underneath the class name.</p>
+<p>Every class must have a documentation block that conforms to the <a href="http://www.phpdoc.org/">PHPDocumentor</a> standard.</p>
+<p>All code in a class must be indented (see <a href="overview.html">Overview</a>).</p>
+<p>Only one class is permitted in each PHP file.</p>
+<p>Placing additional code in class files is <strong>not</strong> permitted and discouraged.</p>
+<p>The following is an example of an acceptable class declaration:</p>
+<pre><code class="lang-php">/**
+ * Documentation Block Here
+ */
+class SampleClass
+{
+    // all contents of class
+    // must be indented
+}
+</code></pre>
+<p>Classes that extend other classes or which implement interfaces should declare their dependencies on the same line when possible.</p>
+<pre><code class="lang-php">class SampleClass extends FooAbstract implements BarInterface
+{
+}
+</code></pre>
+<p>If as a result of such declarations, the line length exceeds the maximum line length, break the line before the &quot;extends&quot; and/or &quot;implements&quot; keywords, and pad those lines by one indentation level.</p>
+<pre><code class="lang-php">class SampleClass
+```php    extends FooAbstract
+    implements BarInterface
+{
+}
+</code></pre>
+<p>If the class implements multiple interfaces and the declaration exceeds the maximum line length, break after each comma separating the interfaces, and indent the interface names such that they align.</p>
+<pre><code class="lang-php">class SampleClass
+    implements BarInterface,
+               BazInterface
+{
+}
+</code></pre>
+<h3 id="class-member-variables">Class Member Variables</h3>
+<p>Member variables must be named according to project&#39;s variable naming conventions. If no other convention is chosen, naming will be done according with camel case naming convention (camelCaseNamingConvention).</p>
+<p>If decided by developer team, private variable naming may contain the underscore &quot;_&quot; character as a prefix (i.e. _camelCaseNamingConvention).</p>
+<p>Any variables declared in a class must be listed at the top of the class, above the declaration of any methods.</p>
+<p>The var construct is not permitted. Member variables always declare their visibility by using one of the <code>private</code>, <code>protected</code>, or <code>public</code> modifiers.</p>
+<p>Giving access to member variables directly by declaring them as public is permitted but discouraged in favor of accessor methods (set &amp; get).</p>
+<h2 id="functions-and-methods">Functions and Methods</h2>
+<h3 id="function-and-method-declaration">Function and Method Declaration</h3>
+<p><em>Functions</em> must be named according to project&#39;s function naming conventions. If no other convention is chosen, function naming will be done according with serpent case naming convention (serpent_case_naming_convention).</p>
+<p><em>Methods</em> inside classes must always declare their visibility by using one of the <code>private</code>, <code>protected</code>, or <code>public</code> modifiers.</p>
+<p>If no other convention is chosen, method naming will be done according with camel case naming convention (camelCaseNamingConvention).</p>
+<p>If decided by developer team, private method naming may contain the underscore &quot;_&quot; character as a prefix (i.e. _camelCaseNamingConvention).</p>
+<p>As with classes, the brace should always be written on the line underneath the function name. Space between the function name and the opening parenthesis for the arguments is not permitted.</p>
+<p><strong>Functions in the global scope are strongly discouraged.</strong></p>
+<p>The following is an example of an acceptable function declaration in a class:</p>
+<pre><code class="lang-php">/**
+ * Documentation Block Here
+ */
+class Foo
+{
+    /**
+     * Documentation Block Here
+     */
+    public function bar()
+    {
+        // all contents of function must be
+        // indented one additional level
+    }
+}
+</code></pre>
+<p>In cases where the argument list exceeds the maximum line length, you may introduce line breaks. Additional arguments to the function or method must be indented one additional level beyond the function or method declaration. A line break should then occur before the closing argument parent, which should then be placed on the same line as the opening brace of the function or method with one space separating the two, and at the same indentation level as the function or method declaration. The following is an example of one such situation:</p>
+<pre><code class="lang-php">/**
+ * Documentation Block Here
+ */
+class Foo
+{
+    /**
+     * Documentation Block Here
+     */
+    public function bar($arg1, $arg2, $arg3,
+        $arg4, $arg5, $arg6
+    ) {
+        // all contents of function must be
+        // indented one additional level
+    }
+}
+</code></pre>
+<p><em>Note</em>: It is recommended a function should not have more than five (5) arguments. If a function must have more than 5 arguments, it is recommended masking the arguments in an array.</p>
+<p><em>Note</em>: Pass-by-reference is the only parameter passing mechanism permitted in a method declaration.</p>
+<pre><code class="lang-php">/**
+ * Documentation Block Here
+ */
+class Foo
+{
+    /**
+     * Documentation Block Here
+     */
+    public function bar(&amp;$baz)
+    {}
+}
+</code></pre>
+<p>Call-time pass-by-reference is strictly prohibited.</p>
+<p>The return value must not be enclosed in parentheses. This can hinder readability, in additional to breaking code if a method is later changed to return by reference.</p>
+<pre><code class="lang-php">/**
+ * Documentation Block Here
+ */
+class Foo
+{
+    /**
+     * WRONG
+     */
+    public function bar()
+    {
+        return($this-&gt;bar);
+    }
+
+    /**
+     * RIGHT
+     */
+    public function bar()
+    {
+        return $this-&gt;bar;
+    }
+}
+</code></pre>
+<h3 id="function-and-method-usage">Function and Method Usage</h3>
+<p>Function arguments should be separated by a single trailing space after the comma delimiter. The following is an example of an acceptable invocation of a function that takes three arguments:</p>
+<pre><code class="lang-php">threeArguments(1, 2, 3);
+</code></pre>
+<p>Call-time pass-by-reference is strictly prohibited. See the function declarations section for the proper way to pass function arguments by-reference.</p>
+<p>In passing arrays as arguments to a function, the function call may include the &quot;array&quot; hint and may be split into multiple lines to improve readability. In such cases, the normal guidelines for writing arrays still apply:</p>
+<pre><code class="lang-php">threeArguments(array(1, 2, 3), 2, 3);
+</code></pre>
+<pre><code class="lang-php">threeArguments(array(
+    1, 2, 3, &#39;Zend&#39;, &#39;Studio&#39;,
+    $a, $b, $c,
+    56.44, $d, 500
+), 2, 3);
+</code></pre>
+<p>If function/method usage exceeds recommended per line length, breaking the statement into multiple lines is recommended. The initial argument must begin on the following line. If so, it should be padded at one indentation level greater than the line containing the array declaration, and all successive lines should have the same indentation; the closing parent should be on a line by itself at the same indentation level as the line containing the function/method declaration.</p>
+<pre><code class="lang-php">threeLongArguments(
+    $someVeryLongArgument1,
+    $someVeryLongArgument2,
+    $someVeryLongArgument3
+);
+</code></pre>
+<h2 id="control-statements-loops">Control Statements &amp; Loops</h2>
+<p>Any control statement or loop using syntax inspired from BASIC programming language, are strongly un-adviced, but not forbidden.</p>
+<pre><code class="lang-php">if ($a == 1): // recommended not to use this syntax
+    // your code here
+endif
+
+// should be replaced with
+
+if ($a == 1) {
+    // your code here  
+}
+</code></pre>
+<h3 id="if-else-elseif">If/Else/Elseif</h3>
+<p>Control statements based on the if and elseif constructs must have a single space before the opening parenthesis of the conditional and a single space after the closing parenthesis.</p>
+<p>Within the conditional statements between the parentheses, operators must be separated by spaces for readability. Inner parentheses are encouraged to improve logical grouping for larger conditional expressions.</p>
+<p>The opening brace is written on the same line as the conditional statement. The closing brace is always written on its own line. Any content within the braces must be indented using four spaces.</p>
+<pre><code class="lang-php">if ($a != 2) {
+    $a = 2;
+}
+</code></pre>
+<p>If the conditional statement causes the line length to exceed the maximum line length and has several clauses, you may break the conditional into multiple lines. In such a case, break the line prior to a logic operator, and pad the line such that it aligns under the first character of the conditional clause. The closing parent in the conditional will then be placed on a line with the opening brace, with one space separating the two, at an indentation level equivalent to the opening control statement.</p>
+<pre><code class="lang-php">if (($a == $b)
+    &amp;&amp; ($b == $c)
+    || (Foo::CONST == $d)
+) {
+    $a = $d;
+}
+</code></pre>
+<p>The intention of this latter declaration format is to prevent issues when adding or removing clauses from the conditional during later revisions.</p>
+<p>For &quot;if&quot; statements that include &quot;elseif&quot; or &quot;else&quot;, the formatting conventions are similar to the &quot;if&quot; construct. The following examples demonstrate proper formatting for &quot;if&quot; statements with &quot;else&quot; and/or &quot;elseif&quot; constructs:</p>
+<pre><code class="lang-php">if ($a != 2) {
+    $a = 2;
+} else {
+    $a = 7;
+}
+
+if ($a != 2) {
+    $a = 2;
+} elseif ($a == 3) {
+    $a = 4;
+} else {
+    $a = 7;
+}
+
+if (($a == $b)
+    &amp;&amp; ($b == $c)
+    || (Foo::CONST == $d)
+) {
+    $a = $d;
+} elseif (($a != $b)
+          || ($b != $c)
+) {
+    $a = $c;
+} else {
+    $a = $b;
+}
+</code></pre>
+<p>PHP allows statements to be written without braces in some circumstances. This coding standard makes no differentiation all &quot;if&quot;, &quot;elseif&quot; or &quot;else&quot; statements must use braces.</p>
+<p>Furthermore, if STRICT mode is chosen, no &quot;if&quot; statement cannot be defined without having it&#39;s else statement even if empty.</p>
+<pre><code class="lang-php">if ($a == 1) {
+  $a = 2;
+} else {
+
+}
+
+###Switch
+
+Control statements written with the &quot;switch&quot; statement must have a single space before the opening parenthesis of the conditional statement and after the closing parenthesis.
+
+All content within the &quot;switch&quot; statement must be indented using four spaces. Content under each &quot;case&quot; statement must be indented using an additional four spaces.
+
+```php
+switch ($numPeople) {
+    case 1:
+        break;
+
+    case 2:
+        break;
+
+    default:
+        break;
+}
+</code></pre>
+<p>The construct default should never be omitted from a switch statement.</p>
+<p><strong>Note:</strong> It is sometimes useful to write a case statement which falls through to the next case by not including a break or return within that case. To distinguish these cases from bugs, any case statement where break or return are omitted should contain a comment indicating that the break was intentionally omitted.</p>
+<h3 id="loops-for-foreach-while-">Loops (for / foreach / while)</h3>
+<p>No loop statement will be used without opening and closing brackets.</p>
+<pre><code class="lang-php">for ($i = 0; $i &lt; 10; $i++) {
+    // your code here
+}
+
+foreach ($array as $key =&gt; $value) {
+    // your code here
+}
+
+while ($i &gt; 0) {
+    // your code here
+}
+
+do {
+    // your code here
+} while ($i &gt; 0);
+</code></pre>
+<h2 id="inline-documentation">Inline Documentation</h2>
+<h3 id="documentation-format">Documentation Format</h3>
+<p>All documentation blocks (&quot;docblocks&quot;) must be compatible with the phpDocumentor format. Describing the phpDocumentor format is beyond the scope of this document. For more information, visit: <a href="http://www.phpdoc.org/docs/latest/index.html">» http://phpdoc.org/</a></p>
+<p>All class files must contain a &quot;file-level&quot; docblock at the top of each file and a &quot;class-level&quot; docblock immediately above each class. Examples of such docblocks can be found below.</p>
+<h3 id="files">Files</h3>
+<p>Every file that contains PHP code must have a docblock at the top of the file that contains these phpDocumentor tags at a minimum:</p>
+<pre><code class="lang-php">/**
+ * Short description for file
+ *
+ * Long description for file (if any)...
+ *
+ * LICENSE: Some license information
+ *
+ * @copyright  Copyright (c) 2007-2015 Foo Company LTD S.R.L. (http://www.company.foo)
+ * @license    https://github.com/{ACCOUNT/GROUP}/{PROJECT-NAME}/blob/master/LICENSE License Type
+ * @version    $Id:$
+ * @link       https://github.com/{ACCOUNT/GROUP}/{PROJECT-NAME}
+ * @link       https://github.com/{ACCOUNT/GROUP}/{PROJECT-NAME}/issues
+ * @since      File available since Release 1.5.0
+ */
+</code></pre>
+<p>The @category annotation must be a project&#39;s name abbreviation (i.e. &quot;Athem&quot;).</p>
+<p>The @package annotation must be assigned, and should be equivalent to the component name of the class contained in the file; typically, this will only have two segments, the @category prefix, and the component name (i.e. Athem_Soap).</p>
+<p>The @subpackage annotation is optional. If provided, it should be the subcomponent name, minus the class prefix. In the example above, the assumption is that the class in the file is either &quot;Athem_Soap_Client&quot;, or uses that classname as part of its prefix (i.e. Client).</p>
+<h3 id="classes">Classes</h3>
+<p>Every class must have a docblock that contains these phpDocumentor tags at a minimum:</p>
+<pre><code class="lang-php">/**
+ * Short description for class
+ *
+ * Long description for class (if any)...
+ *
+ * @category   Athem
+ * @package    Athem_Soap
+ * @subpackage Client
+ * @version    Release: @package_version@
+ * @since      Class available since Release 1.5.0
+ * @deprecated Class deprecated in Release 2.0.0
+ */
+</code></pre>
+<p>The @category annotation must be a project&#39;s name abbreviation (i.e. &quot;Athem&quot;).</p>
+<p>The @package annotation must be assigned, and should be equivalent to the component name of the class contained in the file; typically, this will only have two segments, the @category prefix, and the component name (i.e. Athem_Soap).</p>
+<p>The @subpackage annotation is optional. If provided, it should be the subcomponent name, minus the class prefix. In the example above, the assumption is that the class in the file is either &quot;Athem_Soap_Client&quot;, or uses that classname as part of its prefix (i.e. Client).</p>
+<p>###Functions</p>
+<p>Every function, including object methods, must have a docblock that contains at a minimum:</p>
+<p>A description of the function</p>
+<p>All of the arguments</p>
+<p>All of the possible return values</p>
+<p>It is not necessary to use the &quot;@access&quot; tag because the access level is already known from the &quot;public&quot;, &quot;private&quot;, or &quot;protected&quot; modifier used to declare the function.</p>
+<p>If a function or method may throw an exception, use @throws for all known exception classes:</p>
+<pre><code class="lang-php">/**
+ * @throws exceptionclass [description]
+ */
+</code></pre>
+<h3 id="in-line-comments">In-line Comments</h3>
+<p>Single line comments should be made using the &quot;//&quot; syntax. Using &quot;#&quot; is not recommended, but not forbidden.</p>
+<p>Multi line comments should always be wrapped between &quot;/<em>&quot; and &quot;</em>/&quot; characters.</p>
+<p>If comment is of stronger importance, comments should follow the example bellow:</p>
+<pre><code class="lang-php">/*************************************************
+ * This is a comment
+ *************************************************/
+
+ Such comments should not exceed more than 5 lines of text, underlining the most important part of documentation.
+
+###Code Examples
+
+Following the phpDocumentor documentation, code examples must have the following syntax:
+
+```php
+/**
+ * My function
+ *
+ * Here is an inline example:
+ * &lt;code&gt;
+ * &lt;?php
+ * echo strlen(&#39;6&#39;);
+ * ?&gt;
+ * &lt;/code&gt;
+ * @example /path/to/example.php How to use this function
+ * @example anotherexample.inc This example is in the &quot;examples&quot; subdirectory
+ */
+function mine()
+{
+}
+</code></pre>
+<p><hr />
+<a href="naming-conventions.html">&laquo; Naming Conventions</a> / <a href="recommended-tools.html">Recommended Tools &raquo;</a></p>
+
+
+        </div>
+
+<div class="col-md-3" role="complementary">
+<nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
+<ul class="nav bs-docs-sidenav">
+
+<li>
+<a href="#overview">Overview</a>
+<ul class="nav">
+<li><a href="#overview-doctype">HTML5 doctype</a></li>
+<li><a href="#overview-mobile">Mobile first</a></li>
+<li><a href="#overview-type-links">Typography and links</a></li>
+<li><a href="#overview-normalize">Normalize.css</a></li>
+<li><a href="#overview-container">Containers</a></li>
+</ul>
+</li>
+</ul>
+<a class="back-to-top" href="#top">
+Back to top
+</a>
+
+<a href="#" class="bs-docs-theme-toggle" role="button">
+Preview theme
+</a>
+
+</nav>
+</div>
+
+      </div>
+    </div>
+
+    <!-- Footer
+================================================== -->
+<footer class="bs-docs-footer" role="contentinfo">
+
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+<!--  Considering on switching to ace: https://ace.c9.io -->
+
+<script src="https://highlightjs.org/static/highlight.pack.js"></script>
+
+<script src="scripts.js"></script>
+
+<!-- In your HTML file -->
+<script>document.write('<script src="\/\/' + (window.location ? window.location.hostname : 'localhost') + ':9091"><\/script>')</script>
+<!--
+    Replace the following to  https://github.com/Raynos/live-reload/blob/master/browser.js
+uri = "http://localhost:" + uri
+becomes
+uri = "http://" + (window.location ? window.location.hostname : 'localhost') + ":" + uri
+
+-->
+
+</body>
+</html>

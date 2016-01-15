@@ -22,6 +22,7 @@
 
     <!-- Hightlight js -->
     <link href="https://highlightjs.org/static/demo/styles/default.css" rel="stylesheet">
+    <link rel="alternate stylesheet" href="https://highlightjs.org/static/demo/styles/github.css">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -46,6 +47,14 @@
 
         .note strong {
             display: none;
+        }
+
+        .tooltip {
+            width: 150px;
+        }
+
+        .nav-tabs[role=tablist]  a.disabled {
+            color: #CCC;
         }
     </style>
 
@@ -95,33 +104,12 @@
 
       <div class="row">
         <div class="col-md-9" role="main">
-<h1 id="file-formatting">File Formatting</h1>
-<h2 id="general">General</h2>
-<p>For files that contain <strong>only code</strong>, the closing tag is never permitted (when programming language allows it).
-I.e. it is not required by <a href="http://php.net/">PHP</a>, and omitting it prevents the accidental injection of trailing
-white space into the response.</p>
-<div class="lang-ex">
-<h5 id="php">PHP</h5>
-<p class="note"><strong>Note</strong> Important: Inclusion of arbitrary binary data as permitted by __HALT_COMPILER() is prohibited from 
-<a href="http://php.net/">PHP</a> files in the <a href="http://company.foo/">Foo Company LTD</a> projects or files derived from them.
-Use of this feature is only permitted for some installation scripts.</p>
-</div>
-<h3 id="-editorconfig-http-editorconfig-org-"><a href="http://editorconfig.org/">Editorconfig</a></h3>
-<p>In order to standardize all IDE configurations, we recommend the EditorConfig standard.</p>
-<p>What is EditorConfig?
-EditorConfig helps developers define and maintain consistent coding styles between different editors and IDEs.
-The EditorConfig project consists of a file format for defining coding styles and a collection of text editor
-plugins that enable editors to read the file format and adhere to defined styles. EditorConfig files are easily
-readable and they work nicely with version control systems.</p>
-<p>Further more, the use of the the following <a href="../../../raw/master/.editorconfig">.editorconfig</a> (as a base) is
-mandatory in any project developed by <a href="http://company.foo/">Foo Company LTD</a>.</p>
-<h3 id="maximum-line-length">Maximum Line Length</h3>
-<p>The target line length is 100 characters. That is to say, <a href="http://company.foo/">Foo Company LTD</a> developers should
-strive keep each line of their code under 100 characters where possible and practical. However, longer lines are
-acceptable in some circumstances. The maximum length of any line of code is 140 characters.</p>
-<p><em>Thus said, please configure your IDEs accordingly.</em></p>
 
-
+<p>This document is a proposal. Please ignore it for now.</p>
+<p>= iOS HTML/CSS/JavaScript Debugging</p>
+<ul>
+<li><a href="http://people.apache.org/~pmuellr/weinre/">http://people.apache.org/~pmuellr/weinre/</a></li>
+</ul>
 
 
         </div>
@@ -166,11 +154,23 @@ Preview theme
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<script src="../scripts.js"></script>
-
 <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 
+<!--  Considering on switching to ace: https://ace.c9.io -->
+
 <script src="https://highlightjs.org/static/highlight.pack.js"></script>
+
+<script src="scripts.js"></script>
+
+<!-- In your HTML file -->
+<script>document.write('<script src="\/\/' + (window.location ? window.location.hostname : 'localhost') + ':9091"><\/script>')</script>
+<!--
+    Replace the following to  https://github.com/Raynos/live-reload/blob/master/browser.js
+uri = "http://localhost:" + uri
+becomes
+uri = "http://" + (window.location ? window.location.hostname : 'localhost') + ":" + uri
+
+-->
 
 </body>
 </html>

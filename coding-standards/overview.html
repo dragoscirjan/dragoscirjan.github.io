@@ -22,6 +22,7 @@
 
     <!-- Hightlight js -->
     <link href="https://highlightjs.org/static/demo/styles/default.css" rel="stylesheet">
+    <link rel="alternate stylesheet" href="https://highlightjs.org/static/demo/styles/github.css">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -46,6 +47,14 @@
 
         .note strong {
             display: none;
+        }
+
+        .tooltip {
+            width: 150px;
+        }
+
+        .nav-tabs[role=tablist]  a.disabled {
+            color: #CCC;
         }
     </style>
 
@@ -95,6 +104,7 @@
 
       <div class="row">
         <div class="col-md-9" role="main">
+
 <h1 id="overview">Overview</h1>
 <h2 id="scope">Scope</h2>
 <p>This document provides guidelines for code formatting and documentation to individuals and teams contributing to <a href="http://company.foo/">Foo Company LTD</a> products. Many developers using <a href="http://company.foo/">Foo Company LTD</a> products have also found these coding standards useful because their code&#39;s style remains consistent with all <a href="http://company.foo/">Foo Company LTD</a> products code. It is also worth noting that it requires significant effort to fully specify coding standards.</p>
@@ -155,8 +165,6 @@ Php: <a href="https://www.drupal.org/coding-standards">https://www.drupal.org/co
 <p><a href="http://www.learnpython.org/">http://www.learnpython.org/</a></p>
 
 
-
-
         </div>
 
 <div class="col-md-3" role="complementary">
@@ -199,11 +207,23 @@ Preview theme
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<script src="../scripts.js"></script>
-
 <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 
+<!--  Considering on switching to ace: https://ace.c9.io -->
+
 <script src="https://highlightjs.org/static/highlight.pack.js"></script>
+
+<script src="scripts.js"></script>
+
+<!-- In your HTML file -->
+<script>document.write('<script src="\/\/' + (window.location ? window.location.hostname : 'localhost') + ':9091"><\/script>')</script>
+<!--
+    Replace the following to  https://github.com/Raynos/live-reload/blob/master/browser.js
+uri = "http://localhost:" + uri
+becomes
+uri = "http://" + (window.location ? window.location.hostname : 'localhost') + ":" + uri
+
+-->
 
 </body>
 </html>

@@ -22,6 +22,7 @@
 
     <!-- Hightlight js -->
     <link href="https://highlightjs.org/static/demo/styles/default.css" rel="stylesheet">
+    <link rel="alternate stylesheet" href="https://highlightjs.org/static/demo/styles/github.css">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -46,6 +47,14 @@
 
         .note strong {
             display: none;
+        }
+
+        .tooltip {
+            width: 150px;
+        }
+
+        .nav-tabs[role=tablist]  a.disabled {
+            color: #CCC;
         }
     </style>
 
@@ -95,30 +104,63 @@
 
       <div class="row">
         <div class="col-md-9" role="main">
-<h1 id="foo-company-ltd-coding-standards">Foo Company LTD Coding Standards</h1>
-<h2 id="table-of-contents">Table of Contents</h2>
-<ul>
-<li><a href="docs/overview.html">Overview</a></li>
-<li><a href="docs/file-formating.html">File Formating</a></li>
-<li><a href="docs/naming-conventions.html">Naming Conventions</a></li>
-<li><a href="docs/coding-style.html">Coding Style</a></li>
-<li><a href="docs/recommended-tools.html">Recommended Tools</a></li>
-<li><a href="docs/recommended-tools-ide-plugins.html">Recommended Tools / IDE Plugins</a></li>
-</ul>
-<p>This documentation has been written using <a href="http://daringfireball.net/">Daring Fireball</a>&#39;s <a href="http://daringfireball.net/projects/markdown/syntax">Markdoc</a> langauge.</p>
-<h2 id="disclaimer">Disclaimer</h2>
-<p>This documentation has been inspired by <a href="http://framework.zend.com/manual/1.12/en/coding-standard.html">Zend Framework 1.2* Coding Standard</a>, along with other coding and documentation mentioned for each coding language.</p>
-<p>The content of this documentation is a draft. It contains sets of standards and tools our company uses. (For the latest version please reffer to <a href="https://github.com/dragoscirjan/coding-standards">Dragos Cirjan&#39;s coding standars page</a>).</p>
-<p>We reserve the right to</p>
-<ul>
-<li>modify it at any time without giving any reason to any other entity but <a href="http://company.foo">Foo Company LTD</a></li>
-<li>impose this standards and tools for the private and open projects <a href="http://company.foo">Foo Company LTD</a> will initiate.</li>
-</ul>
-<p>By presenting this to you, the public, <a href="http://company.foo">Foo Company LTD</a> does not intent to influence anyone in using any of the information compiled further.</p>
-<p>Thus said, we are NOT paid to recommend any tool, coding standard, or any other type of information presented in this document. We&#39;re simply presenting the information as is, as gathered and evaluated to fit our purposes.</p>
-<p><a href="http://company.foo">Foo Company LTD</a> does not feel obliged to give any reason or explain why we chose to use the compiled list of tools, coding styles, etc.</p>
 
+<div class="lang-ex">
+<h5 id="c-c-c-35-todo">C/C++/C&#35; TODO</h5>
+<pre><code class="lang-c">    // code here
+</code></pre>
+<pre><code class="lang-cpp">    // code here
+</code></pre>
+<pre><code class="lang-csharp">    // code here
+</code></pre>
+<h5 id="cfml">CFML</h5>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfset var greeting = &quot;Hello #name#, welcome back!&quot; /&gt;
 
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+    var greeting = &quot;Hello #name#, welcome back!&quot;
+&lt;/cfscript&gt;
+</code></pre>
+<h5 id="dart-todo">Dart TODO</h5>
+<p>Dart variable substitution looks more like &#39;string interpolation&#39;. Any other non string variable needs
+to be converted to String to work. Furthermore, between the <code>${}</code> syntax expressions can be used. See
+<a href="http://shailen.github.io/blog/2012/11/14/dart-string-interpolation/">Dart String Interpolation</a> article.</p>
+<pre><code class="lang-dart">    // code here
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<h6 id="ecmascript5-and-lower">ECMAScript5 and lower</h6>
+<pre><code class="lang-javascript">var hello = &quot;Hello &quot; + name;
+</code></pre>
+<h6 id="ecmascript6">ECMAScript6</h6>
+<pre><code class="lang-javascript">var hello = `Hello ${name}`;
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">hello = &quot;Hello #{name}&quot;
+</code></pre>
+<h5 id="java">Java</h5>
+<pre><code class="lang-java">    String name = &quot;John Doe&quot;;
+    String hello = String.format(&quot;Hello %s&quot;, name);
+</code></pre>
+<h5 id="perl-todo">Perl TODO</h5>
+<pre><code class="lang-perl">    # code here
+</code></pre>
+<h5 id="php">PHP</h5>
+<pre><code class="lang-php">$greeting = &quot;Hello $name, welcome back!&quot;;
+</code></pre>
+<h5 id="ruby-todo">Ruby TODO</h5>
+<pre><code class="lang-ruby">    // your code here
+</code></pre>
+<h5 id="python-todo">Python TODO</h5>
+<pre><code class="lang-python">    # your code here
+</code></pre>
+<h5 id="css-todo">CSS TODO</h5>
+<pre><code class="lang-css">    /* your code here */
+</code></pre>
+<h5 id="html-todo">HTML TODO</h5>
+<pre><code class="lang-html">    &lt;!-- your code here --&gt;
+</code></pre>
+</div>
 
 
         </div>
@@ -163,11 +205,23 @@ Preview theme
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<script src="../scripts.js"></script>
-
 <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 
+<!--  Considering on switching to ace: https://ace.c9.io -->
+
 <script src="https://highlightjs.org/static/highlight.pack.js"></script>
+
+<script src="scripts.js"></script>
+
+<!-- In your HTML file -->
+<script>document.write('<script src="\/\/' + (window.location ? window.location.hostname : 'localhost') + ':9091"><\/script>')</script>
+<!--
+    Replace the following to  https://github.com/Raynos/live-reload/blob/master/browser.js
+uri = "http://localhost:" + uri
+becomes
+uri = "http://" + (window.location ? window.location.hostname : 'localhost') + ":" + uri
+
+-->
 
 </body>
 </html>

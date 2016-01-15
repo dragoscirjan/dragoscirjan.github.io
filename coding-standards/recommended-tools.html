@@ -22,6 +22,7 @@
 
     <!-- Hightlight js -->
     <link href="https://highlightjs.org/static/demo/styles/default.css" rel="stylesheet">
+    <link rel="alternate stylesheet" href="https://highlightjs.org/static/demo/styles/github.css">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -46,6 +47,14 @@
 
         .note strong {
             display: none;
+        }
+
+        .tooltip {
+            width: 150px;
+        }
+
+        .nav-tabs[role=tablist]  a.disabled {
+            color: #CCC;
         }
     </style>
 
@@ -95,6 +104,7 @@
 
       <div class="row">
         <div class="col-md-9" role="main">
+
 <h1 id="php-recommended-tools">PHP Recommended Tools</h1>
 <h2 id="ide">IDE</h2>
 <p>See <a href="recommended-tools-ide-plugins.html">here</a> a list of plugins we use along with the following IDEs.</p>
@@ -102,21 +112,21 @@
 <p>PhpStorm’s smart code editor provides excellent support for PHP (including the latest language versions and frameworks), HTML, JavaScript, CSS, Sass, Less, CoffeeScript, and many other languages. Enjoy coding with intelligent context-aware code completion, error detection, and on-the-fly code inspections &amp; fixes.​</p>
 <p>Consdering JetBrains description, and what we were able to develop with it until now, we consider PhpStorm by far the best Php editor in the market.</p>
 <p>Download from JetBrains official PhpStorm <a href="https://www.jetbrains.com/phpstorm/download/">download oage</a>, or, for Linux, use the script written by <a href="https://github.com/dragoscirjan/mylin2">Dragos Cirjan</a></p>
-<pre><code class="lang-bash">git <span class="hljs-built_in">clone</span> https://github.com/dragoscirjan/mylin2.git /opt/mylin2 &amp;&amp; \
+<pre><code class="lang-bash">git clone https://github.com/dragoscirjan/mylin2.git /opt/mylin2 &amp;&amp; \
   bash /opt/mylin2/ide/phpstorm.sh -i
 </code></pre>
 <h3 id="atom">Atom</h3>
 <p>Atom is a desktop application based on web technologies. Like other desktop apps, it has its own icon in the dock, native menus and dialogs, and full access to the file system.</p>
 <p>Open the dev tools, however, and Atom&#39;s web-based core shines through. Whether you&#39;re tweaking the look of Atom&#39;s interface with CSS or adding major features with HTML and JavaScript, it&#39;s never been easier to take control of your editor.</p>
 <p>Download from Atom&#39;s official <a href="https://atom.io/">download oage</a>, or, for Linux, use the script written by <a href="https://github.com/dragoscirjan/mylin2">Dragos Cirjan</a></p>
-<pre><code class="lang-bash">git <span class="hljs-built_in">clone</span> https://github.com/dragoscirjan/mylin2.git /opt/mylin2 &amp;&amp; \
+<pre><code class="lang-bash">git clone https://github.com/dragoscirjan/mylin2.git /opt/mylin2 &amp;&amp; \
   bash /opt/mylin2/ide/atom.sh -i
 </code></pre>
 <h3 id="sublime-text">Sublime Text</h3>
 <p>Sublime Text is a sophisticated text editor for code, markup and prose.</p>
 <p>You&#39;ll love the slick user interface, extraordinary features and amazing performance.</p>
 <p>Download from Sublime&#39;s official <a href="http://www.sublimetext.com/3">download oage</a>, or, for Linux, use the script written by <a href="https://github.com/dragoscirjan/mylin2">Dragos Cirjan</a></p>
-<pre><code class="lang-bash">git <span class="hljs-built_in">clone</span> https://github.com/dragoscirjan/mylin2.git /opt/mylin2 &amp;&amp; \
+<pre><code class="lang-bash">git clone https://github.com/dragoscirjan/mylin2.git /opt/mylin2 &amp;&amp; \
   bash /opt/mylin2/ide/sublime.sh -i
 </code></pre>
 <h3 id="kdevelop">KDevelop</h3>
@@ -217,8 +227,6 @@
 <a href="coding-style.html">&laquo; Coding Sylte</a> / <a href="../README.html">Home &raquo;</a></p>
 
 
-
-
         </div>
 
 <div class="col-md-3" role="complementary">
@@ -261,11 +269,23 @@ Preview theme
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<script src="../scripts.js"></script>
-
 <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 
+<!--  Considering on switching to ace: https://ace.c9.io -->
+
 <script src="https://highlightjs.org/static/highlight.pack.js"></script>
+
+<script src="scripts.js"></script>
+
+<!-- In your HTML file -->
+<script>document.write('<script src="\/\/' + (window.location ? window.location.hostname : 'localhost') + ':9091"><\/script>')</script>
+<!--
+    Replace the following to  https://github.com/Raynos/live-reload/blob/master/browser.js
+uri = "http://localhost:" + uri
+becomes
+uri = "http://" + (window.location ? window.location.hostname : 'localhost') + ":" + uri
+
+-->
 
 </body>
 </html>

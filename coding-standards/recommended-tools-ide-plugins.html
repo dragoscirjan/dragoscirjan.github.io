@@ -22,6 +22,7 @@
 
     <!-- Hightlight js -->
     <link href="https://highlightjs.org/static/demo/styles/default.css" rel="stylesheet">
+    <link rel="alternate stylesheet" href="https://highlightjs.org/static/demo/styles/github.css">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -46,6 +47,14 @@
 
         .note strong {
             display: none;
+        }
+
+        .tooltip {
+            width: 150px;
+        }
+
+        .nav-tabs[role=tablist]  a.disabled {
+            color: #CCC;
         }
     </style>
 
@@ -95,6 +104,7 @@
 
       <div class="row">
         <div class="col-md-9" role="main">
+
 <h1 id="recommended-ide-plugins">Recommended IDE Plugins</h1>
 <h2 id="language-amp-linters">Language &amp; Linters</h2>
 <table>
@@ -110,6 +120,24 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left">Project Manager</td>
+<td style="text-align:left"><a href="https://github.com/danielbrodin/atom-project-manager">atom-project-manager</a></td>
+<td style="text-align:left"><a href="https://github.com/randy3k/Project-Manager">Project Manager</a>, <a href="https://github.com/DavidGerva/AddFolderToProject-SublimePlugin">Add Folder To Project</a></td>
+<td style="text-align:left">native</td>
+<td style="text-align:left">native</td>
+<td style="text-align:left">native</td>
+<td style="text-align:left">:--</td>
+</tr>
+<tr>
+<td style="text-align:left">:-----------</td>
+<td style="text-align:left">:--------------------------</td>
+<td style="text-align:left">:--------------------</td>
+<td style="text-align:left">:------------</td>
+<td style="text-align:left">:------</td>
+<td style="text-align:left">:-------</td>
+<td style="text-align:left">:--</td>
+</tr>
 <tr>
 <td style="text-align:left"><strong>Ansible</strong></td>
 <td style="text-align:left">*-ansible-lint[101]</td>
@@ -332,7 +360,7 @@
 </ol>
 <h4 id="ecma-script-6">ECMA Script 6</h4>
 <ol>
-<li>[102] <a href="https://atom.io/packages/linter-eslint">linter-eslint</a> depends on <a href="https://www.npmjs.com/package/eslint">eslint</a> <code>npm install -g eslint &amp;&amp; apm install linter-eslint</code>. 
+<li>[102] <a href="https://atom.io/packages/linter-eslint">linter-eslint</a> depends on <a href="https://www.npmjs.com/package/eslint">eslint</a> <code>npm install -g eslint &amp;&amp; apm install linter-eslint</code>.
 Also, in order for your prject benefit eslint, we suggest downloading <a href="../../../raw/master/.eslintrc">.eslintrc</a> and extend it according to your needs.</li>
 <li>[201] In order to use ES6 on JetBrains IDEs, please follow these <a href="http://blog.jetbrains.com/webstorm/2015/05/ecmascript-6-in-webstorm-transpiling/">instructions</a>.
 There is also <a href="https://plugins.jetbrains.com/plugin/7643?pr=">JavaScript.next Support</a> Plugin, however I could not make it work (yet).</li>
@@ -394,8 +422,6 @@ There is also <a href="https://plugins.jetbrains.com/plugin/7643?pr=">JavaScript
 </table>
 
 
-
-
         </div>
 
 <div class="col-md-3" role="complementary">
@@ -438,11 +464,23 @@ Preview theme
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<script src="../scripts.js"></script>
-
 <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 
+<!--  Considering on switching to ace: https://ace.c9.io -->
+
 <script src="https://highlightjs.org/static/highlight.pack.js"></script>
+
+<script src="scripts.js"></script>
+
+<!-- In your HTML file -->
+<script>document.write('<script src="\/\/' + (window.location ? window.location.hostname : 'localhost') + ':9091"><\/script>')</script>
+<!--
+    Replace the following to  https://github.com/Raynos/live-reload/blob/master/browser.js
+uri = "http://localhost:" + uri
+becomes
+uri = "http://" + (window.location ? window.location.hostname : 'localhost') + ":" + uri
+
+-->
 
 </body>
 </html>
