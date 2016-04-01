@@ -1,0 +1,266 @@
+<template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><h2 id="strings">Strings</h2>
+<h3 id="string-literals">String Literals</h3>
+<p>When a string is literal (contains no variable substitutions) and also programming language allows it,
+the <strong>apostrophe</strong> or <strong>single quote</strong> should always be used to demarcate the string:</p>
+<div class="lang-ex">
+<h5 id="c-c-c-35-">C/C++/C&#35;</h5>
+<h6 id="c">C</h6>
+<pre><code class="lang-c">char myString[] = &quot;Example String&quot;;
+</code></pre>
+<h6 id="c-">C++</h6>
+<pre><code class="lang-cpp">std::string myString (&quot;Example String&quot;);
+</code></pre>
+<h6 id="c-35-">C&#35;</h6>
+<pre><code class="lang-csharp">string myString = @&quot;Example String&quot;;
+System.String myString = &quot;Example String&quot;;
+// For more info, please read:
+// @link https://msdn.microsoft.com/en-us/library/ms228362.aspx
+</code></pre>
+<h5 id="coldfusion">ColdFusion</h5>
+<h6 id="cfml">CFML</h6>
+<pre><code class="lang-xml">&lt;cfset var myString = &#39;Example String&#39; /&gt;
+</code></pre>
+<h6 id="cfscript">CFScript</h6>
+<pre><code class="lang-javascript">var myString = &#39;Example String&#39;;
+</code></pre>
+<h5 id="dart">Dart</h5>
+<pre><code class="lang-dart">var myString = &#39;Example String&#39;;
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<h6 id="ecmascript">ECMAScript</h6>
+<pre><code class="lang-javascript">var myString = &#39;Example String&#39;;
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">myString = &#39;Example String&#39;
+</code></pre>
+<h6 id="purescript">PureScript</h6>
+<pre><code class="lang-purescript">// TODO
+</code></pre>
+<h6 id="typescript">TypeScript</h6>
+<pre><code class="lang-typescript">var myString = &#39;Example String&#39;;
+</code></pre>
+<h5 id="java">Java</h5>
+<pre><code class="lang-java">String myString = &#39;Example String&#39;;
+</code></pre>
+<h5 id="perl">Perl</h5>
+<pre><code class="lang-perl">my $myString = &#39;Example String&#39;;
+</code></pre>
+<h5 id="php">PHP</h5>
+<pre><code class="lang-php">$myString = &#39;Example String&#39;;
+</code></pre>
+<h5 id="ruby">Ruby</h5>
+<pre><code class="lang-ruby">myString = &#39;Example String&#39;;
+</code></pre>
+<h5 id="python">Python</h5>
+<pre><code class="lang-python">myString = &#39;Example String&#39;
+</code></pre>
+</div>
+<h3 id="string-literals-containing-apostrophes">String Literals Containing Apostrophes</h3>
+<p>When a literal string itself contains apostrophes, it is permitted to demarcate the string with <strong>quotation
+marks</strong> or <strong>double quotes</strong>. This is especially useful for SQL statements:</p>
+<div class="lang-ex">
+<h5 id="c-c-c-35-">C/C++/C&#35;</h5>
+<h6 id="c">C</h6>
+<pre><code class="lang-c">char sql[1000] = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;;
+</code></pre>
+<h6 id="c-">C++</h6>
+<pre><code class="lang-cpp">std::string sql (&quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;);
+</code></pre>
+<h6 id="c-35-">C&#35;</h6>
+<pre><code class="lang-csharp">System.String sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;;
+</code></pre>
+<h5 id="coldfusion">ColdFusion</h5>
+<h6 id="cfml">CFML</h6>
+<pre><code class="lang-xml">&lt;cfset var sql=&quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot; /&gt;
+</code></pre>
+<h6 id="cfscript">CFScript</h6>
+<pre><code class="lang-javascript">var sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;;
+</code></pre>
+<h5 id="dart">Dart</h5>
+<pre><code class="lang-dart">var sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;;
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<h6 id="ecmascript5-and-lower">ECMAScript5 and lower</h6>
+<pre><code class="lang-javascript">var sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;;
+</code></pre>
+<h6 id="ecmascript6">ECMAScript6</h6>
+<pre><code class="lang-javascript">let sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;;
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;
+</code></pre>
+<h6 id="purescript">PureScript</h6>
+<pre><code class="lang-purescript">// TODO
+</code></pre>
+<h6 id="typescript">TypeScript</h6>
+<pre><code class="lang-typescript">var sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;;
+</code></pre>
+<h5 id="java">Java</h5>
+<pre><code class="lang-java">String sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;;
+</code></pre>
+<h5 id="perl">Perl</h5>
+<pre><code class="lang-perl">my $sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;;
+</code></pre>
+<h5 id="php">PHP</h5>
+<pre><code class="lang-php">$sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;;
+</code></pre>
+<h5 id="ruby">Ruby</h5>
+<pre><code class="lang-ruby">sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;;
+</code></pre>
+<h5 id="python">Python</h5>
+<pre><code class="lang-python">sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;;
+</code></pre>
+</div>
+<p>This syntax is preferred over escaping apostrophes as it is much easier to read.</p>
+<h3 id="variable-substitution-string-interpolation">Variable Substitution / String interpolation</h3>
+<p>Variable substitution is permitted using either of these forms:</p>
+<div class="lang-ex">
+<h5 id="c-c-c-35-">C/C++/C&#35;</h5>
+<h6 id="c">C</h6>
+<pre><code class="lang-c">// Using `stdio.h`
+const char \*name = &quot;John Doe&quot;;
+printf(&quot;Hello %s\n&quot;, name);
+// or 
+char hello[100];
+sprintf(hello, &quot;Hello %s&quot;, name)
+</code></pre>
+<h6 id="c-">C++</h6>
+<pre><code class="lang-cpp">// TODO
+</code></pre>
+<h6 id="c-35-">C&#35;</h6>
+<pre><code class="lang-csharp">// TODO
+</code></pre>
+<h5 id="coldfusion">ColdFusion</h5>
+<h6 id="cfml">CFML</h6>
+<pre><code class="lang-xml">&lt;cfset var greeting = &quot;Hello #name#!&quot; /&gt;
+</code></pre>
+<h6 id="cfscript">CFScript</h6>
+<pre><code class="lang-javascript">var name = &#39;John Doe&#39;;
+var greeting = &quot;Hello #name#!&quot;
+</code></pre>
+<h5 id="dart">Dart</h5>
+<p>Dart variable substitution looks more like &#39;string interpolation&#39;. Any other non string variable needs
+to be converted to String to work. See
+<a href="http://shailen.github.io/blog/2012/11/14/dart-string-interpolation/">Dart String Interpolation</a> article.</p>
+<pre><code class="lang-dart">var name = &#39;John Doe&#39;;
+var hello = &quot;Hello ${name}!&quot;;
+var age = 15;
+var hello &quot;Hello \${name}! I&#39;m \${age.toString()} years old.&quot;
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<p>JavasScript (ECMAScript 5 and below) does not have variable substitution, however ECMAScript6 and
+preprocessors do.</p>
+<h6 id="ecmascript5-and-lower">ECMAScript5 and lower</h6>
+<pre><code class="lang-javascript">var name = &#39;John Doe&#39;;
+var hello = &quot;Hello {name}!&quot;.replace(/{name}/, name);
+</code></pre>
+<h6 id="ecmascript6">ECMAScript6</h6>
+<p>Also, both ES6 and Coffee support expressions within their string interpolation wrappings. However, 
+unlike Dart, expressions won&#39;t need <code>toString</code> conversion.</p>
+<pre><code class="lang-javascript">let name = &#39;John Doe&#39;;
+let age = 15;
+let hello = `Hello \${name}! I&#39;m \${age + 10} years old.`;
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">name = &#39;John Doe&#39;
+age = 15
+hello = &quot;Hello #{name}! I&#39;m #{age + 10} years old.&quot;
+</code></pre>
+<h6 id="purescript">PureScript</h6>
+<pre><code class="lang-purescript">// code here
+</code></pre>
+<h6 id="typescript">TypeScript</h6>
+<pre><code class="lang-typescript">let name = &#39;John Doe&#39;;
+let age = 15;
+let hello = `Hello \${name}! I&#39;m \${age + 10} years old.`;
+</code></pre>
+<h5 id="java">Java</h5>
+<p>One of the default string interpolation methods in Java is 
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#format-java.lang.String-java.lang.Object...-"><code>java.lang.String.format()</code></a>
+function. We recommend this one.</p>
+<pre><code class="lang-java">String name = &quot;John Doe&quot;;
+String hello = String.format(&quot;Hello %s&quot;, name);
+</code></pre>
+<h5 id="perl">Perl</h5>
+<pre><code class="lang-perl">my $name = &#39;John Doe&#39;;
+my $hello = &quot;Hello $name&quot;;
+</code></pre>
+<h5 id="php">PHP</h5>
+<p>PHP follows the same rule as Perl, however, it is recommended to wrap the variables within <code>\${}</code></p>
+<pre><code class="lang-php">$greeting = &quot;Hello \{$name}!&quot;;
+// or - a more simple form which does not support complex expressions
+$greeting = &quot;Hello $name!&quot;;
+</code></pre>
+<p>For consistency, this form is <em>not</em> permitted:</p>
+<pre><code class="lang-php">$greeting = &quot;Hello $name!&quot;;
+</code></pre>
+<h5 id="ruby">Ruby</h5>
+<pre><code class="lang-ruby">name = &#39;John Doe&#39;
+hello = &quot;Hello #{name}!&quot;
+</code></pre>
+<h5 id="python">Python</h5>
+<pre><code class="lang-python"># usig the locals() methos
+name = &#39;John Doe&#39;
+hello = &quot;Hello %(name)s!&quot; % locals()
+
+# using the .format() method
+name = &#39;John Doe&#39;
+hello = &quot;Hello {name!s}!&quot;.format(**locals())
+
+# using the Template class
+tmpl = string.Template(&quot;Hello $name!&quot;)
+hello = tmpl.substitute(name=&quot;John Doe&quot;)
+</code></pre>
+</div>
+<h3 id="string-concatenation">String Concatenation</h3>
+<div class="lang-ex">
+<h5 id="c-c-c-35-">C/C++/C&#35;</h5>
+<h6 id="c">C</h6>
+<pre><code class="lang-c">// code here
+</code></pre>
+<h6 id="c-">C++</h6>
+<pre><code class="lang-cpp">// code here
+</code></pre>
+<h6 id="c-35-">C&#35;</h6>
+<pre><code class="lang-csharp">System.String myString = &quot;This string&quot; + &quot;is concatenated.&quot;;
+</code></pre>
+<h5 id="coldfusion">ColdFusion</h5>
+<h6 id="cfml">CFML</h6>
+<pre><code class="lang-xml">&lt;cfset var myString = &#39;This string &#39; &amp; &#39;is concatenated.&#39; /&gt;
+</code></pre>
+<h6 id="cfscript">CFScript</h6>
+<pre><code class="lang-javascript">var myString = &#39;This string &#39; &amp; &#39;is concatenated.&#39;;
+</code></pre>
+<h5 id="dart">Dart</h5>
+<pre><code class="lang-dart">var myString = &#39;This string &#39; + &#39;is concatenated.&#39;;
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<h6 id="ecmascript">ECMAScript</h6>
+<pre><code class="lang-javascript">myString = &#39;This string &#39; + &#39;is concatenated.&#39;;
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">myString = &#39;This string &#39; + &#39;is concatenated.&#39;
+</code></pre>
+<h6 id="purescript">PureScript</h6>
+<pre><code class="lang-purescript">// code here
+</code></pre>
+<h6 id="typescript">TypeScript</h6>
+<pre><code class="lang-typescript">var myString = &#39;This string &#39; + &#39;is concatenated.&#39;;
+</code></pre>
+<h5 id="java">Java</h5>
+<pre><code class="lang-java">java.lang.String myString = &#39;This string &#39; + &#39;is concatenated.&#39;;
+</code></pre>
+<h5 id="perl">Perl</h5>
+<pre><code class="lang-perl">my $myString = &#39;This string &#39; . &#39;is concatenated.&#39;;
+</code></pre>
+<h5 id="php">PHP</h5>
+<pre><code class="lang-php">$myString = &#39;This string &#39; . &#39;is concatenated.&#39;;
+</code></pre>
+<h5 id="ruby">Ruby</h5>
+<pre><code class="lang-ruby">myString = &#39;This string &#39; + &#39;is concatenated.&#39;;
+</code></pre>
+<h5 id="python">Python</h5>
+<pre><code class="lang-python">myString = &#39;This string &#39; + &#39;is concatenated.&#39;
+</code></pre>
+</div>
+</div></div></section></template>

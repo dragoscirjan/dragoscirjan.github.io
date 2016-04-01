@@ -1,0 +1,165 @@
+<template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><h1 id="naming-conventions">Naming Conventions</h1>
+<p class="note"><strong>Note</strong>: This document is a draft and it will remain so. It is your duty as a developer to continuously
+improve this document and your knowledge of this document.</p>
+<p class="note"><strong>Note</strong>: When continuing/extending a 3rd party project, it is recommended to continue with the naming 
+convention imposed/used by that specific project.</p>
+<h2 id="classes">Classes</h2>
+<p>For class naming, it is mandatory to use <a href="https://en.wikipedia.org/wiki/CamelCase">CamelCase</a> naming
+style unless programming language impose otherwise, or project manager / system architect decided
+otherwise. First letter of the class name must also be upper case.</p>
+<pre><code class="lang-java">class MyCamelCaseName
+{
+  // your class code here
+}
+</code></pre>
+<h2 id="functions-methods">Functions/Methods</h2>
+<p>For function/method naming, it is mandatory to use <a href="https://en.wikipedia.org/wiki/CamelCase">camelCase</a> 
+naming style unless programming language impose otherwise, or project manager / system architect decided
+otherwise. Oposed to class names, first letter of the method/function name must be lower case.</p>
+<pre><code class="lang-php">class MyCamelCaseName {
+
+  public function myCamelCaseMethod()
+  {
+    // your function code here
+  }
+
+}
+
+function myCamelCaseFunction()
+{
+  // your function code here
+}
+</code></pre>
+<h2 id="namespaces">Namespaces</h2>
+<p>As much as possible, namespaces will be defined wil lower case and be formed of simpler explanatory 
+words. Namespace naming should always start with the following 3 components</p>
+<ol>
+<li><strong>com</strong> or <strong>org</strong> to disociate commercial projects from open source once</li>
+<li>Project Name or company name followed by project name </li>
+<li>Package name</li>
+</ol>
+<p>Given archiect or manger&#39;s choice, Project/Company name be skipped.</p>
+<pre><code class="lang-java">namespace org.company.project.package.subpackage;
+
+class MyCamelCaseName
+{
+
+}
+</code></pre>
+<p>For some languages, we recommend skipping the <code>org</code> prefix in case of open source packages; however
+in order to avoid namespace colision when both commercial and open source packages are installed,
+the commercial packages should always have the <code>com</code> prefix</p>
+<div class="lang-ex">
+<p>Before <a href="http://en.cppreference.com/w/cpp/language/namespace">C++ v17</a> you could not use nested </p>
+<h5 id="c-c-c-35-">C/C++/C&#35;</h5>
+<pre><code class="lang-cpp">// before C++ v17
+namespace Company_Project_Package_Subpackage
+{
+  // your code here
+}
+
+// after C++ v17
+namespace company::project::package::subpackage
+{
+  // your code here
+}
+</code></pre>
+<pre><code class="lang-csharp">@TODO:
+</code></pre>
+<h5 id="cfml">CFML</h5>
+<p>ColdFusion does not have </p>
+<p><code>org/company/project/package/subpackage/ComponentName.cfc</code></p>
+<pre><code class="lang-xml">&lt;cfcomponent displayName=&quot;ComponentName&quot; output=&quot;no&quot;&gt; 
+  &lt;!-- your code here --&gt;
+&lt;/cfcomponent&gt;
+</code></pre>
+<pre><code class="lang-javascript">component displayName=&#39;ComponentName&#39; output=&#39;no&#39; {
+
+}
+</code></pre>
+<h5 id="dart">Dart</h5>
+<p>Dart does not have namespaces, however, you can emulate it via folders. Dart language has the <code>import</code>
+protocol, for loading a library to another file.</p>
+<p><code>org/company/project/package/subpackage/ClassName.dart</code></p>
+<pre><code class="lang-dart">class ClassName  {
+  // your code here
+}
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<p>Nor Javascript nor CoffeScript won&#39;t have namespaces, however they can be emulated through variables
+and file paths.</p>
+<h6 id="ecmascript5-and-lower">ECMAScript5 and lower</h6>
+<p><code>org/company/package/subpackage/ClassName.js</code></p>
+<pre><code class="lang-javascript">window.org = org || {};
+org.company = org.company || {};
+org.company.package = org.company.package || {};
+org.company.package.subpackage = org.company.package.subpackage || {};
+org.company.package.subpackage.ClassName = function() {
+  // your code here
+};
+</code></pre>
+<h6 id="ecmascript6">ECMAScript6</h6>
+<p><code>org/company/project/package/subpackage/ClassName.js</code></p>
+<pre><code class="lang-javascript">expor class ClassName {
+
+}
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<p><code>org/company/project/package/subpackage/ClassName.coffee</code></p>
+<pre><code class="lang-coffeescript">window.org or= {}
+org.company or= {}
+org.company.package or= {}
+org.company.package.subpackage or= {}
+org.company.package.subpackage.ClassName = class ClassName
+  # your code here
+</code></pre>
+<h6 id="purescript">PureScript</h6>
+<pre><code class="lang-javascript">// @TODO
+</code></pre>
+<h6 id="typescript">TypeScript</h6>
+<pre><code class="lang-typescript">// @TODO
+</code></pre>
+<h5 id="java">Java</h5>
+<pre><code class="lang-java">namespace org.company.project.package.subpackage;
+
+class ClassName {
+
+}
+</code></pre>
+<h5 id="perl">Perl</h5>
+<pre><code class="lang-perl"># @TODO
+</code></pre>
+<h5 id="php">PHP</h5>
+<p>For project that were developed under PHP-5.2 and lower and were not refactored as PHP5.3+ project,
+we standardize on a class naming convention whereby the names of the classes directly map to the
+directories in which they are stored.</p>
+<pre><code class="lang-php">// for php under v5.2
+
+class Company_Project_Package_Subpackage_ClassName {
+
+}
+
+// for php v5.2 and more
+namsespace Company\Project\Package\Subpackage;
+
+class ClassName {
+
+}
+</code></pre>
+<h5 id="ruby">Ruby</h5>
+<pre><code class="lang-ruby"># @TODO
+# https://rubymonk.com/learning/books/1-ruby-primer/chapters/35-modules/lessons/80-modules-as-namespaces
+# http://stackoverflow.com/questions/7821459/whats-the-difference-between-these-ruby-namespace-conventions
+</code></pre>
+<h5 id="python">Python</h5>
+<pre><code class="lang-python"># @TODO
+</code></pre>
+</div>
+<h2 id="folders">Folders</h2>
+<p>@TODO</p>
+<h3 id="frameworks-libraries-modules">Frameworks / Libraries / Modules</h3>
+<p>@TODO
+The root level directory of Zend Framework&#39;s standard library is the &quot;Zend/&quot; directory, whereas the root level directory of Zend Framework&#39;s extras library is the &quot;ZendX/&quot; directory. All Zend Framework classes are stored hierarchically under these root directories.</p>
+<h3 id="applications">Applications</h3>
+<p>@TODO</p>
+</div></div></section></template>

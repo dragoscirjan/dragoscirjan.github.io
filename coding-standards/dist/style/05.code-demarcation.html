@@ -1,0 +1,95 @@
+<template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><h2 id="code-demarcation-and-context-">Code Demarcation (and context)</h2>
+<p>Code demarcation is mostly used by scripting languages (interpreted languages) used mostly for web development. It is a
+way of specify-ing that the script starts at a certain point and ends at another.</p>
+<div class="lang-ex">
+<h5 id="c-c-c-35-">C/C++/C&#35;</h5>
+<p>Neither <strong>C</strong> nor <strong>C++</strong> have code demarcation. This is also valid for C#, unless (ASP) code is embed
+in HTML templates.</p>
+<pre><code class="lang-csharp">&lt;%
+    response.write(&quot;Hello World!&quot;);
+%&gt;
+</code></pre>
+<h5 id="coldfusion">ColdFusion</h5>
+<p>While using CFScript (as a component of CFML), no matter the file type, whether code is embed within
+HTML templates (e.g <strong>cfml</strong> file), or as a standalone class code (e.g. <strong>cfc</strong> file), code must always be
+embed in the <code>&lt;cfscript&gt;</code> tag.</p>
+<pre><code class="lang-xml">&lt;cfscript&gt;
+    writeOutput(&#39;Hello World!&#39;);
+&lt;/cfscript&gt;
+</code></pre>
+<h5 id="dart">Dart</h5>
+<p>Language has no code demarcation unless used within HTML files, where code is marked by <code>&lt;script type=&quot;text/dart&quot;&gt;</code> tag.</p>
+<pre><code class="lang-html">&lt;script type=&quot;text/dart&quot;&gt;
+    main() async {
+        print(&#39;Hello World!&#39;);
+    }
+&lt;/script&gt;
+&lt;!-- or --&gt;
+&lt;script type=&quot;application/dart&quot; src=&quot;app.dart&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;packages/browser/dart.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>Please take in consideration that <strong>ONLY</strong> <a href="https://google.com/chrome">Google Chrome</a> <strong>supports</strong> dart language.</p>
+<h5 id="javascript">JavaScript</h5>
+<p>Language (nor substitutes) do not have code demarcation, unless usest within HTML files when code is marked by <code>&lt;script&gt;</code> tag.</p>
+<h6 id="ecmascript">ECMAScript</h6>
+<pre><code class="lang-html">&lt;!-- JavaScript --&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    document.write(&quot;Hello World!&quot;);
+&lt;/script&gt;
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-html">&lt;script type=”text/coffeescript”&gt;
+    document.write &quot;Hello World!&quot;
+&lt;/script&gt;
+&lt;!-- last script in body --&gt;
+&lt;script type=”text/javascript” src=”http://github.com/jashkenas/coffee-script/raw/master/extras/coffee-script.js&amp;#8221;&gt; &lt;/script&gt;
+</code></pre>
+<h6 id="typescript">TypeScript</h6>
+<pre><code class="lang-html">&lt;script type=&quot;text/typescript&quot; src=&quot;demo.ts&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;typescript.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;typescript.compile.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p class="note"><strong>Note</strong>: CoffeScript and TypeScript are separate programming languages meant to either extend or simplify ECMAScript usage.
+Their use within HTML can only be used by adding 3rd party &#39;compilers&#39; to transpile their content into ECMAScript code and run it.</p>
+<p class="note"><strong>Note</strong>: For <a href="http://www.typescriptlang.org/">TypeScript</a>  please find a transpiler here in <a href="https://github.com/niutech/typescript-compile">typescript-compile</a> project.</p>
+<p class="note"><strong>Note</strong>: For <a href="http://coffeescript.org/">CofeeScript</a> please read more on their <a href="https://github.com/jashkenas/coffeescript">github repository</a>.</p>
+<h5 id="java">Java</h5>
+<p>Language does not have code demarcation unless code is embed in HTML content, when it is wrapped
+by the following marks <code>&lt;% /* code here */ %&gt;</code>.</p>
+<p>Also, for printing the demarcation turns to <code>&lt;%= &quot;Hello World!&quot; %&gt;</code> where the <code>=</code> equals mark is
+equivalent to <code>System.out.println()</code> call.</p>
+<pre><code class="lang-java">    &lt;p&gt;
+        &lt;% String hello = new String(&quot;Hello World!&quot;); %&gt;
+        &lt;%= hello %&gt;
+    &lt;/p&gt;
+</code></pre>
+<h5 id="perl">Perl</h5>
+<p>Perl has no code demarcation. Please read this <a href="http://www.redantigua.com/html-template2.html">article</a>
+to understand how perl is used with HTML templates.</p>
+<h5 id="php">PHP</h5>
+<p>PHP code must always be delimited by the full-form, standard PHP tags:</p>
+<pre><code class="lang-php">&lt;?php
+    echo &quot;Hello World!&quot;
+?&gt;
+</code></pre>
+<p>Short tags are never allowed (due to possible server misconifguration).</p>
+<p>For files that contain only PHP code, the closing tag (&quot;?&gt;&quot;) is never permitted. It is not required
+by PHP, and omitting it´ prevents the accidental injection of trailing white space into the response.</p>
+<pre><code class="lang-php">&lt;?php
+    echo &quot;Hello World!&quot;
+</code></pre>
+<h5 id="ruby">Ruby</h5>
+<p>Ruby has no code demarcation, unless used within <a href="http://www.arubystory.com/2013/11/tutorial-saying-hello-world-with-ruby.html">html templates</a>
+when it uses the same demarcation as <strong>Java</strong>.</p>
+<pre><code class="lang-ruby">    def home
+        @greeting = &quot;Hello world!&quot;
+    end
+</code></pre>
+<pre><code class="lang-html">    &lt;%= @greeting %&gt;
+</code></pre>
+<!-- ##### Python TODO
+
+Python has no code demarcation. -->
+</div>
+<p class="note"><strong>Note</strong>: Absence of Programming Language from the list above suggests it does not have coding demarcation.</p>
+</div></div></section></template>

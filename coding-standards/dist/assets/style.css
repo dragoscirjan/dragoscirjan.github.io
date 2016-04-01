@@ -1,0 +1,35 @@
+pre {
+  border: 0;
+  padding: 0;
+}
+.lang-ex {
+  border-top: 1px #DDD solid;
+  border-bottom: 1px #DDD solid;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.lang-ex .nav-tabs li > a {
+  border: 0;
+  margin-left: 0;
+  padding-left: 0;
+}
+.lang-ex .nav-tabs li > a:hover,
+.lang-ex .nav-tabs li > a:focus {
+  background: transparent;
+  border: 0;
+  color: #00bc8c;
+}
+.lang-ex li.active > a {
+  border: 0;
+}
+.lang-ex li.active > a:hover,
+.lang-ex li.active > a:focus {
+  background: transparent;
+  border: 0;
+  color: #00bc8c;
+}
+.lang-ex .tab-pane {
+  padding-top: 20px;
+}

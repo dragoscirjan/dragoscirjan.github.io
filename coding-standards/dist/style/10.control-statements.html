@@ -1,0 +1,808 @@
+<template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><h2 id="control-statements-loops">Control Statements &amp; Loops</h2>
+<h3 id="initial-notes">Initial Notes</h3>
+<p class="note"><strong>Note</strong>: Do not take in consideration if desired programming language is not present.</p>
+<div class="lang-ex">
+<h5 id="php">PHP</h5>
+<p>Any control statement or loop using syntax inspired from BASIC programming language, are strongly un-adviced, but not forbidden.</p>
+<pre><code class="lang-php">if (_expression_()): // recommended not to use this syntax
+  _action_();
+endif
+
+// should be replaced with
+
+if (_expression_()) {
+  _action_();  
+}
+</code></pre>
+</div>
+<h3 id="if-else-elseif">If/Else/Elseif</h3>
+<p>Control statements based on the if and elseif (elsif/elif) constructs must have a single space before the opening
+parenthesis of the conditional and a single space after the closing parenthesis.</p>
+<p>Within the conditional statements between the parentheses, operators must be separated by spaces for readability.
+Inner parentheses are encouraged to improve logical grouping for larger conditional expressions.</p>
+<p>The opening brace is written on the same line as the conditional statement. The closing brace is always written on its
+own line. Any content within the braces must be indented using four spaces.</p>
+<p class="note"><strong>Note</strong>: In case of CFML, which is a XML like programming language the braces standard will not apply.</p>
+<p class="note"><strong>Note</strong>: Being programming languages based on indentation delimiters and not braces, <strong>CofeeScript</strong> and <strong>Python</strong>
+will not be affected by this standard. Indentation for both languages is 2 spaces, and this should suffice this section.</p>
+<p class="note"><strong>Note</strong>: <strong>Ruby</strong> delimiters are not based on braces, but on <strong>if ... then ... end</strong> format. The parentheses standard
+will apply within this format as well.</p>
+<div class="lang-ex">
+<h5 id="c-c-c-35-">C/C++/C&#35;</h5>
+<pre><code class="lang-c">if (_expression_()) {
+  _action_();
+}
+
+if (_expression_1_() &amp;&amp; _expression_2_()) {
+  _action_();
+}
+</code></pre>
+<h5 id="coldfusion">ColdFusion</h5>
+<h6 id="cfml">CFML</h6>
+<pre><code class="lang-xml">&lt;cfif (_expression_()) &gt;
+  &lt;cfset _action_() /&gt;
+&lt;/cfif&gt;
+
+&lt;cfif (_expression_1_() AND _expression_2_()) &gt;
+  &lt;cfset _action_() /&gt;
+&lt;/cfif&gt;
+</code></pre>
+<h6 id="cfscript">CFScript</h6>
+<pre><code class="lang-javascript">if (_expression_()) {
+  _action_();
+}
+
+if (_expression_1_() &amp;&amp; _expression_2_()) {
+  _action_();
+}
+</code></pre>
+<h5 id="dart">Dart</h5>
+<pre><code class="lang-dart">if (_expression_()) {
+  _action_();
+}
+
+if (_expression_1_() &amp;&amp; _expression_2_()) {
+  _action_();
+}
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<h6 id="ecmascript">ECMAScript</h6>
+<pre><code class="lang-javascript">if (_expression_()) {
+  _action_();
+}
+
+if (_expression_1_() &amp;&amp; _expression_2_()) {
+  _action_();
+}
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">if (_expression_())
+  _action_()
+
+_action_() when (_expression_())
+
+if (_expression_1_() &amp;&amp; _expression_2_())
+  _action_()
+</code></pre>
+<h5 id="java">Java</h5>
+<pre><code class="lang-java">if (_expression_()) {
+  _action_();
+}
+
+if (_expression_1_() &amp;&amp; _expression_2_()) {
+  _action_();
+}
+</code></pre>
+<h5 id="perl">Perl</h5>
+<pre><code class="lang-perl">if (_expression_()) {
+  _action_();
+}
+
+if (_expression_1_() &amp;&amp; _expression_2_()) {
+  _action_();
+}
+</code></pre>
+<h5 id="php">PHP</h5>
+<pre><code class="lang-php">if (_expression_()) {
+  _action_();
+}
+
+if (_expression_1_() &amp;&amp; _expression_2_()) {
+  _action_();
+}
+</code></pre>
+<h5 id="ruby">Ruby</h5>
+<pre><code class="lang-ruby">if (_expression_()) then
+  _action_();
+end
+
+if (_expression_1_() &amp;&amp; _expression_2_()) then
+  _action_();
+end
+</code></pre>
+<h5 id="python">Python</h5>
+<pre><code class="lang-python">if (_expression_()):
+  _action_()
+
+if (_expression_1_() &amp;&amp; _expression_2_()):
+  _action_()
+</code></pre>
+</div>
+<p>If the conditional statement causes the line length to exceed the maximum line length and has several clauses, you may
+break the conditional into multiple lines. In such a case, break the line prior to a logic operator, and pad the line
+such that it aligns under the first character of the conditional clause. The closing parent in the conditional will
+then be placed on a line with the opening brace, with one space separating the two, at an indentation level equivalent
+to the opening control statement.</p>
+<p class="note"><strong>Note</strong>: Being programming languages based on indentation delimiters and not braces, CofeeScript and Python will not be
+affected by this standard. However, if the conditional statement is too large, it can always be broken in multiple inner
+conditions.</p>
+<div class="lang-ex">
+<h5 id="c-c-c-35-">C/C++/C&#35;</h5>
+<pre><code class="lang-c">if ((_very_long_expression_1_())
+    || (_very_long_expression_2_())
+) {
+  _action_();
+}
+</code></pre>
+<h5 id="coldfusion">ColdFusion</h5>
+<h6 id="cfml">CFML</h6>
+<pre><code class="lang-xml">&lt;!--- CFML ---&gt;
+&lt;cfif ((_very_long_expression_1_())
+        OR (_very_long_expression_2_())
+) &gt;
+  &lt;cfset _action_() /&gt;
+&lt;/cfif&gt;
+</code></pre>
+<h6 id="cfscript">CFScript</h6>
+<pre><code class="lang-javascript">if ((_very_long_expression_1_())
+    OR (_very_long_expression_2_())
+) {
+  _action_();
+}
+</code></pre>
+<h5 id="dart">Dart</h5>
+<pre><code class="lang-dart">if ((_very_long_expression_1_())
+    || (_very_long_expression_2_())
+) {
+  _action_();
+}
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<h6 id="ecmascript">ECMAScript</h6>
+<pre><code class="lang-javascript">if ((_very_long_expression_1_())
+    || (_very_long_expression_2_())
+) {
+  _action_();
+}
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">if ((_very_long_expression_1_()) || (_very_long_expression_2_())
+  _action_()
+</code></pre>
+<!-- ###### PureScript
+
+```purescript
+if ((a == b) && (b == c) || (Foo.CONST == d))
+  a = d
+``` -->
+<h5 id="java">Java</h5>
+<pre><code class="lang-java">if ((_very_long_expression_1_())
+    || (_very_long_expression_2_())
+) {
+  _action_();
+}
+</code></pre>
+<h5 id="perl">Perl</h5>
+<pre><code class="lang-perl">if ((_very_long_expression_1_())
+    || (_very_long_expression_2_())
+) {
+  _action_();
+}
+</code></pre>
+<h5 id="php">PHP</h5>
+<pre><code class="lang-php">if ((_very_long_expression_1_())
+    || (_very_long_expression_2_())
+) {
+  _action_();
+}
+</code></pre>
+<h5 id="ruby">Ruby</h5>
+<pre><code class="lang-ruby">if ((_very_long_expression_1_())
+    || (_very_long_expression_2_())
+) then
+  _action_();
+end
+</code></pre>
+<h5 id="python">Python</h5>
+<pre><code class="lang-python">if ((_very_long_expression_1_()) || (_very_long_expression_2_())):
+  _action_()
+</code></pre>
+</div>
+<p>The intention of this latter declaration format is to prevent issues when adding or removing clauses from the
+conditional during later revisions.</p>
+<p>For &quot;if&quot; statements that include &quot;elseif&quot; or &quot;else&quot;, the formatting conventions are similar to the &quot;if&quot; construct. The
+following examples demonstrate proper formatting for &quot;if&quot; statements with &quot;else&quot; and/or &quot;elseif&quot; constructs:</p>
+<div class="lang-ex">
+<h5 id="c-c-c-35-">C/C++/C&#35;</h5>
+<pre><code class="lang-c">if (_expression_()) {
+  _action_();
+} else {
+  _else_action_();
+}
+
+if ((_very_long_expression_1_())
+    || (_very_long_expression_2_())
+) {
+  _action_();
+} else {
+  if (_very_long_expression_3_()) {
+    _elseif_action_();
+  } else {
+    _else_action_();
+  }
+}
+</code></pre>
+<h5 id="coldfusion">ColdFusion</h5>
+<h6 id="cfml">CFML</h6>
+<pre><code class="lang-xml">&lt;cfif _expression_() &gt;
+  &lt;cfset _action_() /&gt;
+&lt;cfelse&gt;
+  &lt;cfset _else_action_() /&gt;
+&lt;/cfif&gt;
+
+&lt;cfif ((_very_long_expression_1_())
+    OR (_very_long_expression_2_())
+) &gt;
+  &lt;cfset _action_() /&gt;
+&lt;cfelseif ((_very_long_expression_3_()) &gt;
+  &lt;cfset _elseif_action_() /&gt;
+&lt;cfelse&gt;
+  &lt;cfset _else_action_() /&gt;
+&lt;/cfif&gt;
+</code></pre>
+<h6 id="cfscript">CFScript</h6>
+<pre><code class="lang-javascript">if (_expression_()) {
+  _action_();
+} else {
+  _else_action_();
+}
+
+if ((_very_long_expression_1_())
+    OR (_very_long_expression_2_())
+) {
+  _action_();
+} else {
+  if (_very_long_expression_3_()) {
+    _elseif_action_();
+  } else {
+    _else_action_();
+  }
+}
+</code></pre>
+<h5 id="dart">Dart</h5>
+<pre><code class="lang-dart">if (_expression_()) {
+  _action_();
+} else {
+  _else_action_();
+}
+
+if ((_very_long_expression_1_())
+    || (_very_long_expression_2_())
+) {
+  _action_();
+} else {
+  if (_very_long_expression_3_()) {
+    _elseif_action_();
+  } else {
+    _else_action_()
+  }
+}
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<h6 id="ecmascript">ECMAScript</h6>
+<pre><code class="lang-javascript">if (_expression_()) {
+  _action_();
+} else {
+  _else_action_();
+}
+
+if ((_very_long_expression_1_())
+    || (_very_long_expression_2_())
+) {
+  _action_();
+} else {
+  if (_very_long_expression_3_()) {
+    _elseif_action_();
+  } else {
+    _else_action_()
+  }
+}
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">if (_expression_())
+  _action_();
+else
+  _else_action_();
+
+if ((_very_long_expression_1_()) || (_very_long_expression_2_())
+  _action_()
+else
+  if (_very_long_expression_3_())
+    _elseif_action_()
+  else
+    _else_action_()
+</code></pre>
+<!-- ###### PureScript
+
+```purescript
+if ((a == b) && (b == c) || (Foo.CONST == d))
+  a = d
+``` -->
+<h5 id="java">Java</h5>
+<pre><code class="lang-java">if (_expression_()) {
+  _action_();
+} else {
+  _else_action_();
+}
+
+if ((_very_long_expression_1_())
+    || (_very_long_expression_2_())
+) {
+  _action_();
+} else {
+  if (_very_long_expression_3_()) {
+    _elseif_action_();
+  } else {
+    _else_action_();
+  }
+}
+</code></pre>
+<h5 id="perl">Perl</h5>
+<pre><code class="lang-perl">if (_expression_()) {
+  _action_();
+} else {
+  _else_action_();
+}
+
+if ((_very_long_expression_1_())
+    || (_very_long_expression_2_())
+) {
+  _action_()
+} elsif (_very_long_expression_3_()) {
+  _elseif_action_();
+} else {
+  _else_action_();
+}
+</code></pre>
+<h5 id="php">PHP</h5>
+<pre><code class="lang-php">if (_expression_()) {
+  _action_();
+} else {
+  _else_action_();
+}
+
+if ((_very_long_expression_1_())
+    || (_very_long_expression_2_())
+) {
+  _action_();
+} else {
+  if (_very_long_expression_3_()) {
+    _action_();
+  } else {
+    _else_action_();
+  }
+}
+</code></pre>
+<h5 id="ruby">Ruby</h5>
+<pre><code class="lang-ruby">if (_expression_()) then
+  _action_();
+else
+  _else_action_();
+end
+
+if ((_very_long_expression_1_())
+    || (_very_long_expression_2_())
+) then
+  _action_();
+elsif (_very_long_expression_3_()) then
+  _elseif_action_();
+else
+  _else_action_();
+end
+</code></pre>
+<h5 id="python">Python</h5>
+<pre><code class="lang-python">if (_expression_()):
+  _action_()
+else:
+  _else_action_()
+
+if (((_very_long_expression_1_()) || (_very_long_expression_2_())):
+  _action_()
+elif (_very_long_expression_3_()):
+  _elseif_action_()
+else:
+  _else_action_()
+</code></pre>
+</div>
+<p>Almost all languages allow statements to be written without braces in some circumstances. This coding 
+standard makes no differentiation all &quot;if&quot;, &quot;elseif&quot; or &quot;else&quot; statements must use braces.</p>
+<p>Furthermore, if STRICT mode is chosen, no &quot;if&quot; statement cannot be defined without having it&#39;s else 
+statement even if empty.</p>
+<p>i.e.</p>
+<pre><code class="lang-php">// STRICT MODE
+if (_expression_()) {
+  _action_();
+} else {
+  // your empty else section
+}
+</code></pre>
+<h3 id="switch">Switch</h3>
+<p>Control statements written with the &quot;switch&quot; statement must have a single space before the opening parenthesis 
+of the conditional statement and after the closing parenthesis.</p>
+<p>All content within the &quot;switch&quot; statement must be indented using four spaces. Content under each &quot;case&quot; statement 
+must be indented using an additional four spaces.</p>
+<p class="note"><strong>Note</strong>: In case of <strong>Perl</strong> programming language, all case section must start with a brace on the same line as 
+the case expression, and end with a brace on a new empty line indented at the same level with the opening case
+expression.</p>
+<p class="note"><strong>Note</strong>: <strong>Python</strong>&#39;s lack of a <code>switch</code> statement has garnered much discussion and even a PEP. The most popular 
+substitute uses dictionaries to map cases to functions, which requires lots of defs or lambdas. While 
+the approach shown here may be O(n) for cases, it aims to duplicate C&#39;s original &#39;switch&#39; functionality 
+and structure with reasonable accuracy. Please read the complete <a href="http://code.activestate.com/recipes/410692/">recipe</a>.  </p>
+<div class="lang-ex">
+<h5 id="c-c-c-35-">C/C++/C&#35;</h5>
+<pre><code class="lang-c">switch (_expression_()) {
+  case 1:
+    _action_1_();
+    break;
+  case 2:
+    _action_2_();
+    break;
+  default:
+    _action_else_();
+    break;
+}
+</code></pre>
+<h5 id="coldfusion">ColdFusion</h5>
+<h6 id="cfml">CFML</h6>
+<pre><code class="lang-xml">&lt;cfswitch _expression_()&gt;
+  &lt;cfcase 1&gt;
+    &lt;cfset _action_1_() /&gt;
+  &lt;/cfcase&gt;
+  &lt;cfcase 2&gt;
+    &lt;cfset _action_2_() /&gt;
+  &lt;/cfcase&gt;
+  &lt;cfdefaultcase&gt;
+    &lt;cfset _action_else_() /&gt;
+  &lt;/cfdefaultcase&gt;
+&lt;/cfswitch&gt;
+</code></pre>
+<h6 id="cfscript">CFScript</h6>
+<pre><code class="lang-javascript">switch (_expression_()) {
+  case 1:
+    _action_1_();
+    break;
+  case 2:
+    _action_2_();
+    break;
+  default:
+    _action_else_();
+    break;
+}
+</code></pre>
+<h5 id="dart">Dart</h5>
+<pre><code class="lang-dart">switch (_expression_()) {
+  case 1:
+    _action_1_();
+    break;
+  case 2:
+    _action_2_();
+    break;
+  default:
+    _action_else_();
+    break;
+}
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<h6 id="ecmascript">ECMAScript</h6>
+<pre><code class="lang-javascript">switch (_expression_()) {
+  case 1:
+    _action_1_();
+    break;
+  case 2:
+    _action_2_();
+    break;
+  default:
+    _action_else_();
+    break;
+}
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">switch (_expression_())
+  when 1 then _action_1_
+  when 2 
+    _action_2_
+  else 
+    _action_else_
+</code></pre>
+<!-- ###### PureScript
+
+```purescript
+// code here
+``` -->
+<h5 id="java">Java</h5>
+<pre><code class="lang-java">switch (_expression_()) {
+  case 1:
+    _action_1_();
+    break;
+  case 2:
+    _action_2_();
+    break;
+  default:
+    _action_else_();
+    break;
+}
+</code></pre>
+<h5 id="perl">Perl</h5>
+<p>TODO: Add comment.</p>
+<pre><code class="lang-perl">switch (_expression_()) {
+  case 1 { 
+    _action_1_(); 
+  }
+  case 2 { 
+    _action_2_(); 
+  }
+  else { 
+    _action_else_(); 
+  }
+}
+</code></pre>
+<h5 id="php">PHP</h5>
+<pre><code class="lang-php">switch (_expression_()) {
+  case 1:
+    _action_1_();
+    break;
+  case 2:
+    _action_2_();
+    break;
+  default:
+    _action_else_();
+    break;
+}
+</code></pre>
+<h5 id="ruby">Ruby</h5>
+<pre><code class="lang-ruby">case (_expression_())
+  when 1
+    _action_1_();
+  when 2
+    _action_2_();
+  else
+    _action_else_();
+end
+
+result = case (_expression_())
+  when 1 then _action_1_();
+  when 2 then _action_2_();
+  else _action_else_();
+end
+
+}
+</code></pre>
+<h5 id="python">Python</h5>
+<pre><code class="lang-python">for case in switch(_expression_())
+  if case(1):
+    _action_1_()
+    break
+  if case(2):
+    _action_2_()
+    break
+  if case(): # default
+    _action_else_()
+    breal
+</code></pre>
+</div>
+<p>The construct default should never be omitted from a switch statement.</p>
+<p><strong>Note:</strong> It is sometimes useful to write a case statement which falls through to the next case by 
+not including a break or return within that case. To distinguish these cases from bugs, any case 
+statement where break or return are omitted should contain a comment indicating that the break was 
+intentionally omitted.</p>
+<h3 id="loops-for-foreach-while-">Loops (for / foreach / while)</h3>
+<p>No loop statement will be used without opening and closing brackets (or similar programming language 
+dependent structures).</p>
+<div class="lang-ex">
+<h5 id="c-c-c-35-">C/C++/C&#35;</h5>
+<h6 id="c-amp-c-">C &amp; C++</h6>
+<pre><code class="lang-c">for (i = 0; i &lt; 10; i++) {
+  _action_();
+}
+
+while (_expression_()) {
+  _action_();
+}
+
+do {
+  _action_();
+} while (_expression_());
+</code></pre>
+<h6 id="c-35-">C&#35;</h6>
+<pre><code class="lang-csharp">for (i = 0; i &lt; 10; i++) {
+  _action_();
+}
+
+while (_expression_()) {
+  _action_();
+}
+
+foreach (value in iterable) {
+  _action_(value);
+}
+
+do {
+  _action_();
+} while (_expression_());
+</code></pre>
+<h5 id="coldfusion">ColdFusion</h5>
+<h6 id="cfml">CFML</h6>
+<pre><code class="lang-xml">&lt;!--- CFML ---&gt;
+&lt;cfloop index=&quot;i&quot; from=&quot;1&quot; to=&quot;#arrayLen(myArray)#&quot;&gt;
+  &lt;cfset _action_(iterable[i]) /&gt;
+&lt;/cfloop&gt;
+
+&lt;cfloop array=&quot;#iterable#&quot; index=&quot;val&quot;&gt;
+  &lt;cfset _action_(val) /&gt;
+&lt;/cfloop&gt;
+
+&lt;cfloop list=&quot;#list#&quot; index=&quot;val&quot;&gt;
+  &lt;cfset _action_(val) /&gt;
+&lt;/cfloop&gt;
+
+&lt;cfloop collection=&quot;#struct#&quot; index=&quot;i&quot;&gt;
+  &lt;cfset _action_(struct[i]) /&gt;
+&lt;/cfloop&gt;
+</code></pre>
+<h6 id="cfscript">CFScript</h6>
+<pre><code class="lang-javascript">for (i EQ 0; i LT 10; i++) {
+  _action_();
+}
+
+while (_expression_()) {
+  _action_();
+}
+
+do {
+  _action_();
+} while (_expression_());
+</code></pre>
+<h5 id="dart">Dart</h5>
+<pre><code class="lang-dart">for (i = 0; i &lt; 10; i++) {
+  _action_();
+}
+
+while (_expression_()) {
+  _action_();
+}
+
+do {
+  _action_();
+} while (_expression_());
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<h6 id="ecmascript">ECMAScript</h6>
+<pre><code class="lang-javascript">for (i = 0; i &lt; 10; i++) {
+  _action_();
+}
+
+for (i in object) {
+  _action_(object[i]);
+}
+
+while (_expression_()) {
+  _action_();
+}
+
+do {
+  _action_();
+} while (_expression_());
+</code></pre>
+<h6 id="ecmascript-6">ECMAScript 6</h6>
+<p>This is in addition to the ones above.</p>
+<pre><code class="lang-javascript">for (val of iterable) {
+  _action_(val);
+}
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">for val in iterable
+  do _action_ val
+
+_action_() while _expression_()
+</code></pre>
+<!-- ###### PureScript
+
+```purescript
+// code here
+``` -->
+<h5 id="java">Java</h5>
+<pre><code class="lang-java">for (i = 0; i &lt; 10; i++) {
+  _action_();
+}
+
+while (_expression_()) {
+  _action_();
+}
+
+do {
+  _action_();
+} while (_expression_());
+</code></pre>
+<h5 id="perl">Perl</h5>
+<pre><code class="lang-perl">for ($i = 0; $i &lt; 10; $i++) {
+  _action_();
+}
+
+foreach $value (@iterable) {
+  _action_($value); 
+}
+
+while (_expression_()) {
+  _action_();
+}
+
+do {
+  _action_();
+} while (_expression_());
+</code></pre>
+<h5 id="php">PHP</h5>
+<pre><code class="lang-php">for ($i = 0; $i &lt; 10; $i++) {
+  _action_();
+}
+
+foreach ($iterable as $key =&gt; $value) {
+  _action_($value);
+}
+
+while (_expression_()) {
+  _action_();
+}
+
+do {
+  _action_();
+} while (_expression_());
+</code></pre>
+<h5 id="ruby">Ruby</h5>
+<pre><code class="lang-ruby">for (val in sequence) do
+  _action_(val);
+end
+
+sequence.each do |val|
+  _action_(val);
+end
+
+while (_expression_()) do
+  _action_();
+end
+
+begin
+  _action_();
+end while (_expression_())
+
+until (_expression_()) do
+  _action_();
+end
+
+begin
+  _action_();
+end until (_expression_())
+</code></pre>
+<h5 id="python">Python</h5>
+<pre><code class="lang-python">for val in sequence:
+  _action_(val)
+
+while (_expression_()):
+  _action_()
+
+while 1:
+  _action_()
+  if (_expression_()):
+  break
+</code></pre>
+</div>
+</div></div></section></template>

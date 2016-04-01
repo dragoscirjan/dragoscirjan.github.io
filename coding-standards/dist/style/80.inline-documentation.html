@@ -1,0 +1,92 @@
+<template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><pre><code>
+## Inline Documentation
+
+### Documentation Format
+
+All documentation blocks (&quot;docblocks&quot;) must be compatible with the phpDocumentor format. Describing the phpDocumentor format is beyond the scope of this document. For more information, visit: [» http://phpdoc.org/](http://www.phpdoc.org/docs/latest/index.html)
+
+All class files must contain a &quot;file-level&quot; docblock at the top of each file and a &quot;class-level&quot; docblock immediately above each class. Examples of such docblocks can be found below.
+
+### Files
+
+Every file that contains PHP code must have a docblock at the top of the file that contains these phpDocumentor tags at a minimum:
+
+```php
+/**
+ * Short description for file
+ *
+ * Long description for file (if any)...
+ *
+ * LICENSE: Some license information
+ *
+ * @copyright  Copyright (c) 2007-2015 Foo Company LTD S.R.L. (http://www.company.foo)
+ * @license    https://github.com/{ACCOUNT/GROUP}/{PROJECT-NAME}/blob/master/LICENSE License Type
+ * @version    $Id:$
+ * @link       https://github.com/{ACCOUNT/GROUP}/{PROJECT-NAME}
+ * @link       https://github.com/{ACCOUNT/GROUP}/{PROJECT-NAME}/issues
+ * @since      File available since Release 1.5.0
+ */
+</code></pre><p>The @category annotation must be a project&#39;s name abbreviation (i.e. &quot;Athem&quot;).</p>
+<p>The @package annotation must be assigned, and should be equivalent to the component name of the class contained in the file; typically, this will only have two segments, the @category prefix, and the component name (i.e. Athem_Soap).</p>
+<p>The @subpackage annotation is optional. If provided, it should be the subcomponent name, minus the class prefix. In the example above, the assumption is that the class in the file is either &quot;Athem_Soap_Client&quot;, or uses that classname as part of its prefix (i.e. Client).</p>
+<h3 id="classes">Classes</h3>
+<p>Every class must have a docblock that contains these phpDocumentor tags at a minimum:</p>
+<pre><code class="lang-php">/**
+ * Short description for class
+ *
+ * Long description for class (if any)...
+ *
+ * @category   Athem
+ * @package    Athem_Soap
+ * @subpackage Client
+ * @version    Release: @package_version@
+ * @since      Class available since Release 1.5.0
+ * @deprecated Class deprecated in Release 2.0.0
+ */
+</code></pre>
+<p>The @category annotation must be a project&#39;s name abbreviation (i.e. &quot;Athem&quot;).</p>
+<p>The @package annotation must be assigned, and should be equivalent to the component name of the class contained in the file; typically, this will only have two segments, the @category prefix, and the component name (i.e. Athem_Soap).</p>
+<p>The @subpackage annotation is optional. If provided, it should be the subcomponent name, minus the class prefix. In the example above, the assumption is that the class in the file is either &quot;Athem_Soap_Client&quot;, or uses that classname as part of its prefix (i.e. Client).</p>
+<p>###Functions</p>
+<p>Every function, including object methods, must have a docblock that contains at a minimum:</p>
+<p>A description of the function</p>
+<p>All of the arguments</p>
+<p>All of the possible return values</p>
+<p>It is not necessary to use the &quot;@access&quot; tag because the access level is already known from the &quot;public&quot;, &quot;private&quot;, or &quot;protected&quot; modifier used to declare the function.</p>
+<p>If a function or method may throw an exception, use @throws for all known exception classes:</p>
+<pre><code class="lang-php">/**
+ * @throws exceptionclass [description]
+ */
+</code></pre>
+<h3 id="in-line-comments">In-line Comments</h3>
+<p>Single line comments should be made using the &quot;//&quot; syntax. Using &quot;#&quot; is not recommended, but not forbidden.</p>
+<p>Multi line comments should always be wrapped between &quot;/<em>&quot; and &quot;</em>/&quot; characters.</p>
+<p>If comment is of stronger importance, comments should follow the example bellow:</p>
+<pre><code class="lang-php">/*************************************************
+ * This is a comment
+ *************************************************/
+
+ Such comments should not exceed more than 5 lines of text, underlining the most important part of documentation.
+
+###Code Examples
+
+Following the phpDocumentor documentation, code examples must have the following syntax:
+
+```php
+/**
+ * My function
+ *
+ * Here is an inline example:
+ * &lt;code&gt;
+ * &lt;?php
+ * echo strlen(&#39;6&#39;);
+ * ?&gt;
+ * &lt;/code&gt;
+ * @example /path/to/example.php How to use this function
+ * @example anotherexample.inc This example is in the &quot;examples&quot; subdirectory
+ */
+function mine()
+{
+}
+</code></pre>
+</div></div></section></template>

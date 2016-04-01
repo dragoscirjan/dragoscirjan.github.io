@@ -1,0 +1,700 @@
+<template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><p>#Coding Style</p>
+<p class="note"><strong>Note</strong>: This file in inspired from <a href="http://framework.zend.com/manual/1.12/en/coding-standard.coding-style.html">Zend Framework&#39;s Coding Standards</a></p>
+<ul>
+<li>@TODO: <a href="http://www.scribd.com/doc/17091861/Cold-Fusion-Coding-Standards">http://www.scribd.com/doc/17091861/Cold-Fusion-Coding-Standards</a></li>
+<li>@TODO: <a href="http://www.slideshare.net/ddspringle1/coldfusion-coding-guidelines">http://www.slideshare.net/ddspringle1/coldfusion-coding-guidelines</a></li>
+<li>@TODO: <a href="http://wiki.coldbox.org/wiki/DevelopmentBestPractices.cfm">http://wiki.coldbox.org/wiki/DevelopmentBestPractices.cfm</a></li>
+<li>@TODO: <a href="http://dnr.alaska.gov/webmasters/ColdfusionStandards2010.pdf">http://dnr.alaska.gov/webmasters/ColdfusionStandards2010.pdf</a></li>
+<li>@TODO: <a href="http://web.archive.org/web/20090330013324/http://livedocs.adobe.com/wtg/public/coding_standards/contents.html">http://web.archive.org/web/20090330013324/http://livedocs.adobe.com/wtg/public/coding_standards/contents.html</a></li>
+</ul>
+<h2 id="cfscript-code-demarcation">CFScript Code Demarcation</h2>
+<p>CFSript code must always be delimited by the full-form, standard <code>&lt;cfscript&gt;</code> tags:</p>
+<pre><code class="lang-cfml">&lt;cfscript&gt;
+// your code here
+&lt;/cfscript&gt;
+</code></pre>
+<p>##Strings</p>
+<p>###String Literals</p>
+<p>When a string is literal (contains no variable substitutions), the apostrophe or &quot;single quote&quot; should always be used to demarcate the string:</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfset var a = &#39;Example String&#39; /&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+var a = &#39;Example String&#39;;
+&lt;/cfscript&gt;
+</code></pre>
+<p>###String Literals Containing Apostrophes</p>
+<p>When a literal string itself contains apostrophes, it is permitted to demarcate the string with quotation marks or &quot;double quotes&quot;. This is especially useful for SQL statements:</p>
+<pre><code class="lang-cfml">&lt;cfquery&gt;
+    SELECT `id`, `name` from `people`
+    WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;
+&lt;/cfquery&gt;
+&lt;!--- or ---&gt;
+&lt;cfset sql=&quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot; /&gt;
+&lt;cfquery&gt;#sql#&lt;/cfquery&gt;
+</code></pre>
+<p>This syntax is preferred over escaping apostrophes as it is much easier to read.</p>
+<p>###Variable Substitution &amp; String Concatenation</p>
+<p>Variable substitution is permitted using either of these form:</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfset var greeting = &quot;Hello #name#, welcome back!&quot; /&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+var greeting = &quot;Hello #name#, welcome back!&quot;;
+&lt;/cfscript&gt;
+</code></pre>
+<p>However we recommend also using the <a href="http://cfdocs.org/replace">Replace</a> functions, or using concatenation syntax.</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfset var greeting = replace(&quot;Hello {name}, welcome back!&quot;, &#39;{name}&#39;, name) /&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+var greeting = replace(&quot;Hello {name}, welcome back!&quot;, &#39;{name}&#39;, name)
+&lt;/cfscript&gt;
+</code></pre>
+<p>or</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfset var greeting = &quot;Hello &quot; &amp; name &amp; &quot;, welcome back!&quot; /&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+var greeting = &quot;Hello &quot; &amp; name &amp; &quot;, welcome back!&quot;;
+&lt;/cfscript&gt;
+</code></pre>
+<p>Strings must be concatenated using the &quot;&amp;&quot; operator. A space must always be added before and after the &quot;&amp;&quot; operator to improve readability.</p>
+<p>When concatenating strings with the &quot;&amp;&quot; operator, it is encouraged to break the statement into multiple lines to improve readability. In these cases, each successive line should be padded with white space such that the &quot;&amp;&quot;; operator is aligned under the &quot;=&quot; operator:</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfset var sqlcmd = &quot;SELECT `id`, `name` FROM `people` &quot;
+                  &amp; &quot;WHERE `name` = &#39;Susan&#39; &quot;
+                  &amp; &quot;ORDER BY `name` ASC &quot; /&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+var sqlcmd = &quot;SELECT `id`, `name` FROM `people` &quot;
+           &amp; &quot;WHERE `name` = &#39;Susan&#39; &quot;
+           &amp; &quot;ORDER BY `name` ASC &quot;;
+&lt;/cfscript&gt;
+</code></pre>
+<p>##Arrays</p>
+<p>###Numerically Indexed Arrays</p>
+<p>Negative numbers are not permitted as indices. Also <strong>zero</strong> is not permitted as indice. An indexed array may start with 1.</p>
+<p>When declaring arrays with the, a trailing space must be added after each comma delimiter to improve readability:</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfset var sampleArray = (1, 2, 3, &#39;Zend&#39;, &#39;Studio&#39;) /&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+var sampleArray = (1, 2, 3, &#39;Zend&#39;, &#39;Studio&#39;);
+&lt;/cfscript&gt;
+</code></pre>
+<p>It is permitted to declare multi-line indexed arrays using the &quot;array&quot; construct. The initial array item may begin on the following line. If so, it should be padded at one indentation level greater than the line containing the array declaration, and all successive lines should have the same indentation; the closing paren should be on a line by itself at the same indentation level as the line containing the array declaration:</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfset var sampleArray = (
+    1, 2, 3, &#39;Zend&#39;, &#39;Studio&#39;,
+    a, b, c,
+    56.44, $d, 500
+) /&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+var sampleArray = (
+    1, 2, 3, &#39;Zend&#39;, &#39;Studio&#39;,
+    a, b, c,
+    56.44, d, 500
+);
+&lt;/cfscript&gt;
+</code></pre>
+<p>###Associative Arrays</p>
+<p>Associative arrays are not present in Cold Fusion. However, you can always partially emulate an associative array using a structure. i.e.:</p>
+<pre><code class="lang-cfml">&lt;cfscript&gt;
+myStruct = DeserializeJSON(&#39;{
+    &quot;x&quot;: 10,
+    &quot;y&quot;: 20
+}&#39;);
+myStructKeys = StructKeyArray(myStruct);
+for (i = 1; i LTE ArrayLen(myStructKeys); i++) {
+    writeDump(myStruct[myStructKeys[i]]);
+}
+&lt;/cfscript&gt;
+</code></pre>
+<p>##Components</p>
+<p>###Components Declaration</p>
+<p>In ColdFusion components (classes) are taking their naming from the file naming, so please name your files according to class naming rules.</p>
+<p>Classes must be named according to project&#39;s naming conventions (decided by developing team).</p>
+<p>For CFScript case, the brace should always be written on the line underneath the class name.</p>
+<p>Every class must have a documentation block that&#39;s similar with Java/PHP documentation blocks. We sugest <a href="http://www.phpdoc.org/">PHPDocumentor</a> standard.</p>
+<p>All code in a class must be indented (see <a href="overview.md">Overview</a>).</p>
+<p>Only one class is permitted in each <strong>cfc</strong> file.</p>
+<p>Placing additional code in class files is <strong>not</strong> permitted and discouraged.</p>
+<p>The following is an example of an acceptable class declaration:</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;!---
+ Documentation Block Here
+---&gt;
+&lt;cfcomponent displayname=&quot;Customer&quot; hint=&quot;ColdFusion Component for Customers&quot;&gt;
+    body contents
+&lt;/cfcomponent&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+/**
+ * Documentation Block Here
+ */
+component displayname=&quot;Customer&quot; hint=&quot;ColdFusion Component for Customers&quot;
+{
+     body contents
+}
+ &lt;/cfscript&gt;
+</code></pre>
+<p>Components that extend other components or which implement interfaces should declare their dependencies on the same line when possible.</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;!--- i.e CartInterface.cfc ---&gt;
+&lt;cfinterface&gt;
+    &lt;cffunction name=add returntype = &quot;numeric&quot; ...&gt;
+        &lt;cfargument name=&quot;product&quot; type=&quot;struct&quot; required=&quot;yes&quot;&gt;
+    &lt;/cffunction&gt;
+&lt;/cfinterface&gt;
+&lt;!--- i.e Cart.cfc ---&gt;
+&lt;cfcomponent implements=&quot;CartInteface&quot;&gt;
+    body contents
+&lt;/cfcomponent&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+/* i.e CartInterface.cfc */
+interface
+{
+    public function add(struct product);
+}
+/* i.e Cart.cfc */
+component implements=&quot;CartInterface&quot;
+{
+    body contents
+}
+ &lt;/cfscript&gt;
+</code></pre>
+<p>If as a result of such declarations, the line length exceeds the maximum line length, break the line before the &quot;extends&quot; and/or &quot;implements&quot; keywords, and pad those lines by one indentation level.</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfcomponent displayName=&quot;Cart&quot;
+    extends=&quot;lib.com.shop.CartAbstract&quot;
+    implements=&quot;lib.com.shop.CartInterface&quot;&gt;
+
+    body contents
+&lt;/cfcomponent&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+component displayName=&quot;Cart&quot;
+    extends=&quot;lib.com.shop.CartAbstract&quot;
+    implements=&quot;lib.com.shop.CartInterface&quot;
+{
+    body contents
+}
+&lt;/cfscript&gt;
+</code></pre>
+<p>###Component Member Variables</p>
+<p>Member variables must be named according to project&#39;s variable naming conventions. If no other convention is chosen, naming will be done according with camel case naming convention (camelCaseNamingConvention).</p>
+<!-- If decided by developer team, private variable naming may contain the underscore "\_" character as a prefix (i.e. \_camelCaseNamingConvention). -->
+<p>Any variables declared in a class must be listed at the top of the class, above the declaration of any methods.</p>
+<!-- The var construct is not permitted. Member variables always declare their visibility by using one of the *private*, *protected*, or *public* modifiers. -->
+<!-- Giving access to member variables directly by declaring them as public is permitted but discouraged in favor of accessor methods (set & get). -->
+<p>##Functions and Methods</p>
+<p>###Function and Method Declaration</p>
+<p><em>Functions</em> must be named according to project&#39;s function naming conventions. If no other convention is chosen, function naming will be done according with serpent case naming convention (serpent_case_naming_convention).</p>
+<p><em>Methods</em> inside classes must always declare their visibility by using one of the <code>private</code>, <a href="https://helpx.adobe.com/coldfusion/cfml-reference/coldfusion-tags/tags-f/cffunction.html"><code>package</code></a>, <code>remote</code>, or <code>public</code> modifiers.</p>
+<p>If no other convention is chosen, method naming will be done according with camel case naming convention (camelCaseNamingConvention).</p>
+<!-- If decided by developer team, private method naming may contain the underscore "\_" character as a prefix (i.e. \_camelCaseNamingConvention). -->
+<p>As with classes, the brace should always be written on the line underneath the function name. Space between the function name and the opening parenthesis for the arguments is not permitted.</p>
+<p><strong>Functions in the global scope are strongly discouraged.</strong></p>
+<p>The following is an example of an acceptable function declaration in a class:</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;!---
+ Documentation Block Here
+---&gt;
+&lt;cfcomponent displayname=&quot;Customer&quot; hint=&quot;ColdFusion Component for Customers&quot;&gt;
+    &lt;cffunction name=&quot;bar&quot; return=&quot;int&quot;&gt;
+        &lt;!--- all contents of function must be indented ---&gt;
+    &lt;/cffunction&gt;
+&lt;/cfcomponent&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+/**
+ * Documentation Block Here
+ */
+component displayname=&quot;Customer&quot; hint=&quot;ColdFusion Component for Customers&quot;
+{
+     public function bar()
+     {
+         // all contents of function must be
+         // indented one additional level
+     }
+}
+ &lt;/cfscript&gt;
+</code></pre>
+<p>For <code>CFML</code> arguments will always be indented with an additional level beyond the function declaration. If argument declaration exceeds the maximum line length, the argument declaration can be split to multiple lines, with the condition that the additional lines will be indented one more level beyond the argument declaration.</p>
+<p>For <code>CFScript</code>, in cases where the argument list exceeds the maximum line length, you may introduce line breaks. Additional arguments to the function or method must be indented one additional level beyond the function or method declaration. A line break should then occur before the closing argument parent, which should then be placed on the same line as the opening brace of the function or method with one space separating the two, and at the same indentation level as the function or method declaration. The following is an example of one such situation:</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;!---
+ Documentation Block Here
+---&gt;
+&lt;cfcomponent displayname=&quot;Customer&quot; hint=&quot;ColdFusion Component for Customers&quot;&gt;
+    &lt;cffunction name=&quot;bar&quot; return=&quot;int&quot;&gt;
+        &lt;cfargument name=&quot;arg1&quot; type=&quot;int&quot; /&gt;
+        &lt;cfargument name=&quot;arg2&quot; type=&quot;int&quot; /&gt;
+        &lt;cfargument name=&quot;arg3&quot; type=&quot;int&quot; /&gt;
+        &lt;cfargument name=&quot;arg4&quot; type=&quot;int&quot; default=&quot;0&quot; /&gt;
+        &lt;cfargument name=&quot;arg5&quot; type=&quot;int&quot; default=&quot;0&quot; /&gt;
+        &lt;cfargument name=&quot;arg6&quot; type=&quot;int&quot; default=&quot;this is a test&quot;
+            hint=&quot;this is a hint for your argument&quot; /&gt;
+
+        &lt;!--- all contents of function must be indented one additional level ---&gt;
+    &lt;/cffunction&gt;
+&lt;/cfcomponent&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+/**
+ * Documentation Block Here
+ */
+component displayname=&quot;Customer&quot; hint=&quot;ColdFusion Component for Customers&quot;
+{
+     public function bar(int arg1, int arg2, int arg3,
+        int arg4 = 0, int arg5 = 0, string arg6 = &quot;this i a test&quot;
+     ) {
+         // all contents of function must be
+         // indented one additional level
+     }
+}
+ &lt;/cfscript&gt;
+</code></pre>
+<p><em>Note</em>: It is recommended a function should not have more than five (5) arguments. If a function must have more than 5 arguments, it is recommended masking the arguments in an additional structure.</p>
+<!--*Note*: Pass-by-reference is the only parameter passing mechanism permitted in a method declaration.
+
+```php
+/**
+ * Documentation Block Here
+ */
+class Foo
+{
+    /**
+     * Documentation Block Here
+     */
+    public function bar(&$baz)
+    {}
+}
+```
+
+Call-time pass-by-reference is strictly prohibited.
+
+The return value must not be enclosed in parentheses. This can hinder readability, in additional to breaking code if a method is later changed to return by reference.
+
+```php
+/**
+ * Documentation Block Here
+ */
+class Foo
+{
+    /**
+     * WRONG
+     */
+    public function bar()
+    {
+        return($this->bar);
+    }
+
+    /**
+     * RIGHT
+     */
+    public function bar()
+    {
+        return $this->bar;
+    }
+}
+``` -->
+<p>###Function and Method Usage</p>
+<p>Function arguments should be separated by a single trailing space after the comma delimiter. The following is an example of an acceptable invocation of a function that takes three arguments:</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfset threeArguments(1, 2, 3); /&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+threeArguments(1, 2, 3);
+&lt;/cfscript&gt;
+</code></pre>
+<!--Call-time pass-by-reference is strictly prohibited. See the function declarations section for the proper way to pass function arguments by-reference.
+
+In passing arrays as arguments to a function, the function call may include the "array" hint and may be split into multiple lines to improve readability. In such cases, the normal guidelines for writing arrays still apply:
+
+```php
+threeArguments(array(1, 2, 3), 2, 3);
+```
+
+```php
+threeArguments(array(
+    1, 2, 3, 'Zend', 'Studio',
+    $a, $b, $c,
+    56.44, $d, 500
+), 2, 3);
+```-->
+<p>If function/method usage exceeds recommended per line length, breaking the statement into multiple lines is recommended. The initial argument must begin on the following line. If so, it should be padded at one indentation level greater than the line containing the array declaration, and all successive lines should have the same indentation; the closing parent should be on a line by itself at the same indentation level as the line containing the function/method declaration.</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfset threeArguments(
+    someVeryLongArgument1,
+    someVeryLongArgument2,
+    someVeryLongArgument3
+); /&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+threeArguments(
+    someVeryLongArgument1,
+    someVeryLongArgument2,
+    someVeryLongArgument3
+);
+&lt;/cfscript&gt;
+</code></pre>
+<p>##Control Statements &amp; Loops</p>
+<p>###If/Else/Elseif</p>
+<p>Control statements based on the if and elseif constructs must have a single space before the opening parenthesis of the conditional and a single space after the closing parenthesis.</p>
+<p>Within the conditional statements between the parentheses, operators must be separated by spaces for readability. Inner parentheses are encouraged to improve logical grouping for larger conditional expressions.</p>
+<p>For CFScript the opening brace is written on the same line as the conditional statement. The closing brace is always written on its own line. Any content within the braces must be indented using four spaces.</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfif ($a NEQ 2) &gt;
+    &lt;cfset a = 2 /&gt;
+&lt;/cfif&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+if (a NEQ 2) {
+    a = 2;
+}
+&lt;/cfscript&gt;
+</code></pre>
+<p>If the conditional statement causes the line length to exceed the maximum line length and has several clauses, you may break the conditional into multiple lines. In such a case, break the line prior to a logic operator, and pad the line such that it aligns under the first character of the conditional clause. The closing parent in the conditional will then be placed on a line with the opening brace, with one space separating the two, at an indentation level equivalent to the opening control statement.</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfif ((a EQ b)
+    AND (b EQ c)
+    OR (&#39;Foo::CONST&#39; EQ d)
+) &gt;
+    &lt;cfset a = d /&gt;
+&lt;/cfif&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+if ((a EQ b)
+    AND (b EQ c)
+    OR (&#39;Foo::CONST&#39; EQ d)
+) {
+    a = d;
+}
+&lt;/cfscript&gt;
+</code></pre>
+<p>The intention of this latter declaration format is to prevent issues when adding or removing clauses from the conditional during later revisions.</p>
+<p>For &quot;if&quot; statements that include &quot;elseif&quot; or &quot;else&quot;, the formatting conventions are similar to the &quot;if&quot; construct. The following examples demonstrate proper formatting for &quot;if&quot; statements with &quot;else&quot; and/or &quot;elseif&quot; constructs:</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfif (a NEQ 2) &gt;
+    &lt;cfset a = 2 /&gt;
+&lt;cfelse &gt;
+    &lt;cfset a = 7 /&gt;
+&lt;/cfif&gt;
+
+&lt;cfif  (a NEQ 2) &gt;
+    &lt;cfset a = 2 /&gt;
+&lt;cfelseif (a EQ 3) &gt;
+    &lt;cfset a = 4 /&gt;
+&lt;cfelse &gt;
+    &lt;cfset a = 7 /&gt;
+&lt;/cfif&gt;
+
+&lt;cfif ((a EQ b)
+    AND (b EQ c)
+    OR (&#39;Foo::CONST&#39; EQ $d)) &gt;
+    &lt;cfset a = d /&gt;
+&lt;cfelseif ((a NEQ b)
+          OR (b NEQ c)) &gt;
+    &lt;cfset a = c /&gt;
+&lt;cfelse &gt;
+    &lt;cfset a = b /&gt;
+&lt;/cfif&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+if (a NEQ 2) {
+    a = 2;
+} else {
+    a = 7;
+}
+
+if (a NEQ 2) {
+    a = 2;
+} elseif (a EQ 3) {
+    a = 4;
+} else {
+    a = 7;
+}
+
+if ((a EQ b)
+    AND (b EQ c)
+    OR (&#39;Foo::CONST&#39; EQ $d)
+) {
+    a = d;
+} elseif ((a NEQ b)
+          OR (b NEQ c)
+) {
+    a = c;
+} else {
+    a = b;
+}
+&lt;/cfscript&gt;
+</code></pre>
+<!--ColdFusion allows statements to be written without braces in some circumstances. This coding standard makes no differentiation all "if", "elseif" or "else" statements must use braces.
+
+Furthermore, if STRICT mode is chosen, no "if" statement cannot be defined without having it's else statement even if empty.
+
+```php
+if ($a == 1) {
+  $a = 2;
+} else {
+
+}-->
+<p>###Switch</p>
+<p>Control statements written with the &quot;switch&quot; statement must have a single space before the opening parenthesis of the conditional statement and after the closing parenthesis.</p>
+<p>All content within the &quot;switch&quot; statement must be indented using four spaces. Content under each &quot;case&quot; statement must be indented using an additional four spaces.</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfswitch expression=&quot;#numPeople#&quot;&gt;  
+    &lt;cfcase value=&quot;1&quot;&gt;
+
+    &lt;/cfcase&gt;  
+    &lt;cfcase value=&quot;2&quot;&gt;  
+
+    &lt;/cfcase&gt;
+    &lt;cfdefaultcase&gt;  
+
+    &lt;/cfdefaultcase&gt;  
+&lt;/cfswitch&gt;
+#phrase#
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+switch (numPeople) {
+    case 1:
+        break;
+
+    case 2:
+        break;
+
+    default:
+        break;
+}
+&lt;/cfscript&gt;
+</code></pre>
+<p>The construct default should never be omitted from a switch statement.</p>
+<p><strong>Note:</strong> It is sometimes useful to write a case statement which falls through to the next case by not including a break or return within that case. To distinguish these cases from bugs, any case statement where break or return are omitted should contain a comment indicating that the break was intentionally omitted.</p>
+<p>###Loops (for / foreach / while)</p>
+<p>No loop statement will be used without opening and closing brackets.</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;cfloop index=&quot;parameter name&quot; from=&quot;beginning value&quot;
+    to=&quot;ending value&quot; step=&quot;increment&quot;&gt;
+        &lt;!--- HTML or CFML code ... ---&gt;
+&lt;/cfloop&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+for (i = 0; i LT 10; i++) {
+    // your code here
+}
+
+while (i GT 0) {
+    // your code here
+}
+
+do {
+    // your code here
+} while (i GT 0);
+&lt;/cfscript&gt;
+</code></pre>
+<p>##Inline Documentation</p>
+<p>###Documentation Format</p>
+<p>All documentation blocks (&quot;docblocks&quot;) must be compatible with the phpDocumentor format. Describing the phpDocumentor format is beyond the scope of this document. For more information, visit: <a href="http://www.phpdoc.org/docs/latest/index.html">» http://phpdoc.org/</a></p>
+<p>All class files must contain a &quot;file-level&quot; docblock at the top of each file and a &quot;class-level&quot; docblock immediately above each class. Examples of such docblocks can be found below.</p>
+<h3 id="files">Files</h3>
+<p>Every file that contains CMLF/CFScript code must have a docblock at the top of the file that contains these phpDocumentor tags at a minimum (we are aware phpDocumentor will not function for ColdFusion, yet we consider it a point of reference):</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;!---
+ Short description for file
+
+ Long description for file (if any)...
+
+ LICENSE: Some license information
+
+ @copyright  Copyright (c) 2007-2015 Foo Company LTD S.R.L. (http://www.company.foo)
+ @license    https://github.com/{ACCOUNT/GROUP}/{PROJECT-NAME}/blob/master/LICENSE License Type
+ @version    $Id:$
+ @link       https://github.com/{ACCOUNT/GROUP}/{PROJECT-NAME}
+ @link       https://github.com/{ACCOUNT/GROUP}/{PROJECT-NAME}/issues
+ @since      File available since Release 1.5.0
+---&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+/**
+ * Short description for file
+ *
+ * Long description for file (if any)...
+ *
+ * LICENSE: Some license information
+ *
+ * @copyright  Copyright (c) 2007-2015 Foo Company LTD S.R.L. (http://www.company.foo)
+ * @license    https://github.com/{ACCOUNT/GROUP}/{PROJECT-NAME}/blob/master/LICENSE License Type
+ * @version    $Id:$
+ * @link       https://github.com/{ACCOUNT/GROUP}/{PROJECT-NAME}
+ * @link       https://github.com/{ACCOUNT/GROUP}/{PROJECT-NAME}/issues
+ * @since      File available since Release 1.5.0
+ */
+&lt;/cfscript&gt;
+</code></pre>
+<p>The @category annotation must be a project&#39;s name abbreviation (i.e. &quot;Athem&quot;).</p>
+<p>The @package annotation must be assigned, and should be equivalent to the component name of the class contained in the file; typically, this will only have two segments, the @category prefix, and the component name (i.e. Athem_Soap).</p>
+<p>The @subpackage annotation is optional. If provided, it should be the subcomponent name, minus the class prefix. In the example above, the assumption is that the class in the file is either &quot;Athem_Soap_Client&quot;, or uses that classname as part of its prefix (i.e. Client).</p>
+<h3 id="classes">Classes</h3>
+<p>Every class must have a docblock that contains these phpDocumentor tags at a minimum:</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;!---
+ Short description for class
+
+ Long description for class (if any)...
+
+ @category   Athem
+ @package    Athem_Soap
+ @subpackage Client
+ @version    Release: @package_version@
+ @since      Class available since Release 1.5.0
+ @deprecated Class deprecated in Release 2.0.0
+---&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+/**
+ * Short description for class
+ *
+ * Long description for class (if any)...
+ *
+ * @category   Athem
+ * @package    Athem_Soap
+ * @subpackage Client
+ * @version    Release: @package_version@
+ * @since      Class available since Release 1.5.0
+ * @deprecated Class deprecated in Release 2.0.0
+ */
+&lt;/cfscript&gt;
+</code></pre>
+<p>The @category annotation must be a project&#39;s name abbreviation (i.e. &quot;Athem&quot;).</p>
+<p>The @package annotation must be assigned, and should be equivalent to the component name of the class contained in the file; typically, this will only have two segments, the @category prefix, and the component name (i.e. Athem_Soap).</p>
+<p>The @subpackage annotation is optional. If provided, it should be the subcomponent name, minus the class prefix. In the example above, the assumption is that the class in the file is either &quot;Athem_Soap_Client&quot;, or uses that classname as part of its prefix (i.e. Client).</p>
+<p>###Functions</p>
+<p>Every function, including object methods, must have a docblock that contains at a minimum:</p>
+<p>A description of the function</p>
+<p>All of the arguments</p>
+<p>All of the possible return values</p>
+<p>If a function or method may throw an exception, use @throws for all known exception classes:</p>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;!---
+ @throws exceptionclass [description]
+---&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+/**
+ * @throws exceptionclass [description]
+ */
+&lt;/cfscript&gt;
+</code></pre>
+<h3 id="in-line-comments">In-line Comments</h3>
+<p>In case of <code>CFScript</code>:</p>
+<ul>
+<li>Single line comments should be made using the &quot;//&quot; syntax.</li>
+<li>Multi line comments should always be wrapped between &quot;/*&quot; and &quot;*/&quot; characters.</li>
+<li>Do not use the double &quot;*&quot; multiline comment for content comments.</li>
+</ul>
+<pre><code class="lang-cfml">&lt;!--- CFML ---&gt;
+&lt;!--- This is a single line comment ---&gt;
+&lt;!---
+ This is a
+ multi line
+ comment
+---&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+// This is a single line comment
+/*
+  This is a
+  multi line
+  comment
+ */
+ &lt;/cfscript&gt;
+
+If comment is of stronger importance, comments should follow the example bellow:
+
+```cfml
+&lt;!--- CFML ---&gt;
+&lt;!------------------------------------------------
+ This is a comment
+-------------------------------------------------&gt;
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+/*************************************************
+ * This is a comment
+ *************************************************/
+ &lt;/cfscript&gt;
+
+ Such comments should not exceed more than 5 lines of text, underlining the most important part of documentation.
+
+###Code Examples
+
+Following the phpDocumentor documentation, code examples must have the following syntax:
+
+```cfml
+&lt;!--- CFML ---&gt;
+&lt;!------------------------------------------------
+ This is a comment
+-------------------------------------------------&gt;
+&lt;!---
+ My function
+
+ Here is an inline example:
+ &lt;code&gt;
+ WriteOutput(mine());
+ &lt;/code&gt;
+ @example /path/to/example.cfc How to use this function
+ @example anotherexample.inc This example is in the &quot;examples&quot; subdirectory
+---&gt;
+&lt;cffunction name=&quot;mine&quot; ... &gt;
+&lt;!--- ... ---&gt;
+&lt;/cffunction&gt;
+
+
+&lt;!--- CFScript ---&gt;
+&lt;cfscript&gt;
+/**
+ * My function
+ *
+ * Here is an inline example:
+ * &lt;code&gt;
+ * WriteOutput(mine());
+ * &lt;/code&gt;
+ * @example /path/to/example.cfc How to use this function
+ * @example anotherexample.inc This example is in the &quot;examples&quot; subdirectory
+ */
+function mine()
+{
+}
+&lt;/cfscript&gt;
+</code></pre>
+<p><hr />
+<a href="naming-conventions.md">&laquo; Naming Conventions</a> / <a href="recommended-tools.md">Recommended Tools &raquo;</a></p>
+</div></div></section></template>

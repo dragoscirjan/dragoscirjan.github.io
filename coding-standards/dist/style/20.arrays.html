@@ -1,0 +1,257 @@
+<template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><h2 id="arrays">Arrays</h2>
+<h3 id="numerically-indexed-arrays">Numerically Indexed Arrays</h3>
+<p>Negative numbers are not permitted as indices in any of the languages presented bellow. Most of the languages bellow
+start their index with 0.</p>
+<div class="lang-ex">
+<h5 id="c-c-c-35-">C/C++/C&#35;</h5>
+<h6 id="c">C</h6>
+<pre><code class="lang-c">int myArray[5] = {16, 2, 77, 40, 12071};
+</code></pre>
+<h6 id="c-">C++</h6>
+<pre><code class="lang-cpp">int myArray[5] = {16, 2, 77, 40, 12071}; 
+int myArray[] = {16, 2, 77, 40, 12071};
+int myArray[] {16, 2, 77, 40, 12071};
+</code></pre>
+<h6 id="c-35-">C&#35;</h6>
+<pre><code class="lang-csharp">int[] myArray = new int[5] {16, 2, 77, 40, 12071};
+</code></pre>
+<h5 id="coldfusion">ColdFusion</h5>
+<h6 id="cfml">CFML</h6>
+<pre><code class="lang-xml">&lt;cfset var myArray = [16, 2, 77, 40, 12071] /&gt;
+&lt;!--- or --&gt;
+&lt;cfset var myArray = ArrayNew() /&gt;
+&lt;cfset myArray[1] = 16 /&gt;
+&lt;!--- ... --&gt;
+&lt;cfset myArray[5] = 120716 /&gt;
+</code></pre>
+<h6 id="cfscript">CFScript</h6>
+<pre><code class="lang-javascript">var myArray = [16, 2, 77, 40, 12071];
+// or
+var myArray = ArrayNew();
+myArray[1] = 16;
+// ...
+myArray[5] = 120716;
+</code></pre>
+<h5 id="dart">Dart</h5>
+<pre><code class="lang-dart">var myArray = [16, 2, 77, 40, 12071];
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<h6 id="ecmascript5-and-lower">ECMAScript5 and lower</h6>
+<pre><code class="lang-javascript">var myArray = [16, 2, 77, 40, 12071];
+</code></pre>
+<h6 id="ecmascript6">ECMAScript6</h6>
+<pre><code class="lang-javascript">var myArray = [16, 2, 77, 40, 12071];
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">myArray = [16, 2, 77, 40, 12071]
+</code></pre>
+<h6 id="purescript">PureScript</h6>
+<pre><code class="lang-purescript">// code here
+</code></pre>
+<h6 id="typescript">TypeScript</h6>
+<pre><code class="lang-typescript">var myArray = [16, 2, 77, 40, 12071];
+</code></pre>
+<h5 id="java">Java</h5>
+<pre><code class="lang-java">int[] myArray = {16, 2, 77, 40, 12071};
+</code></pre>
+<h5 id="perl">Perl</h5>
+<pre><code class="lang-perl">my $myArray = [16, 2, 77, 40, 12071];
+</code></pre>
+<h5 id="php">PHP</h5>
+<pre><code class="lang-php">$myArray = [16, 2, 77, 40, 12071];
+// or 
+$myArray = array(16, 2, 77, 40, 12071);
+</code></pre>
+<h5 id="ruby">Ruby</h5>
+<pre><code class="lang-ruby">myArray = [16, 2, 77, 40, 12071];
+</code></pre>
+<h5 id="python">Python</h5>
+<pre><code class="lang-python">myArray = [16, 2, 77, 40, 12071]
+</code></pre>
+</div>
+<p>It is permitted to declare multi-line indexed arrays using the &quot;array&quot; construct. The initial array item may begin on the
+following line. If so, it should be padded at one indentation level greater than the line containing the array declaration,
+and all successive lines should have the same indentation; the closing parent should be on a line by itself at the same
+indentation level as the line containing the array declaration:</p>
+<div class="lang-ex">
+<h5 id="c-c-c-35-">C/C++/C&#35;</h5>
+<h6 id="c">C</h6>
+<pre><code class="lang-c">int myArray[5] = {16, 2, 77, 
+                  40, 12071};
+</code></pre>
+<h6 id="c-">C++</h6>
+<pre><code class="lang-cpp">int myArray[5] = {16, 2, 77, 
+                  40, 12071}; 
+int myArray[] = {16, 2, 77, 
+                40, 12071};
+int myArray[] {16, 2, 77, 
+              40, 12071};
+</code></pre>
+<h6 id="c-35-">C&#35;</h6>
+<pre><code class="lang-csharp">int[] myArray = new int[5] {16, 2, 77, 
+                            40, 12071};
+</code></pre>
+<h5 id="coldfusion">ColdFusion</h5>
+<h6 id="cfml">CFML</h6>
+<pre><code class="lang-xml">&lt;cfset var myArray = [16, 2, 77, 
+                      40, 12071] /&gt;
+</code></pre>
+<h6 id="cfscript">CFScript</h6>
+<pre><code class="lang-javascript">var myArray = [16, 2, 77, 
+              40, 12071];
+</code></pre>
+<h5 id="dart">Dart</h5>
+<pre><code class="lang-dart">var myArray = [16, 2, 77, 
+              40, 12071];
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<h6 id="ecmascript5-and-lower">ECMAScript5 and lower</h6>
+<pre><code class="lang-javascript">var myArray = [16, 2, 77, 
+              40, 12071];
+</code></pre>
+<h6 id="ecmascript6">ECMAScript6</h6>
+<pre><code class="lang-javascript">var myArray = [16, 2, 77, 
+              40, 12071];
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">myArray = [16, 2, 77, 40, 12071]
+</code></pre>
+<h6 id="purescript">PureScript</h6>
+<pre><code class="lang-purescript">// code here
+</code></pre>
+<h6 id="typescript">TypeScript</h6>
+<pre><code class="lang-typescript">var myArray = [16, 2, 77, 
+              40, 12071];
+</code></pre>
+<h5 id="java">Java</h5>
+<pre><code class="lang-java">int[] myArray = {16, 2, 77, 
+                40, 12071};
+</code></pre>
+<h5 id="perl">Perl</h5>
+<pre><code class="lang-perl">my $myArray = [16, 2, 77, 
+              40, 12071];
+</code></pre>
+<h5 id="php">PHP</h5>
+<pre><code class="lang-php">$myArray = [16, 2, 77, 
+            40, 12071];
+// or for versions lower than php v5.3
+$myArray = array(16, 2, 77, 
+            40, 12071);
+</code></pre>
+<h5 id="ruby">Ruby</h5>
+<pre><code class="lang-ruby">myArray = [16, 2, 77, 
+          40, 12071];
+</code></pre>
+<h5 id="python">Python</h5>
+<pre><code class="lang-python">myArray = [16, 2, 77, 40, 12071]
+</code></pre>
+</div>
+<p>When programming language allows (e.g php) and using this latter declaration, we encourage using a trailing comma for the
+last item in the array; this minimizes the impact of adding new items on successive lines, and helps to ensure no parse
+errors occur due to a missing comma.</p>
+<h3 id="associative-arrays">Associative Arrays</h3>
+<p>When programming language allows (e.g php, javascript) and declaring associative arrays with the Array construct, breaking
+the statement into multiple lines is mandatory. The initial array item must begin on the following line. If so, it should
+be padded at one indentation level greater than the line containing the array declaration, and all successive lines should
+have the same indentation; the closing parent should be on a line by itself at the same indentation level as the line
+containing the array declaration.</p>
+<div class="lang-ex">
+<h5 id="c-c-c-35-">C/C++/C&#35;</h5>
+<h6 id="c">C</h6>
+<h6 id="c-">C++</h6>
+<pre><code class="lang-cpp">std::map &lt;string, string&gt; myMap;
+myMap[&quot;hello&quot;] = &quot;world&quot;;
+// ... 
+myMap[&quot;bie&quot;] = &quot;John&quot;;
+</code></pre>
+<h6 id="c-35-">C&#35;</h6>
+<pre><code class="lang-csharp">Dictionary&lt;string,string&gt; myMap = new Dictionary&lt;string,string&gt;();
+myMap.Add(&quot;hello&quot;,&quot;world&quot;);
+myMap.Add(&quot;bie&quot;,&quot;John&quot;);
+</code></pre>
+<h5 id="coldfusion">ColdFusion</h5>
+<h6 id="cfml">CFML</h6>
+<pre><code class="lang-xml">&lt;cfset myMap = { 
+  hello = &#39;World&#39;, 
+  bie = &#39;John&#39;
+} /&gt;
+&lt;!--- or --&gt;
+&lt;cfset myMap = StructNew() /&gt;
+&lt;cfset myMap.hello = &#39;World&#39; /&gt;
+&lt;cfset myMap.bie = &#39;John&#39; /&gt;
+</code></pre>
+<h6 id="cfscript">CFScript</h6>
+<pre><code class="lang-javascript">myMap = { 
+  hello = &#39;World&#39;, 
+  bie = &#39;John&#39;
+};
+&lt;!--- or --&gt;
+myMap = StructNew();
+myMap.hello = &#39;World&#39;;
+myMap.bie = &#39;John&#39;;
+</code></pre>
+<h5 id="dart">Dart</h5>
+<pre><code class="lang-dart">var myMap = { 
+  hello: &#39;World&#39;, 
+  bie: &#39;John&#39;
+};
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<h6 id="ecmascript">ECMAScript</h6>
+<pre><code class="lang-javascript">var myMap = { 
+  hello: &#39;World&#39;, 
+  bie: &#39;John&#39;
+};
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">myMap =
+  hello: &#39;World&#39;
+  bie: &#39;John&#39;
+</code></pre>
+<h6 id="purescript">PureScript</h6>
+<pre><code class="lang-purescript">// code here
+</code></pre>
+<h6 id="typescript">TypeScript</h6>
+<pre><code class="lang-typescript">var myMap = { 
+  hello: &#39;World&#39;, 
+  bie: &#39;John&#39;
+};
+</code></pre>
+<h5 id="java">Java</h5>
+<pre><code class="lang-java">Map myMap = new HashMap();
+myMap.put(&quot;hello&quot;, &quot;world&quot;);
+myMap.put(&quot;bie&quot;, &quot;John&quot;);
+</code></pre>
+<h5 id="perl">Perl</h5>
+<pre><code class="lang-perl"># TODO
+</code></pre>
+<h5 id="php">PHP</h5>
+<pre><code class="lang-php">$myMap = [ 
+  &#39;hello&#39; =&gt; &#39;World&#39;, 
+  &#39;bie&#39; =&gt; &#39;John&#39;,
+];
+</code></pre>
+<h5 id="ruby">Ruby</h5>
+<pre><code class="lang-ruby">myMap = {
+  &#39;hello&#39; =&gt; &#39;World&#39;,
+  &#39;bie&#39; =&gt; &#39;John&#39;
+}
+
+myMap = { 
+  :hello =&gt; &#39;World&#39;,
+  :bie =&gt; &#39;John&#39;
+}
+
+myMap = {
+  hello: &#39;World&#39;,
+  bie: &#39;John&#39;
+}
+</code></pre>
+<h5 id="python">Python</h5>
+<pre><code class="lang-python">myMap = {hello: &#39;World&#39;, bie: &#39;John&#39;}
+</code></pre>
+</div>
+<p>When language allows it (e.g. php) and using this latter declaration, we encourage using a trailing comma
+for the last item in the array; this minimizes the impact of adding new items on successive lines, and helps to ensure
+no parse errors occur due to a missing comma.</p>
+</div></div></section></template>
