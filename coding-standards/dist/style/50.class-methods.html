@@ -1,69 +1,722 @@
 <template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><h2 id="functions-and-methods">Functions and Methods</h2>
 <h3 id="function-and-method-declaration">Function and Method Declaration</h3>
-<p><em>Functions</em> must be named according to project&#39;s function naming conventions. If no other convention is chosen, function naming will be done according with serpent case naming convention (serpent_case_naming_convention).</p>
-<p><em>Methods</em> inside classes must always declare their visibility by using one of the <code>private</code>, <code>protected</code>, or <code>public</code> modifiers.</p>
-<p>If no other convention is chosen, method naming will be done according with camel case naming convention (camelCaseNamingConvention).</p>
-<p>If decided by developer team, private method naming may contain the underscore &quot;_&quot; character as a prefix (i.e. _camelCaseNamingConvention).</p>
-<p>As with classes, the brace should always be written on the line underneath the function name. Space between the function name and the opening parenthesis for the arguments is not permitted.</p>
+<p><em>Functions</em> must be named according to project&#39;s function naming conventions. If no other convention is chosen, function
+naming will be done according with serpent case naming convention (serpent_case_naming_convention).</p>
+<p>If programming language allows and uses such directives, <em>methods</em> inside classes must always declare their visibility
+by using one of the <code>private</code>, <code>protected</code>, or <code>public</code> modifiers.</p>
+<p>If no other convention is chosen, <em>method</em> naming will be done according with camel case naming convention
+(camelCaseNamingConvention).</p>
+<p>If decided by developer team, private method naming may contain the underscore &quot;_&quot; character as a prefix (i.e.
+_camelCaseNamingConvention).</p>
+<p>As with classes, the brace should always be written on the line underneath the function name. Space between the function
+name and the opening parenthesis for the arguments is not permitted.</p>
+<p>In cases where the argument list exceeds the maximum line length, you may introduce line breaks. Additional arguments to
+the function or method must be indented one additional level beyond the function or method declaration. A line break
+should then occur before the closing argument parent, which should then be placed on the same line as the opening brace
+of the function or method with one space separating the two, and at the same indentation level as the function or method
+declaration.</p>
 <p><strong>Functions in the global scope are strongly discouraged.</strong></p>
 <p>The following is an example of an acceptable function declaration in a class:</p>
-<pre><code class="lang-php">/**
+<div class="lang-ex">
+<h5 id="c-c-c-35-">C/C++/C&#35;</h5>
+<h6 id="c">C</h6>
+<pre><code class="lang-csharp">/**
  * Documentation Block Here
  */
-class Foo
+void functionName()
 {
+  // all contents of method must be indented
+}
+</code></pre>
+<pre><code class="lang-csharp">/**
+* Documentation Block Here
+*/
+int functionName(int arg1, int arg2, int arg3,
+  int arg4, int arg5, int arg6
+) {
+  // all contents of method must be indented
+}
+</code></pre>
+<pre><code class="lang-csharp">/**
+* Documentation Block Here
+*/
+string functionName(
+  string arg1,
+  ClassType arg2,
+  SecondClassType arg3,
+  int arg4,
+  int arg5 = ONE_CONST_VALUE
+) {
+  // all contents of method must be indented
+}
+</code></pre>
+<h6 id="c-">C++</h6>
+<pre><code class="lang-csharp">/**
+ * Documentation Block Here
+ */
+class ClassName
+{
+  public:
     /**
      * Documentation Block Here
      */
-    public function bar()
+    void functionName()
     {
-        // all contents of function must be
-        // indented one additional level
+      // all contents of method must be indented
     }
 }
 </code></pre>
-<p>In cases where the argument list exceeds the maximum line length, you may introduce line breaks. Additional arguments to the function or method must be indented one additional level beyond the function or method declaration. A line break should then occur before the closing argument parent, which should then be placed on the same line as the opening brace of the function or method with one space separating the two, and at the same indentation level as the function or method declaration. The following is an example of one such situation:</p>
-<pre><code class="lang-php">/**
+<pre><code class="lang-csharp">/**
  * Documentation Block Here
  */
-class Foo
+class ClassName
 {
+  public :
     /**
-     * Documentation Block Here
-     */
-    public function bar($arg1, $arg2, $arg3,
-        $arg4, $arg5, $arg6
+    * Documentation Block Here
+    */
+    int functionName(int arg1, int arg2, int arg3,
+      int arg4, int arg5, int arg6
     ) {
-        // all contents of function must be
-        // indented one additional level
+      // all contents of method must be indented
     }
 }
 </code></pre>
-<p><em>Note</em>: It is recommended a function should not have more than five (5) arguments. If a function must have more than 5 arguments, it is recommended masking the arguments in an array.</p>
-<p><em>Note</em>: Pass-by-reference is the only parameter passing mechanism permitted in a method declaration.</p>
+<pre><code class="lang-csharp">/**
+ * Documentation Block Here
+ */
+class ClassName
+{
+  public:
+    /**
+    * Documentation Block Here
+    */
+    string functionName(
+      string arg1,
+      ClassType arg2,
+      SecondClassType arg3,
+      int arg4,
+      int arg5 = ONE_CONST_VALUE
+    ) {
+      // all contents of method must be indented
+    }
+}
+</code></pre>
+<h6 id="c-35-">C&#35;</h6>
+<pre><code class="lang-csharp">/**
+ * Documentation Block Here
+ */
+class ClassName
+{
+  /**
+   * Documentation Block Here
+   */
+  public void functionName()
+  {
+    // all contents of method must be indented
+  }
+}
+</code></pre>
+<pre><code class="lang-csharp">/**
+ * Documentation Block Here
+ */
+class ClassName
+{
+  /**
+   * Documentation Block Here
+   */
+  public int functionName(int arg1, int arg2, int arg3,
+    int arg4, int arg5, int arg6
+  ) {
+    // all contents of method must be indented
+  }
+}
+</code></pre>
+<pre><code class="lang-csharp">/**
+ * Documentation Block Here
+ */
+class ClassName
+{
+  /**
+   * Documentation Block Here
+   */
+  public String functionName(
+    String arg1,
+    ClassType arg2,
+    SecondClassType arg3,
+    int arg4,
+    int arg5 = ClassName.ONE_CONST_VALUE
+  ) {
+    // all contents of method must be indented
+  }
+}
+</code></pre>
+<h5 id="coldfusion">ColdFusion</h5>
+<h6 id="cfml">CFML</h6>
+<pre><code class="lang-xml">&lt;!---
+  Documentation Block Here
+---&gt;
+&lt;cfcomponent displayName=&quot;ComponentName&quot; output=&quot;no&quot;&gt;
+  &lt;!---
+    Documentation Block Here
+   ---&gt;
+  &lt;cffunction name=&quot;functionName&quot; access=&quot;public&quot; displayName=&quot;functionname&quot; output=&quot;no&quot;&gt;
+    &lt;!--- all contents of method must be indented ---&gt;
+  &lt;/cffunction&gt;
+&lt;cfcomponent&gt;
+</code></pre>
+<pre><code class="lang-xml">&lt;!---
+  Documentation Block Here
+---&gt;
+&lt;cfcomponent displayName=&quot;ComponentName&quot; output=&quot;no&quot;&gt;
+  &lt;!---
+    Documentation Block Here
+   ---&gt;
+  &lt;cffunction name=&quot;functionName&quot; access=&quot;public&quot; displayName=&quot;functionname&quot; output=&quot;no&quot;&gt;
+    &lt;cfargument name=&quot;arg1&quot; type=&quot;string&quot; required=&quot;true&quot; /&gt;
+    &lt;cfargument name=&quot;arg2&quot; type=&quot;org.company.project.package.ComponentType&quot; required=&quot;true&quot; /&gt;
+    &lt;cfargument name=&quot;arg3&quot; type=&quot;org.company.project.package.SecondComponenType&quot; required=&quot;true&quot; /&gt;
+    &lt;cfargument name=&quot;arg4&quot; type=&quot;numeric&quot; required=&quot;true&quot; /&gt;
+    &lt;cfargument name=&quot;arg5&quot; type=&quot;numeric&quot; required=&quot;false&quot; default=&quot;org.company.project.package.ComponentName.ONE_CONST_VALUE&quot; /&gt;
+    &lt;!--- all contents of method must be indented ---&gt;
+  &lt;/cffunction&gt;
+&lt;cfcomponent&gt;
+</code></pre>
+<h6 id="cfscript">CFScript</h6>
+<pre><code class="lang-javascript">/**
+ * Documentation Block Here
+ */
+component displayName=&#39;ClassName&#39; output=&#39;no&#39;
+{
+  /**
+   * Documentation Block Here
+   */
+  public string function functionName()
+  {
+    // all contents of method must be indented
+  }
+}
+</code></pre>
+<pre><code class="lang-javascript">/**
+ * Documentation Block Here
+ */
+component displayName=&#39;ClassName&#39; output=&#39;no&#39;
+{
+  /**
+   * Documentation Block Here
+   */
+  public string function functionName(numeric arg1, numeric arg2, numeric arg3,
+    numeric arg4, numeric arg5, numeric arg6
+  ) {
+    // all contents of method must be indented
+  }
+}
+</code></pre>
+<pre><code class="lang-javascript">/**
+ * Documentation Block Here
+ */
+component displayName=&#39;ClassName&#39; output=&#39;no&#39;
+{
+  /**
+   * Documentation Block Here
+   */
+  public string function functionName(
+    required string arg1,
+    required org.company.project.package.ComponentType arg2,
+    required org.company.project.package.SecondComponentType arg3,
+    required numeric arg4,
+    numeric arg5 = ClassName.ONE_CONST_VALUE
+  ) {
+    // all contents of method must be indented
+  }
+}
+</code></pre>
+<h5 id="dart">Dart</h5>
+<pre><code class="lang-dart">/**
+ * Documentation Block Here
+ */
+class ClassName
+{
+  /**
+   * Documentation Block Here
+   */
+  void functionName()
+  {
+    // all contents of method must be indented
+  }
+}
+</code></pre>
+<pre><code class="lang-dart">/**
+ * Documentation Block Here
+ */
+class ClassName
+{
+  /**
+   * Documentation Block Here
+   */
+  int functionName(int arg1, int arg2, int arg3,
+    int arg4, int arg5, int arg6
+  ) {
+    // all contents of method must be indented
+  }
+}
+</code></pre>
+<pre><code class="lang-dart">/**
+ * Documentation Block Here
+ */
+class ClassName
+{
+  /**
+   * Documentation Block Here
+   */
+  String functionName(
+    String arg1,
+    ClassType arg2,
+    SecondClassType arg3,
+    int arg4,
+    arg5 = ClassName.ONE_CONST_VALUE
+  ) {
+    // all contents of method must be indented
+  }
+}
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<h6 id="ecmascript5-and-lower">ECMAScript5 and lower</h6>
+<pre><code class="lang-javascript">/**
+ * Documentation Block Here
+ */
+org.company.project.package.ClassName = function()
+{
+  // all contents of method must be indented
+}
+
+/**
+ * Documentation Block Here
+ */
+org.company.project.package.ClassName.prototype.functionName = function()
+{
+  // all contents of method must be indented
+}
+</code></pre>
+<pre><code class="lang-javascript">/**
+ * Documentation Block Here
+ */
+org.company.project.package.ClassName = function()
+{
+  // all contents of method must be indented
+}
+
+/**
+ * Documentation Block Here
+ */
+org.company.project.package.ClassName.prototype.functionName(arg1, arg2, arg3,
+  arg4, arg5, arg6)
+{
+  // all contents of method must be indented
+}
+</code></pre>
+<h6 id="ecmascript6">ECMAScript6</h6>
+<pre><code class="lang-javascript">/**
+ * Documentation Block Here
+ */
+class ClassName
+{
+  /**
+   * Documentation Block Here
+   */
+  functionName()
+  {
+    // all contents of method must be indented
+  }
+}
+</code></pre>
+<pre><code class="lang-javascript">/**
+ * Documentation Block Here
+ */
+class ClassName
+{
+  /**
+   * Documentation Block Here
+   */
+  functionName(arg1, arg2, arg3,
+    arg4, arg5 = ClassName.ONE_CONST_VALUE
+  ) {
+    // all contents of method must be indented
+  }
+}
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">#
+# Documentation Block Here
+#
+class ClassName
+
+  #
+  # Documentation Block Here
+  #
+  functionName: -&gt;
+    # all contents of method must be indented
+</code></pre>
+<pre><code class="lang-coffeescript">#
+# Documentation Block Here
+#
+class ClassName
+
+  #
+  # Documentation Block Here
+  #
+  functionName: (arg1, arg2, arg3, arg4, arg5 = @ONE_CONST_VALUE) -&gt;
+    # all contents of method must be indented
+</code></pre>
+<!-- ###### PureScript
+
+```purescript
+// TODO
+``` -->
+<h6 id="typescript">TypeScript</h6>
+<pre><code class="lang-typescript">/**
+ * Documentation Block Here
+ */
+class ClassName
+{
+  /**
+   * Documentation Block Here
+   */
+  void functionName()
+  {
+    // all contents of method must be indented
+  }
+}
+</code></pre>
+<pre><code class="lang-typescript">/**
+ * Documentation Block Here
+ */
+class ClassName
+{
+  /**
+   * Documentation Block Here
+   */
+  int functionName(int : arg1, int : arg2, int : arg3,
+    int : arg4, int : arg5, int : arg6
+  ) {
+    // all contents of method must be indented
+  }
+}
+</code></pre>
+<pre><code class="lang-typescript">/**
+ * Documentation Block Here
+ */
+class ClassName
+{
+  /**
+   * Documentation Block Here
+   */
+  String functionName(
+    String : arg1,
+    ClassType : arg2,
+    SecondClassType : arg3,
+    int : arg4,
+    arg5 = ClassName.ONE_CONST_VALUE
+  ) {
+    // all contents of method must be indented
+  }
+}
+</code></pre>
+<h5 id="java">Java</h5>
+<pre><code class="lang-java">/**
+ * Documentation Block Here
+ */
+class ClassName
+{
+  /**
+   * Documentation Block Here
+   */
+  public void functionName()
+  {
+    // all contents of method must be indented
+  }
+}
+</code></pre>
+<pre><code class="lang-java">/**
+ * Documentation Block Here
+ */
+class ClassName
+{
+  /**
+   * Documentation Block Here
+   */
+  public int functionName(int arg1, int arg2, int arg3,
+    int arg4, int arg5, int arg6
+  ) {
+    // all contents of method must be indented
+  }
+}
+</code></pre>
+<pre><code class="lang-java">/**
+ * Documentation Block Here
+ */
+class ClassName
+{
+  /**
+   * Documentation Block Here
+   */
+  public String functionName(
+    String arg1,
+    ClassType arg2,
+    SecondClassType arg3,
+    int arg4,
+    int arg5 = ClassName.ONE_CONST_VALUE
+  ) {
+    // all contents of method must be indented
+  }
+}
+</code></pre>
+<h5 id="perl">Perl</h5>
+<pre><code class="lang-perl"># TODO
+</code></pre>
+<h5 id="php">PHP</h5>
 <pre><code class="lang-php">/**
  * Documentation Block Here
  */
-class Foo
+class ClassName
+{
+  /**
+   * Documentation Block Here
+   */
+  public function functionName()
+  {
+    // all contents of method must be indented
+  }
+}
+</code></pre>
+<pre><code class="lang-php">/**
+ * Documentation Block Here
+ */
+class ClassName
+{
+  /**
+   * Documentation Block Here
+   */
+  public function functionName($arg1, $arg2, $arg3,
+      $arg4, $arg5, $arg6
+  ) {
+    // all contents of method must be indented
+  }
+}
+</code></pre>
+<pre><code class="lang-php">/**
+ * Documentation Block Here
+ */
+class ClassName
+{
+  /**
+   * Documentation Block Here
+   */
+  public function functionName(
+    string $arg1,
+    ClassType $arg2,
+    SecondClassType $arg3,
+    int $arg4,
+    $arg5 = ClassName::ONE_CONST_VALUE
+  ) {
+    // all contents of method must be indented
+  }
+}
+</code></pre>
+<h5 id="ruby">Ruby</h5>
+<pre><code class="lang-ruby">#
+# Documentation Block Here
+#
+class ClassName
+
+  #
+  # Documentation Block Here
+  #
+  def functionName()
+    # all contents of method must be indented
+  end
+end
+</code></pre>
+<pre><code class="lang-ruby">#
+# Documentation Block Here
+#
+class ClassName
+
+  #
+  # Documentation Block Here
+  #
+  def functionName(arg1, arg2, arg3,
+    arg4, arg5 = ClassName.ONE_CONST_VALUE
+  )
+    # all contents of method must be indented
+  end
+end
+</code></pre>
+<h5 id="python">Python</h5>
+<pre><code class="lang-python">#
+# Documentation Block Here
+#
+class ClassName:
+
+  #
+  # Documentation Block Here
+  #
+  def functionName():
+    # all contents of method must be indented
+</code></pre>
+<pre><code class="lang-python">#
+# Documentation Block Here
+#
+class ClassName:
+
+  #
+  # Documentation Block Here
+  #
+  def functionName(arg1, arg2, arg3, arg4, arg5 = ClassName.ONE_CONST_VALUE):
+    # all contents of method must be indented
+</code></pre>
+</div>
+<p><em>Note</em>: It is recommended a function should not have more than five (5) arguments. If a function must have more than 5
+arguments, it is recommended masking the arguments in an array.</p>
+<p><em>Note</em>: Pass-by-reference is the only parameter passing mechanism permitted in a method declaration.</p>
+<div class="lang-ex">
+<h5 id="c-c-c-35-">C/C++/C&#35;</h5>
+<h6 id="c">C</h6>
+<pre><code class="lang-csharp">/**
+ * Documentation Block Here
+ */
+void functionName(int *v)
+{
+
+}
+</code></pre>
+<h6 id="c-">C++</h6>
+<pre><code class="lang-csharp">/**
+ * Documentation Block Here
+ */
+class ClassName
+{
+  public:
+    /**
+     * Documentation Block Here
+     */
+    void functionName(int *v)
+    {
+      // all contents of method must be indented
+    }
+}
+</code></pre>
+<h6 id="c-35-">C&#35;</h6>
+<pre><code class="lang-csharp">/**
+ * Documentation Block Here
+ */
+class ClassName
+{
+  public void functionName(ref int v)
+    {
+      // all contents of method must be indented
+    }
+}
+</code></pre>
+<!-- ##### ColdFusion
+
+###### CFML
+
+```xml
+```
+###### CFScript
+
+```javascript
+// code here
+```
+
+#####  Dart
+
+```dart
+// code here
+```
+
+##### JavaScript
+
+###### ECMAScript5 and lower
+
+```javascript
+// code here
+```
+
+###### ECMAScript6
+
+```javascript
+// code here
+```
+
+###### CoffeeScript
+```coffeescript
+# code here
+```
+
+###### PureScript
+
+```purescript
+// code here
+```
+
+###### TypeScript
+
+```typescript
+// code here
+```
+
+##### Java
+
+```java
+// code here
+```
+
+#####  Perl
+
+```perl
+# code here
+``` -->
+<h5 id="php">PHP</h5>
+<pre><code class="lang-php">/**
+ * Documentation Block Here
+ */
+class ClassName
 {
     /**
      * Documentation Block Here
      */
-    public function bar(&amp;$baz)
+    public function methodName(&amp;$baz)
     {}
 }
 </code></pre>
-<p>Call-time pass-by-reference is strictly prohibited.</p>
-<p>The return value must not be enclosed in parentheses. This can hinder readability, in additional to breaking code if a method is later changed to return by reference.</p>
-<pre><code class="lang-php">/**
+<!-- ##### Ruby
+
+```ruby
+// code here
+```-->
+<h5 id="python">Python</h5>
+<pre><code class="lang-python"># code here
+``` --&gt;
+&lt;!-- --lang-ex-end --&gt;
+
+
+Call-time pass-by-reference is strictly prohibited.
+
+The return value must not be enclosed in parentheses. This can hinder readability, in additional to breaking code if a
+method is later changed to return by reference.
+
+&lt;!-- ```php
+/**
  * Documentation Block Here
  */
-class Foo
+class ClassName
 {
     /**
      * WRONG
      */
-    public function bar()
+    public function functionName()
     {
         return($this-&gt;bar);
     }
@@ -71,31 +724,254 @@ class Foo
     /**
      * RIGHT
      */
-    public function bar()
+    public function functionName()
     {
         return $this-&gt;bar;
     }
 }
+``` --&gt;
+
+### Function and Method Usage
+
+Function arguments should be separated by a single trailing space after the comma delimiter. The following is an example
+of an acceptable invocation of a function that takes three arguments:
+
+```javascript
+threeArguments(1, 2, 3);
 </code></pre>
-<h3 id="function-and-method-usage">Function and Method Usage</h3>
-<p>Function arguments should be separated by a single trailing space after the comma delimiter. The following is an example of an acceptable invocation of a function that takes three arguments:</p>
-<pre><code class="lang-php">threeArguments(1, 2, 3);
+<p>Call-time pass-by-reference is strictly prohibited. See the function declarations section for the proper way to pass
+function arguments by-reference.</p>
+<p>In passing arrays as arguments to a function, the function call may include the &quot;array&quot; hint and may be split into
+multiple lines to improve readability. In such cases, the normal guidelines for writing arrays still apply:</p>
+<div class="lang-ex">
+<!-- ##### C/C++/C&#35;
+
+###### C
+
+```c
+threeArguments(array(1, 2, 3), 2, 3);
+```
+```c
+threeArguments(1, 2, 3,
+  a, b, c,
+  56.44, d, 500
+  2, 3);
+```
+
+###### C++
+
+```cpp
+threeArguments(array(1, 2, 3), 2, 3);
+```
+```cpp
+threeArguments(1, 2, 3,
+  a, b, c,
+  56.44, d, 500
+  2, 3);
+```
+
+###### C&#35;
+
+```csharp
+threeArguments(array(1, 2, 3), 2, 3);
+```
+```csharp
+threeArguments(1, 2, 3,
+  a, b, c,
+  56.44, d, 500
+  2, 3);
+``` -->
+<h5 id="coldfusion">ColdFusion</h5>
+<h6 id="cfml">CFML</h6>
+<pre><code class="lang-xml">&lt;cfset threeArguments(array(1, 2, 3), 2, 3) /&gt;
 </code></pre>
-<p>Call-time pass-by-reference is strictly prohibited. See the function declarations section for the proper way to pass function arguments by-reference.</p>
-<p>In passing arrays as arguments to a function, the function call may include the &quot;array&quot; hint and may be split into multiple lines to improve readability. In such cases, the normal guidelines for writing arrays still apply:</p>
+<pre><code class="lang-xml">&lt;cfset threeArguments(array(
+    1, 2, 3, &#39;Zend&#39;, &#39;Studio&#39;,
+    a, b, c,
+    56.44, d, 500
+  ), 2, 3) /&gt;
+</code></pre>
+<h6 id="cfscript">CFScript</h6>
+<pre><code class="lang-csharp">threeArguments(array(1, 2, 3), 2, 3);
+</code></pre>
+<pre><code class="lang-csharp">threeArguments(array(
+    1, 2, 3, &#39;Zend&#39;, &#39;Studio&#39;,
+    a, b, c,
+    56.44, d, 500
+  ), 2, 3);
+</code></pre>
+<h5 id="dart">Dart</h5>
+<pre><code class="lang-javascript">threeArguments([1, 2, 3], 2, 3);
+</code></pre>
+<pre><code class="lang-javascript">threeArguments([
+    1, 2, 3, &#39;Zend&#39;, &#39;Studio&#39;,
+    a, b, c,
+    56.44, d, 500
+  ], 2, 3);
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<h6 id="ecmascript">ECMAScript</h6>
+<pre><code class="lang-javascript">threeArguments([1, 2, 3], 2, 3);
+</code></pre>
+<pre><code class="lang-javascript">threeArguments([
+    1, 2, 3, &#39;Zend&#39;, &#39;Studio&#39;,
+    a, b, c,
+    56.44, d, 500
+  ], 2, 3);
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">threeArguments([1, 2, 3], 2, 3)
+</code></pre>
+<pre><code class="lang-coffeescript">threeArguments([
+    1, 2, 3, &#39;Zend&#39;, &#39;Studio&#39;,
+    a, b, c,
+    56.44, d, 500
+  ], 2, 3)
+</code></pre>
+<!-- ###### PureScript
+
+```purescript
+// code here
+``` -->
+<h6 id="typescript">TypeScript</h6>
+<pre><code class="lang-javascript">threeArguments([1, 2, 3], 2, 3);
+</code></pre>
+<pre><code class="lang-javascript">threeArguments([
+    1, 2, 3, &#39;Zend&#39;, &#39;Studio&#39;,
+    a, b, c,
+    56.44, d, 500
+  ], 2, 3);
+</code></pre>
+<!-- ##### Java
+
+```java
+// code here
+```
+
+#####  Perl
+
+```perl
+# code here
+``` -->
+<h5 id="php">PHP</h5>
 <pre><code class="lang-php">threeArguments(array(1, 2, 3), 2, 3);
 </code></pre>
 <pre><code class="lang-php">threeArguments(array(
     1, 2, 3, &#39;Zend&#39;, &#39;Studio&#39;,
     $a, $b, $c,
     56.44, $d, 500
-), 2, 3);
+  ), 2, 3);
 </code></pre>
-<p>If function/method usage exceeds recommended per line length, breaking the statement into multiple lines is recommended. The initial argument must begin on the following line. If so, it should be padded at one indentation level greater than the line containing the array declaration, and all successive lines should have the same indentation; the closing parent should be on a line by itself at the same indentation level as the line containing the function/method declaration.</p>
-<pre><code class="lang-php">threeLongArguments(
-    $someVeryLongArgument1,
-    $someVeryLongArgument2,
-    $someVeryLongArgument3
+<h5 id="ruby">Ruby</h5>
+<pre><code class="lang-ruby">threeArguments([1, 2, 3], 2, 3)
+</code></pre>
+<pre><code class="lang-ruby">threeArguments([
+    1, 2, 3, &#39;Zend&#39;, &#39;Studio&#39;,
+    a, b, c,
+    56.44, d, 500
+  ], 2, 3)
+</code></pre>
+<h5 id="python">Python</h5>
+<pre><code class="lang-python">threeArguments([1, 2, 3], 2, 3)
+</code></pre>
+<pre><code class="lang-python">threeArguments([
+    1, 2, 3, &#39;Zend&#39;, &#39;Studio&#39;,
+    a, b, c,
+    56.44, d, 500
+  ], 2, 3);
+</code></pre>
+</div>
+<p>If function/method usage exceeds recommended per line length, breaking the statement into multiple lines is recommended.
+The initial argument must begin on the following line. If so, it should be padded at one indentation level greater than
+the line containing the array declaration, and all successive lines should have the same indentation; the closing parent
+should be on a line by itself at the same indentation level as the line containing the function/method declaration.</p>
+<div class="lang-ex">
+<h5 id="c-c-c-35-">C/C++/C&#35;</h5>
+<pre><code class="lang-csharp">threeLongArguments(
+  someVeryLongArgument1,
+  someVeryLongArgument2,
+  someVeryLongArgument3
 );
 </code></pre>
+<h5 id="coldfusion">ColdFusion</h5>
+<h6 id="cfml">CFML</h6>
+<pre><code class="lang-xml">&lt;cfset threeLongArguments(
+  someVeryLongArgument1,
+  someVeryLongArgument2,
+  someVeryLongArgument3
+) /&gt;
+</code></pre>
+<h6 id="cfscript">CFScript</h6>
+<pre><code class="lang-javascript">threeLongArguments(
+  someVeryLongArgument1,
+  someVeryLongArgument2,
+  someVeryLongArgument3
+);
+</code></pre>
+<h5 id="dart">Dart</h5>
+<pre><code class="lang-javascript">threeLongArguments(
+  someVeryLongArgument1,
+  someVeryLongArgument2,
+  someVeryLongArgument3
+);
+</code></pre>
+<h5 id="javascript">JavaScript</h5>
+<h6 id="ecmascript">ECMAScript</h6>
+<pre><code class="lang-javascript">threeLongArguments(
+  someVeryLongArgument1,
+  someVeryLongArgument2,
+  someVeryLongArgument3
+);
+</code></pre>
+<h6 id="coffeescript">CoffeeScript</h6>
+<pre><code class="lang-coffeescript">threeLongArguments(
+  someVeryLongArgument1,
+  someVeryLongArgument2,
+  someVeryLongArgument3
+)
+</code></pre>
+<!-- ###### PureScript
+
+```purescript
+// code here
+``` -->
+<h6 id="typescript">TypeScript</h6>
+<pre><code class="lang-javascript">threeLongArguments(
+  someVeryLongArgument1,
+  someVeryLongArgument2,
+  someVeryLongArgument3
+);
+</code></pre>
+<h5 id="java">Java</h5>
+<pre><code class="lang-java">threeLongArguments(
+  someVeryLongArgument1,
+  someVeryLongArgument2,
+  someVeryLongArgument3
+);
+</code></pre>
+<h5 id="perl">Perl</h5>
+<pre><code class="lang-perl"># code here
+</code></pre>
+<h5 id="php">PHP</h5>
+<pre><code class="lang-php">threeLongArguments(
+  $someVeryLongArgument1,
+  $someVeryLongArgument2,
+  $someVeryLongArgument3
+);
+</code></pre>
+<h5 id="ruby">Ruby</h5>
+<pre><code class="lang-ruby">threeLongArguments(
+  someVeryLongArgument1,
+  someVeryLongArgument2,
+  someVeryLongArgument3
+);
+</code></pre>
+<h5 id="python">Python</h5>
+<pre><code class="lang-python">threeLongArguments(
+  someVeryLongArgument1,
+  someVeryLongArgument2,
+  someVeryLongArgument3
+);
+</code></pre>
+</div>
 </div></div></section></template>

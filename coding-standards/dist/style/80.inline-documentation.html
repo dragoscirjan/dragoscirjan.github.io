@@ -1,18 +1,16 @@
-<template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><pre><code>
-## Inline Documentation
-
-### Documentation Format
-
-All documentation blocks (&quot;docblocks&quot;) must be compatible with the phpDocumentor format. Describing the phpDocumentor format is beyond the scope of this document. For more information, visit: [» http://phpdoc.org/](http://www.phpdoc.org/docs/latest/index.html)
-
-All class files must contain a &quot;file-level&quot; docblock at the top of each file and a &quot;class-level&quot; docblock immediately above each class. Examples of such docblocks can be found below.
-
-### Files
-
-Every file that contains PHP code must have a docblock at the top of the file that contains these phpDocumentor tags at a minimum:
-
-```php
-/**
+<template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><h2 id="inline-documentation">Inline Documentation</h2>
+<h3 id="documentation-format">Documentation Format</h3>
+<p>All documentation blocks (&quot;docblocks&quot;) must be compatible with the phpDocumentor format. Describing the phpDocumentor
+format is beyond the scope of this document. For more information, visit:
+<a href="http://www.phpdoc.org/docs/latest/index.html">» http://phpdoc.org/</a></p>
+<p>All class files must contain a &quot;file-level&quot; docblock at the top of each file and a &quot;class-level&quot; docblock immediately
+above each class. Examples of such docblocks can be found below.</p>
+<h3 id="files">Files</h3>
+<p>Every file that contains PHP code must have a docblock at the top of the file that contains these phpDocumentor tags at
+a minimum:</p>
+<div class="lang-ex">
+<h5 id="-like">/** Like</h5>
+<pre><code class="lang-java">/**
  * Short description for file
  *
  * Long description for file (if any)...
@@ -26,54 +24,149 @@ Every file that contains PHP code must have a docblock at the top of the file th
  * @link       https://github.com/{ACCOUNT/GROUP}/{PROJECT-NAME}/issues
  * @since      File available since Release 1.5.0
  */
-</code></pre><p>The @category annotation must be a project&#39;s name abbreviation (i.e. &quot;Athem&quot;).</p>
-<p>The @package annotation must be assigned, and should be equivalent to the component name of the class contained in the file; typically, this will only have two segments, the @category prefix, and the component name (i.e. Athem_Soap).</p>
-<p>The @subpackage annotation is optional. If provided, it should be the subcomponent name, minus the class prefix. In the example above, the assumption is that the class in the file is either &quot;Athem_Soap_Client&quot;, or uses that classname as part of its prefix (i.e. Client).</p>
+</code></pre>
+<h5 id="-like">&lt;!--- Like</h5>
+<pre><code class="lang-xml">&lt;!---
+  Short description for file
+
+  Long description for file (if any)...
+
+  LICENSE: Some license information
+
+  @copyright  Copyright (c) 2007-2015 Foo Company LTD S.R.L. (http://www.company.foo)
+  @license    https://github.com/{ACCOUNT/GROUP}/{PROJECT-NAME}/blob/master/LICENSE License Type
+  @version    $Id:$
+  @link       https://github.com/{ACCOUNT/GROUP}/{PROJECT-NAME}
+  @link       https://github.com/{ACCOUNT/GROUP}/{PROJECT-NAME}/issues
+  @since      File available since Release 1.5.0
+---&gt;
+</code></pre>
+<h5 id="-like"># Like</h5>
+<pre><code class="lang-python">#
+# Short description for file
+#
+# Long description for file (if any)...
+#
+# LICENSE: Some license information
+#
+# @copyright  Copyright (c) 2007-2015 Foo Company LTD S.R.L. (http://www.company.foo)
+# @license    https://github.com/{ACCOUNT/GROUP}/{PROJECT-NAME}/blob/master/LICENSE License Type
+# @version    $Id:$
+# @link       https://github.com/{ACCOUNT/GROUP}/{PROJECT-NAME}
+# @link       https://github.com/{ACCOUNT/GROUP}/{PROJECT-NAME}/issues
+# @since      File available since Release 1.5.0
+#
+</code></pre>
+</div>
+<p>The @category annotation must be a project&#39;s name abbreviation (i.e. &quot;Athem&quot;).</p>
+<p>The @package annotation must be assigned, and should be equivalent to the component name of the class contained in the
+file; typically, this will only have two segments, the @category prefix, and the component name.</p>
+<p>The @subpackage annotation is optional. If provided, it should be the subcomponent name, minus the class prefix. In the
+example above, the assumption is that the class in the file is either &quot;Athem_Soap_Client&quot;, or uses that classname as part
+of its prefix (i.e. Client).</p>
 <h3 id="classes">Classes</h3>
 <p>Every class must have a docblock that contains these phpDocumentor tags at a minimum:</p>
-<pre><code class="lang-php">/**
+<div class="lang-ex">
+<h5 id="-like">/** Like</h5>
+<pre><code class="lang-java">/**
  * Short description for class
  *
  * Long description for class (if any)...
  *
- * @category   Athem
- * @package    Athem_Soap
- * @subpackage Client
+ * @category   athem
+ * @package    athem.soap
+ * @subpackage client
  * @version    Release: @package_version@
  * @since      Class available since Release 1.5.0
  * @deprecated Class deprecated in Release 2.0.0
  */
 </code></pre>
-<p>The @category annotation must be a project&#39;s name abbreviation (i.e. &quot;Athem&quot;).</p>
-<p>The @package annotation must be assigned, and should be equivalent to the component name of the class contained in the file; typically, this will only have two segments, the @category prefix, and the component name (i.e. Athem_Soap).</p>
-<p>The @subpackage annotation is optional. If provided, it should be the subcomponent name, minus the class prefix. In the example above, the assumption is that the class in the file is either &quot;Athem_Soap_Client&quot;, or uses that classname as part of its prefix (i.e. Client).</p>
-<p>###Functions</p>
+<h5 id="-like">&lt;!--- Like</h5>
+<pre><code class="lang-xml">&lt;!---
+  Short description for class
+
+  Long description for class (if any)...
+
+  @category   athem
+  @package    athem.soap
+  @subpackage client
+  @version    Release: @package_version@
+  @since      Class available since Release 1.5.0
+  @deprecated Class deprecated in Release 2.0.0
+---&gt;
+</code></pre>
+<h5 id="-like"># Like</h5>
+<pre><code class="lang-python">#
+# Short description for class
+#
+# Long description for class (if any)...
+#
+# @category   athem
+# @package    athem.soap
+# @subpackage client
+# @version    Release: @package_version@
+# @since      Class available since Release 1.5.0
+# @deprecated Class deprecated in Release 2.0.0
+#
+</code></pre>
+</div>
+<p>The @category annotation must be a project&#39;s name abbreviation.</p>
+<p>The @package annotation must be assigned, and should be equivalent to the component name of the class contained in the
+file; typically, this will only have two segments, the @category prefix, and the component name.</p>
+<p>The @subpackage annotation is optional. If provided, it should be the subcomponent name, minus the class prefix. In the
+example above, the assumption is that the class in the file is either, or uses that classname as part of its prefix.</p>
+<h3 id="functions">Functions</h3>
 <p>Every function, including object methods, must have a docblock that contains at a minimum:</p>
 <p>A description of the function</p>
 <p>All of the arguments</p>
 <p>All of the possible return values</p>
-<p>It is not necessary to use the &quot;@access&quot; tag because the access level is already known from the &quot;public&quot;, &quot;private&quot;, or &quot;protected&quot; modifier used to declare the function.</p>
+<p>It is not necessary to use the &quot;@access&quot; tag because the access level is already known from the &quot;public&quot;, &quot;private&quot;, or
+&quot;protected&quot; modifier used to declare the function.</p>
 <p>If a function or method may throw an exception, use @throws for all known exception classes:</p>
-<pre><code class="lang-php">/**
+<div class="lang-ex">
+<h5 id="-like">/** Like</h5>
+<pre><code class="lang-java">/**
  * @throws exceptionclass [description]
  */
 </code></pre>
+<h5 id="-like">&lt;!--- Like</h5>
+<pre><code class="lang-xml">&lt;!---
+  @throws exceptionclass [description]
+---&gt;
+</code></pre>
+<h5 id="-like"># Like</h5>
+<pre><code class="lang-python">#
+# @throws exceptionclass [description]
+#
+</code></pre>
+</div>
 <h3 id="in-line-comments">In-line Comments</h3>
 <p>Single line comments should be made using the &quot;//&quot; syntax. Using &quot;#&quot; is not recommended, but not forbidden.</p>
 <p>Multi line comments should always be wrapped between &quot;/<em>&quot; and &quot;</em>/&quot; characters.</p>
 <p>If comment is of stronger importance, comments should follow the example bellow:</p>
-<pre><code class="lang-php">/*************************************************
+<div class="lang-ex">
+<h5 id="-like">/** Like</h5>
+<pre><code class="lang-java">/*************************************************
  * This is a comment
  *************************************************/
-
- Such comments should not exceed more than 5 lines of text, underlining the most important part of documentation.
-
-###Code Examples
-
-Following the phpDocumentor documentation, code examples must have the following syntax:
-
-```php
-/**
+</code></pre>
+<h5 id="-like">&lt;!--- Like</h5>
+<pre><code class="lang-xml">&lt;!------------------------------------------------
+  This is a comment
+-------------------------------------------------&gt;
+</code></pre>
+<h5 id="-like"># Like</h5>
+<pre><code class="lang-python">###################################################
+#  This is a comment
+###################################################
+</code></pre>
+</div>
+<p>Such comments should not exceed more than 5 lines of text, underlining the most important part of documentation.</p>
+<p>###Code Examples</p>
+<p>Following the phpDocumentor documentation, code examples must have the following syntax:</p>
+<div class="lang-ex">
+<h5 id="-like">/** Like</h5>
+<pre><code class="lang-java">/**
  * My function
  *
  * Here is an inline example:
@@ -87,6 +180,39 @@ Following the phpDocumentor documentation, code examples must have the following
  */
 function mine()
 {
+  // function code here
 }
 </code></pre>
+<h5 id="-like">&lt;!--- Like</h5>
+<pre><code class="lang-xml">&lt;!---
+  My function
+
+  Here is an inline example:
+  &lt;code&gt;
+  &lt;cfoutput var=&quot;#len(&#39;6&#39;)#&quot; /&gt;
+  &lt;/code&gt;
+  @example /path/to/example.cfc How to use this function
+  @example anotherexample.cfc This example is in the &quot;examples&quot; subdirectory
+---&gt;
+&lt;cffunction name=&quot;functionName&quot; access=&quot;public&quot; displayName=&quot;functionname&quot; output=&quot;no&quot;&gt;
+  &lt;!--- function code here ---&gt;
+&lt;/cffunction&gt;
+</code></pre>
+<h5 id="-like"># Like</h5>
+<pre><code class="lang-python">#
+# My function
+#
+# Here is an inline example:
+# &lt;code&gt;
+# &lt;?php
+# print strlen(&#39;6&#39;);
+# ?&gt;
+# &lt;/code&gt;
+# @example /path/to/example.php How to use this function
+# @example anotherexample.inc This example is in the &quot;examples&quot; subdirectory
+#
+def mine():
+  # function code here
+</code></pre>
+</div>
 </div></div></section></template>

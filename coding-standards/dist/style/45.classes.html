@@ -1,9 +1,9 @@
 <template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><h2 id="classes">Classes</h2>
 <h3 id="class-declaration">Class Declaration</h3>
-<p>Classes must be named according to project&#39;s naming conventions (decided by developing team). The 
+<p>Classes must be named according to project&#39;s naming conventions (decided by developing team). The
 brace should always be written on the line underneath the class name.</p>
-<p>Every class must have a documentation block that conforms to the <a href="http://www.phpdoc.org/">PHPDocumentor</a> 
-standard. All code in a class must be indented (see <a href="overview.md">Overview</a>). Only one class is 
+<p>Every class must have a documentation block that conforms to the <a href="http://www.phpdoc.org/">PHPDocumentor</a>
+standard. All code in a class must be indented (see <a href="overview.md">Overview</a>). Only one class is
 permitted in each file. Placing additional code in class files is <strong>not</strong> permitted and discouraged.</p>
 <p>The following is an example of an acceptable class declaration:</p>
 <div class="lang-ex">
@@ -12,7 +12,7 @@ permitted in each file. Placing additional code in class files is <strong>not</s
 <pre><code class="lang-cpp">/**
  * Documentation Block Here
  */
-class SampleClass 
+class SampleClass
 {
   // all contents of class must be indented
 };
@@ -32,7 +32,7 @@ public class SampleClass
 <pre><code class="lang-xml">&lt;!---
   Documentation Block Here
 ---&gt;
-&lt;cfcomponent displayName=&quot;ComponentName&quot; output=&quot;no&quot;&gt; 
+&lt;cfcomponent displayName=&quot;ComponentName&quot; output=&quot;no&quot;&gt;
   &lt;!--- all contents of class must be indented ---&gt;
 &lt;/cfcomponent&gt;
 </code></pre>
@@ -49,7 +49,7 @@ component displayName=&#39;ComponentName&#39; output=&#39;no&#39;
 <pre><code class="lang-dart">/**
  * Documentation Block Here
  */
-class SampleClass 
+class SampleClass
 {
   // all contents of class must be indented
 }
@@ -67,7 +67,7 @@ window.ClassName = function() {
 <pre><code class="lang-javascript">/**
  * Documentation Block Here
  */
-export class SampleClass 
+export class SampleClass
 {
   // all contents of class must be indented
 }
@@ -77,14 +77,16 @@ export class SampleClass
 
   # all contents of class must be indented
 </code></pre>
-<h6 id="purescript">PureScript</h6>
-<pre><code class="lang-purescript">// code here
-</code></pre>
+<!-- ###### PureScript
+
+```purescript
+// code here
+``` -->
 <h6 id="typescript">TypeScript</h6>
 <pre><code class="lang-typescript">/**
  * Documentation Block Here
  */
-class SampleClass 
+class SampleClass
 {
   // all contents of class must be indented
 }
@@ -93,7 +95,7 @@ class SampleClass
 <pre><code class="lang-java">/**
  * Documentation Block Here
  */
-public class SampleClass 
+public class SampleClass
 {
   // all contents of class must be indented
 }
@@ -129,18 +131,18 @@ class SampleClass
   # all contents of class must be indented
 </code></pre>
 </div>
-<p>Classes that extend other classes or which implement interfaces should declare their dependencies on 
+<p>Classes that extend other classes or which implement interfaces should declare their dependencies on
 the same line when possible.</p>
-<p>If as a result of such declarations, the line length exceeds the maximum line length and also 
-programming langauge allows it, break the line before the &quot;extends&quot; and/or &quot;implements&quot; keywords, 
+<p>If as a result of such declarations, the line length exceeds the maximum line length and also
+programming langauge allows it, break the line before the &quot;extends&quot; and/or &quot;implements&quot; keywords,
 and pad those lines by one indentation level.</p>
 <div class="lang-ex">
 <h5 id="c-c-c-35-">C/C++/C&#35;</h5>
 <h6 id="c-">C++</h6>
-<pre><code class="lang-cpp">/**
+<pre><code class="lang-csharp">/**
  * Documentation Block Here
  */
-class SampleClass : public FooAbstract, public BarInterface 
+class SampleClass : public FooAbstract, public BarInterface
 {
   // all contents of class must be indented
 };
@@ -148,9 +150,9 @@ class SampleClass : public FooAbstract, public BarInterface
 /**
  * Documentation Block Here
  */
-class SampleClass : 
-  public FooAbstract, 
-  public BarInterface 
+class SampleClass :
+  public FooAbstract,
+  public BarInterface
 {
   // all contents of class must be indented
 };
@@ -159,7 +161,7 @@ class SampleClass :
 <pre><code class="lang-csharp">/**
  * Documentation Block Here
  */
-public class SampleClass : FooAbstract, BarInterface 
+public class SampleClass : FooAbstract, BarInterface
 {
   // all contents of class must be indented
 }
@@ -167,9 +169,9 @@ public class SampleClass : FooAbstract, BarInterface
 /**
  * Documentation Block Here
  */
-public class SampleClass : 
-  FooAbstract, 
-  BarInterface 
+public class SampleClass :
+  FooAbstract,
+  BarInterface
 {
   // all contents of class must be indented
 }
@@ -180,17 +182,17 @@ public class SampleClass :
 <pre><code class="lang-xml">&lt;!---
   Documentation Block Here
 ---&gt;
-&lt;cfcomponent displayName=&quot;ComponentName&quot; extends=&quot;AbstractComponentName&quot; implements=&quot;InterfaceComponentName&quot; output=&quot;no&quot;&gt; 
+&lt;cfcomponent displayName=&quot;ComponentName&quot; extends=&quot;AbstractComponentName&quot; implements=&quot;InterfaceComponentName&quot; output=&quot;no&quot;&gt;
   &lt;!--- all contents of class must be indented ---&gt;
 &lt;/cfcomponent&gt;
 
 &lt;!---
   Documentation Block Here
 ---&gt;
-&lt;cfcomponent 
-  displayName=&quot;ComponentName&quot; 
-  extends=&quot;org.company.project.AbstractComponentName&quot; 
-  implements=&quot;org.company.project.InterfaceComponentName&quot; output=&quot;no&quot;&gt; 
+&lt;cfcomponent
+  displayName=&quot;ComponentName&quot;
+  extends=&quot;org.company.project.AbstractComponentName&quot;
+  implements=&quot;org.company.project.InterfaceComponentName&quot; output=&quot;no&quot;&gt;
   &lt;!--- all contents of class must be indented ---&gt;
 &lt;/cfcomponent&gt;
 </code></pre>
@@ -206,9 +208,9 @@ component extends=&quot;AbstractComponentName&quot; implements=&quot;InterfaceCo
 /**
  * Documentation Block Here
  */
-component 
-  extends=&quot;org.company.project.AbstractComponentName&quot; 
-  implements=&quot;org.company.project.InterfaceComponentName&quot; 
+component
+  extends=&quot;org.company.project.AbstractComponentName&quot;
+  implements=&quot;org.company.project.InterfaceComponentName&quot;
   displayName=&#39;ComponentName&#39; output=&#39;no&#39;
 {
   // all contents of class must be indented
@@ -218,7 +220,7 @@ component
 <pre><code class="lang-dart">/**
  * Documentation Block Here
  */
-class SampleClass 
+class SampleClass
 {
   // all contents of class must be indented
 }
@@ -236,7 +238,7 @@ window.ClassName = function() {
 <pre><code class="lang-javascript">/**
  * Documentation Block Here
  */
-export class SampleClass 
+export class SampleClass
 {
   // all contents of class must be indented
 }
@@ -246,14 +248,16 @@ export class SampleClass
 
   # all contents of class must be indented
 </code></pre>
-<h6 id="purescript">PureScript</h6>
-<pre><code class="lang-purescript">// code here
-</code></pre>
+<!-- ###### PureScript
+
+```purescript
+// code here
+``` -->
 <h6 id="typescript">TypeScript</h6>
 <pre><code class="lang-typescript">/**
  * Documentation Block Here
  */
-class SampleClass 
+class SampleClass
 {
   // all contents of class must be indented
 }
@@ -262,7 +266,7 @@ class SampleClass
 <pre><code class="lang-java">/**
  * Documentation Block Here
  */
-public class SampleClass 
+public class SampleClass
 {
   // all contents of class must be indented
 }
@@ -308,7 +312,8 @@ class SampleClass
   # all contents of class must be indented
 </code></pre>
 </div>
-<p>If the class implements multiple interfaces and the declaration exceeds the maximum line length, break after each comma separating the interfaces, and indent the interface names such that they align.</p>
+<p>If the class implements multiple interfaces and the declaration exceeds the maximum line length, break after each comma
+separating the interfaces, and indent the interface names such that they align.</p>
 <pre><code class="lang-php">class SampleClass
     implements BarInterface,
                BazInterface
@@ -316,9 +321,13 @@ class SampleClass
 }
 </code></pre>
 <h3 id="class-member-variables">Class Member Variables</h3>
-<p>Member variables must be named according to project&#39;s variable naming conventions. If no other convention is chosen, naming will be done according with camel case naming convention (camelCaseNamingConvention).</p>
-<p>If decided by developer team, private variable naming may contain the underscore &quot;_&quot; character as a prefix (i.e. _camelCaseNamingConvention).</p>
+<p>Member variables must be named according to project&#39;s variable naming conventions. If no other convention is chosen,
+naming will be done according with camel case naming convention (camelCaseNamingConvention).</p>
+<p>If decided by developer team, private variable naming may contain the underscore &quot;_&quot; character as a prefix
+(i.e. _camelCaseNamingConvention).</p>
 <p>Any variables declared in a class must be listed at the top of the class, above the declaration of any methods.</p>
-<p>The var construct is not permitted. Member variables always declare their visibility by using one of the <code>private</code>, <code>protected</code>, or <code>public</code> modifiers.</p>
-<p>Giving access to member variables directly by declaring them as public is permitted but discouraged in favor of accessor methods (set &amp; get).</p>
+<p>The var construct is not permitted. Member variables always declare their visibility by using one of the <code>private</code>,
+<code>protected</code>, or <code>public</code> modifiers.</p>
+<p>Giving access to member variables directly by declaring them as public is permitted but discouraged in favor of accessor
+methods (set &amp; get).</p>
 </div></div></section></template>

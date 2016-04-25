@@ -1,7 +1,7 @@
 <template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><h2 id="strings">Strings</h2>
 <h3 id="string-literals">String Literals</h3>
-<p>When a string is literal (contains no variable substitutions) and also programming language allows it,
-the <strong>apostrophe</strong> or <strong>single quote</strong> should always be used to demarcate the string:</p>
+<p>When a string is literal (contains no variable substitutions) and also programming language allows it, the <strong>apostrophe</strong>
+or <strong>single quote</strong> should always be used to demarcate the string:</p>
 <div class="lang-ex">
 <h5 id="c-c-c-35-">C/C++/C&#35;</h5>
 <h6 id="c">C</h6>
@@ -33,9 +33,11 @@ System.String myString = &quot;Example String&quot;;
 <h6 id="coffeescript">CoffeeScript</h6>
 <pre><code class="lang-coffeescript">myString = &#39;Example String&#39;
 </code></pre>
-<h6 id="purescript">PureScript</h6>
-<pre><code class="lang-purescript">// TODO
-</code></pre>
+<!-- ###### PureScript
+
+```purescript
+// TODO
+``` -->
 <h6 id="typescript">TypeScript</h6>
 <pre><code class="lang-typescript">var myString = &#39;Example String&#39;;
 </code></pre>
@@ -56,8 +58,8 @@ System.String myString = &quot;Example String&quot;;
 </code></pre>
 </div>
 <h3 id="string-literals-containing-apostrophes">String Literals Containing Apostrophes</h3>
-<p>When a literal string itself contains apostrophes, it is permitted to demarcate the string with <strong>quotation
-marks</strong> or <strong>double quotes</strong>. This is especially useful for SQL statements:</p>
+<p>When a literal string itself contains apostrophes, it is permitted to demarcate the string with <strong>quotation marks</strong> or
+<strong>double quotes</strong>. This is especially useful for SQL statements:</p>
 <div class="lang-ex">
 <h5 id="c-c-c-35-">C/C++/C&#35;</h5>
 <h6 id="c">C</h6>
@@ -89,9 +91,11 @@ marks</strong> or <strong>double quotes</strong>. This is especially useful for 
 <h6 id="coffeescript">CoffeeScript</h6>
 <pre><code class="lang-coffeescript">sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;
 </code></pre>
-<h6 id="purescript">PureScript</h6>
-<pre><code class="lang-purescript">// TODO
-</code></pre>
+<!-- ###### PureScript
+
+```purescript
+// TODO
+``` -->
 <h6 id="typescript">TypeScript</h6>
 <pre><code class="lang-typescript">var sql = &quot;SELECT `id`, `name` from `people` WHERE `name`=&#39;Fred&#39; OR `name`=&#39;Susan&#39;&quot;;
 </code></pre>
@@ -120,7 +124,7 @@ marks</strong> or <strong>double quotes</strong>. This is especially useful for 
 <pre><code class="lang-c">// Using `stdio.h`
 const char \*name = &quot;John Doe&quot;;
 printf(&quot;Hello %s\n&quot;, name);
-// or 
+// or
 char hello[100];
 sprintf(hello, &quot;Hello %s&quot;, name)
 </code></pre>
@@ -155,7 +159,7 @@ preprocessors do.</p>
 var hello = &quot;Hello {name}!&quot;.replace(/{name}/, name);
 </code></pre>
 <h6 id="ecmascript6">ECMAScript6</h6>
-<p>Also, both ES6 and Coffee support expressions within their string interpolation wrappings. However, 
+<p>Also, both ES6 and Coffee support expressions within their string interpolation wrappings. However,
 unlike Dart, expressions won&#39;t need <code>toString</code> conversion.</p>
 <pre><code class="lang-javascript">let name = &#39;John Doe&#39;;
 let age = 15;
@@ -175,7 +179,7 @@ let age = 15;
 let hello = `Hello \${name}! I&#39;m \${age + 10} years old.`;
 </code></pre>
 <h5 id="java">Java</h5>
-<p>One of the default string interpolation methods in Java is 
+<p>One of the default string interpolation methods in Java is
 <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#format-java.lang.String-java.lang.Object...-"><code>java.lang.String.format()</code></a>
 function. We recommend this one.</p>
 <pre><code class="lang-java">String name = &quot;John Doe&quot;;
@@ -215,12 +219,17 @@ hello = tmpl.substitute(name=&quot;John Doe&quot;)
 <h3 id="string-concatenation">String Concatenation</h3>
 <div class="lang-ex">
 <h5 id="c-c-c-35-">C/C++/C&#35;</h5>
-<h6 id="c">C</h6>
-<pre><code class="lang-c">// code here
-</code></pre>
-<h6 id="c-">C++</h6>
-<pre><code class="lang-cpp">// code here
-</code></pre>
+<!-- ###### C
+
+```c
+// code here
+```
+
+###### C++
+
+```cpp
+// code here
+``` -->
 <h6 id="c-35-">C&#35;</h6>
 <pre><code class="lang-csharp">System.String myString = &quot;This string&quot; + &quot;is concatenated.&quot;;
 </code></pre>
@@ -241,9 +250,12 @@ hello = tmpl.substitute(name=&quot;John Doe&quot;)
 <h6 id="coffeescript">CoffeeScript</h6>
 <pre><code class="lang-coffeescript">myString = &#39;This string &#39; + &#39;is concatenated.&#39;
 </code></pre>
-<h6 id="purescript">PureScript</h6>
-<pre><code class="lang-purescript">// code here
-</code></pre>
+<!--
+###### PureScript
+
+```purescript
+// code here
+``` -->
 <h6 id="typescript">TypeScript</h6>
 <pre><code class="lang-typescript">var myString = &#39;This string &#39; + &#39;is concatenated.&#39;;
 </code></pre>

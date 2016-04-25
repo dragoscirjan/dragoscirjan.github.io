@@ -33,3 +33,17 @@ pre {
 .lang-ex .tab-pane {
   padding-top: 20px;
 }
+.code-pane {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -5px;
+}
+.code-pane pre {
+  flex: 1 0 50%;
+  padding: 0 5px;
+  background: transparent;
+  display: flex;
+}
+.code-pane pre code {
+  flex: 1;
+}

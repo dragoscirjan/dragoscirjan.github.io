@@ -214,30 +214,25 @@ System.config({
     }
   },
   bundles: {
-    "app-build-d99251eea2.js": [
+    "app-build-eddd65d665.js": [
       "app.html!github:systemjs/plugin-text@0.0.3.js",
       "app.js",
       "blur-image.js",
-      "child-router.html!github:systemjs/plugin-text@0.0.3.js",
-      "child-router.js",
       "code-template.html!github:systemjs/plugin-text@0.0.3.js",
       "debugging.html!github:systemjs/plugin-text@0.0.3.js",
       "formating.html!github:systemjs/plugin-text@0.0.3.js",
       "formating.js",
       "main.js",
-      "naming-conventions.html!github:systemjs/plugin-text@0.0.3.js",
       "naming.html!github:systemjs/plugin-text@0.0.3.js",
       "naming.js",
       "nav-bar.html!github:systemjs/plugin-text@0.0.3.js",
       "overview.html!github:systemjs/plugin-text@0.0.3.js",
       "overview.js",
+      "recommend.html!github:systemjs/plugin-text@0.0.3.js",
+      "recommend.js",
       "scripts.js",
       "style.html!github:systemjs/plugin-text@0.0.3.js",
-      "style.js",
-      "users.html!github:systemjs/plugin-text@0.0.3.js",
-      "users.js",
-      "welcome.html!github:systemjs/plugin-text@0.0.3.js",
-      "welcome.js"
+      "style.js"
     ],
     "aurelia-9fa4d70d1d.js": [
       "github:components/jquery@2.2.1.js",
@@ -337,11 +332,6 @@ System.config({
     ],
     "naming.js": [
       "assets/abstract"
-    ],
-    "users.js": [
-      "aurelia-framework",
-      "aurelia-fetch-client",
-      "fetch"
     ]
   }
 });

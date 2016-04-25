@@ -21,7 +21,7 @@ parenthesis of the conditional and a single space after the closing parenthesis.
 <p>Within the conditional statements between the parentheses, operators must be separated by spaces for readability.
 Inner parentheses are encouraged to improve logical grouping for larger conditional expressions.</p>
 <p>The opening brace is written on the same line as the conditional statement. The closing brace is always written on its
-own line. Any content within the braces must be indented using four spaces.</p>
+own line. Any content within the braces must be indented using establised indentation rules.</p>
 <p class="note"><strong>Note</strong>: In case of CFML, which is a XML like programming language the braces standard will not apply.</p>
 <p class="note"><strong>Note</strong>: Being programming languages based on indentation delimiters and not braces, <strong>CofeeScript</strong> and <strong>Python</strong>
 will not be affected by this standard. Indentation for both languages is 2 spaces, and this should suffice this section.</p>
@@ -83,6 +83,20 @@ _action_() when (_expression_())
 
 if (_expression_1_() &amp;&amp; _expression_2_())
   _action_()
+</code></pre>
+<!-- ###### PureScript
+
+```javascript
+// TODO
+``` -->
+<h6 id="typescript">TypeScript</h6>
+<pre><code class="lang-javascript">if (_expression_()) {
+  _action_();
+}
+
+if (_expression_1_() &amp;&amp; _expression_2_()) {
+  _action_();
+}
 </code></pre>
 <h5 id="java">Java</h5>
 <pre><code class="lang-java">if (_expression_()) {
@@ -185,6 +199,21 @@ conditions.</p>
 if ((a == b) && (b == c) || (Foo.CONST == d))
   a = d
 ``` -->
+<h6 id="purescript">PureScript</h6>
+<!-- ```javascript
+if ((_very_long_expression_1_())
+    || (_very_long_expression_2_())
+) {
+  _action_();
+}
+``` -->
+<h6 id="typescript">TypeScript</h6>
+<pre><code class="lang-javascript">if ((_very_long_expression_1_())
+    || (_very_long_expression_2_())
+) {
+  _action_();
+}
+</code></pre>
 <h5 id="java">Java</h5>
 <pre><code class="lang-java">if ((_very_long_expression_1_())
     || (_very_long_expression_2_())
@@ -338,6 +367,25 @@ else
 if ((a == b) && (b == c) || (Foo.CONST == d))
   a = d
 ``` -->
+<h6 id="typescript">TypeScript</h6>
+<pre><code class="lang-javascript">if (_expression_()) {
+  _action_();
+} else {
+  _else_action_();
+}
+
+if ((_very_long_expression_1_())
+    || (_very_long_expression_2_())
+) {
+  _action_();
+} else {
+  if (_very_long_expression_3_()) {
+    _elseif_action_();
+  } else {
+    _else_action_()
+  }
+}
+</code></pre>
 <h5 id="java">Java</h5>
 <pre><code class="lang-java">if (_expression_()) {
   _action_();
@@ -424,9 +472,9 @@ else:
   _else_action_()
 </code></pre>
 </div>
-<p>Almost all languages allow statements to be written without braces in some circumstances. This coding 
+<p>Almost all languages allow statements to be written without braces in some circumstances. This coding
 standard makes no differentiation all &quot;if&quot;, &quot;elseif&quot; or &quot;else&quot; statements must use braces.</p>
-<p>Furthermore, if STRICT mode is chosen, no &quot;if&quot; statement cannot be defined without having it&#39;s else 
+<p>Furthermore, if STRICT mode is chosen, no &quot;if&quot; statement cannot be defined without having it&#39;s else
 statement even if empty.</p>
 <p>i.e.</p>
 <pre><code class="lang-php">// STRICT MODE
@@ -437,16 +485,16 @@ if (_expression_()) {
 }
 </code></pre>
 <h3 id="switch">Switch</h3>
-<p>Control statements written with the &quot;switch&quot; statement must have a single space before the opening parenthesis 
+<p>Control statements written with the &quot;switch&quot; statement must have a single space before the opening parenthesis
 of the conditional statement and after the closing parenthesis.</p>
-<p>All content within the &quot;switch&quot; statement must be indented using four spaces. Content under each &quot;case&quot; statement 
+<p>All content within the &quot;switch&quot; statement must be indented using four spaces. Content under each &quot;case&quot; statement
 must be indented using an additional four spaces.</p>
-<p class="note"><strong>Note</strong>: In case of <strong>Perl</strong> programming language, all case section must start with a brace on the same line as 
+<p class="note"><strong>Note</strong>: In case of <strong>Perl</strong> programming language, all case section must start with a brace on the same line as
 the case expression, and end with a brace on a new empty line indented at the same level with the opening case
 expression.</p>
-<p class="note"><strong>Note</strong>: <strong>Python</strong>&#39;s lack of a <code>switch</code> statement has garnered much discussion and even a PEP. The most popular 
-substitute uses dictionaries to map cases to functions, which requires lots of defs or lambdas. While 
-the approach shown here may be O(n) for cases, it aims to duplicate C&#39;s original &#39;switch&#39; functionality 
+<p class="note"><strong>Note</strong>: <strong>Python</strong>&#39;s lack of a <code>switch</code> statement has garnered much discussion and even a PEP. The most popular
+substitute uses dictionaries to map cases to functions, which requires lots of defs or lambdas. While
+the approach shown here may be O(n) for cases, it aims to duplicate C&#39;s original &#39;switch&#39; functionality
 and structure with reasonable accuracy. Please read the complete <a href="http://code.activestate.com/recipes/410692/">recipe</a>.  </p>
 <div class="lang-ex">
 <h5 id="c-c-c-35-">C/C++/C&#35;</h5>
@@ -519,9 +567,9 @@ and structure with reasonable accuracy. Please read the complete <a href="http:/
 <h6 id="coffeescript">CoffeeScript</h6>
 <pre><code class="lang-coffeescript">switch (_expression_())
   when 1 then _action_1_
-  when 2 
+  when 2
     _action_2_
-  else 
+  else
     _action_else_
 </code></pre>
 <!-- ###### PureScript
@@ -529,6 +577,19 @@ and structure with reasonable accuracy. Please read the complete <a href="http:/
 ```purescript
 // code here
 ``` -->
+<h6 id="typescript">TypeScript</h6>
+<pre><code class="lang-javascript">switch (_expression_()) {
+  case 1:
+    _action_1_();
+    break;
+  case 2:
+    _action_2_();
+    break;
+  default:
+    _action_else_();
+    break;
+}
+</code></pre>
 <h5 id="java">Java</h5>
 <pre><code class="lang-java">switch (_expression_()) {
   case 1:
@@ -545,14 +606,14 @@ and structure with reasonable accuracy. Please read the complete <a href="http:/
 <h5 id="perl">Perl</h5>
 <p>TODO: Add comment.</p>
 <pre><code class="lang-perl">switch (_expression_()) {
-  case 1 { 
-    _action_1_(); 
+  case 1 {
+    _action_1_();
   }
-  case 2 { 
-    _action_2_(); 
+  case 2 {
+    _action_2_();
   }
-  else { 
-    _action_else_(); 
+  else {
+    _action_else_();
   }
 }
 </code></pre>
@@ -600,14 +661,12 @@ end
     breal
 </code></pre>
 </div>
-<p>The construct default should never be omitted from a switch statement.</p>
-<p><strong>Note:</strong> It is sometimes useful to write a case statement which falls through to the next case by 
-not including a break or return within that case. To distinguish these cases from bugs, any case 
-statement where break or return are omitted should contain a comment indicating that the break was 
-intentionally omitted.</p>
+<p>The construct default should never be omitted from a switch statement unless programming language has no such directive.</p>
+<p><strong>Note:</strong> It is sometimes useful to write a case statement which falls through to the next case by not including a break
+or return within that case. To distinguish these cases from bugs, any case statement where break or return are omitted
+should contain a comment indicating that the break was intentionally omitted.</p>
 <h3 id="loops-for-foreach-while-">Loops (for / foreach / while)</h3>
-<p>No loop statement will be used without opening and closing brackets (or similar programming language 
-dependent structures).</p>
+<p>No loop statement will be used without opening and closing brackets (or similar programming language dependent structures).</p>
 <div class="lang-ex">
 <h5 id="c-c-c-35-">C/C++/C&#35;</h5>
 <h6 id="c-amp-c-">C &amp; C++</h6>
@@ -720,6 +779,11 @@ _action_() while _expression_()
 ```purescript
 // code here
 ``` -->
+<h6 id="typescript">TypeScript</h6>
+<pre><code class="lang-javascript">for (val of iterable) {
+  _action_(val);
+}
+</code></pre>
 <h5 id="java">Java</h5>
 <pre><code class="lang-java">for (i = 0; i &lt; 10; i++) {
   _action_();
@@ -739,7 +803,7 @@ do {
 }
 
 foreach $value (@iterable) {
-  _action_($value); 
+  _action_($value);
 }
 
 while (_expression_()) {
