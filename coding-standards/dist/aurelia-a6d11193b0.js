@@ -1,4 +1,24 @@
 "bundle";
+System.registerDynamic("github:systemjs/plugin-text@0.0.3/text.js", [], true, function($__require, exports, module) {
+  ;
+  var define,
+      global = this,
+      GLOBAL = this;
+  exports.translate = function(load) {
+    return 'def' + 'ine(function() {\nreturn "' + load.source.replace(/(["\\])/g, '\\$1').replace(/[\f]/g, "\\f").replace(/[\b]/g, "\\b").replace(/[\n]/g, "\\n").replace(/[\t]/g, "\\t").replace(/[\r]/g, "\\r").replace(/[\u2028]/g, "\\u2028").replace(/[\u2029]/g, "\\u2029") + '";\n});';
+  };
+  return module.exports;
+});
+
+System.registerDynamic("github:systemjs/plugin-text@0.0.3.js", ["github:systemjs/plugin-text@0.0.3/text"], true, function($__require, exports, module) {
+  ;
+  var define,
+      global = this,
+      GLOBAL = this;
+  module.exports = $__require('github:systemjs/plugin-text@0.0.3/text');
+  return module.exports;
+});
+
 (function() {
 var define = System.amdDefine;
 (function(global, factory) {

@@ -234,9 +234,11 @@ System.config({
       "style.html!github:systemjs/plugin-text@0.0.3.js",
       "style.js"
     ],
-    "aurelia-9fa4d70d1d.js": [
+    "aurelia-a6d11193b0.js": [
       "github:components/jquery@2.2.1.js",
       "github:components/jquery@2.2.1/jquery.js",
+      "github:systemjs/plugin-text@0.0.3.js",
+      "github:systemjs/plugin-text@0.0.3/text.js",
       "github:twbs/bootstrap@3.3.6.js",
       "github:twbs/bootstrap@3.3.6/css/bootstrap.css!github:systemjs/plugin-text@0.0.3.js",
       "github:twbs/bootstrap@3.3.6/js/bootstrap.js",
