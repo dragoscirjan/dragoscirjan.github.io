@@ -1,0 +1,24 @@
+<template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><p>##Units</p>
+<ul>
+<li>Use <code>rem</code> units as primary unit type. This includes:<ul>
+<li>Positioning (<code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code>)</li>
+<li>Dimensions (Such as <code>width</code>, <code>height</code>, <code>margin</code>, <code>padding</code>)</li>
+<li>Font size</li>
+</ul>
+</li>
+<li>Use <code>px</code> units as primary unit type for the following properties:<ul>
+<li>Border widths (<code>border: 1px solid #bada55;</code>)</li>
+</ul>
+</li>
+<li>Use <code>%</code> units only if necessary, where <code>rem</code> will not suffice:<ul>
+<li>Positioning (<code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code>)</li>
+<li>Dimensions (<code>width</code>, <code>height</code>)</li>
+</ul>
+</li>
+<li>Line-height should be kept unit-less. If you find you&#39;re using a line-height
+with a set unit type, try to think of alternative ways to achieve the same outcome.
+If it&#39;s a unique case which requires a specific <code>px</code> or <code>rem</code> unit, outline the
+reasoning with comments so that others are aware of its purpose.</li>
+<li>Avoid all use of magic numbers. Re-think the problem. (<code>margin-top: 37px;</code>)</li>
+</ul>
+</div></div></section></template>

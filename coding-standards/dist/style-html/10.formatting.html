@@ -1,0 +1,271 @@
+<template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><h2 id="formatting">Formatting</h2>
+<p>The following are some high level page formatting style rules.</p>
+<ul>
+<li>Remove all trailing white-space from your file, Sublime Text can even do this upon saving.<ul>
+<li>Tip: (please refer to <strong>editorconfig</strong> file)</li>
+</ul>
+</li>
+<li>Leave one clear line at the bottom of your file.</li>
+</ul>
+<h4 id="indentation">Indentation</h4>
+<ul>
+<li>Don&#39;t mix spaces with tabs for indentation.</li>
+<li>Use a soft-tab of 4 spaces.</li>
+<li>Use white-space to improve readability.</li>
+<li>Feel free to use indentation to show hierarchy.</li>
+</ul>
+<pre><code class="lang-css">.component {
+    ...
+}
+
+.component-child {
+    ...
+}
+
+.component-childSecond {
+    ...
+}
+</code></pre>
+<h4 id="commenting">Commenting</h4>
+<ul>
+<li>Separate your code into logical sections using standard comment blocks.</li>
+<li>Leave one clear line under your section comments.</li>
+<li>Leave two clear lines above comment blocks.</li>
+<li>Annotate your code inside a comment block, leaving a reference # next to the line.</li>
+</ul>
+<div class="lang-ex">
+<h5 id="css">Css</h5>
+<pre><code class="lang-css">/*******************************************************************************
+ * FILE TITLE / SECTION TITLE
+ ******************************************************************************/
+
+
+/* Comment Block / Sub-section
+ *******************************************************************************
+ *
+ * Purpose: This will describe when this component should be used. This comment
+ * block is 80 chars long
+ *
+ * 1. Mark lines of code with numbers which are explained here.
+ * This keeps your code clean, while also allowing detailed comments.
+ *
+ ******************************************************************************/
+
+.component {
+    ... // 1
+}
+</code></pre>
+<h5 id="less">Less</h5>
+<pre><code class="lang-less">// =============================================================================
+// FILE TITLE / SECTION TITLE
+// =============================================================================
+
+
+// Comment Block / Sub-section
+// -----------------------------------------------------------------------------
+//
+// Purpose: This will describe when this component should be used. This comment
+// block is 80 chars long
+//
+// 1. Mark lines of code with numbers which are explained here.
+// This keeps your code clean, while also allowing detailed comments.
+//
+// -----------------------------------------------------------------------------
+
+.component {
+    ... // 1
+}
+</code></pre>
+<h5 id="sass">Sass</h5>
+<pre><code class="lang-css">// =============================================================================
+// FILE TITLE / SECTION TITLE
+// =============================================================================
+
+
+// Comment Block / Sub-section
+// -----------------------------------------------------------------------------
+//
+// Purpose: This will describe when this component should be used. This comment
+// block is 80 chars long
+//
+// 1. Mark lines of code with numbers which are explained here.
+// This keeps your code clean, while also allowing detailed comments.
+//
+// -----------------------------------------------------------------------------
+
+.component {
+    ... // 1
+}
+</code></pre>
+</div>
+<h4 id="spacing">Spacing</h4>
+<ul>
+<li>CSS rules should be comma separated but live on new lines.</li>
+<li>Include a single space before the opening brace of a rule-set.</li>
+<li>Include a single space after the colon of a declaration.</li>
+<li>Include a semi-colon at the end of every declaration in a declaration block.</li>
+<li>Include a space after each comma in comma-separated property or function values.</li>
+<li>Place the closing brace of a rule-set on its own line.</li>
+<li>CSS blocks should be separated by a single clear line.</li>
+<li>Add two blank lines between sections and one between sub-sections.</li>
+</ul>
+<pre><code class="lang-css">.content,
+.content-edit {
+    padding: 0;
+    margin: 0;
+    font-family: &quot;Helvetica&quot;, sans-serif;
+}
+
+
+.newSection {
+    ...
+}
+
+.newSection-edit {
+    ...
+}
+
+/* DON&#39;T
+.content, .content-edit{
+    padding:0; margin:0;
+    font-family: &quot;Helvetica&quot;,sans-serif}
+.newSection {
+    ...
+}
+.newSection-edit {
+    ...
+*/
+</code></pre>
+<h4 id="quotes">Quotes</h4>
+<p>Always use double quotes when available. Quote attribute values in selectors</p>
+<pre><code class="lang-css">input[type=&quot;checkbox&quot;] {
+    background-image: url(&quot;/img/you.jpg&quot;);
+    font-family: &quot;Helvetica Neue Light&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial;
+}
+
+/* DON&#39;T
+input[type=checkbox] {
+    background-image: url(/img/you.jpg);
+    font-family: Helvetica Neue Light, Helvetica Neue, Helvetica, Arial;
+}*/
+</code></pre>
+<h4 id="when-declaring-values">When declaring values</h4>
+<ul>
+<li>Use lower-case and shorthand hex values</li>
+<li>Use unit-less line-height values</li>
+<li>Where allowed, avoid specifying units for zero values</li>
+<li>Never specify the height property unless it&#39;s specifically needed (<code>min-height</code> is cool)</li>
+<li>Never use <code>!important</code> (Utility classes are an exception but still should be avoided)</li>
+<li>Try to only style the property you are explicitly concerned with to reduce over zealously resetting something you
+might want to inherit<ul>
+<li><code>background-color: #333</code> over <code>background: #333</code></li>
+<li><code>margin-top: 10px</code> over <code>margin: 10px 0 0</code></li>
+<li>Use shorthand if you can, be sensible</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-css">.component {
+    background-color: #ccc;
+    color: #aaa;
+    left: 0;
+    line-height: 1.25;
+    min-height: 400px;
+    padding: 0 20px;
+    top: 0;
+}
+
+/* DON&#39;T
+.component {
+    background: #ccc;
+    color: #AAAAAA;
+    left: 0px;
+    line-height: 24px;
+    height: 400px !important; //jerk #yolo FUUUUUU
+    padding: 0px 20px 0px 20px;
+    top: 0px;
+}*/
+</code></pre>
+<h4 id="declaration-order">Declaration order</h4>
+<p>There are a millions opinions and thoughts on logical ordering and grouping. Don&#39;t force someone to learn your opinion,
+ordering doesn&#39;t matter, consistency does. Just use the alphabet, <em>everyone</em> knows it.</p>
+<ul>
+<li>@extend <em>(for Sass)</em></li>
+<li>@include <em>(for Sass)</em></li>
+<li>Alphabetical, always.</li>
+</ul>
+<div class="lang-ex">
+<h5 id="css">Css</h5>
+<pre><code class="lang-css">.component {
+    color: #aaa;
+    left: 0;
+    line-height: 1.25;
+    min-height: 400px;
+    padding: 0 20px;
+    top: 0;
+    width: 150px;
+}
+
+/* DON&#39;T
+.component {
+    min-height: 400px;
+    left: 0;
+    top: 0;
+    width: 150px;
+    color: #aaa;
+    line-height: 1.25;
+    width: 200px;
+    padding: 0 20px;
+}*/
+</code></pre>
+<h5 id="less">Less</h5>
+<pre><code class="lang-css">.component {
+    color: #aaa;
+    left: 0;
+    line-height: 1.25;
+    min-height: 400px;
+    padding: 0 20px;
+    top: 0;
+    width: 150px;
+}
+
+/* DON&#39;T
+.component {
+    min-height: 400px;
+    left: 0;
+    top: 0;
+    width: 150px;
+    color: #aaa;
+    line-height: 1.25;
+    width: 200px;
+    padding: 0 20px;
+}*/
+</code></pre>
+<h5 id="sass">Sass</h5>
+<pre><code class="lang-css">.component {
+    @extend %a-placeholder;
+    @include silly-links;
+    color: #aaa;
+    left: 0;
+    line-height: 1.25;
+    min-height: 400px;
+    padding: 0 20px;
+    top: 0;
+    width: 150px;
+}
+
+/* DON&#39;T
+.component {
+    min-height: 400px;
+    left: 0;
+    @include silly-links;
+    top: 0;
+    width: 150px;
+    color: #aaa;
+    @extend %a-placeholder;
+    line-height: 1.25;
+    width: 200px;
+    padding: 0 20px;
+}*/
+</code></pre>
+</div>
+</div></div></section></template>

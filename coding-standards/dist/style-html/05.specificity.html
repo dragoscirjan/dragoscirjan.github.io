@@ -1,0 +1,126 @@
+<template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><h2 id="specificity">Specificity</h2>
+<p>On large code bases, it&#39;s preferable and a tonne more maintainable if the specificity of selectors are all as equal and
+as low as humanly possible.</p>
+<p>Use classes in your SCSS for styling. <strong>Do not</strong> use ID&#39;s for styling. There is literally no point in using them.</p>
+<div class="lang-ex">
+<h5 id="css">Css</h5>
+<pre><code class="lang-css">.component {
+    ...
+}
+
+/* DON&#39;T
+#component {
+    ...
+}*/
+</code></pre>
+<h5 id="less">Less</h5>
+<pre><code class="lang-less">.component {
+    ...
+}
+
+/* DON&#39;T
+#component {
+  ...
+}*/
+</code></pre>
+<h5 id="sass">Sass</h5>
+<pre><code class="lang-css">.component {
+    ...
+}
+
+/* DON&#39;T
+#component {
+    ...
+}*/
+</code></pre>
+</div>
+<p>Style the base elements (such as typography elements). <strong>Do not</strong> reference or style descendent elements in your class
+selectors.</p>
+<div class="lang-ex">
+<h5 id="css">Css</h5>
+<pre><code class="lang-css">h1 {
+    ...
+}
+
+/* DON&#39;T
+.component h1 {
+    ...
+}*/
+</code></pre>
+<h5 id="less">Less</h5>
+<pre><code class="lang-less">h1 {
+    ...
+}
+
+/* DON&#39;T
+.component {
+    &amp; h1 {
+        ...
+    }
+}*/
+</code></pre>
+<h5 id="sass">Sass</h5>
+<pre><code class="lang-css">h1 {
+    ...
+}
+
+/* DON&#39;T
+.component h1 {
+  ...
+}*/
+</code></pre>
+</div>
+<p>Use overqualified selectors in your CSS is not recommended. Do not prepend a class or ID with an element.</p>
+<pre><code class="lang-css">div.container {
+    ...
+}
+</code></pre>
+<h4 id="performance">Performance</h4>
+<p>Overly specific selectors can also cause performance issues. Consider:</p>
+<div class="lang-ex">
+<h5 id="css">Css</h5>
+<pre><code class="lang-css">ul.user-list li span a:hover {
+    color: red;
+}
+</code></pre>
+<h5 id="less">Less</h5>
+<pre><code class="lang-css">ul.user-list {
+    li {
+        span {
+            a:hover {
+                color: red;
+            }
+        }
+    }
+}
+</code></pre>
+<h5 id="sass">Sass</h5>
+<pre><code class="lang-css">ul.user-list li span a:hover {
+    color: red;
+}
+</code></pre>
+</div>
+<p>Selectors are resolved right to left, exiting when it has been detected the selector does not match. This requires a lot
+of DOM walking and for large documents can cause a significant increase in the layout time. For further reading checkout:
+<a href="https://developers.google.com/speed/docs/best-practices/rendering#UseEfficientCSSSelectors">https://developers.google.com/speed/docs/best-practices/rendering#UseEfficientCSSSelectors</a></p>
+<p>If we know we want to give all <code>a</code> elements inside the <code>.user-list</code> red on hover we can simplify this style to:</p>
+<div class="lang-ex">
+<h5 id="css">Css</h5>
+<pre><code class="lang-css">.user-list-link:hover {
+    color: red;
+}
+</code></pre>
+<h5 id="less">Less</h5>
+<pre><code class="lang-less">.user-list-link {
+    &amp;:hover {
+        color: red;
+    }
+}
+</code></pre>
+<h5 id="sass">Sass</h5>
+<pre><code class="lang-css">.user-list-link:hover {
+    color: red;
+}
+</code></pre>
+</div>
+</div></div></section></template>

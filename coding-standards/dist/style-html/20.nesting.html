@@ -1,0 +1,160 @@
+<template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><p>##Nesting</p>
+<p>Nesting is handy, <em>sometimes</em>, but will quickly conflict with our <strong>Specificty</strong> and <strong>Performance</strong> guidelines.</p>
+<p>As we follow conventions and thoughts from popular and widely accepted methodologies such as BEM, SMACSS and SUIT, the
+use of the Suffix can help immensely though.</p>
+<ul>
+<li>Just because you can, doesn&#39;t mean you should.</li>
+<li><a href="http://thesassway.com/news/sass-3-3-released#parent-selector-suffixes">Parent Selector Suffixes</a> are neat, but not
+very searchable</li>
+<li>Watch your output, be mindful of <strong>Specificty</strong> and <strong>Performance</strong></li>
+<li>Aim for a maximum depth of just 1 nested rule</li>
+</ul>
+<div class="lang-ex">
+<h5 id="css">Css</h5>
+<pre><code class="lang-css">.panel-body {
+    position: relative;
+}
+
+.panel-sideBar {
+    z-index: 10;
+}
+
+.panel-sideBar-item {
+    cursor: pointer;
+}
+
+.panel-sideBar-item-label {
+    color: #AEAEAE;
+
+}
+
+.panel-sideBar-item-label.has-smallFont {
+    font-size: 13px;
+}
+</code></pre>
+<h5 id="less">Less</h5>
+<pre><code class="lang-css">.panel-body {
+    position: relative;
+}
+
+.panel-sideBar {
+    z-index: 10;
+}
+
+.panel-sideBar-item {
+    cursor: pointer;
+}
+
+.panel-sideBar-item-label {
+    color: #AEAEAE;
+
+    &amp;.has-smallFont {
+        font-size: 13px;
+    }
+}
+
+
+/* DON&#39;T
+.bc-tab-panel {
+
+    .panel-body {
+        position: relative;
+        ...
+
+        .panel-side-bar {
+            z-index: 10;
+            ...
+
+            .panel-side-item {
+                cursor: pointer;
+                ...
+
+                .panel-side-item-label {
+                    color: #AEAEAE;
+
+                    &amp;.small-font {
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
+}*/
+</code></pre>
+<h5 id="sass">Sass</h5>
+<pre><code class="lang-css">.panel-body {
+    position: relative;
+}
+
+.panel-sideBar {
+    z-index: 10;
+}
+
+.panel-sideBar-item {
+    cursor: pointer;
+}
+
+.panel-sideBar-item-label {
+    color: #AEAEAE;
+
+    &amp;.has-smallFont {
+        font-size: 13px;
+    }
+}
+
+
+/* DON&#39;T
+.bc-tab-panel {
+
+    .panel-body {
+        position: relative;
+        ...
+
+        .panel-side-bar {
+            z-index: 10;
+            ...
+
+            .panel-side-item {
+                cursor: pointer;
+                ...
+
+                .panel-side-item-label {
+                    color: #AEAEAE;
+
+                    &amp;.small-font {
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
+}*/
+</code></pre>
+</div>
+<h2 id="-extend-or-include">@extend or @include</h2>
+<ul>
+<li>Excessive use of <code>@include</code> can cause unnecessary bloat to your stylesheet, but
+gzip should help with that.</li>
+<li>Excessive use of <code>@extend</code> can create large selector blocks (not helpful in web inspector)
+and hoisting of your selector can cause override and inheritance issues.</li>
+<li>We advise to <code>@include</code> over <code>@extend</code> generally, but use common sense. In situations where it&#39;s better to  <code>@extend</code> it&#39;s safer to do so on a placeholder selector.</li>
+</ul>
+<blockquote>
+<p><strong>Do:</strong>
+Make use of placeholder selectors to separate repeated local styles</p>
+</blockquote>
+<pre><code class="lang-css">%placeholderSelector {
+    background-color: #eee;
+}
+
+.component1 {
+    @extend %placeholderSelector;
+    color: red;
+}
+
+.component2 {
+    @extend %placeholderSelector;
+    color: blue;
+}
+</code></pre>
+</div></div></section></template>
