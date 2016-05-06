@@ -1,4 +1,4 @@
-<template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><p>##Nesting</p>
+<template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><h2 id="nesting">Nesting</h2>
 <p>Nesting is handy, <em>sometimes</em>, but will quickly conflict with our <strong>Specificty</strong> and <strong>Performance</strong> guidelines.</p>
 <p>As we follow conventions and thoughts from popular and widely accepted methodologies such as BEM, SMACSS and SUIT, the
 use of the Suffix can help immensely though.</p>
@@ -39,17 +39,17 @@ very searchable</li>
 
 .panel-sideBar {
     z-index: 10;
-}
 
-.panel-sideBar-item {
-    cursor: pointer;
-}
+    &amp;-item {
+      cursor: pointer;
+    }
 
-.panel-sideBar-item-label {
-    color: #AEAEAE;
+    &amp;-item-label {
+      color: #AEAEAE;
 
-    &amp;.has-smallFont {
+      &amp;.has-smallFont {
         font-size: 13px;
+      }
     }
 }
 
@@ -88,20 +88,19 @@ very searchable</li>
 
 .panel-sideBar {
     z-index: 10;
-}
 
-.panel-sideBar-item {
-    cursor: pointer;
-}
+    &amp;-item {
+      cursor: pointer;
+    }
 
-.panel-sideBar-item-label {
-    color: #AEAEAE;
+    &amp;-item-label {
+      color: #AEAEAE;
 
-    &amp;.has-smallFont {
+      &amp;.has-smallFont {
         font-size: 13px;
+      }
     }
 }
-
 
 /* DON&#39;T
 .bc-tab-panel {
@@ -131,18 +130,15 @@ very searchable</li>
 }*/
 </code></pre>
 </div>
-<h2 id="-extend-or-include">@extend or @include</h2>
+<h3 id="sass-extend-or-include">SASS @extend or @include</h3>
 <ul>
-<li>Excessive use of <code>@include</code> can cause unnecessary bloat to your stylesheet, but
-gzip should help with that.</li>
-<li>Excessive use of <code>@extend</code> can create large selector blocks (not helpful in web inspector)
-and hoisting of your selector can cause override and inheritance issues.</li>
-<li>We advise to <code>@include</code> over <code>@extend</code> generally, but use common sense. In situations where it&#39;s better to  <code>@extend</code> it&#39;s safer to do so on a placeholder selector.</li>
+<li>Excessive use of <code>@include</code> can cause unnecessary bloat to your stylesheet, but gzip should help with that.</li>
+<li>Excessive use of <code>@extend</code> can create large selector blocks (not helpful in web inspector) and hoisting of your
+selector can cause override and inheritance issues.</li>
+<li>We advise to <code>@include</code> over <code>@extend</code> generally, but use common sense. In situations where it&#39;s better to  <code>@extend</code>
+it&#39;s safer to do so on a placeholder selector.</li>
 </ul>
-<blockquote>
-<p><strong>Do:</strong>
-Make use of placeholder selectors to separate repeated local styles</p>
-</blockquote>
+<p>Make use of placeholder selectors to separate repeated local styles</p>
 <pre><code class="lang-css">%placeholderSelector {
     background-color: #eee;
 }

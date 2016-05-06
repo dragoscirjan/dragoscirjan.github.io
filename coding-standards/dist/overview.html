@@ -1,38 +1,47 @@
 <template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><h1 id="overview">Overview</h1>
+<blockquote>
 <p class="note"><strong>Note</strong>: This document is a draft and it will remain so. It is your duty as a developer to continuously
-improve this document and your knowledge of this document.</p>
+improve this document and update your knowledge of this document.</p>
+</blockquote>
 <h2 id="scope">Scope</h2>
 <p>This document provides guidelines for code formatting and documentation to individuals and teams contributing to
 <a href="http://company.foo/">Foo Company LTD</a> products. Many developers using <a href="http://company.foo/">Foo Company LTD</a> products
 have also found these coding standards useful because their code&#39;s style remains consistent with all
 <a href="http://company.foo/">Foo Company LTD</a> products code. It is also worth noting that it requires significant effort to
 fully specify coding standards.</p>
+<blockquote>
 <p class="note"><strong>Note</strong>: Sometimes developers consider the establishment of a standard more important than what that standard actually
 suggests at the most detailed level of design. The guidelines in <a href="http://company.foo/">Foo Company LTD</a> products&#39; coding
 standards capture practices that have worked well on the <a href="http://company.foo/">Foo Company LTD</a> products project. You
 may modify these standards or use them as is in accordance with the terms of our
 <a href="https://raw.githubusercontent.com/dragoscirjan/coding-standards/master/LICENSE">» license</a>.</p>
+</blockquote>
 <p>Topics covered in <a href="http://company.foo/">Foo Company LTD</a> products&#39; coding standards include:</p>
 <ul>
 <li><a href="/#/formating">File Formatting</a></li>
 <li><a href="/#/naming">Naming Conventions</a></li>
 <li><a href="/#/style">Coding Style</a></li>
-<li><a href="/#/css-style">CSS Coding Style</a></li>
+<li><a href="/#/style-html">Coding Style for HTML</a></li>
 <li><a href="/#/recommend">Recommended Tools</a></li>
 </ul>
+<blockquote>
 <p class="note"><strong>Note</strong>: Mainly <a href="http://company.foo/">Foo Company LTD</a> is a <a href="http://php.net/">PHP</a> company, thus all documentation
-written further will be developed over <a href="http://php.net/">PHP</a> coding language.</p>
+written further will be developed mainly over <a href="http://php.net/">PHP</a> coding language.</p>
+</blockquote>
 <p>However, <a href="http://php.net/">PHP</a> is not the only language we are using, so we tried extending and adapting coding
 standards to all coding languages used in our company. Also, with each adopted coding language, we engage in adding
 and adapting our coding standards to that specific language as well.</p>
+<blockquote>
+<p class="note"><strong>Note</strong>: Please note that even documentation was extended, in some cases, it may be incomplete.</p>
+</blockquote>
 <p>Languages included in <a href="http://company.foo/">Foo Company LTD</a> products&#39; coding standards include:</p>
 <ul>
 <li><a href="http://www.adobe.com">Adobe</a><sup>&copy;</sup> <a href="http://www.adobe.com/products/coldfusion-family.html">ColdFusion</a></li>
-<li>C as <a href="https://en.wikipedia.org/wiki/List_of_C-family_programming_languages">C</a>, <a href="https://en.wikipedia.org/wiki/C%2B%2B">C++</a> 
+<li>C as <a href="https://en.wikipedia.org/wiki/List_of_C-family_programming_languages">C</a>, <a href="https://en.wikipedia.org/wiki/C%2B%2B">C++</a>
 and <a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language">C&#35;</a></li>
-<li>JavaScript as <a href="https://en.wikipedia.org/wiki/JavaScript">ECMAScript 5 or lower</a>, 
-<a href="https://github.com/lukehoban/es6features">EcmaScript 6</a>, <a href="http://coffeescript.org">CoffeeScript</a>, 
-<a href="http://microsoft.com">Microsoft</a><sup>&copy;</sup> <a href="http://www.typescriptlang.org">TypeScript</a> (not completed) and 
+<li>JavaScript as <a href="https://en.wikipedia.org/wiki/JavaScript">ECMAScript 5 or lower</a>,
+<a href="https://github.com/lukehoban/es6features">EcmaScript 6</a>, <a href="http://coffeescript.org">CoffeeScript</a>,
+<a href="http://microsoft.com">Microsoft</a><sup>&copy;</sup> <a href="http://www.typescriptlang.org">TypeScript</a> (not completed) and
 <a href="http://www.purescript.org">PureScript</a> (not completed)</li>
 <li><a href="http://code.google.com/p/dart">Google</a><sup>&copy;</sup> <a href="https://www.dartlang.org">Dart</a></li>
 <li><a href="https://www.oracle.com">Oracle</a><sup>&copy;</sup> <a href="https://www.oracle.com/java/index.html">Java</a></li>

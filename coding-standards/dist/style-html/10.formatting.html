@@ -1,38 +1,8 @@
 <template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><h2 id="formatting">Formatting</h2>
-<p>The following are some high level page formatting style rules.</p>
-<ul>
-<li>Remove all trailing white-space from your file, Sublime Text can even do this upon saving.<ul>
-<li>Tip: (please refer to <strong>editorconfig</strong> file)</li>
-</ul>
-</li>
-<li>Leave one clear line at the bottom of your file.</li>
-</ul>
-<h4 id="indentation">Indentation</h4>
-<ul>
-<li>Don&#39;t mix spaces with tabs for indentation.</li>
-<li>Use a soft-tab of 4 spaces.</li>
-<li>Use white-space to improve readability.</li>
-<li>Feel free to use indentation to show hierarchy.</li>
-</ul>
-<pre><code class="lang-css">.component {
-    ...
-}
-
-.component-child {
-    ...
-}
-
-.component-childSecond {
-    ...
-}
-</code></pre>
+<p>Please reffer to the .editorconfig file from the main <a href="/#/formatting">Formating</a> section.</p>
 <h4 id="commenting">Commenting</h4>
-<ul>
-<li>Separate your code into logical sections using standard comment blocks.</li>
-<li>Leave one clear line under your section comments.</li>
-<li>Leave two clear lines above comment blocks.</li>
-<li>Annotate your code inside a comment block, leaving a reference # next to the line.</li>
-</ul>
+<p>Separation of code into logical sections using standard comment blocks is strongly recommended.</p>
+<p>Annotation of code inside a comment block, leaving a reference # next to the line is also recommended.</p>
 <div class="lang-ex">
 <h5 id="css">Css</h5>
 <pre><code class="lang-css">/*******************************************************************************
@@ -52,7 +22,7 @@
  ******************************************************************************/
 
 .component {
-    ... // 1
+    ... /* 1 */
 }
 </code></pre>
 <h5 id="less">Less</h5>
@@ -77,7 +47,7 @@
 }
 </code></pre>
 <h5 id="sass">Sass</h5>
-<pre><code class="lang-css">// =============================================================================
+<pre><code class="lang-less">// =============================================================================
 // FILE TITLE / SECTION TITLE
 // =============================================================================
 
@@ -99,16 +69,12 @@
 </code></pre>
 </div>
 <h4 id="spacing">Spacing</h4>
-<ul>
-<li>CSS rules should be comma separated but live on new lines.</li>
-<li>Include a single space before the opening brace of a rule-set.</li>
-<li>Include a single space after the colon of a declaration.</li>
-<li>Include a semi-colon at the end of every declaration in a declaration block.</li>
-<li>Include a space after each comma in comma-separated property or function values.</li>
-<li>Place the closing brace of a rule-set on its own line.</li>
-<li>CSS blocks should be separated by a single clear line.</li>
-<li>Add two blank lines between sections and one between sub-sections.</li>
-</ul>
+<p>Multiple CSS rules, having the same styles, should be comma separated but live on new lines.</p>
+<p>Braces should start one space from the last defined rule, and end on a new line after the last style has been defined.</p>
+<p>Style lines should always end with semi-colons, while a space must also always be added after &quot;:&quot;. A space shoudl also
+be included after each comma in comma-separated property or function values.</p>
+<p>CSS blocks should be separated by a single clear line, while two blank lines should be added between sections and one
+between sub-sections.</p>
 <pre><code class="lang-css">.content,
 .content-edit {
     padding: 0;
@@ -137,7 +103,7 @@
 */
 </code></pre>
 <h4 id="quotes">Quotes</h4>
-<p>Always use double quotes when available. Quote attribute values in selectors</p>
+<p>Use of double quotes, when available, is mandatory. Quote attribute values in selectors.</p>
 <pre><code class="lang-css">input[type=&quot;checkbox&quot;] {
     background-image: url(&quot;/img/you.jpg&quot;);
     font-family: &quot;Helvetica Neue Light&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial;
@@ -150,6 +116,7 @@ input[type=checkbox] {
 }*/
 </code></pre>
 <h4 id="when-declaring-values">When declaring values</h4>
+<p>it is recommended to</p>
 <ul>
 <li>Use lower-case and shorthand hex values</li>
 <li>Use unit-less line-height values</li>

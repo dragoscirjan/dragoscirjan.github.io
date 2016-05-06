@@ -1,6 +1,8 @@
-<template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><p>##Pseudo Elements and Classes
-Pseudo elements and classes are very different things, as is the syntax used to declare them. Declare pseudo
+<template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><h2 id="pseudo-elements-and-classes">Pseudo Elements and Classes</h2>
+<p>Pseudo elements and classes are very different things, as is the syntax used to declare them. Declare pseudo
 <em><strong>classes</strong></em> with a single colon. Declare pseudo <em><strong>elements</strong></em> with a double colon.</p>
+<div class="lang-ex">
+<h5 id="css">Css</h5>
 <pre><code class="lang-css">.component:focus {
     ...
 }
@@ -22,4 +24,51 @@ Pseudo elements and classes are very different things, as is the syntax used to 
     ...
 }*/
 </code></pre>
+<h5 id="less">Less</h5>
+<pre><code class="lang-css">.component
+    &amp;:focus {
+        ...
+    }
+
+    &amp;:hover {
+        ...
+    }
+
+    &amp;::before {
+        ...
+    }
+
+    &amp;::after {
+        ...
+    }
+}
+
+/* DON&#39;T
+.component:after {
+    ...
+}*/
+</code></pre>
+<h5 id="sass">Sass</h5>
+<pre><code class="lang-css">.component:focus {
+    ...
+}
+
+.component:hover {
+    ...
+}
+
+.component::before {
+    ...
+}
+
+.component::after {
+    ...
+}
+
+/* DON&#39;T
+.component:after {
+    ...
+}*/
+</code></pre>
+</div>
 </div></div></section></template>

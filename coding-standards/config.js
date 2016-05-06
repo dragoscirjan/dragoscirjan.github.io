@@ -214,12 +214,14 @@ System.config({
     }
   },
   bundles: {
-    "app-build-9e4ecf6fc4.js": [
+    "app-build-00ca7afd40.js": [
       "app.html!github:systemjs/plugin-text@0.0.3.js",
       "app.js",
       "blur-image.js",
       "code-template.html!github:systemjs/plugin-text@0.0.3.js",
       "debugging.html!github:systemjs/plugin-text@0.0.3.js",
+      "folders.html!github:systemjs/plugin-text@0.0.3.js",
+      "folders.js",
       "formating.html!github:systemjs/plugin-text@0.0.3.js",
       "formating.js",
       "main.js",
@@ -497,6 +499,9 @@ System.config({
   depCache: {
     "blur-image.js": [
       "aurelia-framework"
+    ],
+    "folders.js": [
+      "assets/abstract"
     ],
     "main.js": [
       "bootstrap"

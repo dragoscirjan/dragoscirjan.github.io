@@ -1,49 +1,62 @@
+code {
+  background: #2b2b2b;
+  border-radius: 0;
+  color: #e0c46c;
+  padding: 5px;
+  width: 100%;
+}
+blockquote {
+  font-size: 15px;
+  color: #DDD;
+}
 pre {
+  background-color: transparent;
   border: 0;
-  padding: 0;
-}
-.lang-ex {
-  border-top: 1px #DDD solid;
-  border-bottom: 1px #DDD solid;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-.lang-ex .nav-tabs li > a {
-  border: 0;
-  margin-left: 0;
-  padding-left: 0;
-}
-.lang-ex .nav-tabs li > a:hover,
-.lang-ex .nav-tabs li > a:focus {
-  background: transparent;
-  border: 0;
-  color: #00bc8c;
-}
-.lang-ex li.active > a {
-  border: 0;
-}
-.lang-ex li.active > a:hover,
-.lang-ex li.active > a:focus {
-  background: transparent;
-  border: 0;
-  color: #00bc8c;
-}
-.lang-ex .tab-pane {
-  padding-top: 20px;
-}
-.code-pane {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: -5px;
-}
-.code-pane pre {
-  flex: 1 0 50%;
+  border-radius: 0;
   padding: 0 5px;
-  background: transparent;
+}
+h2 {
+  margin: 40px 0 20px;
+}
+h2:first-child {
+  margin-top: 0px;
+}
+h3 {
+  margin: 40px 0 20px;
+}
+h4 {
+  margin: 20px 0 20px;
+}
+.flex {
+  display: flex;
+  flex-flow: row wrap;
+}
+.flex p,
+.flex ul {
+  flex: 1 0 100%;
+}
+.flex-item,
+.flex pre {
+  flex: 1 0 50%;
+}
+.flex.active {
   display: flex;
 }
-.code-pane pre code {
-  flex: 1;
+.nav-tabs > li > a {
+  border-left: 0;
+  border-radius: 0;
+  border-right: 0;
+}
+.nav > li > a:hover,
+.nav > li > a:focus {
+  background-color: transparent;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  border-left: 0;
+  border-right: 0;
+}
+.tab-content {
+  padding-top: 20px;
 }

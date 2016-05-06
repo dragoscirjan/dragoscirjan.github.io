@@ -696,18 +696,16 @@ class ClassName
 ```ruby
 // code here
 ```-->
-<h5 id="python">Python</h5>
-<pre><code class="lang-python"># code here
-``` --&gt;
-&lt;!-- --lang-ex-end --&gt;
+<!-- ##### Python
 
-
-Call-time pass-by-reference is strictly prohibited.
-
-The return value must not be enclosed in parentheses. This can hinder readability, in additional to breaking code if a
-method is later changed to return by reference.
-
-&lt;!-- ```php
+```python
+# code here
+``` -->
+</div>
+<p>Call-time pass-by-reference is strictly prohibited.</p>
+<p>The return value must not be enclosed in parentheses. This can hinder readability, in additional to breaking code if a
+method is later changed to return by reference.</p>
+<!-- ```php
 /**
  * Documentation Block Here
  */
@@ -718,7 +716,7 @@ class ClassName
      */
     public function functionName()
     {
-        return($this-&gt;bar);
+        return($this->bar);
     }
 
     /**
@@ -726,18 +724,14 @@ class ClassName
      */
     public function functionName()
     {
-        return $this-&gt;bar;
+        return $this->bar;
     }
 }
-``` --&gt;
-
-### Function and Method Usage
-
-Function arguments should be separated by a single trailing space after the comma delimiter. The following is an example
-of an acceptable invocation of a function that takes three arguments:
-
-```javascript
-threeArguments(1, 2, 3);
+``` -->
+<h3 id="function-and-method-usage">Function and Method Usage</h3>
+<p>Function arguments should be separated by a single trailing space after the comma delimiter. The following is an example
+of an acceptable invocation of a function that takes three arguments:</p>
+<pre><code class="lang-javascript">threeArguments(1, 2, 3);
 </code></pre>
 <p>Call-time pass-by-reference is strictly prohibited. See the function declarations section for the proper way to pass
 function arguments by-reference.</p>
