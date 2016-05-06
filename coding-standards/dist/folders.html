@@ -1,0 +1,219 @@
+<template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><h2 id="folders">Folders</h2>
+<blockquote>
+<p class="note"><strong>Note</strong>: This document is a draft and it will remain so. It is your duty as a developer to continuously
+improve this document and update your knowledge of this document.</p>
+</blockquote>
+<p>Organizing and naming folder structures is a very sensitive subject and can be a subject of discussion to each project
+which is brought to development. The following are only recommendations of project structures as used by
+<a href="http://company.foo/">Foo Company LTD</a>.</p>
+<h3 id="applications">Applications</h3>
+<div class="lang-ex">
+<h5 id="html-website">HTML Website</h5>
+<p><strong>src</strong> folder will be containing source code (since we can always use <strong>jade</strong>, <strong>Coffee Script</strong> or any other
+preprocessors).</p>
+<p>while</p>
+<p><strong>dist</strong> folder will be containing the compiled code.</p>
+<p>Root foler can also contain:</p>
+<ul>
+<li>.editoconfig for editor configuration</li>
+<li>config files for linters</li>
+<li>config files for javascript installers<ul>
+<li><code>bower</code> &gt; <code>bower.json</code></li>
+<li><code>jspm</code> &gt; <code>config.js</code></li>
+<li><code>npm</code> &gt; <code>package.json</code></li>
+</ul>
+</li>
+<li>config files and folders for compilers<ul>
+<li>gulp</li>
+<li>webpack</li>
+</ul>
+</li>
+</ul>
+<pre><code>.
+├── dist
+├── src
+|   └── assets
+|       └── 3rdpt
+|       └── images
+|       └── styles
+|           └── fonts
+|           └── *.css|less|sass
+|       └── scripts
+|           └── *.coffee|js|ts
+|       └── *.html|jade
+</code></pre><!-- ##### Angular Website
+
+**src** folder will be containing source code (since we can always use **jade**, **Coffee Script** or any other
+preprocessors).
+
+while
+
+**dist** folder will be containing the compiled code.
+
+Root foler can also contain:
+* .editoconfig for editor configuration
+* config files for linters
+* config files for javascript installers
+  * `bower` > `bower.json`
+  * `jspm` > `config.js`
+  * `npm` > `package.json`
+* config files and folders for compilers
+  * gulp
+  * webpack
+
+```
+.
+├── dist
+├── src
+|   └── assets
+|       └── 3rdpt
+|       └── images
+|       └── styles
+|           └── fonts
+|           └── *.css|less|sass
+|       └── scripts
+|           └── *.coffee|js|ts
+|       └── *.html|jade
+``` -->
+<h5 id="web-application">Web Application</h5>
+<pre><code>.
+├── assets
+|   ├── 3rdpt
+|   ├── images
+|   ├── styles
+|   |   └── fonts
+|   └── scripts
+├── src
+|   └── com|org
+|       └── project
+|           └── package
+|               └── subpackage
+|                   └── ...
+├── vendor
+├── view
+└── index.*
+</code></pre><h5 id="aurelia-application">Aurelia Application</h5>
+<blockquote>
+<p>Web Application based on (Aurelia Framework)[<a href="http://aurelia.io">http://aurelia.io</a>]</p>
+</blockquote>
+<pre><code>.
+|── assets
+|   └── 3rdpt
+|   └── styles.css
+├── dist
+├── services
+|   └── views
+|   └── src
+|       ├── project
+|       |    └── package
+|       |        └── ...
+|       └ index.*
+├── src
+|   └── assets
+|       ├── images
+|       ├── styles
+|       |   └── fonts
+|       ├── scripts
+|       ├── *.html|jade
+|       └── *.js|ts
+├── config.js
+├── index.html
+└── index.js
+</code></pre><!-- ##### Angular Application
+
+> Web Application based on Aurelia Framework
+
+```
+``` -->
+</div>
+<h3 id="frameworks-libraries-modules">Frameworks / Libraries / Modules</h3>
+<p>For Open Source projects, <code>org</code> level can be skipped.</p>
+<div class="lang-ex">
+<!-- ##### C/C++/C&#35;
+
+###### C
+```cpp
+```
+
+###### C++
+```csharp
+
+```
+
+###### C&#35;
+```csharp
+
+``` -->
+<h5 id="cfml">CFML</h5>
+<h6 id="open-source">Open Source</h6>
+<pre><code>.
+├── src
+|   └── org
+|       └── project
+|           └── package
+|               └── subpackage
+|                   └── ...
+├── vendor
+├── Application.cfc
+└── index.cfm
+</code></pre><h6 id="commercial">Commercial</h6>
+<pre><code>.
+├── src
+|   └── com
+|       └── project
+|           └── package
+|               └── subpackage
+|                   └── ...
+├── vendor
+├── Application.cfc
+└── index.cfm
+</code></pre><!-- #####  Dart
+
+```
+.
+``` -->
+<!-- ##### JavaScript
+
+```
+``` -->
+<!-- ##### Java
+
+```
+``` -->
+<!-- #####  Perl
+
+```
+``` -->
+<h5 id="php">PHP</h5>
+<h6 id="open-source">Open Source</h6>
+<pre><code>.
+├── bin
+├── src
+|   └── Org
+|       └── Project
+|           └── Package
+|               └── Subpackage
+|                   └── ...
+├── vendor
+└── index.php
+</code></pre><h6 id="commercial">Commercial</h6>
+<pre><code>.
+├── bin
+├── src
+|   └── Com
+|       └── Project
+|           └── Package
+|               └── Subpackage
+|                   └── ...
+├── vendor
+└── index.php
+</code></pre><!-- ##### Ruby
+
+```ruby
+``` -->
+<!-- ##### Python
+
+```
+``` -->
+</div>
+</div></div></section></template>

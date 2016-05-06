@@ -1,0 +1,185 @@
+<template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><h2 id="variables-and-mixins">Variables and Mixins</h2>
+<p>Variables and Mixins should follow similar naming conventions.</p>
+<h4 id="variables">Variables</h4>
+<p>Syntax: <code>[&lt;componentName&gt;[--modifierName][-descendentName]-]&lt;propertyName&gt;-&lt;variablename&gt;[--&lt;modifierName&gt;]</code></p>
+<p>Variables should be named as such, things that can change over time.</p>
+<p>Variables should also follow our component naming convention to show context and be in camelCase. If the variable is a
+global, generic variable, the property name should be prefixed first, followed by the variant and or modifier name for
+clearer understanding of use.</p>
+<div class="lang-ex">
+<h5 id="less">Less</h5>
+<pre><code class="lang-less">$color-brandPrimary:  #aaa;
+$fontSize:            1rem;
+$fontSize--large:     2rem;
+$lineHeight--small:   1.2;
+
+// DON&#39;T Name your variables after the color value
+
+$bigcommerceBlue:     #00abc9;
+$color-blue:          #00ffee;
+$color-lightBlue:     #eeff00;
+</code></pre>
+<h5 id="sass">Sass</h5>
+<pre><code class="lang-less">$color-brandPrimary:  #aaa;
+$fontSize:            1rem;
+$fontSize--large:     2rem;
+$lineHeight--small:   1.2;
+
+// DON&#39;T Name your variables after the color value
+
+$bigcommerceBlue:     #00abc9;
+$color-blue:          #00ffee;
+$color-lightBlue:     #eeff00;
+</code></pre>
+</div>
+<h4 id="component-micro-app-level-variables">Component / Micro App level variables</h4>
+<p>Micro apps must base their local variables on the global variables primarily.
+You may add your own specific variables as required if no global variable is available.</p>
+<p>For portability, your component should declare it&#39;s own set of variables inside it&#39;s own settings partial, inside the
+settings folder. Even if at the time, your
+component only uses globally available variables from Bigcommerce&#39;s Library, you should reassign the global variable to
+a local one.
+If your component styles change from those global variables at all in the future, less of your SCSS will have to change,
+as you only change the local variable value.</p>
+<p>If your variable is scoped to your component, it should be namespaced as such following our component naming conventions.</p>
+<div class="lang-ex">
+<h5 id="less">Less</h5>
+<pre><code class="lang-css">$componentName-fontSize:                                fontSize(&quot;small&quot;);
+$componentName-decendantName-backgroundColor:           #ccc;
+$componentName-decendantName-marginBottom:              fontSize(&quot;large&quot;);
+$componentName-decendantName--active-backgroundColor:   #000;
+</code></pre>
+<pre><code class="lang-css">.componentName {
+    font-size: $componentName-fontSize;
+}
+
+.componentName-decendantName {
+    background-color: $componentName-decendantName-backgroundColor;
+    margin-bottom: $componentName-decendantName-marginBottom;
+}
+
+.componentName-decendantName--active {
+    background-color: $componentName-decendantName--active-backgroundColor;
+}
+</code></pre>
+<h5 id="sass">Sass</h5>
+<pre><code class="lang-css">$componentName-fontSize:                                fontSize(&quot;small&quot;);
+$componentName-decendantName-backgroundColor:           #ccc;
+$componentName-decendantName-marginBottom:              fontSize(&quot;large&quot;);
+$componentName-decendantName--active-backgroundColor:   #000;
+</code></pre>
+<pre><code class="lang-css">.componentName {
+    font-size: $componentName-fontSize;
+}
+
+.componentName-decendantName {
+    background-color: $componentName-decendantName-backgroundColor;
+    margin-bottom: $componentName-decendantName-marginBottom;
+}
+
+.componentName-decendantName--active {
+    background-color: $componentName-decendantName--active-backgroundColor;
+}
+</code></pre>
+</div>
+<h4 id="maps-maps-are-cool">Maps, maps are cool</h4>
+<p>Variable maps with a simple getter mixin, can help simplify your variable names when calling them, and help better group
+variables together using their relationship. <a href="http://erskinedesign.com/blog/friendlier-colour-names-sass-maps/">More info</a></p>
+<div class="lang-ex">
+<h5 id="sass">Sass</h5>
+<pre><code class="lang-less">// Setting variables and mixin
+// -----------------------------------------------------------------------------
+
+$colors: (
+    primary: (
+        base: #00abc9,
+        light: #daf1f6,
+        dark: #12799a
+    ),
+    secondary: (
+        base: #424d55,
+        light: #ccc,
+        lightest: #efefef,
+        dark: #404247
+    ),
+    success: (
+        base: #bbd33e,
+        light: #eaf0c6
+    )
+);
+
+@function color($color, $tone: &quot;base&quot;) {
+    @return map-get(map-get($colors, $color), $tone);
+}
+</code></pre>
+<pre><code class="lang-less">// Usage
+// -----------------------------------------------------------------------------
+
+body {
+    color: color(&quot;secondary&quot;);
+}
+
+h1,
+h2,
+h3 {
+    color: color(&quot;secondary&quot;, &quot;dark&quot;);
+}
+
+.alert {
+    background-color: color(&quot;primary&quot;, &quot;light&quot;);
+}
+
+.alert-close {
+      color: color(&quot;primary&quot;);
+    }
+
+.alert--success {
+    background-color: color(&quot;success&quot;, &quot;light&quot;);
+
+    &gt; .alert-close {
+        color: color(&quot;success&quot;);
+    }
+}
+</code></pre>
+</div>
+<p><strong>Every variable used in the core architecture must be based off the global variables.</strong></p>
+<h4 id="colors">Colors</h4>
+<p>Please only use the globally available colors from the Bigcommerce Library. Your Micro app or component shouldn&#39;t really
+have a need for a <em>new</em> color. This creates consistency and sanity.</p>
+<p>Avoid using the <code>darken(color, %)</code> and <code>lighten(color, %)</code> mixins for similar reasons.</p>
+<p>Use the color maps available to you:</p>
+<pre><code class="lang-css">.component {
+    background-color: color(&quot;brand&quot;, &quot;primary&quot;);
+}
+</code></pre>
+<h4 id="z-index-scale">z-index scale</h4>
+<p>Please use the z-index scale defined in the Bigcommerce Library under global settings.</p>
+<p><code>zIndex(&quot;lowest&quot;)</code> or <code>zIndex(&quot;high&quot;)</code> for example.</p>
+<h4 id="font-weight">Font Weight</h4>
+<p>Apps should share a strict set of font weights. Never declare a new font weight, only use the available font settings
+from the Bigcommerce Library. e.g.</p>
+<pre><code class="lang-css">fontWeight(&quot;light&quot;);
+fontWeight(&quot;semibold&quot;);
+</code></pre>
+<h4 id="line-height">Line Height</h4>
+<p>The Bigcommerce Library also provides a line height scale. This should be used for blocks of text. e.g.</p>
+<pre><code class="lang-css">lineHeight(&quot;smallest&quot;);
+lineHeight(&quot;large&quot;);
+</code></pre>
+<p>Alternatively, when using line height to vertically centre a single line of text, be sure to set the line height to the
+height of the container - 1.</p>
+<pre><code class="lang-CSS">.button {
+  height: remCalc(50px);
+  line-height: remCalc(49px);
+}
+</code></pre>
+<h4 id="animations">Animations</h4>
+<p>Animation delays, durations and easing should be taken from the global framework</p>
+<h4 id="mixins">Mixins</h4>
+<p>Mixins follow regular camel case naming conventions and do not require namespacing. If you are creating a mixin for a
+utility, it will need to match the utility name (including <code>u</code> namespacing).</p>
+<ul>
+<li><code>@mixin buttonVariant;</code></li>
+<li><code>@mixin u-textTruncate;</code></li>
+</ul>
+</div></div></section></template>
