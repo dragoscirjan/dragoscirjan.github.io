@@ -1,5 +1,5 @@
 <template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><h2 id="components">Components</h2>
-<p>Syntax: <code>&lt;componentName&gt;[--modifierName|-descendantName]</code></p>
+<p>Syntax: <code>[&lt;namespace&gt;-]&lt;ComponentName&gt;[--modifierName|-descendantName]</code></p>
 <p>This component syntax is mainly taken from <a href="http://suitcss.github.io/">Suit CSS</a> with minor modifications.</p>
 <p>Component driven development offers several benefits when reading and writing HTML and CSS:</p>
 <ul>
@@ -7,47 +7,65 @@
 <li>It keeps the specificity of selectors low.</li>
 <li>It helps to decouple presentation semantics from document semantics.</li>
 </ul>
-<p>You can think of components as custom elements that enclose specific semantics, styling, and behaviour.</p>
+<p>You can think of components as custom elements that enclose specific semantics, styling, and behavior.</p>
 <p><strong>Do not choose a class name based on its visual presentation or its content.</strong></p>
 <p>The primary architectural division is between components and utilities:</p>
 <ul>
-<li>componentName (eg. <code>.dropdown</code> or <code>.buttonGroup</code>)</li>
-<li>componentName--modifierName (eg. <code>.dropdown--dropUp</code> or <code>.button--primary</code>)</li>
-<li>componentName-descendantName (eg. <code>.dropdown-item</code>)</li>
-<li>componentName.is-stateOfComponent (eg. <code>.dropdown.is-active</code>)</li>
-<li>u-utilityName (eg. <code>.u-textTruncate</code>)</li>
-<li><code>[&lt;namespace&gt;-]&lt;componentName&gt;[--modifierName|-descendentName]</code></li>
+<li><code>ComponentName</code> (eg. <code>.Dropdown</code> or <code>.ButtonGroup</code>)</li>
+<li><code>ComponentName--modifierName</code> (eg. <code>.Dropdown--dropUp</code> or <code>.Button--primary</code>)</li>
+<li><code>ComponentName-descendantName</code> (eg. <code>.Dropdown-item</code>)</li>
+<li><code>ComponentName.is-stateOfComponent</code> (eg. <code>.Dropdown.is-active</code>)</li>
+<li><code>u-[sm-|md-|lg-]utilityName</code> (eg. <code>.u-textTruncate</code>, <code>.u-sm-floatLeft</code>)</li>
 </ul>
 <h4 id="componentname">ComponentName</h4>
-<p>The component&#39;s name must be written in camel case. Use class names that are as short as possible but as long as necessary.</p>
+<p>The component&#39;s name must be written in pascal case. Use class names that are as short as possible but as long as necessary.</p>
 <ul>
-<li>Example: <code>.nav</code> not <code>.navigation</code></li>
-<li>Example: <code>.button</code> not <code>.btn</code></li>
+<li>Example: <code>.Nav</code> not <code>.navigation</code></li>
+<li>Example: <code>.Button</code> not <code>.btn</code></li>
 </ul>
-<pre><code class="lang-css">.myComponent { /* ... */ }
+<pre><code class="lang-css">.MyComponent { /* ... */ }
 </code></pre>
-<pre><code class="lang-html">&lt;article class=&quot;myComponent&quot;&gt;
+<pre><code class="lang-html">&lt;article class=&quot;MyComponent&quot;&gt;
   ...
 &lt;/article&gt;
 </code></pre>
-<h4 id="componentname-modifiername">componentName--modifierName</h4>
+<p>If necessary, components can be prefixed with a namespace. For example, you may wish to avoid the potential for collisions between libraries and your custom components by prefixing all your components with a namespace.</p>
+<div class="lang-ex">
+<h5 id="css">CSS</h5>
+<pre><code class="lang-css">.twt-Button { /* … */ }
+.twt-Tabs { /* … */ }
+</code></pre>
+<h5 id="less">LESS</h5>
+<pre><code class="lang-less">.twt {
+    &amp;-Button { /* … */ }
+    &amp;-Tabs { /* … */ }
+}
+</code></pre>
+<h5 id="scss">SCSS</h5>
+<pre><code class="lang-less">.twt {
+    &amp;-Button { /* … */ }
+    &amp;-Tabs { /* … */ }
+}
+</code></pre>
+</div>
+<h4 id="componentname-modifiername">ComponentName--modifierName</h4>
 <p>A component modifier is a class that modifies the presentation of the base component in some form. Modifier names must
 be written in camel case and be separated from the component name by two hyphens. The class should be included
 in the HTML <em>in addition</em> to the base component class.</p>
 <div class="lang-ex">
-<h5 id="css">Css</h5>
+<h5 id="css">CSS</h5>
 <pre><code class="lang-css">/* Core button */
-.button {
+.Button {
     ...
 }
 
-.button--primary {
+.Button--primary {
     ...
 }
 </code></pre>
-<h5 id="less">Less</h5>
+<h5 id="less">LESS</h5>
 <pre><code class="lang-less">/* Core button */
-.button {
+.Button {
     ...
 
     &amp;--primary {
@@ -55,9 +73,9 @@ in the HTML <em>in addition</em> to the base component class.</p>
     }
 }
 </code></pre>
-<h5 id="sass">Sass</h5>
+<h5 id="scss">SCSS</h5>
 <pre><code class="lang-less">/* Core button */
-.button {
+.Button {
     ...
 
     &amp;--primary {
@@ -66,75 +84,105 @@ in the HTML <em>in addition</em> to the base component class.</p>
 }
 </code></pre>
 </div>
-<pre><code class="lang-html">&lt;button class=&quot;button button--primary&quot;&gt;...&lt;/button&gt;
+<pre><code class="lang-html">&lt;button class=&quot;Button Button--primary&quot;&gt;...&lt;/button&gt;
 </code></pre>
-<h4 id="componentname__descendantname">componentName__descendantName</h4>
+<h4 id="componentname__descendantname">ComponentName__descendantName</h4>
 <p>A component descendant is a class that is attached to a descendant node of a component. It&#39;s responsible for applying
 presentation directly to the descendant on behalf of a particular component. Descendant names must be written in camel
 case.</p>
-<pre><code class="lang-html">&lt;article class=&quot;tweet&quot;&gt;
-  &lt;header class=&quot;tweet-header&quot;&gt;
-    &lt;img class=&quot;tweet-avatar&quot; src=&quot;{$src}&quot; alt=&quot;{$alt}&quot;&gt;
+<pre><code class="lang-html">&lt;article class=&quot;Tweet&quot;&gt;
+  &lt;header class=&quot;Tweet-header&quot;&gt;
+    &lt;img class=&quot;Tweet-avatar&quot; src=&quot;{$src}&quot; alt=&quot;{$alt}&quot;&gt;
     ...
   &lt;/header&gt;
-  &lt;div class=&quot;tweet-body&quot;&gt;
+  &lt;div class=&quot;Tweet-body&quot;&gt;
     ...
   &lt;/div&gt;
 &lt;/article&gt;
 </code></pre>
-<p>You might notice that <code>tweet-avatar</code>, despite being a descendant of <code>tweet-header</code> does not have the class of
-<code>tweet-header-avatar</code>. Why? Because it doesn&#39;t necessarily <strong>have</strong> to live there. It could be adjacent to
+<p>You might notice that <code>Tweet-avatar</code>, despite being a descendant of <code>Tweet-header</code> does not have the class of
+<code>Tweet-header-avatar</code>. Why? Because it doesn&#39;t necessarily <strong>have</strong> to live there. It could be adjacent to
 <code>tweet-header</code> and function the same way. Therefore, you should <strong>only</strong> prepend a descendant with its parent if must
 live there. Strive to keep class names as short as possible, but as long as necessary.</p>
-<p>When building a component, you&#39;ll often run into the situation where you have a list, group or simply require a container
-for some descendants. In this case, it&#39;s much better to follow a pattern of pluralising the container and having each
-descendant be singular. This keeps the relationship clear between descendant levels.</p>
-<pre><code class="lang-html">&lt;nav class=&quot;pagination&quot;&gt;
-  &lt;ul class=&quot;pagination-list&quot;&gt;
-    &lt;li class=&quot;pagination-listItem&quot;&gt;
+<p>When building a component, you&#39;ll often run into the situation where you have a list, group or simply require a container for some descendants. In this case, it&#39;s much better to follow a pattern of pluralising the container and having each descendant be singular. This keeps the relationship clear between descendant levels.</p>
+<pre><code class="lang-html">&lt;nav class=&quot;Pagination&quot;&gt;
+  &lt;ul class=&quot;Pagination-list&quot;&gt;
+    &lt;li class=&quot;Pagination-listItem&quot;&gt;
       ...
     &lt;/li&gt;
   &lt;/ul&gt;
 &lt;/nav&gt;
 
-&lt;ul class=&quot;breadcrumbs&quot;&gt;
-  &lt;li class=&quot;breadcrumb&quot;&gt;
-    &lt;a class=&quot;breadcrumb-label&quot; href=&quot;#&quot;&gt;&lt;/a&gt;
+&lt;ul class=&quot;Breadcrumbs&quot;&gt;
+  &lt;li class=&quot;Breadcrumb&quot;&gt;
+    &lt;a class=&quot;Breadcrumb-label&quot; href=&quot;#&quot;&gt;&lt;/a&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-/* DON&#39;T DO
+&lt;!-- DON&#39;T DO
 Avoid verbose descendant names
-*/
-&lt;nav class=&quot;pagination&quot;&gt;
-  &lt;ul class=&quot;pagination-pages&quot;&gt;
-    &lt;li class=&quot;pagination-pages-page&quot;&gt;
+--&gt;
+&lt;nav class=&quot;Pagination&quot;&gt;
+  &lt;ul class=&quot;Pagination-pages&quot;&gt;
+    &lt;li class=&quot;Pagination-pages-page&quot;&gt;
       ...
     &lt;/li&gt;
   &lt;/ul&gt;
 &lt;/nav&gt;
 
-  &lt;ul class=&quot;breadcrumbs&quot;&gt;
-    &lt;li class=&quot;breadcrumbs-breadcrumb&quot;&gt;
-      &lt;a class=&quot;breadcrumbs-breadcrumb-label&quot; href=&quot;#&quot;&gt;&lt;/a&gt;
+  &lt;ul class=&quot;Breadcrumbs&quot;&gt;
+    &lt;li class=&quot;Breadcrumbs-breadcrumb&quot;&gt;
+      &lt;a class=&quot;Breadcrumbs-breadcrumb-label&quot; href=&quot;#&quot;&gt;&lt;/a&gt;
     &lt;/li&gt;
   &lt;/ul&gt;
 </code></pre>
-<h4 id="componentname-is-stateofcomponent">componentName.is-stateOfComponent</h4>
-<p>Use <code>is-stateName</code> for state-based modifications of components. The state name must be Camel case. <strong>Never style these
-classes directly; they should always be used as an adjoining class.</strong></p>
+<h4 id="componentname-is-stateofcomponent">ComponentName.is-stateOfComponent</h4>
+<p>Use <code>is-stateName</code> for state-based modifications of components. The state name must be Camel case. States can be global (affecting all components that have the state attached to them) or particular to a specific component (affecting just the component they are attached to). <strong>Never style particular classes directly; they should always be used as an adjoining class to the component they serve. Never use !important in these states. Only global states are allowed to use !important in they declaration to enforce overriding the styles.</strong></p>
 <p>JS can add/remove these classes. This means that the same state names can be used in multiple contexts, but every
 component must define its own styles for the state (as they are scoped to the component).</p>
-<pre><code class="lang-html">&lt;article class=&quot;tweet is-expanded&quot;&gt;
+<pre><code class="lang-html">&lt;article class=&quot;Tweet is-expanded&quot;&gt;
   ...
 &lt;/article&gt;
 </code></pre>
-<pre><code class="lang-css">.tweet {
+<div class="lang-ex">
+<h5 id="css">CSS</h5>
+<pre><code class="lang-css">.Tweet {
     ...
 }
 
-.tweet.is-expanded {
+.Tweet.is-expanded {
     ...
 }
+
+.is-hidden {
+    display: none !important;
+}
 </code></pre>
+<h5 id="less">LESS</h5>
+<pre><code class="lang-less">.Tweet {
+    ...
+
+    &amp;.is-expanded {
+        ...
+    }
+}
+
+.is-hidden {
+    display: none !important;
+}
+</code></pre>
+<h5 id="scss">SCSS</h5>
+<pre><code class="lang-less">.Tweet {
+    ...
+
+    &amp;.is-expanded {
+        ...
+    }
+}
+
+.is-hidden {
+    display: none !important;
+}
+</code></pre>
+</div>
 </div></div></section></template>

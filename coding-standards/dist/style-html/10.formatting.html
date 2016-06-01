@@ -4,66 +4,71 @@
 <p>Separation of code into logical sections using standard comment blocks is strongly recommended.</p>
 <p>Annotation of code inside a comment block, leaving a reference # next to the line is also recommended.</p>
 <div class="lang-ex">
-<h5 id="css">Css</h5>
-<pre><code class="lang-css">/*******************************************************************************
- * FILE TITLE / SECTION TITLE
- ******************************************************************************/
+<h5 id="css">CSS</h5>
+<pre><code class="lang-css">/* ==========================================================================
+   Section comment block
+   ========================================================================== */
 
+/* Sub-section comment block
+   ========================================================================== */
 
-/* Comment Block / Sub-section
- *******************************************************************************
+/**
+ * Short description using Doxygen-style comment format
  *
  * Purpose: This will describe when this component should be used. This comment
  * block is 80 chars long
  *
  * 1. Mark lines of code with numbers which are explained here.
  * This keeps your code clean, while also allowing detailed comments.
- *
- ******************************************************************************/
+ */
 
-.component {
+/* Basic comment */
+
+.Component {
     ... /* 1 */
 }
 </code></pre>
-<h5 id="less">Less</h5>
+<h5 id="less">LESS</h5>
 <pre><code class="lang-less">// =============================================================================
-// FILE TITLE / SECTION TITLE
+// Section comment block
 // =============================================================================
 
-
 // Comment Block / Sub-section
-// -----------------------------------------------------------------------------
+// ==========================================================================
+
+// Short description using Doxygen-style comment format
 //
 // Purpose: This will describe when this component should be used. This comment
 // block is 80 chars long
 //
 // 1. Mark lines of code with numbers which are explained here.
 // This keeps your code clean, while also allowing detailed comments.
-//
-// -----------------------------------------------------------------------------
 
-.component {
+// Basic comment
+
+.Component {
     ... // 1
 }
 </code></pre>
-<h5 id="sass">Sass</h5>
+<h5 id="scss">SCSS</h5>
 <pre><code class="lang-less">// =============================================================================
-// FILE TITLE / SECTION TITLE
+// Section comment block
 // =============================================================================
 
-
 // Comment Block / Sub-section
-// -----------------------------------------------------------------------------
+// ==========================================================================
+
+// Short description using Doxygen-style comment format
 //
 // Purpose: This will describe when this component should be used. This comment
 // block is 80 chars long
 //
 // 1. Mark lines of code with numbers which are explained here.
 // This keeps your code clean, while also allowing detailed comments.
-//
-// -----------------------------------------------------------------------------
 
-.component {
+// Basic comment
+
+.Component {
     ... // 1
 }
 </code></pre>
@@ -71,49 +76,51 @@
 <h4 id="spacing">Spacing</h4>
 <p>Multiple CSS rules, having the same styles, should be comma separated but live on new lines.</p>
 <p>Braces should start one space from the last defined rule, and end on a new line after the last style has been defined.</p>
-<p>Style lines should always end with semi-colons, while a space must also always be added after &quot;:&quot;. A space shoudl also
+<p>Style lines should always end with semi-colons, while a space must also always be added after &quot;:&quot;. A space should also
 be included after each comma in comma-separated property or function values.</p>
 <p>CSS blocks should be separated by a single clear line, while two blank lines should be added between sections and one
 between sub-sections.</p>
-<pre><code class="lang-css">.content,
-.content-edit {
+<pre><code class="lang-css">/* DO */
+.Component,
+.OtherComponent {
     padding: 0;
     margin: 0;
     font-family: &quot;Helvetica&quot;, sans-serif;
 }
 
 
-.newSection {
+.NewSection {
     ...
 }
 
-.newSection-edit {
+.NewSection-edit {
     ...
 }
 
-/* DON&#39;T
-.content, .content-edit{
+/* DON&#39;T */
+.Component, .Component-edit{
     padding:0; margin:0;
     font-family: &quot;Helvetica&quot;,sans-serif}
-.newSection {
+.NewSection {
     ...
 }
-.newSection-edit {
+.NewSection-edit {
     ...
-*/
+}
 </code></pre>
 <h4 id="quotes">Quotes</h4>
 <p>Use of double quotes, when available, is mandatory. Quote attribute values in selectors.</p>
-<pre><code class="lang-css">input[type=&quot;checkbox&quot;] {
+<pre><code class="lang-css">/* DO */
+input[type=&quot;checkbox&quot;] {
     background-image: url(&quot;/img/you.jpg&quot;);
     font-family: &quot;Helvetica Neue Light&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial;
 }
 
-/* DON&#39;T
+/* DON&#39;T */
 input[type=checkbox] {
     background-image: url(/img/you.jpg);
     font-family: Helvetica Neue Light, Helvetica Neue, Helvetica, Arial;
-}*/
+}
 </code></pre>
 <h4 id="when-declaring-values">When declaring values</h4>
 <p>it is recommended to</p>
@@ -131,7 +138,8 @@ might want to inherit<ul>
 </ul>
 </li>
 </ul>
-<pre><code class="lang-css">.component {
+<pre><code class="lang-css">/* DO */
+.Component {
     background-color: #ccc;
     color: #aaa;
     left: 0;
@@ -141,8 +149,8 @@ might want to inherit<ul>
     top: 0;
 }
 
-/* DON&#39;T
-.component {
+/* DON&#39;T */
+.Component {
     background: #ccc;
     color: #AAAAAA;
     left: 0px;
@@ -150,19 +158,24 @@ might want to inherit<ul>
     height: 400px !important; //jerk #yolo FUUUUUU
     padding: 0px 20px 0px 20px;
     top: 0px;
-}*/
+}
 </code></pre>
 <h4 id="declaration-order">Declaration order</h4>
 <p>There are a millions opinions and thoughts on logical ordering and grouping. Don&#39;t force someone to learn your opinion,
-ordering doesn&#39;t matter, consistency does. Just use the alphabet, <em>everyone</em> knows it.</p>
+ordering doesn&#39;t matter, consistency does.</p>
 <ul>
-<li>@extend <em>(for Sass)</em></li>
-<li>@include <em>(for Sass)</em></li>
-<li>Alphabetical, always.</li>
+<li>@extend <em>(for SCSS)</em>, :extend <em>(for LESS)</em></li>
+<li>@include <em>(for SCSS)</em>, .mixin-name() <em>(for LESS)</em></li>
+<li>Declarations:<ul>
+<li>Alphabetical order</li>
+<li>Cluster related properties (e.g. positioning and box-model) together</li>
+</ul>
+</li>
 </ul>
 <div class="lang-ex">
-<h5 id="css">Css</h5>
-<pre><code class="lang-css">.component {
+<h5 id="css">CSS</h5>
+<pre><code class="lang-css">/*** ALPHABETICAL ***/
+.Component {
     color: #aaa;
     left: 0;
     line-height: 1.25;
@@ -172,20 +185,42 @@ ordering doesn&#39;t matter, consistency does. Just use the alphabet, <em>everyo
     width: 150px;
 }
 
-/* DON&#39;T
-.component {
-    min-height: 400px;
-    left: 0;
+/*** CLUSTER ***/
+.Component {
+    /* Positioning */
+    position: absolute;
     top: 0;
-    width: 150px;
-    color: #aaa;
-    line-height: 1.25;
-    width: 200px;
-    padding: 0 20px;
-}*/
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+
+    /* Box-model */
+    display: block;
+    float: right;
+    width: 100px;
+    height: 100px;
+
+    /* Typography */
+    font: normal 13px &quot;Helvetica Neue&quot;, sans-serif;
+    line-height: 1.5;
+    color: #333;
+    text-align: center;
+
+    /* Visual */
+    background-color: #f5f5f5;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+
+    /* Misc */
+    opacity: 1;
+}
 </code></pre>
-<h5 id="less">Less</h5>
-<pre><code class="lang-css">.component {
+<h5 id="less">LESS</h5>
+<pre><code class="lang-less">//** ALPHABETICAL ***//
+.Component {
+    &amp;:extend(.OtherComponent);
+    .mixin();
     color: #aaa;
     left: 0;
     line-height: 1.25;
@@ -195,20 +230,43 @@ ordering doesn&#39;t matter, consistency does. Just use the alphabet, <em>everyo
     width: 150px;
 }
 
-/* DON&#39;T
-.component {
-    min-height: 400px;
-    left: 0;
+//*** CLUSTER ***//
+.Component {
+    &amp;:extend(.OtherComponent);
+    .mixin();
+
+    // Positioning
+    position: absolute;
     top: 0;
-    width: 150px;
-    color: #aaa;
-    line-height: 1.25;
-    width: 200px;
-    padding: 0 20px;
-}*/
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+
+    // Box-model
+    display: block;
+    float: right;
+    width: 100px;
+    height: 100px;
+
+    // Typography
+    font: normal 13px &quot;Helvetica Neue&quot;, sans-serif;
+    line-height: 1.5;
+    color: #333;
+    text-align: center;
+
+    // Visual
+    background-color: #f5f5f5;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+
+    // Misc
+    opacity: 1;
+}
 </code></pre>
-<h5 id="sass">Sass</h5>
-<pre><code class="lang-css">.component {
+<h5 id="scss">SCSS</h5>
+<pre><code class="lang-css">//*** ALPHABETICAL ***//
+.Component {
     @extend %a-placeholder;
     @include silly-links;
     color: #aaa;
@@ -220,19 +278,39 @@ ordering doesn&#39;t matter, consistency does. Just use the alphabet, <em>everyo
     width: 150px;
 }
 
-/* DON&#39;T
-.component {
-    min-height: 400px;
-    left: 0;
-    @include silly-links;
-    top: 0;
-    width: 150px;
-    color: #aaa;
+//*** CLUSTER ***//
+.Component {
     @extend %a-placeholder;
-    line-height: 1.25;
-    width: 200px;
-    padding: 0 20px;
-}*/
+    @include silly-links;
+
+    // Positioning
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+
+    // Box-model
+    display: block;
+    float: right;
+    width: 100px;
+    height: 100px;
+
+    // Typography
+    font: normal 13px &quot;Helvetica Neue&quot;, sans-serif;
+    line-height: 1.5;
+    color: #333;
+    text-align: center;
+
+    // Visual
+    background-color: #f5f5f5;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+
+    // Misc
+    opacity: 1;
+}
 </code></pre>
 </div>
 </div></div></section></template>

@@ -1,9 +1,30 @@
 <template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><h2 id="utilities">Utilities</h2>
-<p>Utility classes are low-level structural and positional traits. Utilities can be applied directly to any element;
-multiple utilities can be used together; and utilities can be used alongside component classes.</p>
-<p>Utility classes should be used sparingly, lean towards component level styling to make for as reusable HTML patterns as
-possible.</p>
-<h4 id="u-utilityname">u-utilityName</h4>
-<p>Syntax: <code>u-&lt;utilityName&gt;</code></p>
-<p>Utilities must use a camel case name, prefixed with a <code>u</code> namespace.</p>
+<p>Utility classes are low-level structural and positional traits. Utilities can be applied directly to any element. Multiple utilities can be used together and utilities can be used alongside component classes.</p>
+<p>Utility classes should be used sparingly, lean towards component level styling to make for as reusable HTML patterns as possible.</p>
+<p>Utilities must use a camel case name, prefixed with a <code>u-</code> namespace.</p>
+<pre><code class="lang-html">&lt;div class=&quot;Tweet u-cf&quot;&gt;
+  &lt;a class=&quot;u-sizeFit&quot; href=&quot;{{url}}&quot;&gt;
+    &lt;img class=&quot;u-block&quot; src=&quot;{{src}}&quot; alt=&quot;&quot;&gt;
+  &lt;/a&gt;
+  &lt;p class=&quot;Tweet-text u-sizeFill u-textBreak&quot;&gt;
+    …
+  &lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Utilities are grouped by type. The names of utilities with similar concerns usually start with a common string, e.g., <code>u-textCenter</code>, <code>u-textTruncate</code>; <code>u-linkClean</code>, <code>u-linkBlock</code>.</p>
+<p>Any classes with terse names, e.g., <code>u-cf</code> and <code>u-nbfc</code>, are either particularly abstract or very commonly used utilities with otherwise excessively long names. For example, the <code>u-cf</code> utility is used to &quot;contain floats&quot; without clipping any overflow (also known as &quot;clearfix&quot;), while the <code>u-nbfc</code> utility is used to create a &quot;new block formatting context&quot;.</p>
+<h4 id="why-to-use-utilities">Why to use utilities</h4>
+<p>Certain CSS properties and patterns are used frequently. For example: floats, containing floats, vertical alignment, text truncation. Relying on utilities can help to reduce repetition and provide consistent implementations.</p>
+<pre><code class="lang-html">&lt;div class=&quot;u-cf&quot;&gt;
+    &lt;p class=&quot;u-textTruncate&quot;&gt;{{text}}&lt;/p&gt;
+    &lt;img class=&quot;u-floatLeft&quot; src=&quot;{{src}}&quot; alt=&quot;&quot;&gt;
+    &lt;img class=&quot;u-floatLeft&quot; src=&quot;{{src}}&quot; alt=&quot;&quot;&gt;
+    &lt;img class=&quot;u-floatLeft&quot; src=&quot;{{src}}&quot; alt=&quot;&quot;&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Some utilities apply only a single declaration, so why not use inline styles? Even here, small utilities are preferred because their values can be preprocessed (e.g., generating RTL style sheets) or adjusted to viewport dimensions. The scope of styles not contained in components can be tightly defined, and code is a little easier to read.</p>
+<h4 id="responsive-utilities">Responsive utilities</h4>
+<p>Certain utilities have responsive variants using the patterns: <code>u-sm-&lt;utilityName&gt;</code>, <code>u-md-&lt;utilityName&gt;</code> and <code>u-lg-&lt;utilityName&gt;</code> for small, medium, and large Media Query breakpoints.</p>
+<h4 id="modifiying-utilities">Modifiying utilities</h4>
+<p>Utilities <strong>should not</strong> be edited while in use, unless it is to fix a bug. Modifications to utilities cascade throughout the application and should be made with extreme care.</p>
 </div></div></section></template>

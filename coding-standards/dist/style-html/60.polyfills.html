@@ -1,21 +1,19 @@
 <template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><h2 id="polyfills">Polyfills</h2>
-<p>At Bigcommerce, we try not to replicate CSS polyfills that auto-prefixer can supply in a Grunt or Gulp task. This keeps
-our SCSS code base lean and future proof.</p>
+<p>Don&#39;t replicate CSS polyfills that Autoprefixer can supply in a Grunt or Gulp task. This keeps the code base lean and future proof.</p>
 <pre><code class="lang-css">.button {
     border-radius: 3px;
 }
-
-/* DON&#39;T Add vendor prefixes at all. */
-
+</code></pre>
+<pre><code class="lang-less">/* DON&#39;T Add vendor prefixes at all. */
 .button {
     @include border-radius(3px);
 }
-
-.button {
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
+</code></pre>
+<pre><code class="lang-css">.button {
     -webkit-border-radius: 3px;
-    border-radius: 3px;
+        -ms-border-radius: 3px;
+         -o-border-radius: 3px;
+            border-radius: 3px;
 }
 </code></pre>
 </div></div></section></template>

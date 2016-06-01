@@ -1,91 +1,99 @@
 <template><section class="au-animate"><div class="container bs-docs-container"><div class="row"><h2 id="specificity">Specificity</h2>
-<p>On large code bases, it&#39;s preferable and a tonne more maintainable if the specificity of selectors are all as equal and
+<p>On large code bases, it&#39;s preferable and a ton more maintainable if the specificity of selectors are all as equal and
 as low as humanly possible.</p>
-<p>In all three languages, the use of classes, for styling, is encouraged, while use ID&#39;s is completely prohibited. There
-is literally no point in using ids.</p>
+<p>In all three languages, the use of classes for styling is encouraged, while the use of IDs is completely prohibited. There is literally no point in using IDs in stylesheets.</p>
 <div class="lang-ex">
-<h5 id="css">Css</h5>
-<pre><code class="lang-css">.component {
+<h5 id="css">CSS</h5>
+<pre><code class="lang-css">/* DO */
+.Component {
     ...
 }
 
-/* DON&#39;T
-#component {
+/* DON&#39;T */
+#Component {
     ...
-}*/
+}
 </code></pre>
-<h5 id="less">Less</h5>
-<pre><code class="lang-less">.component {
+<h5 id="less">LESS</h5>
+<pre><code class="lang-less">// DO
+.Component {
     ...
 }
 
-/* DON&#39;T
-#component {
-  ...
-}*/
+// DON&#39;T
+#Component {
+    ...
+}
 </code></pre>
-<h5 id="sass">Sass</h5>
-<pre><code class="lang-css">.component {
+<h5 id="scss">SCSS</h5>
+<pre><code class="lang-css">/* DO */
+.Component {
     ...
 }
 
-/* DON&#39;T
-#component {
+/* DON&#39;T */
+#Component {
     ...
-}*/
+}
 </code></pre>
 </div>
 <p>Style the base elements (such as typography elements). <strong>Do not</strong> reference or style descendent elements in your class
 selectors.</p>
 <div class="lang-ex">
-<h5 id="css">Css</h5>
-<pre><code class="lang-css">h1 {
+<h5 id="css">CSS</h5>
+<pre><code class="lang-css">/* DO */
+h1 {
     ...
 }
 
-/* DON&#39;T
-.component h1 {
+/* DON&#39;T */
+.Component h1 {
     ...
-}*/
+}
 </code></pre>
-<h5 id="less">Less</h5>
-<pre><code class="lang-less">h1 {
+<h5 id="less">LESS</h5>
+<pre><code class="lang-less">// DO
+h1 {
     ...
 }
 
-/* DON&#39;T
-.component {
-    &amp; h1 {
+// DON&#39;T
+.Component {
+    h1 {
         ...
     }
-}*/
+}
 </code></pre>
-<h5 id="sass">Sass</h5>
-<pre><code class="lang-css">h1 {
+<h5 id="scss">SCSS</h5>
+<pre><code class="lang-css">/* DO */
+h1 {
     ...
 }
 
-/* DON&#39;T
-.component h1 {
-  ...
-}*/
+/* DON&#39;T */
+.Component {
+    h1 {
+        ...
+    }
+}
 </code></pre>
 </div>
-<p>Use overqualified selectors in your CSS is not recommended. Do not prepend a class or ID with an element.</p>
-<pre><code class="lang-css">div.container {
+<p>Use of overqualified selectors in your CSS is not recommended. Do not prepend a class or ID with an element.</p>
+<pre><code class="lang-css">/* DON&#39;T */
+div.container {
     ...
 }
 </code></pre>
 <h4 id="performance">Performance</h4>
 <p>Overly specific selectors can also cause performance issues. Consider:</p>
 <div class="lang-ex">
-<h5 id="css">Css</h5>
-<pre><code class="lang-css">ul.user-list li span a:hover {
+<h5 id="css">CSS</h5>
+<pre><code class="lang-css">ul.UserList li span a:hover {
     color: red;
 }
 </code></pre>
-<h5 id="less">Less</h5>
-<pre><code class="lang-css">ul.user-list {
+<h5 id="less">LESS</h5>
+<pre><code class="lang-less">ul.UserList {
     li {
         span {
             a:hover {
@@ -95,9 +103,15 @@ selectors.</p>
     }
 }
 </code></pre>
-<h5 id="sass">Sass</h5>
-<pre><code class="lang-css">ul.user-list li span a:hover {
-    color: red;
+<h5 id="scss">SCSS</h5>
+<pre><code class="lang-less">ul.UserList {
+    li {
+        span {
+            a:hover {
+                color: red;
+            }
+        }
+    }
 }
 </code></pre>
 </div>
@@ -106,22 +120,30 @@ of DOM walking and for large documents can cause a significant increase in the l
 <a href="https://developers.google.com/speed/docs/best-practices/rendering#UseEfficientCSSSelectors">https://developers.google.com/speed/docs/best-practices/rendering#UseEfficientCSSSelectors</a></p>
 <p>If we know we want to give all <code>a</code> elements inside the <code>.user-list</code> red on hover we can simplify this style to:</p>
 <div class="lang-ex">
-<h5 id="css">Css</h5>
-<pre><code class="lang-css">.user-list-link:hover {
+<h5 id="css">CSS</h5>
+<pre><code class="lang-css">.UserList-link:hover {
     color: red;
 }
 </code></pre>
-<h5 id="less">Less</h5>
-<pre><code class="lang-less">.user-list-link {
-    &amp;:hover {
-        color: red;
-    }
+<h5 id="less">LESS</h5>
+<pre><code class="lang-less">.UserList-link:hover {
+    color: red;
 }
 </code></pre>
-<h5 id="sass">Sass</h5>
-<pre><code class="lang-css">.user-list-link:hover {
+<h5 id="scss">SCSS</h5>
+<pre><code class="lang-less">.UserList-link:hover {
     color: red;
 }
 </code></pre>
 </div>
+<h4 id="general-rules">General Rules</h4>
+<p>Your selectors are fundamental to writing good CSS. To very briefly sum up the above sections:</p>
+<ul>
+<li><strong>Select what you want explicitly</strong>, rather than relying on circumstance or coincidence. Good Selector Intent will rein in the reach and leak of your styles.</li>
+<li><strong>Write selectors for reusability</strong>, so that you can work more efficiently and reduce waste and repetition.</li>
+<li><strong>Do not nest selectors unnecessarily</strong>, because this will increase specificity and affect where else you can use your styles.</li>
+<li><strong>Do not qualify selectors unnecessarily</strong>, as this will impact the number of different elements you can apply styles to.</li>
+<li>Keep selectors as short as possible, in order to keep specificity down and performance up.</li>
+</ul>
+<p>Focusing on these points will keep your selectors a lot more sane and easy to work with on changing and long-running projects.</p>
 </div></div></section></template>

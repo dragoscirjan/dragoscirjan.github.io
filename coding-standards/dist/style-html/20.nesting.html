@@ -10,124 +10,134 @@ very searchable</li>
 <li>Aim for a maximum depth of just 1 nested rule</li>
 </ul>
 <div class="lang-ex">
-<h5 id="css">Css</h5>
-<pre><code class="lang-css">.panel-body {
+<h5 id="css">CSS</h5>
+<pre><code class="lang-css">/* DO */
+.Panel {
     position: relative;
 }
 
-.panel-sideBar {
+.Panel--sidebar {
     z-index: 10;
 }
 
-.panel-sideBar-item {
+.Panel-item {
     cursor: pointer;
 }
 
-.panel-sideBar-item-label {
+.Panel-item--sidebar {
     color: #AEAEAE;
-
 }
 
-.panel-sideBar-item-label.has-smallFont {
+.Panel.has-smallFont {
     font-size: 13px;
 }
-</code></pre>
-<h5 id="less">Less</h5>
-<pre><code class="lang-css">.panel-body {
+
+/* DON&#39;T */
+body .wrapper .Panel {
     position: relative;
 }
 
-.panel-sideBar {
+body .wrapper .sidebar .Panel {
     z-index: 10;
+}
 
-    &amp;-item {
-      cursor: pointer;
+body .wrapper .Panel .item {
+    cursor: pointer;
+}
+
+body .wrapper .sidebar .Panel .item {
+    color: #AEAEAE;
+}
+</code></pre>
+<h5 id="less">LESS</h5>
+<pre><code class="lang-less">// DO
+.Panel {
+    position: relative;
+
+    &amp;--sidebar {
+        z-index: 10;
     }
 
-    &amp;-item-label {
-      color: #AEAEAE;
+    &amp;-item {
+        cursor: pointer;
+    }
 
-      &amp;.has-smallFont {
+    &amp;-item--sidebar {
+        color: #AEAEAE;
+    }
+
+    &amp;.has-smallFont {
         font-size: 13px;
-      }
     }
 }
 
+// DON&#39;T
+body {
+    .wrapper {
+        .Panel {
+            position: relative;
 
-/* DON&#39;T
-.bc-tab-panel {
-
-    .panel-body {
-        position: relative;
-        ...
-
-        .panel-side-bar {
-            z-index: 10;
-            ...
-
-            .panel-side-item {
+            .item {
                 cursor: pointer;
-                ...
+            }
+        }
 
-                .panel-side-item-label {
+        .sidebar {
+            .Panel {
+                z-index: 10;
+
+                .item {
                     color: #AEAEAE;
-
-                    &amp;.small-font {
-                        font-size: 13px;
-                    }
                 }
             }
         }
     }
-}*/
-</code></pre>
-<h5 id="sass">Sass</h5>
-<pre><code class="lang-css">.panel-body {
-    position: relative;
 }
+</code></pre>
+<h5 id="scss">SCSS</h5>
+<pre><code class="lang-less">// DO
+.Panel {
+    position: relative;
 
-.panel-sideBar {
-    z-index: 10;
+    &amp;--sidebar {
+        z-index: 10;
+    }
 
     &amp;-item {
-      cursor: pointer;
+        cursor: pointer;
     }
 
-    &amp;-item-label {
-      color: #AEAEAE;
+    &amp;-item--sidebar {
+        color: #AEAEAE;
+    }
 
-      &amp;.has-smallFont {
+    &amp;.has-smallFont {
         font-size: 13px;
-      }
     }
 }
 
-/* DON&#39;T
-.bc-tab-panel {
+// DON&#39;T
+body {
+    .wrapper {
+        .Panel {
+            position: relative;
 
-    .panel-body {
-        position: relative;
-        ...
-
-        .panel-side-bar {
-            z-index: 10;
-            ...
-
-            .panel-side-item {
+            .item {
                 cursor: pointer;
-                ...
+            }
+        }
 
-                .panel-side-item-label {
+        .sidebar {
+            .Panel {
+                z-index: 10;
+
+                .item {
                     color: #AEAEAE;
-
-                    &amp;.small-font {
-                        font-size: 13px;
-                    }
                 }
             }
         }
     }
-}*/
+}
 </code></pre>
 </div>
 <h3 id="sass-extend-or-include">SASS @extend or @include</h3>
@@ -143,12 +153,12 @@ it&#39;s safer to do so on a placeholder selector.</li>
     background-color: #eee;
 }
 
-.component1 {
+.Component1 {
     @extend %placeholderSelector;
     color: red;
 }
 
-.component2 {
+.Component2 {
     @extend %placeholderSelector;
     color: blue;
 }
