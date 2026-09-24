@@ -56,7 +56,7 @@ value = 'about code, systems and ideas'
 
 [[params.docs]]
 name = 'mcp-searchable'
-url = '/mcp-searchable/'
+url = '/projects/mcp-searchable/'
 stack = 'TypeScript · MCP'
 status = 'lt-status-positive'
 statusLabel = 'Active'
@@ -64,7 +64,7 @@ description = 'Local-first web research for AI agents: search, fetch, stash, gre
 
 [[params.docs]]
 name = 'mcp-tuikit'
-url = '/mcp-tuikit/'
+url = '/projects/mcp-tuikit/'
 stack = 'Go · TUI'
 status = 'lt-status-positive'
 statusLabel = 'Active'
@@ -72,7 +72,7 @@ description = 'A virtual terminal that lets AI agents interact with terminal int
 
 [[params.docs]]
 name = 'solidref'
-url = '/solidref/'
+url = '/projects/solidref/'
 stack = 'Vite · React · TypeScript'
 status = 'lt-status-experimental'
 statusLabel = 'Experiments'
@@ -80,7 +80,7 @@ description = 'Reference app built with Vite, React and TypeScript.'
 
 [[params.docs]]
 name = 'coding-standards'
-url = '/coding-standards/'
+url = '/projects/coding-standards/'
 stack = 'Legacy'
 status = 'lt-status-experimental'
 statusLabel = 'Archive'

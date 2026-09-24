@@ -14,9 +14,7 @@ run = "hugo server --buildDrafts --buildFuture --watch --disableFastRender"
 description = "Build the production site (minified), then copy the documentation sites into the output"
 run = """
 hugo --cleanDestinationDir --gc --minify
-for d in mcp-searchable mcp-tuikit solidref coding-standards; do
-  rsync -a --delete "$d/" "public/$d/"
-done
+rsync -a --delete projects/ public/projects/
 """
 
 [tasks.clean]

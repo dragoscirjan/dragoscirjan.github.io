@@ -5,7 +5,7 @@
 This repository serves `dragoscirjan.github.io` — the LunaticThinker personal site. It hosts three things:
 
 1. The **LunaticThinker blog** (Hugo), migrated from `lunaticthinker.github.io` with its historical posts and images preserved.
-2. The **published documentation** for the author's other projects, committed here as built output only (`mcp-searchable/`, `mcp-tuikit/`, `solidref/`, `coding-standards/`).
+2. The **published documentation** for the author's other projects, committed here as built output only under `projects/` (`mcp-searchable/`, `mcp-tuikit/`, `solidref/`, `coding-standards/`).
 3. The **LunaticThinker theme system** — a shared dark, Catppuccin Mocha-inspired design foundation for Hugo, VitePress, and MkDocs.
 
 Development expectations for coding agents live in `AGENTS.md`; this file covers the human workflow.
@@ -67,7 +67,8 @@ Rules:
 Documentation sources live in their respective project repositories. To update docs here:
 
 1. Build the docs site in the **source project repository** (MkDocs, VitePress, etc.).
-2. Replace the generated output under this repo's project directory (e.g. `mcp-tuikit/`) — remove stale generated files, copy the new build.
+2. Replace the generated output under this repo's project directory (e.g. `projects/mcp-tuikit/`) — remove stale generated files, copy the new build.
+   Alternatively, from the source project's repository, call the reusable workflow (see *Publishing documentation from another repository* below).
 3. Commit exactly as:
 
    ```
@@ -75,6 +76,52 @@ Documentation sources live in their respective project repositories. To update d
    ```
 
 Never hand-edit generated HTML, search indexes, or asset bundles under these directories. If a fix is needed, fix it in the source repo and regenerate.
+
+## Publishing documentation from another repository
+
+The reusable workflow `.github/workflows/docs.yml` publishes a project's built documentation into `projects/<project>/` here. In the source project repository, add a workflow that builds the docs, uploads them as an artifact, then calls the reusable workflow:
+
+```yaml
+# .github/workflows/publish-docs.yml (in the source project repository)
+name: Publish documentation
+
+on:
+  push:
+    branches: [main]
+    paths: ['docs/**', 'mkdocs.yml']   # adjust to the docs sources
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build documentation
+        run: mkdocs build --site-dir site   # or: vitepress build docs
+      - name: Upload docs artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs-site
+          path: site
+
+  publish:
+    needs: build
+    uses: dragoscirjan/dragoscirjan.github.io/.github/workflows/docs.yml@main
+    with:
+      project: mcp-searchable              # folder name under projects/
+    secrets:
+      token: ${{ secrets.PAGES_DOCS_TOKEN }}
+```
+
+Details:
+
+- The artifact name defaults to `docs-site`; set the `artifact` input if you use another name, and `source_dir` when the artifact wraps the site root in a subdirectory.
+- `PAGES_DOCS_TOKEN` must be a PAT (fine-grained or classic) with **contents: write** on `dragoscirjan/dragoscirjan.github.io`. The caller's `GITHUB_TOKEN` cannot push to another repository.
+- The workflow commits as `github-actions[bot]` with the standard message `docs(<project>): update documentation site` and pushes to `main`; that push automatically triggers the Pages deployment. If nothing changed, the run exits cleanly.
+- Publishing runs are serialized per project (concurrency group `docs-publish-<project>`).
 
 ## Theme development
 

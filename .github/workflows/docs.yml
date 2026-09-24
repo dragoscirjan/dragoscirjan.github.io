@@ -1,0 +1,94 @@
+# Reusable workflow: publish a project's built documentation site into this
+# repository, under projects/<project>/.
+#
+# Call it from the documentation's source repository after building the docs
+# and uploading the generated site as an artifact:
+#
+#   jobs:
+#     publish:
+#       needs: build
+#       uses: dragoscirjan/dragoscirjan.github.io/.github/workflows/docs.yml@main
+#       with:
+#         project: mcp-searchable
+#       secrets:
+#         token: ${{ secrets.PAGES_DOCS_TOKEN }}
+#
+# Requirements:
+# - The calling workflow must upload the built site as an artifact whose name
+#   matches the `artifact` input (default: docs-site).
+# - The `token` secret must be a personal access token (fine-grained or
+#   classic) with contents:write on dragoscirjan/dragoscirjan.github.io.
+#   A caller's GITHUB_TOKEN cannot push to a different repository.
+# - The commit convention matches the existing history:
+#   docs(<project>): update documentation site
+#
+# The push to main automatically triggers the Pages deployment workflow.
+name: Publish project documentation
+
+on:
+  workflow_call:
+    inputs:
+      project:
+        description: "Target folder name under projects/ (e.g. mcp-searchable)"
+        required: true
+        type: string
+      artifact:
+        description: "Name of the artifact containing the built documentation site"
+        required: false
+        default: "docs-site"
+        type: string
+      source_dir:
+        description: "Directory inside the artifact that contains the site root (usually .)"
+        required: false
+        default: "."
+        type: string
+    secrets:
+      token:
+        description: "PAT with contents:write on dragoscirjan/dragoscirjan.github.io"
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-publish-${{ inputs.project }}
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  publish:
+    name: Publish ${{ inputs.project }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout documentation repository
+        uses: actions/checkout@v4
+        with:
+          repository: dragoscirjan/dragoscirjan.github.io
+          token: ${{ secrets.token }}
+          ref: main
+
+      - name: Download documentation artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.artifact }}
+          path: ${{ runner.temp }}/docs
+
+      - name: Replace documentation directory
+        run: |
+          mkdir -p "projects/${{ inputs.project }}"
+          rsync -a --delete "${{ runner.temp }}/docs/${{ inputs.source_dir }}/" "projects/${{ inputs.project }}/"
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "projects/${{ inputs.project }}"
+          if git diff --cached --quiet; then
+            echo "Documentation for ${{ inputs.project }} is unchanged; nothing to commit."
+            exit 0
+          fi
+          git commit -m "docs(${{ inputs.project }}): update documentation site"
+          git push

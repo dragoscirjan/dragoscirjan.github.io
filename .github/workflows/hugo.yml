@@ -2,10 +2,9 @@
 # documentation sites to GitHub Pages.
 #
 # Adapted from lunaticthinker.github.io's Hugo Pages workflow. The key
-# difference: after the Hugo build, the documentation directories committed
-# at the repository root (mcp-searchable, mcp-tuikit, solidref,
-# coding-standards) are copied into the Hugo output so one Pages
-# deployment serves the blog and the docs.
+# difference: after the Hugo build, the documentation sites committed under
+# projects/ are copied into the Hugo output (served under /projects/<name>/)
+# so one Pages deployment serves the blog and the docs.
 name: Deploy site to Pages
 
 on:

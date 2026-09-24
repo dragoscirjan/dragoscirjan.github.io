@@ -5,7 +5,7 @@
 This repository (`dragoscirjan.github.io`) is the personal GitHub Pages site of Dragos Cirjan. It combines three responsibilities in one place:
 
 1. **Blog** — the LunaticThinker blog ("LunaticThinker.me"), migrated from the former `lunaticthinker.github.io` repository. New articles continue to be published here; the historical archive (2008 onward, including WordPress-era posts) is preserved.
-2. **Documentation hub** — the published documentation sites for the author's other projects (for example `mcp-searchable`, `mcp-tuikit`, `solidref`, `coding-standards`). These are generated in their own project repositories and land here as **built output only**.
+2. **Documentation hub** — the published documentation sites for the author's other projects (for example `mcp-searchable`, `mcp-tuikit`, `solidref`, `coding-standards`), published under the `projects/` directory. These are generated in their own project repositories and land here as **built output only**.
 3. **Themes** — the canonical, versioned home of the **LunaticThinker theme system**: one shared visual foundation implemented (or to be implemented) for Hugo, VitePress, and MkDocs, applied across the blog and all project documentation.
 
 The site is branded **LunaticThinker** ("Thoughts on code and poetry") even though it is served from `dragoscirjan.github.io`.
@@ -19,11 +19,12 @@ content/                   Blog content (posts, about, contact)
 static/uploads/            Historical blog images (WordPress-migrated), kept as-is
 themes/lunaticthinker/     Hugo theme implementing the LunaticThinker design system
 themes/design-system/      Shared tokens/components/rules (Hugo, VitePress, MkDocs)
-mcp-searchable/            Built MkDocs Material site for the mcp-searchable project
-mcp-tuikit/                Built MkDocs Material site for the mcp-tuikit project
-solidref/                  Built Vite/VitePress site for the solidref project
-coding-standards/          Legacy static site (kept for link compatibility)
-.github/workflows/hugo.yml Pages deployment (adapted from lunaticthinker.github.io)
+projects/mcp-searchable/   Built MkDocs Material site for the mcp-searchable project
+projects/mcp-tuikit/       Built MkDocs Material site for the mcp-tuikit project
+projects/solidref/         Built Vite/VitePress site for the solidref project
+projects/coding-standards/ Legacy static site (kept for link compatibility)
+.github/workflows/hugo.yml   Pages deployment (adapted from lunaticthinker.github.io)
+.github/workflows/docs.yml   Reusable workflow other repos call to publish docs
 mise.toml                   Tool pinning (Hugo) and build/serve/clean tasks
 ```
 
@@ -41,8 +42,8 @@ This layout is now in place: the blog content has been migrated from `lunaticthi
 
 ### Project documentation
 
-- Documentation **sources stay in their own project repositories**. This repo contains only the generated site output, committed under the project's directory (e.g. `mcp-searchable/`).
-- Documentation is updated by each project's CI or by a manual regeneration step in the source repo, committed here as `docs(<project>): update documentation site`. Never hand-edit generated HTML.
+- Documentation **sources stay in their own project repositories**. This repo contains only the generated site output, committed under `projects/<name>/` (e.g. `projects/mcp-searchable/`).
+- Documentation is published either by calling the reusable workflow `.github/workflows/docs.yml` from the source project's repository, or by a manual regeneration step committed here as `docs(<project>): update documentation site`. Never hand-edit generated HTML.
 - Documentation is untrusted content relative to the site shell: it must not be able to alter Hugo configuration, the theme, or the deployment workflow.
 
 ### Themes
@@ -57,8 +58,9 @@ This layout is now in place: the blog content has been migrated from `lunaticthi
 The deployment workflow is adapted from `lunaticthinker.github.io`'s Hugo Pages workflow:
 
 - Trigger: push to `main` and manual `workflow_dispatch`.
-- Build job: pinned Hugo extended version, Dart Sass, recursive submodule checkout, `hugo --minify --baseURL <pages base_url>`.
-- After the Hugo build, the committed documentation directories (`mcp-searchable/`, `mcp-tuikit/`, `solidref/`, `coding-standards/`, …) are copied into the Hugo output before upload, so both the blog and the docs are served from one Pages deployment.
+- Build job: pinned Hugo extended version (matching `mise.toml`), `hugo --minify --baseURL <pages base_url>`.
+- After the Hugo build, everything committed under `projects/` is copied into the Hugo output (served under `/projects/<name>/`) before upload, so both the blog and the docs are served from one Pages deployment.
+- A separate reusable workflow (`.github/workflows/docs.yml`) lets other repositories publish their built documentation into `projects/` on this repository; it must never receive more than a contents-write token and must not execute repository code.
 - Deploy job: `actions/deploy-pages` with `contents: read`, `pages: write`, `id-token: write`; a single `pages` concurrency group; no cancel-in-progress.
 - Never check out or execute third-party code as part of the Pages build beyond Hugo itself and declared theme assets.
 
