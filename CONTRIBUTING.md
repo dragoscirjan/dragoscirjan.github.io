@@ -12,7 +12,7 @@ Development expectations for coding agents live in `AGENTS.md`; this file covers
 
 ## Development model
 
-- **Blog and site shell**: Hugo (extended). Local tasks run through [go-task](https://taskfile.dev) (`Taskfile.yml`).
+- **Blog and site shell**: Hugo (extended), pinned and provided by [mise](https://mise.jdx.dev) (`mise.toml`). Tasks run with `mise run <task>`. VitePress and MkDocs theme integrations share the same design tokens and are planned for later.
 - **Themes**: Hugo theme code under `themes/lunaticthinker/`; shared design tokens and components under the theme system area, with integration notes for Hugo, VitePress, and MkDocs.
 - **Project docs**: generated in each project's own repository. This repo receives only the built output.
 - **Issues and design**: GitHub Issues for defects/features; design decisions and the theme spec live in this repository's documentation (and the GitHub Wiki where used).
@@ -27,19 +27,19 @@ cd dragoscirjan.github.io
 Prerequisites:
 
 - Hugo **extended** (same pinned version as `.github/workflows/hugo.yml`)
-- [go-task](https://taskfile.dev) (`task`)
+- [mise](https://mise.jdx.dev) (installs the pinned Hugo automatically on first `mise run`)
 - Git submodules, if the theme is referenced as one during migration: `git submodule update --init --recursive`
 
-> Note: the `Taskfile.yml` targets below are part of the migration being bootstrapped in this repository. If a task is missing, the repository is still mid-migration — check `git log` and `AGENTS.md` for the current state rather than inventing commands.
+> Note: tasks are defined in `mise.toml`. If a task is missing, check `mise.toml` and `AGENTS.md` for the current state rather than inventing commands.
 
 ## Local development
 
 ```bash
-task serve     # Hugo dev server with drafts and future posts, live reload
-task build     # Production build (minified) into public/
-task rebuild   # clean + build
-task clean     # remove public/
-task hugo:version
+mise run serve         # Hugo dev server with drafts and future posts, live reload
+mise run build         # Production build (minified) + docs copy into public/
+mise run rebuild       # clean + build
+mise run clean         # remove public/
+mise run hugo:version
 ```
 
 The local dev server excludes the committed documentation directories from Hugo's build; they are copied into the Pages artifact during deployment, not processed by Hugo.
@@ -53,14 +53,14 @@ The local dev server excludes the committed documentation directories from Hugo'
    ```
 
 2. Write the post; keep taxonomies (`categories`, `tags`) consistent with existing posts.
-3. Preview locally with `task serve`.
+3. Preview locally with `mise run serve`.
 4. Commit with a `posts:` or `content:` prefix, e.g. `posts: add article on X`.
 
 Rules:
 
 - **Never modify migrated posts' filenames, dates, or slugs.** Permalinks are part of the historical contract.
 - Historical images under `static/uploads/` stay untouched.
-- Drafts (front matter `draft: true`) are fine locally; `task serve` shows them, production builds exclude them.
+- Drafts (front matter `draft: true`) are fine locally; `mise run serve` shows them, production builds exclude them.
 
 ## Documentation publishing workflow
 
@@ -79,7 +79,7 @@ Never hand-edit generated HTML, search indexes, or asset bundles under these dir
 ## Theme development
 
 - The LunaticThinker theme is the shared visual foundation: dark-only, Catppuccin Mocha tokens (`--lt-base`, `--lt-cyan`, `--lt-mauve`, …), 1px borders, restrained technical aesthetic, no fake terminal UI.
-- Hugo changes: edit `themes/lunaticthinker/` and verify with `task serve` against real blog content.
+- Hugo changes: edit `themes/lunaticthinker/` and verify with `mise run serve` against real blog content.
 - Design-system changes (tokens, components): update the shared source and every engine integration (Hugo, VitePress, MkDocs) in the same change, or split into coordinated PRs that land together.
 - Reference pages/HTML previews from the theme spec should be kept in sync with the implemented templates.
 - Commit with a `theme:` prefix.
@@ -100,7 +100,7 @@ Never hand-edit generated HTML, search indexes, or asset bundles under these dir
 
 Before opening a PR, confirm:
 
-- [ ] `task build` succeeds (Hugo build clean, no errors).
+- [ ] `mise run build` succeeds (Hugo build clean, no errors).
 - [ ] Migrated post paths and `static/uploads/` references are unchanged.
 - [ ] Generated docs directories contain only regenerated output, no hand edits.
 - [ ] Theme changes respect the LunaticThinker design system tokens and rules.

@@ -24,7 +24,7 @@ mcp-tuikit/                Built MkDocs Material site for the mcp-tuikit project
 solidref/                  Built Vite/VitePress site for the solidref project
 coding-standards/          Legacy static site (kept for link compatibility)
 .github/workflows/hugo.yml Pages deployment (adapted from lunaticthinker.github.io)
-Taskfile.yml               Local build/serve/clean tasks
+mise.toml                   Tool pinning (Hugo) and build/serve/clean tasks
 ```
 
 This layout is now in place: the blog content has been migrated from `lunaticthinker.github.io` and the Hugo theme lives in `themes/lunaticthinker/`.
@@ -64,7 +64,7 @@ The deployment workflow is adapted from `lunaticthinker.github.io`'s Hugo Pages 
 
 ## Working rules
 
-- Read `CONTRIBUTING.md` before changing the repository. Do not invent development commands; use the ones documented there and in `Taskfile.yml`.
+- Read `CONTRIBUTING.md` before changing the repository. Do not invent development commands; use the ones documented there and in `mise.toml`.
 - Keep blog content, documentation output, and theme code in separate commits where practical. Conventional Commits are expected (`posts:`, `docs(<project>):`, `theme:`, `chore:` …).
 - Treat generated documentation output as immutable artifacts: regenerate in the source repo, do not edit in place.
 - Do not rebrand historical content. The LunaticThinker identity stays for blog history and branding.

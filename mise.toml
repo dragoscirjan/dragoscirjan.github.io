@@ -1,0 +1,33 @@
+# Development environment and tasks for the LunaticThinker site.
+# Tools are pinned so local builds match the CI workflow exactly.
+
+[tools]
+# The GitHub Pages workflow (.github/workflows/hugo.yml) pins the same version.
+# Use the extended build so SCSS/Sass-capable features keep working if introduced.
+hugo-extended = "0.163.3"
+
+[tasks.serve]
+description = "Serve the blog locally with drafts, future posts and live reload"
+run = "hugo server --buildDrafts --buildFuture --watch --disableFastRender"
+
+[tasks.build]
+description = "Build the production site (minified), then copy the documentation sites into the output"
+run = """
+hugo --cleanDestinationDir --gc --minify
+for d in mcp-searchable mcp-tuikit solidref coding-standards; do
+  rsync -a --delete "$d/" "public/$d/"
+done
+"""
+
+[tasks.clean]
+description = "Remove the generated site output directory"
+run = "rm -rf public"
+quiet = true
+
+[tasks.rebuild]
+description = "Clean then build the production site"
+run = "mise run clean && mise run build"
+
+[tasks."hugo:version"]
+description = "Show the Hugo version used (provided by mise)"
+run = "hugo version"

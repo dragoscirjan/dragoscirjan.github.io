@@ -9,8 +9,8 @@ Personal site of Dragos Cirjan, served from [dragoscirjan.github.io](https://dra
 ## Development
 
 ```bash
-task serve    # local dev server (drafts + live reload)
-task build    # production build + docs copy into public/
+mise run serve   # local dev server (drafts + live reload)
+mise run build   # production build + docs copy into public/
 ```
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for workflows and `AGENTS.md` for coding-agent guidance.

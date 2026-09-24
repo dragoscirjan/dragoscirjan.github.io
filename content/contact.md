@@ -8,7 +8,7 @@ draft: false
 
 Have a question, suggestion, or just want to say hello? Feel free to reach out using the form below. Your message will create a GitHub issue in our repository, allowing for transparent communication and tracking.
 
-<form action="https://github.com/lunaticthinker-me/lunaticthinker.github.io/issues/new" method="get" id="contact-form" class="contact-form">
+<form action="https://github.com/dragoscirjan/dragoscirjan.github.io/issues/new" method="get" id="contact-form" class="contact-form">
   <div class="form-group">
     <label for="issue-title">Subject *</label>
     <input type="text" id="issue-title" name="title" required placeholder="Brief description of your message" minlength="10" maxlength="100">
@@ -156,7 +156,7 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
 You can also find me on:
 
 - **GitHub**: [@lunaticthinker](https://github.com/lunaticthinker)  [@dragoscirjan](https://github.com/dragoscirjan)
-- **Direct Issues**: [Create an issue directly on GitHub](https://github.com/lunaticthinker-me/lunaticthinker.github.io/issues/new)
+- **Direct Issues**: [Create an issue directly on GitHub](https://github.com/dragoscirjan/dragoscirjan.github.io/issues/new)
 
 ### Privacy Note
 
