@@ -1,0 +1,19 @@
+{{ define "main" }}
+<main class="lt-container">
+	<header class="lt-page-header">
+		<p class="lt-eyebrow">{{ .Data.Singular }}</p>
+		<h1>{{ .Title }}</h1>
+	</header>
+	<div class="lt-list">
+		{{ range .Paginator.Pages }}
+		<a class="lt-list-row" href="{{ .RelPermalink }}">
+			<span class="lt-list-date">{{ .Date.Format "2 Jan 2006" }}</span>
+			<span>{{ .Title }}</span>
+			<span class="lt-list-topic">{{ .Params.author | default site.Params.author.name }}</span>
+			<span class="lt-list-arrow">↗</span>
+		</a>
+		{{ end }}
+	</div>
+	{{ template "_internal/pagination.html" . }}
+</main>
+{{ end }}

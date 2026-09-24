@@ -1,0 +1,38 @@
+{{ define "main" }}
+<main class="lt-container">
+	<header class="lt-page-header">
+		<p class="lt-eyebrow">
+			{{- with .Params.categories }}{{ delimit (first 1 .) "" }}{{ else }}{{ .Section | default "post" }}{{ end -}}
+		</p>
+		<h1>{{ .Title }}</h1>
+		{{ with .Description }}<p>{{ . }}</p>{{ end }}
+		<div class="lt-meta">
+			<span>{{ .Params.author | default site.Params.author.name }}</span>
+			<span>{{ .Date.Format "2 Jan 2006" }}</span>
+			<span>{{ .ReadingTime }} min read</span>
+			{{ with .Params.categories }}{{ range . }}<span class="lt-tag">{{ . }}</span>{{ end }}{{ end }}
+			{{ with .Params.tags }}{{ range . }}<span class="lt-tag">{{ . }}</span>{{ end }}{{ end }}
+		</div>
+	</header>
+	<div class="lt-article-layout">
+		<article class="lt-article">
+			{{ .Content }}
+			{{ with .Params.featured_image }}
+			<img src="{{ . | absURL }}" alt="">
+			{{ end }}
+			<div class="lt-pagination">
+				{{ with .PrevInSection }}
+				<a href="{{ .RelPermalink }}"><span>Previous post</span>{{ .Title }} ←</a>
+				{{ end }}
+				{{ with .NextInSection }}
+				<a href="{{ .RelPermalink }}" style="text-align:right"><span>Next post</span>{{ .Title }} →</a>
+				{{ end }}
+			</div>
+		</article>
+		<aside class="lt-article-aside">
+			<strong>On this page</strong>
+			{{ .TableOfContents }}
+		</aside>
+	</div>
+</main>
+{{ end }}

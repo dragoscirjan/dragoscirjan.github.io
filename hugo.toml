@@ -1,0 +1,109 @@
+baseURL = 'https://dragoscirjan.github.io/'
+languageCode = 'en-us'
+title = 'LunaticThinker.me'
+theme = 'lunaticthinker'
+mainSections = ['posts']
+
+ignoreLogs = ['warning-goldmark-raw-html']
+
+[frontmatter]
+date = ['date', 'publishDate', 'lastmod']
+lastmod = [':git', 'lastmod', 'date', 'publishDate']
+publishDate = ['publishDate', 'date']
+
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+[markup.highlight]
+style = 'catppuccin-mocha'
+noClasses = true
+lineNos = false
+
+[taxonomies]
+category = 'categories'
+tag = 'tags'
+
+[params]
+description = 'Thoughts on code and poetry.'
+brand = 'LunaticThinker'
+github = 'lunaticthinker'
+
+[params.author]
+name = 'Dragos Cirjan'
+
+[params.footer]
+since = 2008
+contact = '/contact/'
+
+[params.home]
+eyebrow = 'Software engineer · Bucharest, Romania'
+heading = 'I build tools,<br><em>then write about them.</em>'
+lead = 'A personal space for software projects, engineering notes, experiments with AI, and the occasional piece of poetry.'
+postCount = 7
+
+[[params.home.currently]]
+key = 'building'
+value = 'MCP tools for AI agents'
+
+[[params.home.currently]]
+key = 'exploring'
+value = 'local-first developer workflows'
+
+[[params.home.currently]]
+key = 'writing'
+value = 'about code, systems and ideas'
+
+[[params.docs]]
+name = 'mcp-searchable'
+url = '/mcp-searchable/'
+stack = 'TypeScript · MCP'
+status = 'lt-status-positive'
+statusLabel = 'Active'
+description = 'Local-first web research for AI agents: search, fetch, stash, grep and ask.'
+
+[[params.docs]]
+name = 'mcp-tuikit'
+url = '/mcp-tuikit/'
+stack = 'Go · TUI'
+status = 'lt-status-positive'
+statusLabel = 'Active'
+description = 'A virtual terminal that lets AI agents interact with terminal interfaces.'
+
+[[params.docs]]
+name = 'solidref'
+url = '/solidref/'
+stack = 'Vite · React · TypeScript'
+status = 'lt-status-experimental'
+statusLabel = 'Experiments'
+description = 'Reference app built with Vite, React and TypeScript.'
+
+[[params.docs]]
+name = 'coding-standards'
+url = '/coding-standards/'
+stack = 'Legacy'
+status = 'lt-status-experimental'
+statusLabel = 'Archive'
+description = 'Clean-code standards site, kept for historical reference.'
+
+[menus]
+[[menus.main]]
+name = 'Blog'
+url = '/posts/'
+weight = 10
+[[menus.main]]
+name = 'Projects'
+url = '/docs/'
+weight = 20
+[[menus.main]]
+name = 'Categories'
+url = '/categories/'
+weight = 30
+[[menus.main]]
+name = 'About'
+url = '/about/'
+weight = 40
+[[menus.main]]
+name = 'Contact'
+url = '/contact/'
+weight = 50

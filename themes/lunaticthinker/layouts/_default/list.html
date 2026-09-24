@@ -1,0 +1,20 @@
+{{ define "main" }}
+<main class="lt-container">
+	<header class="lt-page-header">
+		<p class="lt-eyebrow">{{ .Params.eyebrow | default .Section | default "pages" }}</p>
+		<h1>{{ .Title }}</h1>
+		{{ with .Description }}<p>{{ . }}</p>{{ end }}
+	</header>
+	<div class="lt-list">
+		{{ range .Paginator.Pages }}
+		<a class="lt-list-row" href="{{ .RelPermalink }}">
+			<span class="lt-list-date">{{ .Date.Format "2 Jan 2006" }}</span>
+			<span>{{ .Title }}</span>
+			<span class="lt-list-topic">{{ with .Params.categories }}{{ delimit (first 1 .) "" }}{{ end }}</span>
+			<span class="lt-list-arrow">↗</span>
+		</a>
+		{{ end }}
+	</div>
+	{{ template "_internal/pagination.html" . }}
+</main>
+{{ end }}

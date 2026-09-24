@@ -1,0 +1,14 @@
+<header class="lt-header">
+	<a class="lt-brand" href="{{ site.Home.RelPermalink }}" aria-label="LunaticThinker home">
+		<span class="lt-brand-mark" aria-hidden="true"><i></i></span>
+		<span>{{ site.Params.brand | default "LunaticThinker" }}<span class="lt-brand-dot">.</span></span>
+	</a>
+	<nav class="lt-nav" aria-label="Main navigation">
+		{{- range site.Menus.main }}
+		<a href="{{ .URL }}"{{ if or (page.IsMenuCurrent "main" .) (page.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a>
+		{{- end }}
+	</nav>
+	{{ with site.Params.github }}
+	<a class="lt-external" href="https://github.com/{{ . }}">GitHub ↗</a>
+	{{- end }}
+</header>

@@ -1,0 +1,8 @@
+<footer class="lt-footer lt-container">
+	<span>© {{ site.Params.footer.since | default 2008 }}–{{ now.Year }} {{ site.Params.author.name }}</span>
+	<span>
+		<a href="{{ site.Params.footer.contact | default "/contact/" | relURL }}">Get in touch</a>
+		·
+		<a href="{{ with site.Home.OutputFormats.Get "rss" }}{{ .RelPermalink }}{{ else }}/index.xml{{ end }}">RSS</a>
+	</span>
+</footer>

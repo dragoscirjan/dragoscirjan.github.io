@@ -1,0 +1,57 @@
+{{ define "main" }}
+<section class="lt-hero lt-container">
+	<div>
+		<p class="lt-eyebrow">{{ site.Params.home.eyebrow }}</p>
+		<h1>{{ site.Params.home.heading | safeHTML }}</h1>
+		<p class="lt-lead">{{ site.Params.home.lead }}</p>
+		<div class="lt-actions">
+			<a class="lt-button lt-button-primary" href="/posts/">Read the blog →</a>
+			<a class="lt-text-link" href="/docs/">Project documentation ↗</a>
+		</div>
+	</div>
+	<aside class="lt-panel">
+		<div class="lt-panel-head"><span>Currently</span><span class="lt-panel-icon">✦</span></div>
+		<div class="lt-panel-rule"></div>
+		<dl>
+			{{ range site.Params.home.currently }}
+			<div><dt>{{ .key }}</dt><dd>{{ .value }}</dd></div>
+			{{ end }}
+		</dl>
+	</aside>
+</section>
+
+{{ with site.Params.docs }}
+<section class="lt-section lt-container" id="docs">
+	<div class="lt-section-heading">
+		<div><p class="lt-eyebrow">Documentation</p><h2>Projects</h2></div>
+	</div>
+	<div class="lt-grid">
+		{{ range . }}
+		<a class="lt-card" href="{{ .url }}">
+			<div class="lt-card-meta"><span class="{{ .status | default "lt-status-positive" }}">● {{ .statusLabel | default "Active" }}</span><span>{{ .stack }}</span></div>
+			<h3>{{ .name }}</h3>
+			<p>{{ .description }}</p>
+			<span class="lt-card-arrow">↗</span>
+		</a>
+		{{ end }}
+	</div>
+</section>
+{{ end }}
+
+<section class="lt-section lt-container" id="posts">
+	<div class="lt-section-heading">
+		<div><p class="lt-eyebrow">From the blog</p><h2>Latest posts</h2></div>
+		<a class="lt-section-link" href="/posts/">All posts →</a>
+	</div>
+	<div class="lt-list">
+		{{ range first (site.Params.home.postCount | default 7) (where site.RegularPages "Type" "posts") }}
+		<a class="lt-list-row" href="{{ .RelPermalink }}">
+			<span class="lt-list-date">{{ .Date.Format "2 Jan 2006" }}</span>
+			<span>{{ .Title }}</span>
+			<span class="lt-list-topic">{{ with .Params.categories }}{{ delimit (first 1 .) "" }}{{ end }}</span>
+			<span class="lt-list-arrow">↗</span>
+		</a>
+		{{ end }}
+	</div>
+</section>
+{{ end }}
