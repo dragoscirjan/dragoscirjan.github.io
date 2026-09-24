@@ -50,9 +50,7 @@ jobs:
             --baseURL "${{ steps.pages.outputs.base_url }}/"
       - name: Copy documentation sites into output
         run: |
-          for dir in mcp-searchable mcp-tuikit solidref coding-standards; do
-            rsync -a --delete "$dir/" "public/$dir/"
-          done
+          rsync -a --delete projects/ public/projects/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
