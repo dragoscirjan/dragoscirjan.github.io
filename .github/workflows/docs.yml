@@ -81,6 +81,11 @@ jobs:
           run-id: ${{ github.run_id }}
           github-token: ${{ secrets.token }}
 
+      # The artifact may also carry extra root entries (e.g. an unwanted
+      # `.unlock` file created by upload-artifact); copy only the site files.
+      - name: Debug artifact contents
+        run: ls -la "${{ runner.temp }}/docs" && find "${{ runner.temp }}/docs" -maxdepth 2 | head -20
+
       - name: Replace documentation directory
         run: |
           mkdir -p "projects/${{ inputs.project }}"
