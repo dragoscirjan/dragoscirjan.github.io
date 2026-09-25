@@ -25,7 +25,8 @@
 /* Keep the studio's diagonal anchors: they are tuned so the 18deg lean lands
    each line in the gaps between portal columns. Only the portal headings are
    slightly reduced to keep "About Me" clear of the pink line. */
-.portal h2{font-size:clamp(32px,3.4vw,56px)}
+.portal h2{font-size:clamp(32px,3.4vw,45px)}
+@media(min-width:1800px){.portal h2{font-size:45px}}
 
 /* Home stage: fill the viewport exactly and pin the footer to the bottom.
    The shared sheet sizes .home-main with fixed viewport math that overflows
