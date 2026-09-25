@@ -64,6 +64,13 @@ The deployment workflow is adapted from `lunaticthinker.github.io`'s Hugo Pages 
 - Deploy job: `actions/deploy-pages` with `contents: read`, `pages: write`, `id-token: write`; a single `pages` concurrency group; no cancel-in-progress.
 - Never check out or execute third-party code as part of the Pages build beyond Hugo itself and declared theme assets.
 
+## Development workflow
+
+- Make every repository change on a short-lived branch checked out in a dedicated Git worktree. Never develop in the primary checkout or directly on `main`.
+- Create worktrees under `../dragoscirjan.github.io--workspaces/<branch-name>` so the worktree path reflects the branch name and parallel work stays isolated.
+- Commit changes on the worktree branch, push only that branch, and open or update a pull request targeting `main`. Never push commits directly to `main`.
+- Opening or updating the pull request is the default stopping point. Never merge a pull request unless the user explicitly instructs you to merge it; approval, passing checks, or an instruction to create the pull request is not permission to merge.
+
 ## Working rules
 
 - Read `CONTRIBUTING.md` before changing the repository. Do not invent development commands; use the ones documented there and in `mise.toml`.
