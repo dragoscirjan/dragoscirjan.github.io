@@ -15,6 +15,14 @@
 @media(max-width:1150px){.diagonals,.scene{width:88%}}
 @media(max-width:760px){.diagonals,.scene{width:calc(100% - 40px)}}
 
+/* Nudge the two right-hand diagonals right so they frame the portals instead
+   of crossing the About Me / Contact headings inside the column. */
+.diagonals i:nth-child(3){left:76%}
+.diagonals i:nth-child(4){left:99%}
+
+/* Slightly smaller portal headings: "About Me" no longer crosses a diagonal. */
+.portal h2{font-size:clamp(32px,3.4vw,56px)}
+
 /* Home stage: fill the viewport exactly and pin the footer to the bottom.
    The shared sheet sizes .home-main with fixed viewport math that overflows
    short viewports and leaves the footer floating below mid-page on tall ones. */
