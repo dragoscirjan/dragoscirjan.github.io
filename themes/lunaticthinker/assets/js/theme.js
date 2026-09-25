@@ -1,18 +1,11 @@
-document.querySelectorAll('[data-menu-toggle]').forEach((button) => {
-  button.addEventListener('click', () => {
-    const target = document.querySelector(button.dataset.menuToggle);
-    const open = target?.toggleAttribute('data-open');
-    button.setAttribute('aria-expanded', String(Boolean(open)));
-  });
-});
-
-document.querySelectorAll('[data-copy]').forEach((button) => {
-  button.addEventListener('click', async () => {
-    const code = document.querySelector(button.dataset.copy);
-    if (!code) return;
-    await navigator.clipboard.writeText(code.textContent);
-    const original = button.textContent;
-    button.textContent = 'Copied';
-    setTimeout(() => { button.textContent = original; }, 1400);
-  });
-});
+(()=>{
+function init(root=document){
+root.querySelectorAll('[data-menu]').forEach(b=>{if(b.dataset.bound)return;b.dataset.bound='1';b.addEventListener('click',()=>{let n=document.getElementById(b.getAttribute('aria-controls'));let open=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',String(open));n.classList.toggle('is-open',open)});});
+root.querySelectorAll('[data-filter]').forEach(b=>{if(b.dataset.bound)return;b.dataset.bound='1';b.addEventListener('click',()=>{root.querySelectorAll('[data-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));let count=0;root.querySelectorAll('[data-category]').forEach(row=>{row.hidden=b.dataset.filter!=='All'&&row.dataset.category!==b.dataset.filter;if(!row.hidden)count++});let s=root.querySelector('[data-filter-status]');if(s)s.textContent=count+' articles';});});
+root.querySelectorAll('pre').forEach(pre=>{if(pre.closest('.codebox')||pre.classList.contains('contact-preview'))return;let box=document.createElement('div');box.className='codebox';pre.before(box);let bar=document.createElement('div');bar.className='codebar';bar.innerHTML='<span>Code</span><button type="button" class="copy">Copy</button>';box.append(bar,pre)});
+root.querySelectorAll('.codebox .copy').forEach(b=>{if(b.dataset.bound)return;b.dataset.bound='1';b.addEventListener('click',async()=>{const code=b.closest('.codebox').querySelector('pre');try{if(navigator.clipboard&&window.isSecureContext&&location.protocol!=='file:')await navigator.clipboard.writeText(code.textContent);else{let t=document.createElement('textarea');t.value=code.textContent;t.style.position='fixed';t.style.opacity='0';document.body.append(t);t.select();if(!document.execCommand('copy'))throw Error('copy');t.remove()}b.textContent='Copied';}catch(e){b.textContent='Select code';let range=document.createRange();range.selectNodeContents(code);let s=getSelection();s.removeAllRanges();s.addRange(range)}setTimeout(()=>b.textContent='Copy',1800)});});
+root.querySelectorAll('[data-doc-filter]').forEach(input=>{if(input.dataset.bound)return;input.dataset.bound='1';input.addEventListener('input',()=>{input.closest('.docs-nav').querySelectorAll('.nav-content a').forEach(a=>a.hidden=!a.textContent.toLowerCase().includes(input.value.toLowerCase()))})});
+let f=root.querySelector('[data-contact]');if(f&&!f.dataset.bound){f.dataset.bound='1';f.addEventListener('submit',e=>{e.preventDefault();const data=new FormData(f);let output=root.querySelector('[data-message]');output.hidden=false;output.textContent='Subject: '+data.get('subject')+'\nFrom: '+data.get('name')+' <'+data.get('email')+'>\n\n'+data.get('message');root.querySelector('[data-contact-status]').textContent='Draft prepared locally. Nothing has been sent.';output.focus()})}
+}
+window.LunaticTheme={init};if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>init());else init();document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.nav.is-open').forEach(n=>n.classList.remove('is-open'));document.querySelectorAll('[data-menu]').forEach(b=>b.setAttribute('aria-expanded','false'))}});
+})();

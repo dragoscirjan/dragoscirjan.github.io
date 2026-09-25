@@ -1,0 +1,62 @@
+/* Hugo integration layer for the LunaticThinker editorial theme.
+   Loaded after the shared theme.css; only Hugo-generated markup lives here. */
+
+/* Keep the editorial layout centered: cap page-specific shell overrides.
+   The shared stylesheet widens .home/.project-page/.docs shells up to 1600-1800px;
+   the site design requires a centered column capped at the base 1300px. */
+.home .shell,.project-page .shell,.docs .shell{width:min(1300px,82%)}
+@media(min-width:1800px){.home .shell,.project-page .shell,.docs .shell{width:min(1300px,82%)}}
+@media(max-width:1150px){.home .shell,.project-page .shell,.docs .shell{width:88%}}
+@media(max-width:760px){.home .shell,.project-page .shell,.docs .shell{width:calc(100% - 40px)}}
+
+/* Lead paragraph under article titles */
+.article-lead{margin:0;color:var(--muted);font-size:19px;letter-spacing:.01em}
+
+/* Featured image */
+.article-figure{margin:0 0 42px}
+.article-figure img{display:block;width:100%;border:1px solid var(--line)}
+
+/* Images and figures inside prose */
+.prose img{max-width:100%;height:auto;border:1px solid var(--line)}
+.prose figure{margin:32px 0}
+.prose figure img{margin:0}
+.prose figcaption{margin-top:10px;font:11px/1.7 var(--mono);letter-spacing:.08em;color:var(--muted)}
+
+/* Inline section content on list pages (rare, but content may add it) */
+.section-content{margin:18px 0 30px;max-width:760px;font:17px/1.85 var(--sans);color:var(--muted)}
+.section-content p{margin:0 0 18px}
+
+/* Project intro copy (unused: docs landing renders heading + links only) */
+
+/* Hugo table of contents inside .toc */
+.toc nav#TableOfContents ul{padding-left:14px;margin:0;list-style:none}
+.toc nav#TableOfContents ul ul{padding-left:14px}
+
+/* Taxonomy tags rendered as links in article meta */
+.article-meta a.tag{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
+.article-meta a.tag:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* Post navigation pager (article page) */
+.article-pager{margin-top:56px;padding-top:22px;border-top:1px solid var(--line)}
+.article-pager a,.article-pager span{max-width:44%;font-size:11px;letter-spacing:.08em}
+.article-pager span{color:var(--muted)}
+
+/* Legacy inline contact form (content/contact.md) */
+.contact-form{max-width:600px;margin:32px auto;padding:28px;border:1px solid var(--line)}
+.contact-form .form-group{margin-bottom:22px}
+.contact-form label{display:block;margin-bottom:8px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.contact-form input[type="text"],.contact-form textarea,.contact-form select{width:100%;padding:12px 14px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:14px/1.6 var(--sans)}
+.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{outline:2px solid var(--accent);outline-offset:1px}
+.contact-form .submit-btn{width:100%;padding:14px 20px;background:var(--accent);color:var(--bg);border:0;font:600 13px var(--mono);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.contact-form .submit-btn:hover{opacity:.9}
+.contact-form .form-note,.contact-form small{color:var(--muted);font-size:12px}
+.contact-form .honeypot{position:absolute;left:-9999px}
+
+/* Code blocks produced by Hugo highlighting */
+.prose pre{padding:18px 20px;overflow-x:auto;border:1px solid var(--line);background:#11181b}
+.prose code{font-family:var(--mono);font-size:.9em}
+.prose :not(pre)>code{padding:2px 6px;border:1px solid var(--line);background:#11181b}
+
+/* Old markup compat: legacy uploads and inline HTML keep sane metrics */
+.prose hr{border:0;border-top:1px solid var(--line);margin:40px 0}
+.prose iframe{max-width:100%;border:0}

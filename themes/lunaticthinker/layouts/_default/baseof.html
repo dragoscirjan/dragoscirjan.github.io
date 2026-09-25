@@ -4,8 +4,16 @@
 	{{ partial "head.html" . }}
 </head>
 <body>
-	{{ partial "header.html" . }}
-	{{ block "main" . }}{{ end }}
-	{{ partial "footer.html" . }}
+	<a class="skip" href="#main">Skip to content</a>
+	<div class="page {{ if .IsHome }}home home-stage{{ else if eq .Type "docs" }}project-page{{ end }}" style="--accent:var(--{{ .Params.accent | default "cyan" }})">
+		<div class="scene" aria-hidden="true">
+			{{ with resources.Get "workspace.svg" }}<img src="{{ .RelPermalink }}" alt="">{{ end }}
+		</div>
+		{{ partial "header.html" . }}
+		{{ block "main" . }}{{ end }}
+		{{ partial "footer.html" . }}
+	</div>
+	{{ $js := resources.Get "js/theme.js" | minify }}
+	<script src="{{ $js.RelPermalink }}" defer></script>
 </body>
 </html>

@@ -1,8 +1,9 @@
-<footer class="lt-footer lt-container">
-	<span>© {{ site.Params.footer.since | default 2008 }}–{{ now.Year }} {{ site.Params.author.name }}</span>
-	<span>
-		<a href="{{ site.Params.footer.contact | default "/contact/" | relURL }}">Get in touch</a>
-		·
-		<a href="{{ with site.Home.OutputFormats.Get "rss" }}{{ .RelPermalink }}{{ else }}/index.xml{{ end }}">RSS</a>
-	</span>
+<footer class="footer shell">
+	<span>{{ site.Params.brand | default site.Title }} · {{ site.Params.author.name | default site.Params.author }}</span>
+	<nav aria-label="Footer">
+		<a href="{{ site.Home.RelPermalink }}">Home</a>
+		{{ with site.Params.github }}<a href="https://github.com/{{ . }}">GitHub ↗</a>{{ end }}
+		{{ with site.GetPage "/contact" }}<a href="{{ .RelPermalink }}">Contact</a>{{ end }}
+		{{ with site.Home.OutputFormats.Get "rss" }}<a href="{{ .Permalink }}">RSS</a>{{ end }}
+	</nav>
 </footer>
