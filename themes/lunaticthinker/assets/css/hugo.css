@@ -1,11 +1,12 @@
 /* Hugo integration layer for the LunaticThinker editorial theme.
    Loaded after the shared theme.css; only Hugo-generated markup lives here. */
 
-/* Keep content pages centered: cap page-specific shell overrides.
-   The home stage is intentionally full-width (studio design), so it is excluded. */
-.project-page .shell,.docs .shell{width:min(1300px,82%)}
-@media(max-width:1150px){.project-page .shell,.docs .shell{width:88%}}
-@media(max-width:760px){.project-page .shell,.docs .shell{width:calc(100% - 40px)}}
+/* Lock the layout to a centered column (VitePress-like max width).
+   Applies to every page including the home stage; diagonals and the
+   scene art remain full-bleed since they are positioned on .page. */
+.shell,.home .shell,.project-page .shell,.docs .shell{width:min(1152px,92.5%)}
+@media(max-width:1150px){.shell,.home .shell,.project-page .shell,.docs .shell{width:88%}}
+@media(max-width:760px){.shell,.home .shell,.project-page .shell,.docs .shell{width:calc(100% - 40px)}}
 
 /* Home stage: fill the viewport exactly and pin the footer to the bottom.
    The shared sheet sizes .home-main with fixed viewport math that overflows
