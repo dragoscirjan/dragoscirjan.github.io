@@ -8,6 +8,13 @@
 @media(max-width:1150px){.shell,.home .shell,.project-page .shell,.docs .shell{width:88%}}
 @media(max-width:760px){.shell,.home .shell,.project-page .shell,.docs .shell{width:calc(100% - 40px)}}
 
+/* Tie the decorative layers to the same centered column: at large viewports
+   the studio's fixed-percentage diagonals and scene art otherwise land on the
+   empty viewport edges instead of alongside the content. */
+.diagonals,.scene{max-width:1152px;margin:auto;width:92.5%}
+@media(max-width:1150px){.diagonals,.scene{width:88%}}
+@media(max-width:760px){.diagonals,.scene{width:calc(100% - 40px)}}
+
 /* Home stage: fill the viewport exactly and pin the footer to the bottom.
    The shared sheet sizes .home-main with fixed viewport math that overflows
    short viewports and leaves the footer floating below mid-page on tall ones. */
