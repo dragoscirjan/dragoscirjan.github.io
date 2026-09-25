@@ -131,11 +131,35 @@ Details:
 - Reference pages/HTML previews from the theme spec should be kept in sync with the implemented templates.
 - Commit with a `theme:` prefix.
 
-## Branches and pull requests
+## Branches, worktrees, and pull requests
 
-- Work happens on short-lived branches merged to `main` by pull request; direct pushes to `main` are acceptable only for small content fixes and documentation-output updates by the owner.
+All human and coding-agent changes use a short-lived branch in a dedicated Git worktree. Do not develop in the primary checkout or directly on `main`.
+
+From the primary checkout, create a branch and matching worktree from an up-to-date `main`:
+
+```bash
+git switch main
+git pull --ff-only
+branch=<type>/<short-description>
+worktree="../dragoscirjan.github.io--workspaces/$branch"
+mkdir -p "$(dirname "$worktree")"
+git worktree add -b "$branch" "$worktree" main
+cd "$worktree"
+```
+
+Then:
+
+1. Make and validate the change in the worktree.
+2. Commit using Conventional Commits.
+3. Push only the worktree branch: `git push -u origin "$branch"`.
+4. Open a pull request targeting `main`.
+
+Rules:
+
+- Never push commits directly to `main`; changes reach `main` only through a pull request.
 - One logical change per PR. Blog content, theme work, and docs regeneration should be separate PRs unless tightly coupled.
-- Use Conventional Commits.
+- Opening or updating the PR is the default stopping point for coding agents. A coding agent must never merge a PR unless the repository owner explicitly instructs it to do so; approval or passing checks alone is not merge authorization.
+- Contributors should leave the PR open for maintainer review and merge.
 
 ## Deployment
 
@@ -147,12 +171,14 @@ Details:
 
 Before opening a PR, confirm:
 
+- [ ] Work was performed on a short-lived branch in its dedicated worktree, not in the primary checkout or on `main`.
 - [ ] `mise run build` succeeds (Hugo build clean, no errors).
 - [ ] Migrated post paths and `static/uploads/` references are unchanged.
 - [ ] Generated docs directories contain only regenerated output, no hand edits.
 - [ ] Theme changes respect the LunaticThinker design system tokens and rules.
 - [ ] `CONTRIBUTING.md` / `AGENTS.md` / theme docs updated when conventions changed.
 - [ ] Commits follow Conventional Commits.
+- [ ] The branch is pushed and a PR targets `main`; coding agents leave it unmerged unless explicitly instructed otherwise.
 
 ## Documentation
 
