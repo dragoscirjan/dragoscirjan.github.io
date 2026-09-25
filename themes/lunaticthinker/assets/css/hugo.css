@@ -1,13 +1,18 @@
 /* Hugo integration layer for the LunaticThinker editorial theme.
    Loaded after the shared theme.css; only Hugo-generated markup lives here. */
 
-/* Keep the editorial layout centered: cap page-specific shell overrides.
-   The shared stylesheet widens .home/.project-page/.docs shells up to 1600-1800px;
-   the site design requires a centered column capped at the base 1300px. */
-.home .shell,.project-page .shell,.docs .shell{width:min(1300px,82%)}
-@media(min-width:1800px){.home .shell,.project-page .shell,.docs .shell{width:min(1300px,82%)}}
-@media(max-width:1150px){.home .shell,.project-page .shell,.docs .shell{width:88%}}
-@media(max-width:760px){.home .shell,.project-page .shell,.docs .shell{width:calc(100% - 40px)}}
+/* Keep content pages centered: cap page-specific shell overrides.
+   The home stage is intentionally full-width (studio design), so it is excluded. */
+.project-page .shell,.docs .shell{width:min(1300px,82%)}
+@media(max-width:1150px){.project-page .shell,.docs .shell{width:88%}}
+@media(max-width:760px){.project-page .shell,.docs .shell{width:calc(100% - 40px)}}
+
+/* Home stage: fill the viewport exactly and pin the footer to the bottom.
+   The shared sheet sizes .home-main with fixed viewport math that overflows
+   short viewports and leaves the footer floating below mid-page on tall ones. */
+.page.home{display:flex;flex-direction:column}
+.page.home .home-main{flex:1 1 auto;height:auto;min-height:0;max-height:none;padding-bottom:40px}
+.page.home .footer{margin-top:auto}
 
 /* Lead paragraph under article titles */
 .article-lead{margin:0;color:var(--muted);font-size:19px;letter-spacing:.01em}
