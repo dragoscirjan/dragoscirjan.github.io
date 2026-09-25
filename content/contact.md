@@ -6,7 +6,11 @@ draft: false
 
 ## Get in Touch
 
-Have a question, suggestion, or just want to say hello? Feel free to reach out using the form below. Your message will create a GitHub issue in our repository, allowing for transparent communication and tracking.
+Have a question, suggestion, or just want to say hello? A few ways to reach me:
+
+- **Email**: [dragos.cirjan@gmail.com](mailto:dragos.cirjan@gmail.com)
+- **LinkedIn**: [linkedin.com/in/gridorian](https://www.linkedin.com/in/gridorian/)
+- **GitHub**: use the form below — it opens a pre-filled issue in the site repository, which keeps the conversation public and trackable.
 
 <form action="https://github.com/dragoscirjan/dragoscirjan.github.io/issues/new" method="get" id="contact-form" class="contact-form">
   <div class="form-group">
@@ -151,13 +155,6 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
 
 ---
 
-### Alternative Contact Methods
-
-You can also find me on:
-
-- **GitHub**: [@lunaticthinker](https://github.com/lunaticthinker)  [@dragoscirjan](https://github.com/dragoscirjan)
-- **Direct Issues**: [Create an issue directly on GitHub](https://github.com/dragoscirjan/dragoscirjan.github.io/issues/new)
-
 ### Privacy Note
 
-All messages submitted through this form are public and will be visible in the GitHub repository's issues section. Please do not include sensitive personal information.
+Messages submitted through the form become public GitHub issues in the site repository. Please do not include sensitive personal information — for anything private, use the email address above.

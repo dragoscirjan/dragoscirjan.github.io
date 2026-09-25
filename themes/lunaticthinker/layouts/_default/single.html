@@ -1,5 +1,6 @@
 {{ define "main" }}
-<main id="main" class="page-main shell article-layout">
+{{ $isPost := ne .Type "page" }}
+<main id="main" class="page-main shell article-layout{{ if not $isPost }} article-single{{ end }}">
 	<article>
 		<div class="eyebrow">
 			{{- with .Params.categories }}{{ delimit (first 1 .) "" }}{{ else }}{{ .Section | default "post" }}{{ end -}}
@@ -32,7 +33,7 @@
 		</nav>
 		{{ end }}
 	</article>
-	{{ if .Section }}
+	{{ if $isPost }}
 	<aside class="toc">
 		<strong>On this page</strong>
 		{{ .TableOfContents }}

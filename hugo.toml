@@ -27,7 +27,7 @@ tag = 'tags'
 [params]
 description = 'Thoughts on code and poetry.'
 brand = 'LunaticThinker'
-github = 'lunaticthinker'
+github = 'dragoscirjan'
 
 [params.author]
 name = 'Dragos Cirjan'
