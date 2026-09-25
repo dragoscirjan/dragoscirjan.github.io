@@ -13,6 +13,10 @@
 @media(max-width:1150px){.shell,.home .shell,.project-page .shell,.docs .shell{width:88%}}
 @media(max-width:760px){.shell,.home .shell,.project-page .shell,.docs .shell{width:calc(100% - 40px)}}
 
+/* Mobile home: hide the diagonal lines; they only add noise over the
+   stacked portal cards. The scene art stays. */
+@media(max-width:760px){.home .diagonals{display:none}}
+
 /* Tie the decorative layers to the same centered column: at large viewports
    the studio's fixed-percentage diagonals and scene art otherwise land on the
    empty viewport edges instead of alongside the content. */
