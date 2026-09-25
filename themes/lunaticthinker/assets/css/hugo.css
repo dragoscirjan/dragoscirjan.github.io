@@ -15,12 +15,11 @@
 @media(max-width:1150px){.diagonals,.scene{width:88%}}
 @media(max-width:760px){.diagonals,.scene{width:calc(100% - 40px)}}
 
-/* Nudge the two right-hand diagonals right so they frame the portals instead
-   of crossing the About Me / Contact headings inside the column. */
-.diagonals i:nth-child(3){left:76%}
-.diagonals i:nth-child(4){left:99%}
+:root{--serif:'SauceCodePro Nerd Font','SauceCodePro NF',ui-monospace,SFMono-Regular,Consolas,monospace}
 
-/* Slightly smaller portal headings: "About Me" no longer crosses a diagonal. */
+/* Keep the studio's diagonal anchors: they are tuned so the 18deg lean lands
+   each line in the gaps between portal columns. Only the portal headings are
+   slightly reduced to keep "About Me" clear of the pink line. */
 .portal h2{font-size:clamp(32px,3.4vw,56px)}
 
 /* Home stage: fill the viewport exactly and pin the footer to the bottom.
