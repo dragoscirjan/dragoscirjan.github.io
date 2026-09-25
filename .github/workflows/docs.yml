@@ -83,22 +83,15 @@ jobs:
 
       # The artifact may also carry extra root entries (e.g. an unwanted
       # `.unlock` file created by upload-artifact); copy only the site files.
-      - name: Download documentation artifact (retry)
-        if: failure()
-        uses: actions/download-artifact@v4
-        with:
-          name: ${{ inputs.artifact }}
-          path: ${{ runner.temp }}/docs-retry
-          run-id: ${{ github.run_id }}
-          github-token: ${{ secrets.token }}
-
-      - name: Debug artifact contents
+      - name: Debug caller artifact API
         if: always()
+        env:
+          GH_TOKEN: ${{ secrets.token }}
         run: |
+          echo "caller repo: ${{ github.repository }}  run-id: ${{ github.run_id }}"
+          gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" --paginate --jq '.artifacts[] | [.id, .name, .expired, .workflow_run.id // "n/a"] | @tsv' || true
           echo '--- primary download ---'
           ls -la "${{ runner.temp }}/docs" || true
-          echo '--- retry download ---'
-          ls -la "${{ runner.temp }}/docs-retry" || true
 
       - name: Replace documentation directory
         run: |
