@@ -49,8 +49,10 @@ This layout is now in place: the blog content has been migrated from `lunaticthi
 ### Themes
 
 - `themes/lunaticthinker/` (Hugo) and the shared design system are **first-class code in this repo**, not external submodules.
-- The design system source of truth is the LunaticThinker theme spec (dark-only, Catppuccin Mocha-inspired, quiet/technical; tokens such as `--lt-base #1e1e2e`, `--lt-cyan #89dceb`, `--lt-mauve #cba6f7`; 1px borders; 16px+ body; no fake terminal aesthetics). The shared tokens and components CSS live in `themes/lunaticthinker/assets/css/` and must stay byte-identical with any VitePress/MkDocs integration.
+- The design system source of truth is the **LunaticThinker editorial design** (delivered as the `lunaticthinker-studio` package): dark, serif-led editorial layout with accent variables (`--cyan`, `--pink`, `--amber`, `--blue`, `--purple`), diagonal compositions and a generated SVG scene. The shared assets (`assets/css/theme.css`, `assets/js/theme.js`, `assets/workspace.svg`) are byte-identical across the Hugo, VitePress and MkDocs adapters and must never diverge.
+- Hugo-only glue (markup Hugo generates: pagination, taxonomy links, ToC, legacy form styling) lives in `themes/lunaticthinker/assets/css/hugo.css`; it must not restyle the shared editorial classes.
 - Hugo theme code lives in `themes/lunaticthinker/` (layouts, assets, partials). VitePress and MkDocs integrations live as documented adapters under the design system, with per-engine notes (e.g. `HUGO.md`, `MKDOCS.md` integration docs).
+- Studio demo content (`/blog/`, `/project-*` routes, demo project data, local contact composer) must not leak into production templates; navigation and project links stay config-driven from `hugo.toml`.
 - Theme changes must be verified against the blog build before merging; theme and content changes should be separable commits.
 
 ### Publishing workflow

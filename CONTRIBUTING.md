@@ -125,9 +125,12 @@ Details:
 
 ## Theme development
 
-- The LunaticThinker theme is the shared visual foundation: dark-only, Catppuccin Mocha tokens (`--lt-base`, `--lt-cyan`, `--lt-mauve`, …), 1px borders, restrained technical aesthetic, no fake terminal UI.
+- The LunaticThinker theme is the shared visual foundation, now the **editorial design**: dark, serif-led, accent-driven (`--cyan`, `--pink`, `--amber`, `--blue`, `--purple`), diagonal homepage composition, editorial article rows.
+- The shared assets — `themes/lunaticthinker/assets/css/theme.css`, `assets/js/theme.js`, `assets/workspace.svg` — are byte-identical copies of the studio package's shared assets and must stay byte-identical with any VitePress/MkDocs integration.
+- Hugo-specific styling for Hugo-generated markup lives in `themes/lunaticthinker/assets/css/hugo.css` and must not alter the shared editorial classes.
 - Hugo changes: edit `themes/lunaticthinker/` and verify with `mise run serve` against real blog content.
-- Design-system changes (tokens, components): update the shared source and every engine integration (Hugo, VitePress, MkDocs) in the same change, or split into coordinated PRs that land together.
+- Studio demo routes (`/blog/`, `/project-*`) and the demo contact composer are not used in production; navigation and project links stay config-driven from `hugo.toml`.
+- Design-system changes (shared assets): update the studio source first, then copy into every engine integration (Hugo, VitePress, MkDocs) in the same change, or split into coordinated PRs that land together.
 - Reference pages/HTML previews from the theme spec should be kept in sync with the implemented templates.
 - Commit with a `theme:` prefix.
 
