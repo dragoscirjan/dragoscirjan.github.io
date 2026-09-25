@@ -42,6 +42,12 @@
 /* Lead paragraph under article titles */
 .article-lead{margin:0;color:var(--muted);font-size:19px;letter-spacing:.01em}
 
+/* Root pages (About, Contact) render without the ToC aside: drop the
+   two-column article grid so content uses the full container width. */
+.article-single{display:block}
+.article-single>article{max-width:none}
+.article-single .contact-form{max-width:none}
+
 /* Featured image */
 .article-figure{margin:0 0 42px}
 .article-figure img{display:block;width:100%;border:1px solid var(--line)}
