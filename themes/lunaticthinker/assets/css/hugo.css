@@ -1,6 +1,11 @@
 /* Hugo integration layer for the LunaticThinker editorial theme.
    Loaded after the shared theme.css; only Hugo-generated markup lives here. */
 
+/* Self-hosted Sauce Code Pro Nerd Font (SIL OFL 1.1 base, MIT Nerd Fonts
+   patches). Subset to Latin/punctuation/symbols, ~42KB per weight. */
+@font-face{font-family:'SauceCodePro NF Web';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/sauce-code-pro-nerd-Regular.woff2') format('woff2')}
+@font-face{font-family:'SauceCodePro NF Web';font-style:normal;font-weight:700;font-display:swap;src:url('../fonts/sauce-code-pro-nerd-Bold.woff2') format('woff2')}
+
 /* Lock the layout to a centered column (VitePress-like max width).
    Applies to every page including the home stage; diagonals and the
    scene art remain full-bleed since they are positioned on .page. */
@@ -15,7 +20,7 @@
 @media(max-width:1150px){.diagonals,.scene{width:88%}}
 @media(max-width:760px){.diagonals,.scene{width:calc(100% - 40px)}}
 
-:root{--serif:'SauceCodePro Nerd Font','SauceCodePro NF',ui-monospace,SFMono-Regular,Consolas,monospace}
+:root{--serif:'SauceCodePro NF Web','SauceCodePro Nerd Font','SauceCodePro NF',ui-monospace,SFMono-Regular,Consolas,monospace}
 
 /* Keep the studio's diagonal anchors: they are tuned so the 18deg lean lands
    each line in the gaps between portal columns. Only the portal headings are
