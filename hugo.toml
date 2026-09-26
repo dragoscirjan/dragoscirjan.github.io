@@ -57,34 +57,24 @@ value = 'about code, systems and ideas'
 [[params.docs]]
 name = 'mcp-searchable'
 url = '/projects/mcp-searchable/'
-stack = 'TypeScript · MCP'
-status = 'lt-status-positive'
-statusLabel = 'Active'
 description = 'Local-first web research for AI agents: search, fetch, stash, grep and ask.'
 
 [[params.docs]]
 name = 'mcp-tuikit'
 url = '/projects/mcp-tuikit/'
-stack = 'Go · TUI'
-status = 'lt-status-positive'
-statusLabel = 'Active'
 description = 'A virtual terminal that lets AI agents interact with terminal interfaces.'
 
 [[params.docs]]
-name = 'solidref'
-url = '/projects/solidref/'
-stack = 'Vite · React · TypeScript'
-status = 'lt-status-experimental'
-statusLabel = 'Experiments'
-description = 'Reference app built with Vite, React and TypeScript.'
+name = 'neottia'
+description = 'Node packages and tooling for building AI-agent harnesses.'
 
 [[params.docs]]
-name = 'coding-standards'
-url = '/projects/coding-standards/'
-stack = 'Legacy'
-status = 'lt-status-experimental'
-statusLabel = 'Archive'
-description = 'Clean-code standards site, kept for historical reference.'
+name = 'code-review'
+description = 'Code review tooling and workflows.'
+
+[[params.docs]]
+name = 'tempel'
+description = 'Templating utilities.'
 
 [menus]
 [[menus.main]]

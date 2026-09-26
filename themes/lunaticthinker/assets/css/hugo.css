@@ -62,6 +62,16 @@
 .section-content{margin:18px 0 30px;max-width:760px;font:17px/1.85 var(--sans);color:var(--muted)}
 .section-content p{margin:0 0 18px}
 
+/* Project links: name + short description; keep the studio's diagonal
+   separators — the taller rows (description adds height) give the rotation
+   room so they no longer cross the arrow glyph. */
+.project-link{align-items:flex-start;padding-top:60px;padding-bottom:74px;min-height:0}
+.project-link .project-link-text{display:flex;flex-direction:column;gap:10px;min-width:0}
+.project-link .project-name{font-size:38px;line-height:1.1}
+.project-link .project-desc{font:11px/1.7 var(--mono);letter-spacing:.03em;color:var(--muted);max-width:520px}
+.project-link-static{color:var(--ink);text-decoration:none;cursor:default}
+.project-link-static .arrow{opacity:.35}
+
 /* Project intro copy (unused: docs landing renders heading + links only) */
 
 /* Hugo table of contents inside .toc */
