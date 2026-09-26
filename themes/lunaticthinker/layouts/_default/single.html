@@ -1,38 +1,43 @@
 {{ define "main" }}
-<main class="lt-container">
-	<header class="lt-page-header">
-		<p class="lt-eyebrow">
+{{ $isPost := ne .Type "page" }}
+<main id="main" class="page-main shell article-layout{{ if not $isPost }} article-single{{ end }}">
+	<article>
+		<div class="eyebrow">
 			{{- with .Params.categories }}{{ delimit (first 1 .) "" }}{{ else }}{{ .Section | default "post" }}{{ end -}}
-		</p>
-		<h1>{{ .Title }}</h1>
-		{{ with .Description }}<p>{{ . }}</p>{{ end }}
-		<div class="lt-meta">
-			<span>{{ .Params.author | default site.Params.author.name }}</span>
-			<span>{{ .Date.Format "2 Jan 2006" }}</span>
-			<span>{{ .ReadingTime }} min read</span>
-			{{ with .Params.categories }}{{ range . }}<span class="lt-tag">{{ . }}</span>{{ end }}{{ end }}
-			{{ with .Params.tags }}{{ range . }}<span class="lt-tag">{{ . }}</span>{{ end }}{{ end }}
 		</div>
-	</header>
-	<div class="lt-article-layout">
-		<article class="lt-article">
-			{{ .Content }}
-			{{ with .Params.featured_image }}
-			<img src="{{ . | absURL }}" alt="">
+		<h1 class="article-title">{{ .Title }}</h1>
+		{{ with .Description }}<p class="article-lead">{{ . }}</p>{{ end }}
+		{{ if .Section }}
+		<div class="article-meta">
+			<span>{{ .Params.author | default site.Params.author.name }}</span>
+			<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+			<span>{{ .ReadingTime }} min read</span>
+			{{ with .Params.categories }}
+			{{ range . }}<a class="tag" href="{{ (printf "/categories/%s/" (. | urlize)) | relURL }}">{{ . }}</a>{{ end }}
 			{{ end }}
-			<div class="lt-pagination">
-				{{ with .PrevInSection }}
-				<a href="{{ .RelPermalink }}"><span>Previous post</span>{{ .Title }} ←</a>
-				{{ end }}
-				{{ with .NextInSection }}
-				<a href="{{ .RelPermalink }}" style="text-align:right"><span>Next post</span>{{ .Title }} →</a>
-				{{ end }}
-			</div>
-		</article>
-		<aside class="lt-article-aside">
-			<strong>On this page</strong>
-			{{ .TableOfContents }}
-		</aside>
-	</div>
+			{{ with .Params.tags }}
+			{{ range . }}<a class="tag" href="{{ (printf "/tags/%s/" (. | urlize)) | relURL }}">{{ . }}</a>{{ end }}
+			{{ end }}
+		</div>
+		{{ end }}
+		{{ with .Params.featured_image }}
+		<figure class="article-figure"><img src="{{ . | absURL }}" alt=""></figure>
+		{{ end }}
+		<div class="prose">
+			{{ .Content }}
+		</div>
+		{{ if .Section }}
+		<nav class="pager article-pager" aria-label="Post navigation">
+			{{ with .PrevInSection }}<a href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ else }}<span></span>{{ end }}
+			{{ with .NextInSection }}<a href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ else }}<span></span>{{ end }}
+		</nav>
+		{{ end }}
+	</article>
+	{{ if $isPost }}
+	<aside class="toc">
+		<strong>On this page</strong>
+		{{ .TableOfContents }}
+	</aside>
+	{{ end }}
 </main>
 {{ end }}

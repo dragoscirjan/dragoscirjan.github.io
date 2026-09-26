@@ -1,0 +1,25 @@
+{{ define "main" }}
+<main id="main" class="project-layout shell">
+	<div class="project-heading">
+		<div class="eyebrow">{{ .Params.eyebrow | default "documentation" }}</div>
+		<h1>{{ .Title }}</h1>
+		{{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+	</div>
+	<nav class="project-links" aria-label="Project documentation">
+		{{ range $i, $p := site.Params.docs }}
+		{{ $accent := index (slice "cyan" "pink" "amber" "blue" "purple") (mod $i 5) }}
+		{{ if $p.url }}
+		<a class="project-link" style="--accent:var(--{{ $accent }})" href="{{ $p.url | relURL }}">
+			<span class="project-link-text"><span class="project-name">{{ $p.name }}</span>{{ with $p.description }}<span class="project-desc">{{ . }}</span>{{ end }}</span>
+			<span class="arrow" aria-hidden="true">⟶</span>
+		</a>
+		{{ else }}
+		<div class="project-link project-link-static" style="--accent:var(--{{ $accent }})">
+			<span class="project-link-text"><span class="project-name">{{ $p.name }}</span>{{ with $p.description }}<span class="project-desc">{{ . }}</span>{{ end }}</span>
+			<span class="arrow" aria-hidden="true">·</span>
+		</div>
+		{{ end }}
+		{{ end }}
+	</nav>
+</main>
+{{ end }}

@@ -1,9 +1,10 @@
-name = "LunaticThinker"
+---
+name: "LunaticThinker"
 license = "MIT"
 licenselink = "https://github.com/dragoscirjan/dragoscirjan.github.io/blob/main/themes/lunaticthinker/LICENSE"
-description = "Shared visual foundation for the LunaticThinker blog and project documentation. Dark-only, Catppuccin Mocha-inspired, restrained and technical."
+description = "Editorial visual foundation for the LunaticThinker blog and project documentation. Dark, serif-led, diagonal-composition design; shared assets are byte-identical across Hugo, VitePress and MkDocs adapters."
 homepage = "https://dragoscirjan.github.io/"
-tags = ["blog", "dark", "documentation", "catppuccin"]
+tags = ["blog", "dark", "editorial", "documentation"]
 min_version = "0.140.0"
 
 [author]

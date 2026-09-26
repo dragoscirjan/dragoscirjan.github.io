@@ -1,0 +1,127 @@
+/* Hugo integration layer for the LunaticThinker editorial theme.
+   Loaded after the shared theme.css; only Hugo-generated markup lives here. */
+
+/* Self-hosted Sauce Code Pro Nerd Font (SIL OFL 1.1 base, MIT Nerd Fonts
+   patches). Subset to Latin/punctuation/symbols, ~42KB per weight. */
+@font-face{font-family:'SauceCodePro NF Web';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/sauce-code-pro-nerd-Regular.woff2') format('woff2')}
+@font-face{font-family:'SauceCodePro NF Web';font-style:normal;font-weight:700;font-display:swap;src:url('../fonts/sauce-code-pro-nerd-Bold.woff2') format('woff2')}
+
+/* Lock the layout to a centered column (VitePress-like max width).
+   Applies to every page including the home stage; diagonals and the
+   scene art remain full-bleed since they are positioned on .page. */
+.shell,.home .shell,.project-page .shell,.docs .shell{width:min(1152px,92.5%)}
+@media(max-width:1150px){.shell,.home .shell,.project-page .shell,.docs .shell{width:88%}}
+@media(max-width:760px){.shell,.home .shell,.project-page .shell,.docs .shell{width:calc(100% - 40px)}}
+
+/* Mobile home: hide the diagonal lines; they only add noise over the
+   stacked portal cards. The scene art stays. */
+@media(max-width:760px){.home .diagonals{display:none}}
+
+/* Center the scene art on every page: the shared sheet anchors it to the
+   right edge of the viewport (negative offsets), which strands it in the
+   empty margin once the layout is capped to 1152px. Its per-page overrides
+   (.home, .project-page, .docs, mobile) are more specific, so mirror them
+   all to the centered placement. */
+.scene :is(svg,img),
+.home .scene :is(svg,img),
+.project-page .scene :is(svg,img),
+.docs .scene :is(svg,img){right:50%;left:auto;transform:translateX(50%)}
+@media(max-width:760px){
+	.scene :is(svg,img),
+	.home .scene :is(svg,img),
+	.project-page .scene :is(svg,img),
+	.docs .scene :is(svg,img){right:50%;left:auto;transform:translateX(50%)}
+}
+
+/* Tie the decorative layers to the same centered column: at large viewports
+   the studio's fixed-percentage diagonals and scene art otherwise land on the
+   empty viewport edges instead of alongside the content. */
+.diagonals,.scene{max-width:1152px;margin:auto;width:92.5%}
+@media(max-width:1150px){.diagonals,.scene{width:88%}}
+@media(max-width:760px){.diagonals,.scene{width:calc(100% - 40px)}}
+
+:root{--serif:'SauceCodePro NF Web','SauceCodePro Nerd Font','SauceCodePro NF',ui-monospace,SFMono-Regular,Consolas,monospace}
+
+/* Keep the studio's diagonal anchors: they are tuned so the 18deg lean lands
+   each line in the gaps between portal columns. Only the portal headings are
+   slightly reduced to keep "About Me" clear of the pink line. */
+.portal h2{font-size:clamp(32px,3.4vw,45px)}
+@media(min-width:1800px){.portal h2{font-size:45px}}
+
+/* Home stage: fill the viewport exactly and pin the footer to the bottom.
+   The shared sheet sizes .home-main with fixed viewport math that overflows
+   short viewports and leaves the footer floating below mid-page on tall ones. */
+.page.home{display:flex;flex-direction:column}
+.page.home .home-main{flex:1 1 auto;height:auto;min-height:0;max-height:none;padding-bottom:40px}
+.page.home .footer{margin-top:auto}
+
+/* Lead paragraph under article titles */
+.article-lead{margin:0;color:var(--muted);font-size:19px;letter-spacing:.01em}
+
+/* Root pages (About, Contact) render without the ToC aside: drop the
+   two-column article grid so content uses the full container width. */
+.article-single{display:block}
+.article-single>article{max-width:none}
+.article-single .contact-form{max-width:none}
+
+/* Featured image */
+.article-figure{margin:0 0 42px}
+.article-figure img{display:block;width:100%;border:1px solid var(--line)}
+
+/* Images and figures inside prose */
+.prose img{max-width:100%;height:auto;border:1px solid var(--line)}
+.prose figure{margin:32px 0}
+.prose figure img{margin:0}
+.prose figcaption{margin-top:10px;font:11px/1.7 var(--mono);letter-spacing:.08em;color:var(--muted)}
+
+/* Inline section content on list pages (rare, but content may add it) */
+.section-content{margin:18px 0 30px;max-width:760px;font:17px/1.85 var(--sans);color:var(--muted)}
+.section-content p{margin:0 0 18px}
+
+/* Project links: name + short description; keep the studio's diagonal
+   separators — the taller rows (description adds height) give the rotation
+   room so they no longer cross the arrow glyph. */
+.project-link{align-items:flex-start;padding-top:60px;padding-bottom:74px;min-height:0}
+.project-link .project-link-text{display:flex;flex-direction:column;gap:10px;min-width:0}
+.project-link .project-name{font-size:38px;line-height:1.1}
+.project-link .project-desc{font:11px/1.7 var(--mono);letter-spacing:.03em;color:var(--muted);max-width:520px}
+.project-link-static{color:var(--ink);text-decoration:none;cursor:default}
+.project-link-static .arrow{opacity:.35}
+
+/* Project intro copy (unused: docs landing renders heading + links only) */
+
+/* Hugo table of contents inside .toc */
+.toc nav#TableOfContents ul{padding-left:14px;margin:0;list-style:none}
+.toc nav#TableOfContents ul ul{padding-left:14px}
+
+/* Taxonomy tags rendered as links in article meta */
+.article-meta a.tag{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
+.article-meta a.tag:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* Post navigation pager (article page) */
+.article-pager{margin-top:56px;padding-top:22px;border-top:1px solid var(--line)}
+.article-pager a,.article-pager span{max-width:44%;font-size:11px;letter-spacing:.08em}
+.article-pager span{color:var(--muted)}
+
+/* Legacy inline contact form (content/contact.md) */
+.contact-form{max-width:600px;margin:32px auto;padding:28px;border:1px solid var(--line)}
+.article-single .contact-form{max-width:none}
+.contact-form .form-group{margin-bottom:22px}
+.contact-form label{display:block;margin-bottom:8px;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.contact-form input[type="text"],.contact-form textarea,.contact-form select{width:100%;padding:12px 14px;border:1px solid color-mix(in srgb,var(--ink) 28%,transparent);background:color-mix(in srgb,var(--ink) 5%,var(--bg));color:var(--ink);font:14px/1.6 var(--sans)}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:color-mix(in srgb,var(--ink) 45%,transparent)}
+.contact-form input:hover,.contact-form textarea:hover,.contact-form select:hover{border-color:color-mix(in srgb,var(--ink) 45%,transparent)}
+.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.contact-form .submit-btn{width:100%;padding:14px 20px;background:var(--accent);color:var(--bg);border:0;font:600 13px var(--mono);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.contact-form .submit-btn:hover{opacity:.9}
+.contact-form .form-note,.contact-form small{color:var(--muted);font-size:12px}
+.contact-form .honeypot{position:absolute;left:-9999px}
+
+/* Code blocks produced by Hugo highlighting */
+.prose pre{padding:18px 20px;overflow-x:auto;border:1px solid var(--line);background:#11181b}
+.prose code{font-family:var(--mono);font-size:.9em}
+.prose :not(pre)>code{padding:2px 6px;border:1px solid var(--line);background:#11181b}
+
+/* Old markup compat: legacy uploads and inline HTML keep sane metrics */
+.prose hr{border:0;border-top:1px solid var(--line);margin:40px 0}
+.prose iframe{max-width:100%;border:0}

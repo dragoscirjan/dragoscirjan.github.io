@@ -1,19 +1,34 @@
 {{ define "main" }}
-<main class="lt-container">
-	<header class="lt-page-header">
-		<p class="lt-eyebrow">{{ .Data.Singular }}</p>
-		<h1>{{ .Title }}</h1>
-	</header>
-	<div class="lt-list">
-		{{ range .Paginator.Pages }}
-		<a class="lt-list-row" href="{{ .RelPermalink }}">
-			<span class="lt-list-date">{{ .Date.Format "2 Jan 2006" }}</span>
-			<span>{{ .Title }}</span>
-			<span class="lt-list-topic">{{ .Params.author | default site.Params.author.name }}</span>
-			<span class="lt-list-arrow">↗</span>
+<main id="main" class="page-main shell">
+	<div class="eyebrow">{{ .Data.Singular }}</div>
+	<h1>{{ .Title }}</h1>
+	<div class="posts">
+		{{ range $i, $p := .Paginator.Pages }}
+		{{ $accent := index (slice "cyan" "pink" "amber" "blue" "purple") (mod $i 5) }}
+		{{ $topic := "" }}
+		{{ with .Params.categories }}{{ $topic = index . 0 }}{{ end }}
+		<a class="post" href="{{ $p.RelPermalink }}" style="--accent:var(--{{ $accent }})">
+			<div>
+				<h2>{{ $p.Title }}</h2>
+				<p>{{ $p.Description | default $p.Summary | plainify | truncate 180 }}</p>
+			</div>
+			<div class="post-meta">
+				<time datetime="{{ $p.Date.Format "2006-01-02" }}">{{ $p.Date.Format "Jan 2, 2006" }}</time>
+				{{ with $topic }}<span class="tag">{{ . }}</span>{{ end }}
+				<span>{{ $p.ReadingTime }} min read</span>
+				<span class="arrow" aria-hidden="true">⟶</span>
+			</div>
 		</a>
 		{{ end }}
 	</div>
-	{{ template "_internal/pagination.html" . }}
+	{{ with .Paginator }}
+	{{ if gt .TotalPages 1 }}
+	<nav class="pager" aria-label="Pagination">
+		{{ with .Prev }}<a href="{{ .URL }}">← Previous</a>{{ else }}<span></span>{{ end }}
+		<span>Page {{ .PageNumber }} of {{ .TotalPages }}</span>
+		{{ with .Next }}<a href="{{ .URL }}">Next →</a>{{ else }}<span></span>{{ end }}
+	</nav>
+	{{ end }}
+	{{ end }}
 </main>
 {{ end }}

@@ -1,5 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
 {{ with .Description | default site.Params.description }}
 	<meta name="description" content="{{ . }}">
@@ -9,12 +10,14 @@
 {{ end }}
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="icon" type="image/svg+xml" href='{{ (resources.Get "brand-mark.svg").RelPermalink }}'>
-{{ $tokens := resources.Get "css/tokens.css" | minify }}
-{{ $components := resources.Get "css/components.css" | minify }}
-<link rel="stylesheet" href="{{ $tokens.RelPermalink }}">
-<link rel="stylesheet" href="{{ $components.RelPermalink }}">
+{{ $theme := resources.Get "css/theme.css" }}
+{{ $hugo := resources.Get "css/hugo.css" }}
+{{ $bundle := slice $theme $hugo | resources.Concat "css/lunaticthinker.css" | minify }}
+<link rel="stylesheet" href="{{ $bundle.RelPermalink }}">
+{{ range slice "sauce-code-pro-nerd-Regular.woff2" "sauce-code-pro-nerd-Bold.woff2" }}
+{{ with resources.Get (printf "fonts/%s" .) }}{{ .Publish }}{{ end }}
+{{ end }}
+{{ with resources.Get "fonts/OFL.txt" }}{{ .Publish }}{{ end }}
 {{ with .OutputFormats.Get "rss" }}
 	<link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .Permalink }}">
 {{ end }}
-{{ $js := resources.Get "js/theme.js" | minify }}
-<script src="{{ $js.RelPermalink }}" defer></script>

@@ -6,7 +6,11 @@ draft: false
 
 ## Get in Touch
 
-Have a question, suggestion, or just want to say hello? Feel free to reach out using the form below. Your message will create a GitHub issue in our repository, allowing for transparent communication and tracking.
+Have a question, suggestion, or just want to say hello? A few ways to reach me:
+
+- **Email**: [dragos.cirjan@gmail.com](mailto:dragos.cirjan@gmail.com)
+- **LinkedIn**: [linkedin.com/in/gridorian](https://www.linkedin.com/in/gridorian/)
+- **GitHub**: use the form below — it opens a pre-filled issue in the site repository, which keeps the conversation public and trackable.
 
 <form action="https://github.com/dragoscirjan/dragoscirjan.github.io/issues/new" method="get" id="contact-form" class="contact-form">
   <div class="form-group">
@@ -42,83 +46,6 @@ Have a question, suggestion, or just want to say hello? Feel free to reach out u
   </p>
 </form>
 
-<style>
-.contact-form {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: var(--card-background);
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: var(--text-color);
-}
-
-.form-group input[type="text"],
-.form-group textarea,
-.form-group select {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  font-size: 1rem;
-  font-family: inherit;
-  background: var(--input-background);
-  color: var(--text-color);
-  transition: border-color 0.3s;
-}
-
-.form-group input[type="text"]:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-  outline: none;
-  border-color: var(--link-color);
-}
-
-.submit-btn {
-  width: 100%;
-  padding: 1rem;
-  background: var(--link-color);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: opacity 0.3s;
-}
-
-.submit-btn:hover {
-  opacity: 0.9;
-}
-
-.form-note {
-  margin-top: 1rem;
-  color: var(--text-color-secondary);
-  text-align: center;
-}
-
-.honeypot {
-  position: absolute;
-  left: -9999px;
-}
-
-@media (max-width: 768px) {
-  .contact-form {
-    padding: 1rem;
-  }
-}
-</style>
-
 <script>
 document.getElementById('contact-form').addEventListener('submit', function(e) {
   // Check honeypot field (spam protection)
@@ -151,13 +78,6 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
 
 ---
 
-### Alternative Contact Methods
-
-You can also find me on:
-
-- **GitHub**: [@lunaticthinker](https://github.com/lunaticthinker)  [@dragoscirjan](https://github.com/dragoscirjan)
-- **Direct Issues**: [Create an issue directly on GitHub](https://github.com/dragoscirjan/dragoscirjan.github.io/issues/new)
-
 ### Privacy Note
 
-All messages submitted through this form are public and will be visible in the GitHub repository's issues section. Please do not include sensitive personal information.
+Messages submitted through the form become public GitHub issues in the site repository. Please do not include sensitive personal information — for anything private, use the email address above.
