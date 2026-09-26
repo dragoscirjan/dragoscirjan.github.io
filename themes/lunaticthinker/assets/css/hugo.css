@@ -17,6 +17,12 @@
    stacked portal cards. The scene art stays. */
 @media(max-width:760px){.home .diagonals{display:none}}
 
+/* Center the scene art on every page: the shared sheet anchors it to the
+   right edge of the viewport (negative offsets), which strands it in the
+   empty margin once the layout is capped to 1152px. */
+.scene :is(svg,img){right:50%;left:auto;transform:translateX(50%)}
+@media(max-width:760px){.scene :is(svg,img){right:auto;left:50%;transform:translateX(-50%)}}
+
 /* Tie the decorative layers to the same centered column: at large viewports
    the studio's fixed-percentage diagonals and scene art otherwise land on the
    empty viewport edges instead of alongside the content. */
