@@ -19,9 +19,19 @@
 
 /* Center the scene art on every page: the shared sheet anchors it to the
    right edge of the viewport (negative offsets), which strands it in the
-   empty margin once the layout is capped to 1152px. */
-.scene :is(svg,img){right:50%;left:auto;transform:translateX(50%)}
-@media(max-width:760px){.scene :is(svg,img){right:auto;left:50%;transform:translateX(-50%)}}
+   empty margin once the layout is capped to 1152px. Its per-page overrides
+   (.home, .project-page, .docs, mobile) are more specific, so mirror them
+   all to the centered placement. */
+.scene :is(svg,img),
+.home .scene :is(svg,img),
+.project-page .scene :is(svg,img),
+.docs .scene :is(svg,img){right:50%;left:auto;transform:translateX(50%)}
+@media(max-width:760px){
+	.scene :is(svg,img),
+	.home .scene :is(svg,img),
+	.project-page .scene :is(svg,img),
+	.docs .scene :is(svg,img){right:50%;left:auto;transform:translateX(50%)}
+}
 
 /* Tie the decorative layers to the same centered column: at large viewports
    the studio's fixed-percentage diagonals and scene art otherwise land on the
