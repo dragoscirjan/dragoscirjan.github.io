@@ -1,7 +1,6 @@
 ---
 title: We are using AI badly
 date: 2026-10-18T00:00:00Z
-draft: true
 categories:
   - "Coder's Grave"
   - Featured
