@@ -5,7 +5,7 @@ slug: giving-ai-eyes-and-a-keyboard-in-the-terminal
 summary: "How I built mcp-tuikit to give AI agents a virtual terminal, enabling them to visually test TUIs, take screenshots, and send keystrokes."
 categories:
   - Coder's Grave
-  - Home Page
+  - Featured
 tags: ["ai", "mcp", "terminal", "tmux", "llm", "tuikit"]
 ---
 

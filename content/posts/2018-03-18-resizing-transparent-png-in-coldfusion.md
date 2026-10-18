@@ -15,7 +15,7 @@ eltd_featured_post_meta:
 categories:
   - "Coder's Grave"
   - ColdFusion
-  - Home Page
+  - Featured
 ---
 
 Hello guys,

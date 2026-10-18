@@ -6,7 +6,7 @@ url: /resetting-atom-ide/
 featured_image: /media/2016/05/atom.jpg
 categories:
   - "Coder's Grave"
-  - Home Page
+  - Featured
   - IDE
   - Linux in a Box
 ---

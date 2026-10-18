@@ -7,7 +7,7 @@ featured_image: /media/2014/03/dna-structure-cfml.png
 categories:
   - "Coder's Grave"
   - ColdFusion
-  - Home Page
+  - Featured
 ---
 
 While working on one of my client’s projects, I’ve encountered the need of generating RANDOM strings. Since, as almost, any other language, Cold Fusion does not have any type of support for this functionality, I had to create a function of my own.

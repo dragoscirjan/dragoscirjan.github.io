@@ -15,7 +15,7 @@ eltd_hide_background_image_meta:
 categories:
   - "Coder's Grave"
   - GO
-  - Home Page
+  - Featured
   - JavaScript
 ---
 

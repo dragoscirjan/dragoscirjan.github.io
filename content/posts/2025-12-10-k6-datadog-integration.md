@@ -5,7 +5,7 @@ slug: k6-metrics-to-datadog-via-logs-statsd-and-otel
 summary: "How we wired k6 to send metrics to Datadog using logs, StatsD, and OpenTelemetry, including the extra bits needed for AWS Fargate."
 categories:
   - Coder's Grave
-  - Home Page
+  - Featured
 tags: ["k6", "datadog", "otel", "statsd", "fargate", "load-testing"]
 ---
 

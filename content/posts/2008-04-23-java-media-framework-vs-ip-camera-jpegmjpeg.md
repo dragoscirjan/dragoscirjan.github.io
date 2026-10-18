@@ -6,7 +6,7 @@ url: /java-media-framework-vs-ip-camera-jpegmjpeg/
 featured_image: /media/2010/12/Java_logo-5.jpg
 categories:
   - "Coder's Grave"
-  - Home Page
+  - Featured
   - Java
 ---
 
