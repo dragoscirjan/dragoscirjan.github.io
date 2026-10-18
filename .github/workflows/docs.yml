@@ -18,7 +18,10 @@
 #   matches the `artifact` input (default: docs-site).
 # - The `token` secret must be a personal access token (fine-grained or
 #   classic) with contents:write on dragoscirjan/dragoscirjan.github.io.
-#   A caller's GITHUB_TOKEN cannot push to a different repository.
+#   Private callers also require actions:read on the caller repository because
+#   this token downloads the caller's artifact. Public callers need no source
+#   repository access. A caller's GITHUB_TOKEN cannot push to a different
+#   repository.
 # - The commit convention matches the existing history:
 #   docs(<project>): update documentation site
 #
@@ -44,7 +47,7 @@ on:
         type: string
     secrets:
       token:
-        description: "PAT with contents:write on dragoscirjan/dragoscirjan.github.io"
+        description: "PAT with destination contents:write; private callers also need caller actions:read"
         required: true
 
 permissions:

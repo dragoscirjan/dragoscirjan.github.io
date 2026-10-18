@@ -16,7 +16,7 @@ Load only the instructions required for the current phase. When several rows mat
 | Before planning or performing a repository architecture, design, implementation, content, documentation, configuration, policy, or publication change | Read and follow `CONTRIBUTING.md`. |
 | Before any repository mutation | Read and follow `.agents/skills/isolated-workspace/SKILL.md`. |
 | Before drafting or revising a technical article or developer-facing explanation | Read and follow `.agents/skills/asd-ste100-technical/SKILL.md`. |
-| Before the final editorial pass on a new or substantially revised article | Read and follow `.agents/skills/unslop/SKILL.md`. Preserve intentional personal or poetic voice when applying it. |
+| Before the final editorial pass on a new or substantially revised article | Read and follow `.agents/skills/unslop/SKILL.md`. Preserve intentional personal or poetic voice, including deliberate punctuation, when applying it. |
 | Before validating, committing, pushing, or publishing | Read and follow `VALIDATION.md`. |
 | Before auditing or removing old workspaces | Read and follow `.agents/skills/cleanup-workspaces/SKILL.md`. |
 | When repeated editorial corrections or observed writing, review, or publication work suggest that instructions, their relationships, or skill routing metadata are missing, stale, conflicting, duplicated, or unsuitable | Read and follow `.agents/skills/instruction-maintenance/SKILL.md`. It permits a read-only audit and exact proposal; do not mutate instructions before explicit human approval of that proposal. |
@@ -43,7 +43,7 @@ The skill is mandatory before mutation. If it is unavailable, stop and ask the o
 - Never expose secrets to content, logs, generated artifacts, model prompts, or untrusted code.
 - Do not execute project-documentation source code in this repository. Documentation under `projects/` arrives as built output.
 - Do not let generated documentation alter Hugo configuration, theme sources, or deployment workflows.
-- Never add credentials or token-bearing URLs to the repository. Cross-repository documentation publishing receives only the minimum contents-write credential through GitHub Actions secrets.
+- Never add credentials or token-bearing URLs to the repository. Cross-repository documentation publishing receives only the minimum required permissions through GitHub Actions secrets: contents write on this destination repository and, only for private callers, Actions read on each caller repository.
 - Do not execute or install imported code merely to inspect an article, asset, or generated documentation bundle.
 
 ## Owner authority

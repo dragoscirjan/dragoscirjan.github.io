@@ -80,7 +80,7 @@ The local Hugo server does not process committed project documentation as source
    ```
 
 2. Complete the front matter and keep the filename, publication date, slug, categories, and tags intentional.
-3. Draft in the author's intended voice. Technical posts may use `.agents/skills/asd-ste100-technical/SKILL.md` for clarity; do not apply its developer-documentation style mechanically to poetry or personal essays.
+3. Draft in the author's intended voice. Technical posts must follow `.agents/skills/asd-ste100-technical/SKILL.md` for clarity; do not apply its developer-documentation style mechanically to poetry or personal essays.
 4. Verify factual claims, code examples, quotations, links, and image paths. Distinguish facts from opinion and personal recollection.
 5. Apply `.agents/skills/unslop/SKILL.md` as a final editorial pass on new or substantially revised prose. Preserve deliberate rhythm, ambiguity, humor, and poetic language.
 6. Preview the article with `mise run serve`, then run the checks in `VALIDATION.md`.
@@ -150,7 +150,7 @@ jobs:
 Details:
 
 - The artifact name defaults to `docs-site`. Set `artifact` for another name and `source_dir` when the artifact wraps the site root in a subdirectory.
-- `PAGES_DOCS_TOKEN` must have only the repository access needed to write contents in `dragoscirjan/dragoscirjan.github.io`. A caller's `GITHUB_TOKEN` cannot push to another repository.
+- `PAGES_DOCS_TOKEN` must have **contents: write** on `dragoscirjan/dragoscirjan.github.io`. Because the reusable workflow also uses this token to download the caller's artifact, a private caller additionally requires **Actions: read** on that caller repository; public callers need no source-repository access. A caller's `GITHUB_TOKEN` cannot push to another repository.
 - The workflow commits as `github-actions[bot]` with `docs(<project>): update documentation site` and pushes to `main`. That push triggers the Pages deployment. An unchanged artifact exits without a commit.
 - Publishing runs are serialized per project with the `docs-publish-<project>` concurrency group.
 - Documentation is untrusted relative to the site shell. It must not modify Hugo configuration, theme code, or deployment workflows.

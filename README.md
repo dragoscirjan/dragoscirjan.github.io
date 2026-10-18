@@ -4,7 +4,7 @@ Personal site of Dragos Cirjan, served from [dragoscirjan.github.io](https://dra
 
 - **Blog** — the LunaticThinker blog ("Thoughts on code and poetry"), migrated from `lunaticthinker.github.io`, with all historical posts (2008+) and URLs preserved.
 - **Project documentation** — published docs for `mcp-searchable`, `mcp-tuikit`, `solidref` and the legacy `coding-standards` site, committed here as built output under `projects/` and served alongside the blog.
-- **Themes** — the LunaticThinker theme system: a shared dark, Catppuccin Mocha-inspired design foundation for Hugo (implemented in `themes/lunaticthinker/`), with VitePress and MkDocs integrations planned.
+- **Themes** — the LunaticThinker editorial design: a shared dark, serif-led visual foundation implemented for Hugo in `themes/lunaticthinker/`, with shared studio assets used by VitePress and MkDocs adapters.
 
 ## Development
 
