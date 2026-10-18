@@ -90,6 +90,21 @@ When a change modifies `isolated-workspace` or `cleanup-workspaces`:
 - Confirm that workspace commands remain in the skills and are not duplicated in project policy files.
 - Confirm that repository identity lookup remains memory or context first, falls back to Git only on a miss, and stores only safe derived identity data.
 
+## Instruction-improvement changes
+
+When instructions are adapted through the `instruction-maintenance` workflow:
+
+- Confirm that recorded human approval follows the exact proposal.
+- Confirm that changed files and rules stay within the approved scope.
+- Confirm that changed evidence, scope, dependencies, handoffs, or protected rules caused a revised proposal and new approval.
+- Distinguish required dependencies from later-phase handoffs and informational references.
+- Check for missing targets, stale names or paths, conflicts, duplication, ambiguity, and dependency cycles.
+- Confirm that skill routing metadata still states what each affected skill does and when it applies.
+- Confirm that security boundaries, mandatory gates, validation requirements, and owner authority are unchanged unless separately proposed and explicitly approved.
+- Confirm that detailed skill behavior and article content did not change through this workflow.
+- For editorial guidance, confirm that repeated evidence supports a reusable rule rather than a one-off stylistic preference.
+- Confirm that the adaptation preserves the distinctions among technical writing, personal essays, poetry, and historical content.
+
 ## Markdown changes
 
 When a change modifies Markdown:
@@ -112,6 +127,8 @@ When a change modifies `AGENTS.md`, `CONTRIBUTING.md`, `VALIDATION.md`, or anoth
 - Confirm that article-writing skills have narrow triggers and preserve intentional author voice.
 - Confirm that validating, committing, pushing, or publishing requires `VALIDATION.md`.
 - Confirm that workspace cleanup requires `cleanup-workspaces`.
+- Confirm that instruction drift or repeated editorial workflow mismatch requires `instruction-maintenance` before an adaptation proposal.
+- Confirm that instruction mutation requires explicit human approval of the exact proposal.
 - Confirm that missing required instructions stop the gated phase.
 - Check for conflicting or duplicated policy across instruction files.
 

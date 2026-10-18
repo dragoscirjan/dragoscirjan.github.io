@@ -16,6 +16,8 @@ The shared studio package also feeds VitePress and MkDocs adapters, but their so
 
 This is a blog and publishing repository, not an application-code project. Editorial quality, authorial voice, factual care, and historical continuity take precedence over coding-centric defaults.
 
+This is a blog and publishing repository, not an application-code project. Editorial quality, authorial voice, factual care, and historical continuity take precedence over coding-centric defaults.
+
 ## Contribution workflow
 
 1. Clarify ambiguous requirements and confirm shared understanding.
