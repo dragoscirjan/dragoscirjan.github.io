@@ -7,7 +7,7 @@ featured_image: /media/2014/03/dna-structure-cfml.png
 categories:
   - "Coder's Grave"
   - ColdFusion
-  - Home Page
+  - Featured
 ---
 
 Won’t comment much about it. We needed it, you may need it, so here it is:

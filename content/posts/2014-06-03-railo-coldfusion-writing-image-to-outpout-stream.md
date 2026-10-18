@@ -7,7 +7,7 @@ featured_image: /media/2015/11/dna-structure.jpg
 categories:
   - "Coder's Grave"
   - ColdFusion
-  - Home Page
+  - Featured
 ---
 
 Hello guys,

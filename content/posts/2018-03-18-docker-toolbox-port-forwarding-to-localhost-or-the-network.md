@@ -14,7 +14,7 @@ eltd_featured_post_meta:
   - no
 categories:
   - "Coder's Grave"
-  - Home Page
+  - Featured
   - Linux in a Box
   - Linux Services
   - Other OSs

@@ -5,7 +5,7 @@ url: /where-to-store-uploaded-files-file-system-versus-database-storage/
 featured_image: /media/2015/11/dna-structure.jpg
 categories:
   - "Coder's Grave"
-  - Home Page
+  - Featured
   - Linux in a Box
 ---
 

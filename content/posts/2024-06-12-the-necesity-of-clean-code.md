@@ -8,7 +8,7 @@ aliases:
   - the-necesity-of-clean-code
 categories:
   - Clean Code
-  - Home Page
+  - Featured
 tags:
   - readability
   - maintainability

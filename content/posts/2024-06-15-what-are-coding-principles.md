@@ -6,7 +6,7 @@ description: High-level overview of core coding principles and why they matter b
 summary: Coding principles are shared heuristics that preserve clarity, flexibility, and delivery velocity. This article introduces their purpose, families, pros, and trade‑offs.
 categories:
   - Coding Principles
-  - Home Page
+  - Featured
 tags:
   - principles
   - architecture

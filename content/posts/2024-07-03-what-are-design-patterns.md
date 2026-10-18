@@ -3,7 +3,7 @@ title: "What Are Design Patterns"
 date: 2024-07-03
 categories:
   - Design Patterns
-  - Home Page
+  - Featured
 tags:
   - design patterns
   - architecture
