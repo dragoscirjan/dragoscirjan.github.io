@@ -17,15 +17,15 @@
 # - The calling workflow must upload the built site as an artifact whose name
 #   matches the `artifact` input (default: docs-site).
 # - The `token` secret must be a personal access token (fine-grained or
-#   classic) with contents:write on dragoscirjan/dragoscirjan.github.io.
-#   Private callers also require actions:read on the caller repository because
-#   this token downloads the caller's artifact. Public callers need no source
-#   repository access. A caller's GITHUB_TOKEN cannot push to a different
-#   repository.
+#   classic) with contents:write and pull_requests:write on
+#   dragoscirjan/dragoscirjan.github.io. Private callers also require
+#   actions:read on the caller repository because this token downloads the
+#   caller's artifact. Public callers need no source-repository access. A
+#   caller's GITHUB_TOKEN cannot write to a different repository.
 # - The commit convention matches the existing history:
 #   docs(<project>): update documentation site
 #
-# The push to main automatically triggers the Pages deployment workflow.
+# Merging the generated pull request triggers the Pages deployment workflow.
 name: Publish project documentation
 
 on:
@@ -47,7 +47,7 @@ on:
         type: string
     secrets:
       token:
-        description: "PAT with destination contents:write; private callers also need caller actions:read"
+        description: "PAT with destination contents:write and pull_requests:write; private callers also need caller actions:read"
         required: true
 
 permissions:
@@ -96,19 +96,52 @@ jobs:
           echo '--- primary download ---'
           ls -la "${{ runner.temp }}/docs" || true
 
-      - name: Replace documentation directory
+      - name: Validate publication inputs
+        env:
+          PROJECT: ${{ inputs.project }}
+          SOURCE_DIR: ${{ inputs.source_dir }}
         run: |
-          mkdir -p "projects/${{ inputs.project }}"
-          rsync -a --delete "${{ runner.temp }}/docs/${{ inputs.source_dir }}/" "projects/${{ inputs.project }}/"
+          if [[ ! "${PROJECT}" =~ ^[a-z0-9][a-z0-9._-]*$ ]]; then
+            echo "::error::project must contain only lowercase letters, numbers, dots, underscores, and hyphens."
+            exit 1
+          fi
+          if [[ "${SOURCE_DIR}" == /* || "${SOURCE_DIR}" == '..' || "${SOURCE_DIR}" == ../* || "${SOURCE_DIR}" == */../* || "${SOURCE_DIR}" == */.. ]]; then
+            echo "::error::source_dir must stay within the downloaded artifact."
+            exit 1
+          fi
 
-      - name: Commit and push
+      - name: Replace documentation directory
+        env:
+          PROJECT: ${{ inputs.project }}
+          SOURCE_DIR: ${{ inputs.source_dir }}
+        run: |
+          mkdir -p "projects/${PROJECT}"
+          rsync -a --delete "${{ runner.temp }}/docs/${SOURCE_DIR}/" "projects/${PROJECT}/"
+
+      - name: Commit and publish through a pull request
+        env:
+          DESTINATION_REPOSITORY: dragoscirjan/dragoscirjan.github.io
+          GH_TOKEN: ${{ secrets.token }}
+          PROJECT: ${{ inputs.project }}
+          PUBLISH_BRANCH: docs-publish/${{ inputs.project }}/${{ github.run_id }}-${{ github.run_attempt }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add "projects/${{ inputs.project }}"
+          git add "projects/${PROJECT}"
           if git diff --cached --quiet; then
-            echo "Documentation for ${{ inputs.project }} is unchanged; nothing to commit."
+            echo "Documentation for ${PROJECT} is unchanged; nothing to commit."
             exit 0
           fi
-          git commit -m "docs(${{ inputs.project }}): update documentation site"
-          git push
+
+          git switch -c "${PUBLISH_BRANCH}"
+          git commit -m "docs(${PROJECT}): update documentation site"
+          head_commit="$(git rev-parse HEAD)"
+          git push --set-upstream origin "${PUBLISH_BRANCH}"
+
+          pull_request_url="$(gh pr create \
+            --repo "${DESTINATION_REPOSITORY}" \
+            --base main \
+            --head "${PUBLISH_BRANCH}" \
+            --title "docs(${PROJECT}): update documentation site" \
+            --body "Automated documentation publication from https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}.")"
+          gh pr merge "${pull_request_url}" --merge --delete-branch --match-head-commit "${head_commit}"
