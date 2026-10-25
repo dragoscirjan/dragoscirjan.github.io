@@ -43,7 +43,7 @@ The skill is mandatory before mutation. If it is unavailable, stop and ask the o
 - Never expose secrets to content, logs, generated artifacts, model prompts, or untrusted code.
 - Do not execute project-documentation source code in this repository. Documentation under `projects/` arrives as built output.
 - Do not let generated documentation alter Hugo configuration, theme sources, or deployment workflows.
-- Never add credentials or token-bearing URLs to the repository. Cross-repository documentation publishing receives only the minimum required permissions through GitHub Actions secrets: contents write on this destination repository and, only for private callers, Actions read on each caller repository.
+- Never add credentials or token-bearing URLs to the repository. Cross-repository documentation publishing receives only the minimum required permissions through GitHub Actions secrets: contents write and pull requests write on this destination repository and, only for private callers, Actions read on each caller repository.
 - Do not execute or install imported code merely to inspect an article, asset, or generated documentation bundle.
 
 ## Owner authority

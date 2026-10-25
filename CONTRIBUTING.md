@@ -150,8 +150,8 @@ jobs:
 Details:
 
 - The artifact name defaults to `docs-site`. Set `artifact` for another name and `source_dir` when the artifact wraps the site root in a subdirectory.
-- `PAGES_DOCS_TOKEN` must have **contents: write** on `dragoscirjan/dragoscirjan.github.io`. Because the reusable workflow also uses this token to download the caller's artifact, a private caller additionally requires **Actions: read** on that caller repository; public callers need no source-repository access. A caller's `GITHUB_TOKEN` cannot push to another repository.
-- The workflow commits as `github-actions[bot]` with `docs(<project>): update documentation site` and pushes to `main`. That push triggers the Pages deployment. An unchanged artifact exits without a commit.
+- `PAGES_DOCS_TOKEN` must have **Contents: write** and **Pull requests: write** on `dragoscirjan/dragoscirjan.github.io`. Because the reusable workflow also uses this token to download the caller's artifact, a private caller additionally requires **Actions: read** on that caller repository. Public callers need no source-repository access. A caller's `GITHUB_TOKEN` cannot write to another repository.
+- The workflow commits as `github-actions[bot]` with `docs(<project>): update documentation site`. It pushes a short-lived branch, creates and merges a pull request, and deletes the branch. The merge triggers the Pages deployment. An unchanged artifact exits without a commit or pull request.
 - Publishing runs are serialized per project with the `docs-publish-<project>` concurrency group.
 - Documentation is untrusted relative to the site shell. It must not modify Hugo configuration, theme code, or deployment workflows.
 
