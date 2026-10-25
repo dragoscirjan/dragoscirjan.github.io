@@ -99,10 +99,15 @@ jobs:
       - name: Validate publication inputs
         env:
           PROJECT: ${{ inputs.project }}
+          PUBLISH_BRANCH: docs-publish/${{ inputs.project }}/${{ github.run_id }}-${{ github.run_attempt }}
           SOURCE_DIR: ${{ inputs.source_dir }}
         run: |
           if [[ ! "${PROJECT}" =~ ^[a-z0-9][a-z0-9._-]*$ ]]; then
             echo "::error::project must contain only lowercase letters, numbers, dots, underscores, and hyphens."
+            exit 1
+          fi
+          if ! git check-ref-format --branch "${PUBLISH_BRANCH}" >/dev/null 2>&1; then
+            echo "::error::project does not produce a valid publication branch."
             exit 1
           fi
           if [[ "${SOURCE_DIR}" == /* || "${SOURCE_DIR}" == '..' || "${SOURCE_DIR}" == ../* || "${SOURCE_DIR}" == */../* || "${SOURCE_DIR}" == */.. ]]; then
