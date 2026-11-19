@@ -31,6 +31,9 @@ highlighted code blocks) that the shared stylesheet does not cover.
 - Navigation and project links come from `hugo.toml` (`site.Menus.main`,
   `site.Params.docs`); never hard-code studio demo routes (`/blog/`,
   `/project-*`).
+- Projects appear in `site.Params.docs` order. Entries with a URL link to their
+  documentation; entries without a URL are non-clickable and muted, including
+  their diagonal separator, with no link-hover animation.
 - The layout stays centered: page-specific shell widening from the shared
   stylesheet (`.home`/`.project-page`/`.docs`, up to 1800px) is capped at the
   base 1300px column by `hugo.css`.
