@@ -55,6 +55,11 @@ key = 'writing'
 value = 'about code, systems and ideas'
 
 [[params.docs]]
+name = 'ai-skills'
+url = '/projects/ai-skills/'
+description = 'Choose and combine agent skills for Pi, OpenCode, and Claude Code.'
+
+[[params.docs]]
 name = 'mcp-searchable'
 url = '/projects/mcp-searchable/'
 description = 'Local-first web research for AI agents: search, fetch, stash, grep and ask.'
@@ -69,7 +74,7 @@ name = 'neottia'
 description = 'Node packages and tooling for building AI-agent harnesses.'
 
 [[params.docs]]
-name = 'code-review'
+name = 'redline'
 description = 'Code review tooling and workflows.'
 
 [[params.docs]]

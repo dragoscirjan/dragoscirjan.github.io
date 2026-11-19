@@ -14,7 +14,7 @@
 			<span class="arrow" aria-hidden="true">⟶</span>
 		</a>
 		{{ else }}
-		<div class="project-link project-link-static" style="--accent:var(--{{ $accent }})">
+		<div class="project-link project-link-static" style="--accent:var(--muted)" aria-disabled="true">
 			<span class="project-link-text"><span class="project-name">{{ $p.name }}</span>{{ with $p.description }}<span class="project-desc">{{ . }}</span>{{ end }}</span>
 			<span class="arrow" aria-hidden="true">·</span>
 		</div>

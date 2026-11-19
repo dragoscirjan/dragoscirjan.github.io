@@ -85,8 +85,10 @@
 .project-link .project-link-text{display:flex;flex-direction:column;gap:10px;min-width:0}
 .project-link .project-name{font-size:38px;line-height:1.1}
 .project-link .project-desc{font:11px/1.7 var(--mono);letter-spacing:.03em;color:var(--muted);max-width:520px}
-.project-link-static{color:var(--ink);text-decoration:none;cursor:default}
+.project-link-static{color:var(--muted);text-decoration:none;cursor:default}
 .project-link-static .arrow{opacity:.35}
+.project-link-static:hover .arrow{transform:none}
+.project-link-static:hover:after{opacity:.45}
 
 /* Project intro copy (unused: docs landing renders heading + links only) */
 
