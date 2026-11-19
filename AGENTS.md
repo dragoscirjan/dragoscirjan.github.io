@@ -18,7 +18,7 @@ Load only the instructions required for the current phase. When several rows mat
 | Before drafting or revising a technical article or developer-facing explanation | Read and follow `.agents/skills/asd-ste100-technical/SKILL.md`. |
 | Before the final editorial pass on a new or substantially revised article | Read and follow `.agents/skills/unslop/SKILL.md`. Preserve intentional personal or poetic voice, including deliberate punctuation, when applying it. |
 | Before validating, committing, pushing, or publishing | Read and follow `VALIDATION.md`. |
-| Before auditing or removing old workspaces | Read and follow `.agents/skills/cleanup-workspaces/SKILL.md`. |
+| Before auditing or removing old workspaces | Read and follow `.agents/skills/cleanup-workspaces/SKILL.md`. Auditing or removal requires an explicit owner request. Removal also requires owner approval of the exact plan, including temporary task lanes; parent-only approval is not sufficient. |
 | When repeated editorial corrections or observed writing, review, or publication work suggest that instructions, their relationships, or skill routing metadata are missing, stale, conflicting, duplicated, or unsuitable | Read and follow `.agents/skills/instruction-maintenance/SKILL.md`. It permits a read-only audit and exact proposal; do not mutate instructions before explicit human approval of that proposal. |
 
 Stop before the gated phase if a required document or skill is unavailable. Do not recreate missing instructions from memory.
@@ -31,7 +31,7 @@ Workspace configuration:
 
 - Version-control system: `git`
 - Base revision: `main`
-- Workspace root: `derive-from-memory-or-origin`
+- Workspace root: `derive-from-primary-checkout`
 - Branch or bookmark prefix: `change`
 - Skill source: `.agents/skills/isolated-workspace/SKILL.md` in this repository
 

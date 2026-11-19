@@ -1,0 +1,778 @@
+{
+  "schemaVersion": 3,
+  "managerVersion": "2.0.0",
+  "catalogHash": "9694ba9e8532aaf82e8b6a934ebd23e24ad95456543138c238e98ea8e209f4da",
+  "catalogSource": {
+    "repository": "https://github.com/dragoscirjan/ai",
+    "ref": "main",
+    "revision": "7c0599e3fa167004b5adb6cb38d46faa5f356e5e",
+    "path": ".agents/skills/agentic-work/sync-my-skills/assets/skill-catalog.yaml",
+    "sha256": "b14dabd0ad59fd0bf2f4f0077f7095360bd89f55981d748b2f1deb8e8c5b4656"
+  },
+  "instructions": null,
+  "source": {
+    "repository": "https://github.com/dragoscirjan/ai",
+    "ref": "main"
+  },
+  "selection": {
+    "selectedSkills": [
+      "asd-ste100-technical",
+      "cleanup-workspaces",
+      "grilling",
+      "initiative",
+      "instruction-maintenance",
+      "isolated-workspace",
+      "research",
+      "specify",
+      "unslop",
+      "writing-for-agents"
+    ],
+    "declinedSkills": [
+      {
+        "name": "archify",
+        "reason": "User retained the previous decline for this additional catalog skill."
+      },
+      {
+        "name": "caveman",
+        "reason": "User retained the previous decline for this additional catalog skill."
+      },
+      {
+        "name": "code-review",
+        "reason": "User retained the previous decline for this additional catalog skill."
+      },
+      {
+        "name": "coding",
+        "reason": "User retained the previous decline for this additional catalog skill."
+      },
+      {
+        "name": "coding-with-rules",
+        "reason": "User retained the previous decline for this additional catalog skill."
+      },
+      {
+        "name": "debloat",
+        "reason": "User retained the previous decline for this additional catalog skill."
+      },
+      {
+        "name": "document-project",
+        "reason": "User explicitly excluded document-project as unnecessary for this website."
+      },
+      {
+        "name": "excalidraw",
+        "reason": "User retained the previous decline for this additional catalog skill."
+      },
+      {
+        "name": "grill-me",
+        "reason": "User retained the previous decline for this additional catalog skill."
+      },
+      {
+        "name": "init-project",
+        "reason": "User retained the previous decline for this additional catalog skill."
+      },
+      {
+        "name": "plan-tasks",
+        "reason": "User retained the previous decline for this additional catalog skill."
+      },
+      {
+        "name": "retro",
+        "reason": "User retained the previous decline for this additional catalog skill."
+      },
+      {
+        "name": "scaffold",
+        "reason": "User retained the previous decline for this additional catalog skill."
+      },
+      {
+        "name": "subagent-orchestration",
+        "reason": "User retained the previous decline for this additional catalog skill."
+      },
+      {
+        "name": "systematic-debugging",
+        "reason": "User retained the previous decline for this additional catalog skill."
+      },
+      {
+        "name": "tdd",
+        "reason": "User retained the previous decline for this additional catalog skill."
+      },
+      {
+        "name": "wait-what",
+        "reason": "User retained the previous decline for this additional catalog skill."
+      }
+    ],
+    "harnesses": [
+      "pi"
+    ],
+    "removeSkills": [],
+    "resolutions": {
+      ".agents/skills/asd-ste100-technical/README.md": "User explicitly requested updating/overwriting installed skills and a clean replacement of both workspace packages; replace this exact existing source file with the reviewed candidate in the final approved plan. Preserve unrelated extra files.",
+      ".agents/skills/asd-ste100-technical/SKILL.md": "User explicitly requested updating/overwriting installed skills and a clean replacement of both workspace packages; replace this exact existing source file with the reviewed candidate in the final approved plan. Preserve unrelated extra files.",
+      ".agents/skills/cleanup-workspaces/README.md": "User explicitly requested updating/overwriting installed skills and a clean replacement of both workspace packages; replace this exact existing source file with the reviewed candidate in the final approved plan. Preserve unrelated extra files.",
+      ".agents/skills/cleanup-workspaces/SKILL.md": "User explicitly requested updating/overwriting installed skills and a clean replacement of both workspace packages; replace this exact existing source file with the reviewed candidate in the final approved plan. Preserve unrelated extra files.",
+      ".agents/skills/instruction-maintenance/README.md": "User explicitly requested updating/overwriting installed skills and a clean replacement of both workspace packages; replace this exact existing source file with the reviewed candidate in the final approved plan. Preserve unrelated extra files.",
+      ".agents/skills/instruction-maintenance/SKILL.md": "User explicitly requested updating/overwriting installed skills and a clean replacement of both workspace packages; replace this exact existing source file with the reviewed candidate in the final approved plan. Preserve unrelated extra files.",
+      ".agents/skills/isolated-workspace/SKILL.md": "User explicitly requested updating/overwriting installed skills and a clean replacement of both workspace packages; replace this exact existing source file with the reviewed candidate in the final approved plan. Preserve unrelated extra files."
+    },
+    "targetRequirements": "Install the user-selected ten skills: update existing asd-ste100-technical, cleanup-workspaces, instruction-maintenance, isolated-workspace, unslop; add writing-for-agents, research, initiative, specify, and the explicitly approved grilling prerequisite. Fully replace existing workspace-package files with v2. Preserve complete packages and legal notices. Adapt only broken source-category reference links and workspace test command examples to the flat installed layout, with review. Exclude document-project and the helper instruction-template bundle. Separately approved targeted edits to AGENTS.md, CONTRIBUTING.md, and VALIDATION.md align local-primary-checkout path derivation while preserving memory-first hosted identity lookup and explicit owner-request/plan approval for cleanup including temporary lanes. No DOCUMENTATION.md, new site, dependency/tool installation, persistent trust change, commit, push, PR, merge, deployment, or real workspace cleanup. Source-script execution requires explicit final validation-plan approval.",
+    "instructionFiles": [],
+    "instructionApproval": ""
+  },
+  "skills": {
+    "asd-ste100-technical": {
+      "kind": "authored",
+      "origin": {
+        "repository": "https://github.com/dragoscirjan/ai",
+        "revision": "7c0599e3fa167004b5adb6cb38d46faa5f356e5e",
+        "path": ".agents/skills/documentation/asd-ste100-technical",
+        "dirty": false
+      },
+      "upstream": null,
+      "legal": [
+        {
+          "path": "LICENSE",
+          "target": "LICENSE",
+          "spdx": "MIT"
+        }
+      ],
+      "recipeHash": "4e6deed4ffcdb14e8f2271e4efd9106701e7315cf11cdc9a75f1ab1af1faaae5",
+      "sourceFiles": {
+        "README.md": "ad9030bae935bfb81d39104c190a7d95a8cd5ced6d7e627cbbac2a4b6699c6ba",
+        "SKILL.md": "ab52cb1465c43df057995c674e2392ee39223198b62e5ef957313a157313f75c",
+        "LICENSE": "305fac905a9f352026beaa0b057326bb01d26d1b68f833107c95de2bab8ac5c0"
+      },
+      "sourceModes": {
+        "README.md": 420,
+        "SKILL.md": 420,
+        "LICENSE": 420
+      },
+      "inputHash": "d7d0d7b3903e96f5b82f4b9b94d6cb8534358714fea77e4464296cc2def3ba3c",
+      "review": {
+        "note": "Reviewed upstream compression of the writing guidance: factual accuracy, uncertainty, exact technical text, safety, clear steps, natural tone, and honest check reporting are preserved. Import package and MIT license unchanged.",
+        "outputHash": "d7d0d7b3903e96f5b82f4b9b94d6cb8534358714fea77e4464296cc2def3ba3c"
+      },
+      "contextHash": "37af723dc1ab6d43b8ad1e03dd9f7e2a45862a342ebb41d14afa15970cb248ae",
+      "outputHash": "d7d0d7b3903e96f5b82f4b9b94d6cb8534358714fea77e4464296cc2def3ba3c"
+    },
+    "cleanup-workspaces": {
+      "kind": "authored",
+      "origin": {
+        "repository": "https://github.com/dragoscirjan/ai",
+        "revision": "7c0599e3fa167004b5adb6cb38d46faa5f356e5e",
+        "path": ".agents/skills/utility/cleanup-workspaces",
+        "dirty": false
+      },
+      "upstream": null,
+      "legal": [
+        {
+          "path": "LICENSE",
+          "target": "LICENSE",
+          "spdx": "MIT"
+        }
+      ],
+      "recipeHash": "3b61bfe57859f3c48ff28ef5992ac20198463f23606d49a5204be7b332717cf3",
+      "sourceFiles": {
+        "README.md": "8fb3f76c2e0310041536f8b1e5f061a01f0caab6dee52fb8ba9652ebea5fb044",
+        "SKILL.md": "72852f180f8cb34b879b07cc196be69d8000fb42c0a9c8358d53df803bcf049a",
+        "references/git.md": "7c6933f3ba259bed634ca53786cf647a97881d848c2afb4c8b3e5b874ebcf047",
+        "references/jj.md": "afff5f4e6656e39ea2b72505f3b2ec3d3495fbab873da4256db98a9245d7a350",
+        "references/orchestration-lanes.md": "c2b81f1a9d36e35f0f46ca13ef9baf405bd050f7acbfd5066b1a8baf3804704d",
+        "scripts/cleanup.test.ts": "452d491f203cf977e324b6401df5fe3c5e31aee062c15097350f819c2801d1e1",
+        "scripts/cleanup.ts": "adfa3434fdc540c6a8a20ac7148e08f0d60753401d63f3ec24c1db9bc3ac3791",
+        "LICENSE": "305fac905a9f352026beaa0b057326bb01d26d1b68f833107c95de2bab8ac5c0"
+      },
+      "sourceModes": {
+        "README.md": 420,
+        "SKILL.md": 420,
+        "references/git.md": 420,
+        "references/jj.md": 420,
+        "references/orchestration-lanes.md": 420,
+        "scripts/cleanup.test.ts": 420,
+        "scripts/cleanup.ts": 493,
+        "LICENSE": 420
+      },
+      "inputHash": "28f7bfbe7eaf4b3712ec1f9a2e02cc154f2e064978bf151d3256b1c38b77c833",
+      "review": {
+        "note": "Reviewed v2 helpers and safety workflow. Preserve full source and tests; adapt only README source-only orchestration link to immutable owner URL and three test-command paths to flat installation. Target AGENTS explicitly retains owner-request and exact-plan approval for every cleanup including temporary lanes, overriding parent-only permission. No real cleanup is authorized.",
+        "outputHash": "597b223a0285678c6c0918d6ab2f02c634c3799d5a81f4fe5b226627d0798c77"
+      },
+      "contextHash": "37af723dc1ab6d43b8ad1e03dd9f7e2a45862a342ebb41d14afa15970cb248ae",
+      "outputHash": "597b223a0285678c6c0918d6ab2f02c634c3799d5a81f4fe5b226627d0798c77"
+    },
+    "grilling": {
+      "kind": "upstream",
+      "origin": {
+        "repository": "https://github.com/mattpocock/skills",
+        "revision": "95249b0b49782349740fd9b8c6ce32b4e59e497a",
+        "path": "skills/productivity/grilling"
+      },
+      "upstream": null,
+      "legal": [
+        {
+          "path": "LICENSE",
+          "target": "LICENSE",
+          "spdx": "MIT"
+        }
+      ],
+      "recipeHash": "d52c9cfa655e99ebfe2d190ec7aaa6b6783f5969f0fad612666685260277329c",
+      "sourceFiles": {
+        "SKILL.md": "befdff1e27a1dfe2a294d5871169ac1afe16d983911daa4f32627514a48c1e15",
+        "LICENSE": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+      },
+      "sourceModes": {
+        "SKILL.md": 420,
+        "LICENSE": 420
+      },
+      "inputHash": "8e452622f440d104420af0dd6e7517ad18153445dd5ab5a812f2ccc4e23986e1",
+      "review": {
+        "note": "Reviewed the pinned upstream interview instructions and MIT legal notice. Import unchanged as the explicitly approved shared prerequisite; installation does not invoke its interview or authorize delegation.",
+        "outputHash": "8e452622f440d104420af0dd6e7517ad18153445dd5ab5a812f2ccc4e23986e1"
+      },
+      "contextHash": "37af723dc1ab6d43b8ad1e03dd9f7e2a45862a342ebb41d14afa15970cb248ae",
+      "outputHash": "8e452622f440d104420af0dd6e7517ad18153445dd5ab5a812f2ccc4e23986e1"
+    },
+    "initiative": {
+      "kind": "authored",
+      "origin": {
+        "repository": "https://github.com/dragoscirjan/ai",
+        "revision": "7c0599e3fa167004b5adb6cb38d46faa5f356e5e",
+        "path": ".agents/skills/productivity/initiative",
+        "dirty": false
+      },
+      "upstream": null,
+      "legal": [],
+      "recipeHash": "28ecc3154b03ab901525417ead8359e18d02729782ebcedbfa4ed89dcf4c8655",
+      "sourceFiles": {
+        "LICENSE": "e8c570c2622ced41ada11298bd4da712a7617ad2752887106f1fe10d725e1a48",
+        "README.md": "f9ea705d51d0b2af3cbd61537aed9195eba3fdba6606e15643f9f643f001734f",
+        "SKILL.md": "f967bf768234d49444b8af81d03eb222080c7cf4fdbd1639bd27f437d52d8063"
+      },
+      "sourceModes": {
+        "LICENSE": 420,
+        "README.md": 420,
+        "SKILL.md": 420
+      },
+      "inputHash": "c0df5d47a2ae90aee9198edc72ce1b4179225a3bdda31067c77103cd11fbbcb4",
+      "review": {
+        "note": "Reviewed initiative agreement, recorded destination, and saving/verification boundaries. Import unchanged with installed grilling dependency and MIT notice. No article or initiative is drafted by installation.",
+        "outputHash": "c0df5d47a2ae90aee9198edc72ce1b4179225a3bdda31067c77103cd11fbbcb4"
+      },
+      "contextHash": "37af723dc1ab6d43b8ad1e03dd9f7e2a45862a342ebb41d14afa15970cb248ae",
+      "outputHash": "c0df5d47a2ae90aee9198edc72ce1b4179225a3bdda31067c77103cd11fbbcb4"
+    },
+    "instruction-maintenance": {
+      "kind": "authored",
+      "origin": {
+        "repository": "https://github.com/dragoscirjan/ai",
+        "revision": "7c0599e3fa167004b5adb6cb38d46faa5f356e5e",
+        "path": ".agents/skills/unpolished/instruction-maintenance",
+        "dirty": false
+      },
+      "upstream": null,
+      "legal": [
+        {
+          "path": "LICENSE",
+          "target": "LICENSE",
+          "spdx": "MIT"
+        }
+      ],
+      "recipeHash": "6568dba9314134d0f31c20c30b2c96146e0b2a8e023fd5c66ad2058782f6bd13",
+      "sourceFiles": {
+        "README.md": "8f92804d257e7c4cbc83aaf506f7f811c0a4d0141f5fef5ad96c0356bc79cb5c",
+        "SKILL.md": "9f8616c2a27020e5994dc0dbf1ff9a04789673e6a5f2cf68288a55df36e30f1d",
+        "references/approval-proposal.md": "97250fd4050541d5856bd60631c70535c94be0d74156d64f50901cec5171dda4",
+        "LICENSE": "305fac905a9f352026beaa0b057326bb01d26d1b68f833107c95de2bab8ac5c0"
+      },
+      "sourceModes": {
+        "README.md": 420,
+        "SKILL.md": 420,
+        "references/approval-proposal.md": 420,
+        "LICENSE": 420
+      },
+      "inputHash": "0aab963ec30e0bb59d89c082e850ee4967934c7b0c727c787536d908fe6a368f",
+      "review": {
+        "note": "Reviewed compressed audit and separate approval-proposal reference against existing behavior. Exact human approval, protected-rule separation, bounded scope, and no merge/release authority remain intact. Import complete package and MIT license unchanged.",
+        "outputHash": "0aab963ec30e0bb59d89c082e850ee4967934c7b0c727c787536d908fe6a368f"
+      },
+      "contextHash": "37af723dc1ab6d43b8ad1e03dd9f7e2a45862a342ebb41d14afa15970cb248ae",
+      "outputHash": "0aab963ec30e0bb59d89c082e850ee4967934c7b0c727c787536d908fe6a368f"
+    },
+    "isolated-workspace": {
+      "kind": "authored",
+      "origin": {
+        "repository": "https://github.com/dragoscirjan/ai",
+        "revision": "7c0599e3fa167004b5adb6cb38d46faa5f356e5e",
+        "path": ".agents/skills/utility/isolated-workspace",
+        "dirty": false
+      },
+      "upstream": null,
+      "legal": [
+        {
+          "path": "LICENSE",
+          "target": "LICENSE",
+          "spdx": "MIT"
+        }
+      ],
+      "recipeHash": "109764c0063e68f16df6a87ce872daa7c1ed093f5d7e23960f5c080e8c6854a3",
+      "sourceFiles": {
+        "README.md": "d4f3502a95c9b0a5d471d7fdb4bc3f68d80d3a6ee9e82e92c0bc9472efbaaa0f",
+        "SKILL.md": "af33544df830bead62c69be172d2cf2c2043495d5f17145513209c6986400421",
+        "references/orchestration-lanes.md": "6c912ef4bb41f8ae1d1149dfd668246442467319aa7ac6fd253661858c92a4c1",
+        "scripts/create.test.ts": "302f9be19b4172898c0622b40b1197d9328b551a575c86a7e3dabe1233e4dd79",
+        "scripts/create.ts": "24d2831af82ef472c5990709c105aab399d67eb70c98674eed4109cadbe6d3dd",
+        "scripts/lib.ts": "1d8ab541a365f00f2c5438d64cf6d91eed6a61595706075b20473860b4bb8961",
+        "LICENSE": "305fac905a9f352026beaa0b057326bb01d26d1b68f833107c95de2bab8ac5c0"
+      },
+      "sourceModes": {
+        "README.md": 420,
+        "SKILL.md": 420,
+        "references/orchestration-lanes.md": 420,
+        "scripts/create.test.ts": 420,
+        "scripts/create.ts": 493,
+        "scripts/lib.ts": 420,
+        "LICENSE": 420
+      },
+      "inputHash": "7805545c7b3e822abc9b191a46e6ec1539ea76b893540d09c25f8499710c060b",
+      "review": {
+        "note": "Reviewed v2 Bun helper and Git/Jujutsu tests, explicit VCS/base/ref, local-primary-checkout derivation, exact-plan mutation gates, reuse checks, and no-cleanup authority. Import code unchanged; only flatten README test-command path. Separately approved three-file policy alignment preserves owner-only cleanup and hosted identity safeguards.",
+        "outputHash": "36ec3166ef5db26d7b039db3e7cb664f5c9b4adcb10589fdf3201448acf56eee"
+      },
+      "contextHash": "37af723dc1ab6d43b8ad1e03dd9f7e2a45862a342ebb41d14afa15970cb248ae",
+      "outputHash": "36ec3166ef5db26d7b039db3e7cb664f5c9b4adcb10589fdf3201448acf56eee"
+    },
+    "research": {
+      "kind": "authored",
+      "origin": {
+        "repository": "https://github.com/dragoscirjan/ai",
+        "revision": "7c0599e3fa167004b5adb6cb38d46faa5f356e5e",
+        "path": ".agents/skills/productivity/research",
+        "dirty": false
+      },
+      "upstream": null,
+      "legal": [],
+      "recipeHash": "3c40210293e8d5faa94625a3af42b418878ad1654d33601e9457ae4c9a27a103",
+      "sourceFiles": {
+        "LICENSE": "9e9a744ecd6f450aa70a2cc8217502e7600365b1cca21eb862233df9ea85ee13",
+        "README.md": "db3956d1295ae1e20e3fc40c08656e2fa4a8d7e392b61028af35fe6122c001d0",
+        "SKILL.md": "5f3d9b6c3761f12e735b7f745c3764892c980c4a6542e22e43b085931790aac1"
+      },
+      "sourceModes": {
+        "LICENSE": 420,
+        "README.md": 420,
+        "SKILL.md": 420
+      },
+      "inputHash": "05972592d2f4639b24780814d75ce8f1bd2c8c19777d5e2fe13f5aa3300d99b7",
+      "review": {
+        "note": "Reviewed broad-topic evidence workflow, source attribution, uncertainty, output boundaries, and grilling prerequisite. Import unchanged except one source-category catalog link in README replaced by immutable owner URL. No research or untrusted-code execution is performed by installation.",
+        "outputHash": "b19cd45bfe019646e02b7de059f79e593a0570b2ccde77fb0c2042d61439e407"
+      },
+      "contextHash": "37af723dc1ab6d43b8ad1e03dd9f7e2a45862a342ebb41d14afa15970cb248ae",
+      "outputHash": "b19cd45bfe019646e02b7de059f79e593a0570b2ccde77fb0c2042d61439e407"
+    },
+    "specify": {
+      "kind": "authored",
+      "origin": {
+        "repository": "https://github.com/dragoscirjan/ai",
+        "revision": "7c0599e3fa167004b5adb6cb38d46faa5f356e5e",
+        "path": ".agents/skills/productivity/specify",
+        "dirty": false
+      },
+      "upstream": null,
+      "legal": [],
+      "recipeHash": "fdca790dcb4a006f02b7d4a7584f8e14593300dad7ee571c5e6d306609432c3c",
+      "sourceFiles": {
+        "LICENSE": "71bc804b645d5374d0319bca94c48f96eed945aced58a9e238f6ce38018e5822",
+        "README.md": "da527d6249329e167141b18f8afc2ba1fbd5e822f7d7863bd6941dc2f4dd17b1",
+        "SKILL.md": "90db93808752766bbc3464c4133f4ec6df8c7485dc161f29b3df372a3a4786b6"
+      },
+      "sourceModes": {
+        "LICENSE": 420,
+        "README.md": 420,
+        "SKILL.md": 420
+      },
+      "inputHash": "6038f634f502f430b4769ffb16693435420b10c487c489185268d07fc025db9e",
+      "review": {
+        "note": "Reviewed agreed behavior, stable acceptance criteria, observable tests, destination authorization, and verified save handoff. Import unchanged with grilling dependency and MIT notice. Installation does not authorize a specification or implementation.",
+        "outputHash": "6038f634f502f430b4769ffb16693435420b10c487c489185268d07fc025db9e"
+      },
+      "contextHash": "37af723dc1ab6d43b8ad1e03dd9f7e2a45862a342ebb41d14afa15970cb248ae",
+      "outputHash": "6038f634f502f430b4769ffb16693435420b10c487c489185268d07fc025db9e"
+    },
+    "unslop": {
+      "kind": "upstream",
+      "origin": {
+        "repository": "https://github.com/cursor/plugins",
+        "revision": "bc697d0a5a163cec979e362b601e36f5616083fd",
+        "path": "pstack/skills/unslop"
+      },
+      "upstream": null,
+      "legal": [
+        {
+          "path": "pstack/LICENSE",
+          "target": "LICENSE",
+          "spdx": "MIT"
+        }
+      ],
+      "recipeHash": "2b080107ebb030ffdb00cb05ea91ed9ca7620160ddb256559435f067022335f3",
+      "sourceFiles": {
+        "SKILL.md": "ccab208e315ce05e2fab8eeee2f7879f1289b5c6844840b2d307adf31c79144f",
+        "LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e"
+      },
+      "sourceModes": {
+        "SKILL.md": 420,
+        "LICENSE": 420
+      },
+      "inputHash": "be598c33f7ff8d425bebe382553be03d3705a74c53defbb76ce967046ec777cd",
+      "review": {
+        "note": "Compared pinned upstream SKILL.md and license with current package: unchanged. Preserve existing unmanaged README rather than deleting local supporting content. Existing project authorial-voice and punctuation protections remain in force.",
+        "outputHash": "be598c33f7ff8d425bebe382553be03d3705a74c53defbb76ce967046ec777cd"
+      },
+      "contextHash": "37af723dc1ab6d43b8ad1e03dd9f7e2a45862a342ebb41d14afa15970cb248ae",
+      "outputHash": "be598c33f7ff8d425bebe382553be03d3705a74c53defbb76ce967046ec777cd"
+    },
+    "writing-for-agents": {
+      "kind": "adapted",
+      "origin": {
+        "repository": "https://github.com/dragoscirjan/ai",
+        "revision": "7c0599e3fa167004b5adb6cb38d46faa5f356e5e",
+        "path": ".agents/skills/agentic-work/writing-for-agents",
+        "dirty": false
+      },
+      "upstream": {
+        "type": "github",
+        "repository": "https://github.com/mattpocock/skills",
+        "revision": "5863806dd4e15c63174bee4e7515a4256792ecfa",
+        "path": "skills/productivity/writing-for-agents"
+      },
+      "legal": [
+        {
+          "path": ".agents/skills/agentic-work/writing-for-agents/LICENSE",
+          "target": "LICENSE",
+          "spdx": "MIT"
+        }
+      ],
+      "recipeHash": "33aae4bedde59d9c4ba13f7110a670e15916917026fc02e31bd25734cf3d3797",
+      "sourceFiles": {
+        "LICENSE": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+        "SKILL-MECHANICS.md": "c768e6307c7c10728c401c213f2c4ba71c542127eeb7ad2956aabd15a0fa0059",
+        "SKILL.md": "93b27c300345651c0b8801047ffdea3ec1bdee160a6d959d378c3034b62596bb"
+      },
+      "sourceModes": {
+        "LICENSE": 420,
+        "SKILL-MECHANICS.md": 420,
+        "SKILL.md": 420
+      },
+      "inputHash": "9755c0b2c374aa3b7b244080230d50f9b84b986a59a584555520af98bcba96ba",
+      "review": {
+        "note": "Reviewed complete maintained package against raw source: context pointers, disclosure, completion criteria, invocation mechanics, attribution, and MIT notice all unchanged. No provider metadata or project-specific procedures added.",
+        "outputHash": "9755c0b2c374aa3b7b244080230d50f9b84b986a59a584555520af98bcba96ba"
+      },
+      "contextHash": "37af723dc1ab6d43b8ad1e03dd9f7e2a45862a342ebb41d14afa15970cb248ae",
+      "outputHash": "9755c0b2c374aa3b7b244080230d50f9b84b986a59a584555520af98bcba96ba"
+    }
+  },
+  "files": {
+    ".agents/skills/asd-ste100-technical/LICENSE": {
+      "kind": "skill",
+      "skill": "asd-ste100-technical",
+      "sourcePath": "LICENSE",
+      "sourceSha256": "305fac905a9f352026beaa0b057326bb01d26d1b68f833107c95de2bab8ac5c0",
+      "installedSha256": "305fac905a9f352026beaa0b057326bb01d26d1b68f833107c95de2bab8ac5c0",
+      "mode": 420
+    },
+    ".agents/skills/asd-ste100-technical/README.md": {
+      "kind": "skill",
+      "skill": "asd-ste100-technical",
+      "sourcePath": "README.md",
+      "sourceSha256": "ad9030bae935bfb81d39104c190a7d95a8cd5ced6d7e627cbbac2a4b6699c6ba",
+      "installedSha256": "ad9030bae935bfb81d39104c190a7d95a8cd5ced6d7e627cbbac2a4b6699c6ba",
+      "mode": 420
+    },
+    ".agents/skills/asd-ste100-technical/SKILL.md": {
+      "kind": "skill",
+      "skill": "asd-ste100-technical",
+      "sourcePath": "SKILL.md",
+      "sourceSha256": "ab52cb1465c43df057995c674e2392ee39223198b62e5ef957313a157313f75c",
+      "installedSha256": "ab52cb1465c43df057995c674e2392ee39223198b62e5ef957313a157313f75c",
+      "mode": 420
+    },
+    ".agents/skills/cleanup-workspaces/LICENSE": {
+      "kind": "skill",
+      "skill": "cleanup-workspaces",
+      "sourcePath": "LICENSE",
+      "sourceSha256": "305fac905a9f352026beaa0b057326bb01d26d1b68f833107c95de2bab8ac5c0",
+      "installedSha256": "305fac905a9f352026beaa0b057326bb01d26d1b68f833107c95de2bab8ac5c0",
+      "mode": 420
+    },
+    ".agents/skills/cleanup-workspaces/README.md": {
+      "kind": "skill",
+      "skill": "cleanup-workspaces",
+      "sourcePath": "README.md",
+      "sourceSha256": "8fb3f76c2e0310041536f8b1e5f061a01f0caab6dee52fb8ba9652ebea5fb044",
+      "installedSha256": "05ef9fadddda1e35e2245a9abbd05dfc9e8f888e0f14be2d8c2788ae753f6ca4",
+      "mode": 420
+    },
+    ".agents/skills/cleanup-workspaces/SKILL.md": {
+      "kind": "skill",
+      "skill": "cleanup-workspaces",
+      "sourcePath": "SKILL.md",
+      "sourceSha256": "72852f180f8cb34b879b07cc196be69d8000fb42c0a9c8358d53df803bcf049a",
+      "installedSha256": "72852f180f8cb34b879b07cc196be69d8000fb42c0a9c8358d53df803bcf049a",
+      "mode": 420
+    },
+    ".agents/skills/cleanup-workspaces/references/git.md": {
+      "kind": "skill",
+      "skill": "cleanup-workspaces",
+      "sourcePath": "references/git.md",
+      "sourceSha256": "7c6933f3ba259bed634ca53786cf647a97881d848c2afb4c8b3e5b874ebcf047",
+      "installedSha256": "7c6933f3ba259bed634ca53786cf647a97881d848c2afb4c8b3e5b874ebcf047",
+      "mode": 420
+    },
+    ".agents/skills/cleanup-workspaces/references/jj.md": {
+      "kind": "skill",
+      "skill": "cleanup-workspaces",
+      "sourcePath": "references/jj.md",
+      "sourceSha256": "afff5f4e6656e39ea2b72505f3b2ec3d3495fbab873da4256db98a9245d7a350",
+      "installedSha256": "afff5f4e6656e39ea2b72505f3b2ec3d3495fbab873da4256db98a9245d7a350",
+      "mode": 420
+    },
+    ".agents/skills/cleanup-workspaces/references/orchestration-lanes.md": {
+      "kind": "skill",
+      "skill": "cleanup-workspaces",
+      "sourcePath": "references/orchestration-lanes.md",
+      "sourceSha256": "c2b81f1a9d36e35f0f46ca13ef9baf405bd050f7acbfd5066b1a8baf3804704d",
+      "installedSha256": "c2b81f1a9d36e35f0f46ca13ef9baf405bd050f7acbfd5066b1a8baf3804704d",
+      "mode": 420
+    },
+    ".agents/skills/cleanup-workspaces/scripts/cleanup.test.ts": {
+      "kind": "skill",
+      "skill": "cleanup-workspaces",
+      "sourcePath": "scripts/cleanup.test.ts",
+      "sourceSha256": "452d491f203cf977e324b6401df5fe3c5e31aee062c15097350f819c2801d1e1",
+      "installedSha256": "452d491f203cf977e324b6401df5fe3c5e31aee062c15097350f819c2801d1e1",
+      "mode": 420
+    },
+    ".agents/skills/cleanup-workspaces/scripts/cleanup.ts": {
+      "kind": "skill",
+      "skill": "cleanup-workspaces",
+      "sourcePath": "scripts/cleanup.ts",
+      "sourceSha256": "adfa3434fdc540c6a8a20ac7148e08f0d60753401d63f3ec24c1db9bc3ac3791",
+      "installedSha256": "adfa3434fdc540c6a8a20ac7148e08f0d60753401d63f3ec24c1db9bc3ac3791",
+      "mode": 493
+    },
+    ".agents/skills/grilling/LICENSE": {
+      "kind": "skill",
+      "skill": "grilling",
+      "sourcePath": "LICENSE",
+      "sourceSha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "installedSha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "mode": 420
+    },
+    ".agents/skills/grilling/SKILL.md": {
+      "kind": "skill",
+      "skill": "grilling",
+      "sourcePath": "SKILL.md",
+      "sourceSha256": "befdff1e27a1dfe2a294d5871169ac1afe16d983911daa4f32627514a48c1e15",
+      "installedSha256": "befdff1e27a1dfe2a294d5871169ac1afe16d983911daa4f32627514a48c1e15",
+      "mode": 420
+    },
+    ".agents/skills/initiative/LICENSE": {
+      "kind": "skill",
+      "skill": "initiative",
+      "sourcePath": "LICENSE",
+      "sourceSha256": "e8c570c2622ced41ada11298bd4da712a7617ad2752887106f1fe10d725e1a48",
+      "installedSha256": "e8c570c2622ced41ada11298bd4da712a7617ad2752887106f1fe10d725e1a48",
+      "mode": 420
+    },
+    ".agents/skills/initiative/README.md": {
+      "kind": "skill",
+      "skill": "initiative",
+      "sourcePath": "README.md",
+      "sourceSha256": "f9ea705d51d0b2af3cbd61537aed9195eba3fdba6606e15643f9f643f001734f",
+      "installedSha256": "f9ea705d51d0b2af3cbd61537aed9195eba3fdba6606e15643f9f643f001734f",
+      "mode": 420
+    },
+    ".agents/skills/initiative/SKILL.md": {
+      "kind": "skill",
+      "skill": "initiative",
+      "sourcePath": "SKILL.md",
+      "sourceSha256": "f967bf768234d49444b8af81d03eb222080c7cf4fdbd1639bd27f437d52d8063",
+      "installedSha256": "f967bf768234d49444b8af81d03eb222080c7cf4fdbd1639bd27f437d52d8063",
+      "mode": 420
+    },
+    ".agents/skills/instruction-maintenance/LICENSE": {
+      "kind": "skill",
+      "skill": "instruction-maintenance",
+      "sourcePath": "LICENSE",
+      "sourceSha256": "305fac905a9f352026beaa0b057326bb01d26d1b68f833107c95de2bab8ac5c0",
+      "installedSha256": "305fac905a9f352026beaa0b057326bb01d26d1b68f833107c95de2bab8ac5c0",
+      "mode": 420
+    },
+    ".agents/skills/instruction-maintenance/README.md": {
+      "kind": "skill",
+      "skill": "instruction-maintenance",
+      "sourcePath": "README.md",
+      "sourceSha256": "8f92804d257e7c4cbc83aaf506f7f811c0a4d0141f5fef5ad96c0356bc79cb5c",
+      "installedSha256": "8f92804d257e7c4cbc83aaf506f7f811c0a4d0141f5fef5ad96c0356bc79cb5c",
+      "mode": 420
+    },
+    ".agents/skills/instruction-maintenance/SKILL.md": {
+      "kind": "skill",
+      "skill": "instruction-maintenance",
+      "sourcePath": "SKILL.md",
+      "sourceSha256": "9f8616c2a27020e5994dc0dbf1ff9a04789673e6a5f2cf68288a55df36e30f1d",
+      "installedSha256": "9f8616c2a27020e5994dc0dbf1ff9a04789673e6a5f2cf68288a55df36e30f1d",
+      "mode": 420
+    },
+    ".agents/skills/instruction-maintenance/references/approval-proposal.md": {
+      "kind": "skill",
+      "skill": "instruction-maintenance",
+      "sourcePath": "references/approval-proposal.md",
+      "sourceSha256": "97250fd4050541d5856bd60631c70535c94be0d74156d64f50901cec5171dda4",
+      "installedSha256": "97250fd4050541d5856bd60631c70535c94be0d74156d64f50901cec5171dda4",
+      "mode": 420
+    },
+    ".agents/skills/isolated-workspace/LICENSE": {
+      "kind": "skill",
+      "skill": "isolated-workspace",
+      "sourcePath": "LICENSE",
+      "sourceSha256": "305fac905a9f352026beaa0b057326bb01d26d1b68f833107c95de2bab8ac5c0",
+      "installedSha256": "305fac905a9f352026beaa0b057326bb01d26d1b68f833107c95de2bab8ac5c0",
+      "mode": 420
+    },
+    ".agents/skills/isolated-workspace/README.md": {
+      "kind": "skill",
+      "skill": "isolated-workspace",
+      "sourcePath": "README.md",
+      "sourceSha256": "d4f3502a95c9b0a5d471d7fdb4bc3f68d80d3a6ee9e82e92c0bc9472efbaaa0f",
+      "installedSha256": "dd268c64905c5056d50204d5ffcf0789471a8787fedfd2c478117f5db9b3982a",
+      "mode": 420
+    },
+    ".agents/skills/isolated-workspace/SKILL.md": {
+      "kind": "skill",
+      "skill": "isolated-workspace",
+      "sourcePath": "SKILL.md",
+      "sourceSha256": "af33544df830bead62c69be172d2cf2c2043495d5f17145513209c6986400421",
+      "installedSha256": "af33544df830bead62c69be172d2cf2c2043495d5f17145513209c6986400421",
+      "mode": 420
+    },
+    ".agents/skills/isolated-workspace/references/orchestration-lanes.md": {
+      "kind": "skill",
+      "skill": "isolated-workspace",
+      "sourcePath": "references/orchestration-lanes.md",
+      "sourceSha256": "6c912ef4bb41f8ae1d1149dfd668246442467319aa7ac6fd253661858c92a4c1",
+      "installedSha256": "6c912ef4bb41f8ae1d1149dfd668246442467319aa7ac6fd253661858c92a4c1",
+      "mode": 420
+    },
+    ".agents/skills/isolated-workspace/scripts/create.test.ts": {
+      "kind": "skill",
+      "skill": "isolated-workspace",
+      "sourcePath": "scripts/create.test.ts",
+      "sourceSha256": "302f9be19b4172898c0622b40b1197d9328b551a575c86a7e3dabe1233e4dd79",
+      "installedSha256": "302f9be19b4172898c0622b40b1197d9328b551a575c86a7e3dabe1233e4dd79",
+      "mode": 420
+    },
+    ".agents/skills/isolated-workspace/scripts/create.ts": {
+      "kind": "skill",
+      "skill": "isolated-workspace",
+      "sourcePath": "scripts/create.ts",
+      "sourceSha256": "24d2831af82ef472c5990709c105aab399d67eb70c98674eed4109cadbe6d3dd",
+      "installedSha256": "24d2831af82ef472c5990709c105aab399d67eb70c98674eed4109cadbe6d3dd",
+      "mode": 493
+    },
+    ".agents/skills/isolated-workspace/scripts/lib.ts": {
+      "kind": "skill",
+      "skill": "isolated-workspace",
+      "sourcePath": "scripts/lib.ts",
+      "sourceSha256": "1d8ab541a365f00f2c5438d64cf6d91eed6a61595706075b20473860b4bb8961",
+      "installedSha256": "1d8ab541a365f00f2c5438d64cf6d91eed6a61595706075b20473860b4bb8961",
+      "mode": 420
+    },
+    ".agents/skills/research/LICENSE": {
+      "kind": "skill",
+      "skill": "research",
+      "sourcePath": "LICENSE",
+      "sourceSha256": "9e9a744ecd6f450aa70a2cc8217502e7600365b1cca21eb862233df9ea85ee13",
+      "installedSha256": "9e9a744ecd6f450aa70a2cc8217502e7600365b1cca21eb862233df9ea85ee13",
+      "mode": 420
+    },
+    ".agents/skills/research/README.md": {
+      "kind": "skill",
+      "skill": "research",
+      "sourcePath": "README.md",
+      "sourceSha256": "db3956d1295ae1e20e3fc40c08656e2fa4a8d7e392b61028af35fe6122c001d0",
+      "installedSha256": "6a4604ae4d93b3ded27dd4cf176d0af7442266eeecbad2162cd4ee5d033fcf1c",
+      "mode": 420
+    },
+    ".agents/skills/research/SKILL.md": {
+      "kind": "skill",
+      "skill": "research",
+      "sourcePath": "SKILL.md",
+      "sourceSha256": "5f3d9b6c3761f12e735b7f745c3764892c980c4a6542e22e43b085931790aac1",
+      "installedSha256": "5f3d9b6c3761f12e735b7f745c3764892c980c4a6542e22e43b085931790aac1",
+      "mode": 420
+    },
+    ".agents/skills/specify/LICENSE": {
+      "kind": "skill",
+      "skill": "specify",
+      "sourcePath": "LICENSE",
+      "sourceSha256": "71bc804b645d5374d0319bca94c48f96eed945aced58a9e238f6ce38018e5822",
+      "installedSha256": "71bc804b645d5374d0319bca94c48f96eed945aced58a9e238f6ce38018e5822",
+      "mode": 420
+    },
+    ".agents/skills/specify/README.md": {
+      "kind": "skill",
+      "skill": "specify",
+      "sourcePath": "README.md",
+      "sourceSha256": "da527d6249329e167141b18f8afc2ba1fbd5e822f7d7863bd6941dc2f4dd17b1",
+      "installedSha256": "da527d6249329e167141b18f8afc2ba1fbd5e822f7d7863bd6941dc2f4dd17b1",
+      "mode": 420
+    },
+    ".agents/skills/specify/SKILL.md": {
+      "kind": "skill",
+      "skill": "specify",
+      "sourcePath": "SKILL.md",
+      "sourceSha256": "90db93808752766bbc3464c4133f4ec6df8c7485dc161f29b3df372a3a4786b6",
+      "installedSha256": "90db93808752766bbc3464c4133f4ec6df8c7485dc161f29b3df372a3a4786b6",
+      "mode": 420
+    },
+    ".agents/skills/unslop/LICENSE": {
+      "kind": "skill",
+      "skill": "unslop",
+      "sourcePath": "LICENSE",
+      "sourceSha256": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+      "installedSha256": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+      "mode": 420
+    },
+    ".agents/skills/unslop/SKILL.md": {
+      "kind": "skill",
+      "skill": "unslop",
+      "sourcePath": "SKILL.md",
+      "sourceSha256": "ccab208e315ce05e2fab8eeee2f7879f1289b5c6844840b2d307adf31c79144f",
+      "installedSha256": "ccab208e315ce05e2fab8eeee2f7879f1289b5c6844840b2d307adf31c79144f",
+      "mode": 420
+    },
+    ".agents/skills/writing-for-agents/LICENSE": {
+      "kind": "skill",
+      "skill": "writing-for-agents",
+      "sourcePath": "LICENSE",
+      "sourceSha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "installedSha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "mode": 420
+    },
+    ".agents/skills/writing-for-agents/SKILL-MECHANICS.md": {
+      "kind": "skill",
+      "skill": "writing-for-agents",
+      "sourcePath": "SKILL-MECHANICS.md",
+      "sourceSha256": "c768e6307c7c10728c401c213f2c4ba71c542127eeb7ad2956aabd15a0fa0059",
+      "installedSha256": "c768e6307c7c10728c401c213f2c4ba71c542127eeb7ad2956aabd15a0fa0059",
+      "mode": 420
+    },
+    ".agents/skills/writing-for-agents/SKILL.md": {
+      "kind": "skill",
+      "skill": "writing-for-agents",
+      "sourcePath": "SKILL.md",
+      "sourceSha256": "93b27c300345651c0b8801047ffdea3ec1bdee160a6d959d378c3034b62596bb",
+      "installedSha256": "93b27c300345651c0b8801047ffdea3ec1bdee160a6d959d378c3034b62596bb",
+      "mode": 420
+    }
+  },
+  "projections": {},
+  "legacyInstructions": {}
+}
