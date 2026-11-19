@@ -33,7 +33,7 @@ Do not merge or release without explicit owner instruction. Approval, completed 
 
 ## Repository identity for automated contributors
 
-When a workflow needs repository identity, query project-scoped memory or context first. The reusable `isolated-workspace` skill owns the Git fallback, sanitization, and caching procedure. Do not duplicate or bypass that procedure.
+When a workflow needs hosted repository identity, query project-scoped memory or context first. Only on a miss, use read-only VCS metadata and retain only safe, sanitized identity data in project-scoped memory or context. Workspace path derivation does not need hosted identity: the reusable `isolated-workspace` helper derives the sibling workspace root from the primary local checkout. Do not duplicate its path or VCS procedures.
 
 Store only safe identity data. Never store credentials, token-bearing URLs, embedded user information, or personal filesystem paths.
 
@@ -200,7 +200,7 @@ The published site is static. Local builds do not require runtime credentials.
 
 All human and coding-agent changes use a short-lived branch in a dedicated Git worktree. Do not develop in the primary checkout or directly on `main`.
 
-The repository workspace configuration is defined in `AGENTS.md`. The `isolated-workspace` skill owns workspace creation and reuse; do not duplicate its commands here. Change branches use `change/<change-id>`. The skill derives the sibling workspace root from the repository identity and places the worktree at `../dragoscirjan.github.io--workspaces/<change-id>`.
+The repository workspace configuration is defined in `AGENTS.md`. The `isolated-workspace` skill owns workspace creation and reuse; do not duplicate its commands here. Change branches use `change/<change-id>`. The helper derives the sibling workspace root from the primary local checkout and places the worktree at `../dragoscirjan.github.io--workspaces/<change-id>`.
 
 A pull request should:
 

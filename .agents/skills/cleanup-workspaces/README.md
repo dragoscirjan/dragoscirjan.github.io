@@ -1,81 +1,65 @@
 # Cleanup workspaces
 
-`cleanup-workspaces` is a destructive companion to [`isolated-workspace`](../isolated-workspace/SKILL.md). It audits old isolated workspaces, proves that their changes are integrated, shows a removal plan, and waits for confirmation before cleanup.
+`cleanup-workspaces` is the destructive companion to [`isolated-workspace`](../isolated-workspace/SKILL.md). It plans and safely removes clean integrated workspaces and prunes safe stale registrations after explicit confirmation. It also has exact-target cleanup for a temporary lane created under [`subagent-orchestration`](https://github.com/dragoscirjan/ai/blob/7c0599e3fa167004b5adb6cb38d46faa5f356e5e/.agents/skills/unpolished/subagent-orchestration/SKILL.md).
 
-The skill supports Git worktrees and Jujutsu workspaces.
+## Automation
 
-## Origin
+The skill includes Bun-executed TypeScript automation:
 
-The `isolated-workspace` skill protects active work by creating each change in a dedicated workspace. Its cleanup section intentionally prevents deletion without an explicit request, a clean status, and proof that work is integrated or abandoned.
+- [`scripts/cleanup.ts`](scripts/cleanup.ts) audits, plans, rechecks, and applies cleanup.
+- [`scripts/cleanup.test.ts`](scripts/cleanup.test.ts) exercises successful and protected Git and Jujutsu states.
+- Shared repository and path helpers come from [`isolated-workspace/scripts/lib.ts`](../isolated-workspace/scripts/lib.ts).
 
-[Issue 6](https://github.com/dragoscirjan/ai/issues/6) adds the missing operational workflow. The new skill explains how an agent can find eligible workspaces, verify them, ask for confirmation, and remove them safely.
+The skill is model-discoverable, but loading it authorizes audit only. Read [`SKILL.md`](SKILL.md) before applying a plan. For the relative commands below, use this skill's directory inside a surviving target checkout as the working directory. If the helper is outside that checkout, invoke its absolute path from the surviving target checkout instead.
 
-Cleanup remains separate from workspace creation because cleanup is destructive. This separation gives cleanup an explicit command and keeps `isolated-workspace` focused on protecting work before mutation.
+The caller must select the VCS explicitly:
+
+```sh
+bun scripts/cleanup.ts --vcs git --base main
+bun scripts/cleanup.ts --vcs jj --base 'trunk()'
+```
+
+The script never infers Git versus Jujutsu. It detects the primary local repository and derives the sibling `<repository>--workspaces` directory.
+
+The default mode emits a plan with a `planId`. Removal requires a later run with both mutation gates and that exact plan ID:
+
+```sh
+bun scripts/cleanup.ts --vcs git --base main \
+  --apply --confirm --plan-id PLAN_ID
+```
+
+To clean one integrated orchestration lane, run from the surviving canonical sibling workspace, name the lane workspace leaf, and use the canonical ref as the explicit base:
+
+```sh
+bun scripts/cleanup.ts --vcs git \
+  --lane issue-44--lane-worker-a --base change/issue-44
+bun scripts/cleanup.ts --vcs git \
+  --lane issue-44--lane-worker-a --base change/issue-44 \
+  --apply --confirm --plan-id PLAN_ID
+```
+
+Use `--vcs jj` for Jujutsu. Before planning a lane, read [exact-lane identity, authorization, and cleanup](references/orchestration-lanes.md).
 
 ## Safety model
 
-Invoking the skill authorizes an audit. It does not authorize deletion.
+Ordinary cleanup requires the owner's exact-plan approval. The current-task lane exception permits only the parent to confirm the exact plan covered by its initial orchestration authorization.
 
-The workflow has three phases:
+Read the applicable eligibility and stale-registration rules before auditing or applying: [Git](references/git.md) or [Jujutsu](references/jj.md). The main workflow defines universal protected states and confirmation gates. These checks keep unproven or changed targets intact rather than forcing removal.
 
-1. Audit registered workspaces and collect evidence.
-2. Show eligible and skipped workspaces with exact commands.
-3. Ask for confirmation, repeat the safety checks, and remove only the confirmed targets.
+## Tests
 
-The skill does not rely on a branch name, directory age, closed pull request, or user statement as proof of integration. It requires local ancestry or a trusted merged-change record tied to the exact candidate tip.
+Run the cleanup tests from the repository root:
 
-The skill never force-removes workspaces or refs. It protects:
-
-- the primary checkout
-- the active workspace and process directory
-- dirty, conflicted, locked, stale, missing, or ambiguous workspaces
-- workspaces outside the configured root
-- branches and bookmarks outside the configured prefix
-- changes that lack exact integration evidence
-
-A changed audit invalidates the owner's confirmation. The agent must audit again.
-
-## Git behavior
-
-The Git procedure uses the registered worktree list, canonical paths, repository identity, branch refs, clean status, operation state, and exact commit IDs.
-
-Local integration is proven with `git merge-base --is-ancestor`. Git removes an eligible workspace with `git worktree remove` and attempts local branch deletion with `git branch -d`.
-
-The skill forbids `git worktree remove --force`, `git branch -D`, `git clean -f`, and manual deletion of a registered worktree.
-
-See the official [`git-worktree` documentation](https://git-scm.com/docs/git-worktree) for command behavior.
-
-## Jujutsu behavior
-
-The Jujutsu procedure uses registered workspace names and roots, working-copy revisions, expected bookmarks, conflicts, diffs, and revset ancestry.
-
-An eligible working copy must be the exact integrated revision or an empty child whose parents are integrated. Jujutsu first detaches the workspace with `jj workspace forget`.
-
-Jujutsu does not delete the workspace files. After the workspace is forgotten and the path is revalidated, the workflow removes the confirmed directory without a force flag.
-
-The skill uses `jj bookmark forget` for an eligible local bookmark. It forbids `jj bookmark delete` because that deletion can propagate to a remote. It also forbids `jj abandon` during workspace cleanup.
-
-See the official [Jujutsu workspace documentation](https://docs.jj-vcs.dev/latest/working-copy/#workspaces) and [`jj workspace forget` reference](https://docs.jj-vcs.dev/latest/cli-reference/#jj-workspace-forget).
-
-## Invocation
-
-Run an audit for every configured workspace:
-
-```text
-/skill:cleanup-workspaces Audit old merged workspaces.
+```sh
+bun test ./.agents/skills/cleanup-workspaces/scripts/cleanup.test.ts
 ```
 
-Restrict the audit to a named workspace:
+Run the complete workspace automation suite:
 
-```text
-/skill:cleanup-workspaces Audit issue-42 for cleanup.
+```sh
+bun test \
+  ./.agents/skills/isolated-workspace/scripts/create.test.ts \
+  ./.agents/skills/cleanup-workspaces/scripts/cleanup.test.ts
 ```
 
-Neither command authorizes removal. The agent must show the plan and ask for confirmation.
-
-## Files
-
-- [`SKILL.md`](SKILL.md) contains the agent workflow and safety rules.
-- `README.md` explains the design and its relationship to `isolated-workspace`.
-
-Keep the directory name and the `name` field in `SKILL.md` set to `cleanup-workspaces` for portable Agent Skills discovery.
+See [`SKILL.md`](SKILL.md) for the complete agent workflow and safety stops. Report the helper's actual diagnostics and exit status; partial cleanup failure is not success.
