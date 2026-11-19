@@ -88,7 +88,9 @@ When a change modifies `isolated-workspace` or `cleanup-workspaces`:
 - Test the relevant safety stops, not only the successful path.
 - Confirm that `AGENTS.md` still provides the required project workspace configuration.
 - Confirm that workspace commands remain in the skills and are not duplicated in project policy files.
-- Confirm that repository identity lookup remains memory or context first, falls back to Git only on a miss, and stores only safe derived identity data.
+- Confirm that workspace paths derive from the primary local checkout, remain outside it, and match the project workspace configuration without a hosted identity lookup.
+- Confirm that hosted repository identity lookup, when needed, remains memory or context first, falls back to read-only VCS metadata only on a miss, and stores only safe derived identity data.
+- Confirm that workspace auditing or removal requires an explicit owner request and that removal requires owner approval of the exact plan, including temporary task lanes.
 
 ## Instruction-improvement changes
 
