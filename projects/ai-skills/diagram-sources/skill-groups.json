@@ -8,7 +8,7 @@
     "output": ".docs-artifacts/archify/skill-groups.html",
     "repository": {
       "url": "git@github.com:dragoscirjan/ai.git",
-      "revision": "7b68c9123c32fcca4b3ac28baabad880606a853d",
+      "revision": "8b7884ff6b1437d7fa24dccbb08a4d66297a1527",
       "link_mode": "local-only"
     },
     "legend": {
@@ -134,7 +134,7 @@
       "id": "utility",
       "type": "backend",
       "label": "Utility",
-      "sublabel": "3 catalogued skills",
+      "sublabel": "4 catalogued skills",
       "icon": "none",
       "pos": [
         780,
@@ -155,7 +155,7 @@
       "id": "unpolished",
       "type": "backend",
       "label": "Unpolished",
-      "sublabel": "2 catalogued skills",
+      "sublabel": "1 catalogued skills",
       "icon": "none",
       "pos": [
         780,
